@@ -2,12 +2,12 @@
 home: true
 layout: BlogHome
 icon: home
-title: 博客主页
+title: 主页
 heroImage: /logo.svg
-heroText: 你博客的名称
+heroText: 会敲代码的程序猿
 # 关闭hero背景全屏
 heroFullScreen: false
-tagline: 你可以在这里放置你的口号与标语
+tagline: 享受编程和技术所带来的快乐 – Coding Your Ambition
 projects:
   - icon: project
     name: 项目名称
