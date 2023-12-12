@@ -3,7 +3,7 @@ home: true
 layout: BlogHome
 icon: home
 title: 主页
-heroImage: /logo.svg
+heroImage: /head.png
 heroText: 会敲代码的程序猿
 # 关闭hero背景全屏
 heroFullScreen: false
