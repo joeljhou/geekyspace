@@ -16,7 +16,9 @@ export default hopeTheme({
     url: "https://mister-hope.com",
   },
 
-  iconAssets: "fontawesome-with-brands",
+  // 默认图标资源  iconAssets: "fontawesome-with-brands",
+  /* 使用阿里妈妈Iconfont矢量图标，日后添加了新的图标，请重新生成新的 CSS 地址并替换 */
+  iconAssets: "//at.alicdn.com/t/c/font_4370612_8sl8t7yehn6.css",
 
   logo: "head.png",
 
