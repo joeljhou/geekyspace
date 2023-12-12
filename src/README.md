@@ -3,9 +3,10 @@ home: true
 layout: BlogHome
 icon: home
 title: 主页
-heroImage: /head.png
+# 指定背景头像
+#heroImage: head.png
 heroText: 会敲代码的程序猿
-# 关闭hero背景全屏
+# 指定hero背景是否全屏
 heroFullScreen: false
 tagline: 享受编程和技术所带来的快乐 – Coding Your Ambition
 projects:
