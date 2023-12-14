@@ -12,17 +12,18 @@ export default hopeTheme({
   hostname: "https://mister-hope.github.io",
 
   author: {
-    name: "Mr.Hope",
-    url: "https://mister-hope.com",
+    name: "JoelJhou",
+    url: "https://github.com/joeljhou",
   },
 
-  // 默认图标资源  iconAssets: "fontawesome-with-brands",
+  // 默认图标资源
+  // iconAssets: "fontawesome-with-brands",
   /* 使用阿里妈妈Iconfont矢量图标，日后添加了新的图标，请重新生成新的 CSS 地址并替换 */
   iconAssets: "//at.alicdn.com/t/c/font_4370612_8sl8t7yehn6.css",
 
   logo: "head.png",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "https://github.com/joeljhou",
 
   docsDir: "src",
 
@@ -37,7 +38,7 @@ export default hopeTheme({
   displayFooter: true,
 
   blog: {
-    description: "一个前端开发者",
+    description: "会敲代码的程序员，分享技术，品味人生",
     intro: "/intro.html",
     medias: {
       Baidu: "https://example.com",
