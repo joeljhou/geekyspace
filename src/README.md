@@ -9,40 +9,53 @@ title: 最新发布
 # 指定首页背景图片
 bgImage: /assets/bg/wallhaven-85pgqk.jpg
 bgImageDark: /assets/bg/wallhaven-85pgqk.jpg
-heroText: 会敲代码的程序猿
 # 指定hero背景是否全屏
 heroFullScreen: false
-tagline: 享受编程和技术所带来的快乐 – Coding Your Ambition
+heroText: 会敲代码的程序猿
+tagline: 『 享受编程和技术所带来的快乐 』<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  – Coding Your Ambition
 projects:
-  - icon: project
-    name: 项目名称
-    desc: 项目详细描述
-    link: https://你的项目链接
-
   - icon: link
-    name: 链接名称
-    desc: 链接详细描述
-    link: https://链接地址
+    name: 开发者安装大全
+    desc: 好用工具、开发环境、中间件配置等安装指南
+    link: /installation-guide
 
-  - icon: book
-    name: 书籍名称
-    desc: 书籍详细描述
+  - icon: java
+    name: Java新特性
+    desc: Java 8之后的所有新特性解读
+    link: /java-features
+
+  - icon: intellij-idea
+    name: 玩转IDEA
+    desc: 了解IDEA更多牛x功能、推荐很有意思的主题和插件
     link: https://你的书籍链接
 
-  - icon: article
-    name: 文章名称
-    desc: 文章详细描述
-    link: https://你的文章链接
+  - icon: https://docs.spring.io/spring-boot/docs/current/reference/html/img/banner-logo.svg
+    name: Spring Boot教程
+    desc: 适合Spring Boot入门的免费教程
+    link: /spring-boot
 
-  - icon: friend
-    name: 伙伴名称
-    desc: 伙伴详细介绍
-    link: https://你的伙伴链接
+  - icon: https://labs.mysql.com/common/logos/mysql-logo.svg
+    name: MySQL教程
+    desc: 适合MySQL 数据库入门的免费教程
+    link: /mysql
 
   - icon: /logo.svg
-    name: 自定义项目
-    desc: 自定义详细介绍
-    link: https://你的自定义链接
+    name: 秒懂技术专栏
+    desc: 用生动的视频科普那些常见的技术概念
+    link: /youtube
+    
+  - icon: https://openwrite.cn/logo.png
+    name: OpenWrite
+    desc: 写博客必备的一键扩散工具
+    link: https://openwrite.cn/
+
+  - icon: https://www.youtube-dubbing.com/img/logo.png
+    name: Youtube中文配音
+    desc: 观看海外免费教程的免费翻译配音软件
+    link: https://youtube-dubbing.com/
 
 footer: 自定义你的页脚文字
 ---
