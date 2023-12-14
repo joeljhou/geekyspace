@@ -2,9 +2,13 @@
 home: true
 layout: BlogHome
 icon: home
-title: 主页
-# 指定背景头像
+title: 最新发布
+# 指定首页背景头像
 #heroImage: head.png
+#heroImageDark: head.png
+# 指定首页背景图片
+bgImage: /assets/bg/wallhaven-85pgqk.jpg
+bgImageDark: /assets/bg/wallhaven-85pgqk.jpg
 heroText: 会敲代码的程序猿
 # 指定hero背景是否全屏
 heroFullScreen: false
