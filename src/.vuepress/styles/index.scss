@@ -1,5 +1,13 @@
 // place your custom styles here
+/* 圆角和溢出隐藏适用于导航栏logo、博客英雄图片和博主头像 */
 .vp-nav-logo, .vp-blog-hero-image, .vp-blogger-avatar {
   border-radius: 50%;
   overflow: hidden;
+}
+
+/* 渐变文本效果适用于博客英雄标题和描述 */
+.vp-blog-hero-title, .vp-blog-hero-description {
+  background: linear-gradient(120deg, var(--theme-color-light), var(--theme-color) 30%, #3e71af 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
