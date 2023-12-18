@@ -33,9 +33,10 @@ export default hopeTheme({
   // sidebar
   sidebar,
 
-  footer: "默认页脚",
+  footer: "© 2023 - 至今 <a href=\"https://joeljhou.github.io/joeljhou/\" target=\"_blank\">joeljhou.github.io/joeljhou</a> 保留所有权利",
 
-  displayFooter: true,
+
+displayFooter: true,
 
   blog: {
     description: "会敲代码的程序员，分享技术，品味人生",
