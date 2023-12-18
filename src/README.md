@@ -4,13 +4,13 @@ layout: BlogHome
 icon: home
 title: 最新发布
 # 指定首页背景头像
-#heroImage: head.png
-#heroImageDark: head.png
+#heroImage: IMG_5956.png
+#heroImageDark: IMG_5956.png
 # 指定首页背景图片
 bgImage: /assets/bg/wallhaven-85pgqk.jpg
 bgImageDark: /assets/bg/wallhaven-85pgqk.jpg
 # 指定hero背景是否全屏
-heroFullScreen: false
+heroFullScreen: true
 heroText: 会敲代码的程序猿
 tagline: 『 享受编程和技术所带来的快乐 』<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
