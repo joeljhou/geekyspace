@@ -7,6 +7,8 @@ const MR_HOPE_AVATAR =
 
 export default hopeTheme({
 
+  favicon: "favicon.ico",  // 网页标签图标
+
   darkmode: "switch",   // 深色模式支持选项
 
   hostname: "https://mister-hope.github.io",
