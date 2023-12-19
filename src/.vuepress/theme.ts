@@ -25,9 +25,11 @@ export default hopeTheme({
 
   logo: "IMG_5957.png",
 
-  repo: "https://github.com/joeljhou",
+  repo: "https://github.com/joeljhou/joeljhou",
 
   docsDir: "src",
+
+  docsBranch: "master",
 
   // navbar
   navbar,
