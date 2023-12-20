@@ -65,7 +65,7 @@ displayFooter: true,
 
   // page meta
   metaLocales: {
-    editLink: "在 GitHub 上编辑此页",
+    editLink: "编辑此页",
   },
 
   plugins: {

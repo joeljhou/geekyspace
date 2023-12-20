@@ -33,7 +33,7 @@ projects:
     link: https://你的书籍链接
 
   - icon: https://docs.spring.io/spring-boot/docs/current/reference/html/img/banner-logo.svg
-    name: Spring Boot教程
+    name: Spring Boot
     desc: 适合Spring Boot入门的免费教程
     link: /spring-boot
 
@@ -53,7 +53,7 @@ projects:
     link: https://openwrite.cn/
 
   - icon: https://www.youtube-dubbing.com/img/logo.png
-    name: Youtube中文配音
+    name: Youtube配音
     desc: 观看海外免费教程的免费翻译配音软件
     link: https://youtube-dubbing.com/
 
