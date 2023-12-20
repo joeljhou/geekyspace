@@ -24,15 +24,9 @@ export default sidebar({
     ],
     /*Java新特性*/
     "/java-features": [
-        /*最新发布*/
+        {text: "总目录", link: "/java-features"},
         {
-            text: "总目录",
-            link: "/java-features",
-        },
-        {
-            text: "Java 9",
-            // link: "/java-features/java9/",
-            prefix: "/java-features/java9/",
+            text: "Java 9", link: "/java-features/java9/", prefix: "/java-features/java9/",
             children: [
                 {text: "交互式编程环境JShell", link: "jep222-jshell"},
                 {text: "不可变集合的快捷创建方法", link: "jep269-convenience-factory-methods-for-collections"},

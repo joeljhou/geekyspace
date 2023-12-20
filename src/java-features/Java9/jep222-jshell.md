@@ -1,7 +1,7 @@
 ---
 # 信息 Frontmatter 配置
 title: Java 9 新特性：交互式编程环境JShell
-shortTitle: 交互式编程环境JShell
+#shortTitle: 交互式编程环境JShell
 order: 222
 dir.text: Java 9
 ---
