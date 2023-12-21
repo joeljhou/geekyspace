@@ -11,7 +11,7 @@ export default navbar([
     {
         text: "所有文章",
         icon: "list",
-        link: "/timeline",
+        link: "timeline/",
     },
     /*Java教程*/
     {
@@ -26,7 +26,7 @@ export default navbar([
             {
                 text: "Java 新特性",
                 icon: "java",
-                link: "/java-features",
+                link: "/java-features/",
             },
         ]
     },
@@ -38,17 +38,17 @@ export default navbar([
             {
                 text: "Spring Boot 教程",
                 icon: "spring",
-                link: "/spring-boot",
+                link: "spring-boot/",
             },
             {
                 text: "Spring Cloud 教程",
                 icon: "spring",
-                link: "/spring-cloud",
+                link: "spring-cloud/",
             },
             {
                 text: "Spring Cloud Alibaba 教程",
                 icon: "spring",
-                link: "/spring-cloud-alibaba",
+                link: "spring-cloud-alibaba/",
             },
         ]
     },
@@ -56,25 +56,25 @@ export default navbar([
     {
         text: "安装大全",
         icon: "launch",
-        link: "/installation-guide",
+        link: "installation-guide/",
     },
     /*玩转IDEA*/
     {
         text: "玩转IDEA",
         icon: "intellij-idea",
-        link: "/idea-tips",
+        link: "idea-tips/",
     },
     /*文库汇总*/
     {
         text: "文库汇总",
         icon: "article",
-        link: "/home",
+        link: "home/",
     },
     /*加群交流*/
     {
         text: "加群交流",
         icon: "wechat",
-        link: "/wechat",
+        link: "wechat/",
     },
     "/demo/",
     {
