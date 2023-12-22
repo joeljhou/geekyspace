@@ -57,9 +57,16 @@ displayFooter: true,
       },
   },
 
+  /*
+  * 文章目录加密：
+  * https://theme-hope.vuejs.press/zh/guide/feature/encrypt.html
+  */
   encrypt: {
     config: {
-      "/demo/encrypt.html": ["1234"],
+      // 这会加密整个 demo 目录，并且两个密码都是可用的
+      "/demo/": ["1234"],
+      // 这只会加密 /java-features/Java9/jep269-convenience-factory-methods-for-collections.html
+      "/java-features/Java9/jep269-convenience-factory-methods-for-collections.html": ["1234"]
     },
   },
 
