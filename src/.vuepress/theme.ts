@@ -78,6 +78,17 @@ displayFooter: true,
   plugins: {
     blog: true,
 
+    /*
+    * 插件实现复制时，自动生成版权信息
+    * https://theme-hope.vuejs.press/zh/guide/feature/copyright.html
+    */
+    copyright: {
+      global: false,
+      triggerLength: 100,
+      author: "JoelJhou",
+      license: "MIT",
+    },
+
     // install @waline/client before enabling it
     // WARNING: This is a test server for demo only.
     // You should create and use your own comment service in production.
