@@ -1,7 +1,6 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
-// import {searchPlugin} from "@vuepress/plugin-search";
 
 export default defineUserConfig({
   base: "/joeljhou/",
@@ -13,8 +12,6 @@ export default defineUserConfig({
   theme,
 
   plugins: [
-    /**/
-    // 本地正常运行，线上运行错误
     searchProPlugin({
       indexContent: true,  // 索引全部内容
       customFields: [      // 为分类和标签添加索引
