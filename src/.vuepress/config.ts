@@ -1,6 +1,7 @@
 import {defineUserConfig} from "vuepress";
-import {searchProPlugin} from "vuepress-plugin-search-pro";
 import theme from "./theme.js";
+import {searchProPlugin} from "vuepress-plugin-search-pro";
+// import {searchPlugin} from "@vuepress/plugin-search";
 
 export default defineUserConfig({
   base: "/joeljhou/",
@@ -12,23 +13,39 @@ export default defineUserConfig({
   theme,
 
   plugins: [
+    /**/
+    // 本地正常运行，线上运行错误
     searchProPlugin({
-      // 索引全部内容
-      indexContent: true,
-      // 为分类和标签添加索引
-      customFields: [
+      indexContent: true,  // 索引全部内容
+      customFields: [      // 为分类和标签添加索引
         {
-          getter: (page) => page.frontmatter.category,
           formatter: "分类：$content",
+          getter: (page) => toArray(page.frontmatter.category),
         },
         {
-          getter: (page) => page.frontmatter.tag,
           formatter: "标签：$content",
+          getter: (page) => toArray(page.frontmatter.tags),
         },
       ],
     }),
+
+    // searchPlugin({
+    //   locales: {'/': {placeholder: '搜索文档',}},                           // 搜索框的默认值
+    //   hotKeys: ['s', '/'],                                                 // 热键, 按下 s 或 / 时聚焦搜索框
+    //   maxSuggestions: 5,                                                  // 搜索结果最大数量
+    //   isSearchable: (page) => page.path !== '/',           // 排除首页
+    //   getExtraFields: (page) => [
+    //     ...toArray(page.frontmatter.tags),
+    //     ...toArray(page.frontmatter.category),
+    //   ],
+    // }),
   ],
 
   // Enable it with pwa
   // shouldPrefetch: false,
 });
+
+
+function toArray(value: any) {
+  return Array.isArray(value) ? value : [value].filter(Boolean);
+}
