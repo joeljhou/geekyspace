@@ -5,9 +5,9 @@
   overflow: hidden;
 }
 
-/* 渐变文本效果适用于博客英雄标题和描述 */
+/* 渐变文本效果适用于博客英雄标题和描述(彩虹渐变) */
 //.vp-blog-hero-title, .vp-blog-hero-description {
-//  background: linear-gradient(120deg, var(--theme-color-light), var(--theme-color) 30%, #3e71af 100%);
+//  background: linear-gradient(45deg, #c0392b, #d35400, #f39c12, #27ae60, #16a085, #2980b9, #8e44ad);
 //  background-clip: text;
 //  -webkit-text-fill-color: transparent;
 //}
