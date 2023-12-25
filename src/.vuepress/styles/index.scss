@@ -20,16 +20,16 @@
 
 /*Markdown*/
 /* 修改“块引用”颜色 */
-blockquote {
-  border-left: 4px solid var(--theme-color-light);
+html[data-theme] blockquote {
+  border-left: 4px solid var(--theme-color);
   padding: 10px 15px;
-  color: #777;
+  color: var(--text-color);
   background-color: var(--theme-color-mask);
 }
 
 
 /* 修改“标记”颜色*/
-mark {
+html[data-theme] mark {
   background-color: var(--theme-color-mask);
   border-radius: 2px;
   padding: 2px 4px;
