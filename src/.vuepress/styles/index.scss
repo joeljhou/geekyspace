@@ -17,8 +17,22 @@
   font-weight: 900;
 }
 
-/* 修改Markdown中的“块引用”颜色*/
+/*Markdown*/
+/* 修改“块引用”颜色 */
 blockquote {
-  border-color: var(--theme-color);
+  border-left: 4px solid var(--theme-color-light);
+  padding: 10px 15px;
+  color: #777;
+  background-color: var(--theme-color-mask);
 }
 
+
+/* 修改“标记”颜色*/
+mark {
+  background-color: var(--theme-color-mask);
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin: 0 2px;
+  color: #222;
+  font-weight: 500;
+}
