@@ -6,9 +6,13 @@ author: 会敲代码的程序猿
 isOriginal: true
 date: 2023-12-25
 category: Java
-tag: Java
+tag:
+  - Java
+  - Java 9
 order: 266
 ---
+
+# Java 9 新特性：不可变集合的快捷创建方法
 
 Java 9引入了一项令人期待的新特性，即“Convenience Factory Methods for Collections”（集合的便利工厂方法），旨在使不可变集合的创建更加简单和便捷。
 在此之前，我们通常使用构造方法来初始化集合，而Java 9为我们提供了一些全新的静态工厂方法，使得创建不可变集合的过程更为优雅。
@@ -82,9 +86,7 @@ traditionalMap = Collections.unmodifiableMap(traditionalMap);
 
 这种方式繁琐且不够直观，给代码的可读性和编写效率带来了一定的挑战。
 
-## 与asList的区别
-
-> List.of() vs. Arrays.asList()
+## List.of() vs. Arrays.asList()
 
 * **可变性：**`List.of` 创建的是不可变集合，`Arrays.asList` 是可变集合
 
