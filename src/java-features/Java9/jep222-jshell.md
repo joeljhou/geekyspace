@@ -6,13 +6,13 @@ author: 会敲代码的程序猿
 isOriginal: true
 date: 2023-12-24
 category: Java
-tag:
-  - Java
+tag: Java
 order: 222
 ---
 
-Java 9 引入了许多新特性，其中之一就是 JShell，这是一个交互式编程环境，也被称为 REPL（Read-Eval-Print Loop）。
-JShell 的目标是使 Java 编程更加互动和易学，尤其是对于初学者和快速原型开发。
+JShell 是 Java 9 引入的一个交互式编程环境，它是 Java 编程语言的 REPL（Read-Eval-Print Loop）实现。
+REPL 是一种编程环境，允许用户输入表达式并立即看到结果，而无需事先编写和编译完整的程序。
+JShell 的目标是提供一个轻量级、灵活且易于使用的工具，使得 Java 开发者能够更直观地编写和测试代码。
 
 ## JShell快速入门
 
