@@ -1,5 +1,4 @@
 ---
-# 信息 Frontmatter 配置
 title: Java 10 新特性：局部变量类型推断
 description:
 author: 会敲代码的程序猿

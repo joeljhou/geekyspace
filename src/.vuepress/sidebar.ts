@@ -6,6 +6,12 @@ export default sidebar({
     "/java-features/": [
         {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
         {
+            text: "Java 11", prefix: "Java11/", link: "Java11/",
+            children: [
+                {text: "移除JavaEE和CORBA模块", link: "jep320-remove-JavaEE-CORBA"},
+            ],
+        },
+        {
             text: "Java 10", prefix: "Java10/", link: "Java10/",
             children: [
                 {text: "局部变量的类型推断", link: "jep286-local-variable-type-inference"},

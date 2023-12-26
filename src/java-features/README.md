@@ -24,7 +24,11 @@ order: 1
 
 详细了解Java Enhancement Proposals（JEPs）及其最新动态， 🚀 访问官方网站：[OpenJDK JEPs](https://openjdk.java.net/jeps/)
 
-## Java 21
+## Java 23(in development)
+
+## Java 22(in development)
+
+## Java 21(GA 2023/09/19)
 
 * 430:    String Templates (Preview)
 * 431:    Sequenced Collections
@@ -42,7 +46,7 @@ order: 1
 * 452:    Key Encapsulation Mechanism API
 * 453:    Structured Concurrency (Preview)
 
-## Java 20
+## Java 20(GA 2023/03/21)
 
 * 429:    Scoped Values (Incubator)
 * 432:    Record Patterns (Second Preview)
@@ -52,7 +56,7 @@ order: 1
 * 437:    Structured Concurrency (Second Incubator)
 * 438:    Vector API (Fifth Incubator)
 
-## Java 19
+## Java 19(GA 2022/09/20)
 
 * 405:    Record Patterns (Preview)
 * 422:    Linux/RISC-V Port
@@ -62,7 +66,7 @@ order: 1
 * 427:    Pattern Matching for switch (Third Preview)
 * 428:    Structured Concurrency (Incubator)
 
-## Java 18
+## Java 18(GA 2022/03/22)
 
 * 400:    UTF-8 by Default
 * 408:    Simple Web Server
@@ -74,7 +78,7 @@ order: 1
 * 420:    Pattern Matching for switch (Second Preview)
 * 421:    Deprecate Finalization for Removal
 
-## Java 17
+## Java 17(GA 2021/09/14)
 
 * 306:    Restore Always-Strict Floating-Point Semantics
 * 356:    Enhanced Pseudo-Random Number Generators
@@ -91,7 +95,7 @@ order: 1
 * 414:    Vector API (Second Incubator)
 * 415:    Context-Specific Deserialization Filters
 
-## Java 16
+## Java 16(GA 2021/03/16)
 
 * 338:    Vector API (Incubator)
 * 347:    Enable C++14 Language Features
@@ -111,7 +115,7 @@ order: 1
 * 396:    Strongly Encapsulate JDK Internals by Default
 * 397:    Sealed Classes (Second Preview)
 
-## Java 15
+## Java 15(GA 2020/09/15)
 
 * 339:    Edwards-Curve Digital Signature Algorithm (EdDSA)
 * 360:    Sealed Classes (Preview)
@@ -128,7 +132,7 @@ order: 1
 * 384:    Records (Second Preview)
 * 385:    Deprecate RMI Activation for Removal
 
-## Java 14
+## Java 14(GA 2020/03/17)
 
 * 305:    Pattern Matching for instanceof (Preview)
 * 343:    Packaging Tool (Incubator)
@@ -147,7 +151,7 @@ order: 1
 * 368:    Text Blocks (Second Preview)
 * 370:    Foreign-Memory Access API (Incubator)
 
-## Java 13
+## Java 13(GA 2019/09/17)
 
 * 350: Dynamic CDS Archives
 * 351: ZGC: Uncommit Unused Memory
@@ -155,7 +159,7 @@ order: 1
 * 354: Switch Expressions (Preview)
 * 355: Text Blocks (Preview)
 
-## Java 12
+## Java 12(GA 2019/03/19)
 
 * 189: Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)
 * 230: Microbenchmark Suite
@@ -166,13 +170,13 @@ order: 1
 * 344: Abortable Mixed Collections for G1
 * 346: Promptly Return Unused Committed Memory from G1
 
-## Java 11
+## Java 11(GA 2018/09/25)
 
 * 181: Nest-Based Access Control
 * 309: Dynamic Class-File Constants
 * 315: Improve Aarch64 Intrinsics
 * 318: Epsilon: A No-Op Garbage Collector
-* 320: Remove the Java EE and CORBA Modules
+* [320: Remove the Java EE and CORBA Modules](java11/jep320-remove-JavaEE-CORBA)
 * 321: HTTP Client (Standard)
 * 323: Local-Variable Syntax for Lambda Parameters
 * 324: Key Agreement with Curve25519 and Curve448
@@ -186,9 +190,9 @@ order: 1
 * 335: Deprecate the Nashorn JavaScript Engine
 * 336: Deprecate the Pack200 Tools and API
 
-## Java 10
+## Java 10(GA 2018/03/20)
 
-* 286: Local-Variable Type Inference
+* [286: Local-Variable Type Inference](java10/jep286-local-variable-type-inference)
 * 296: Consolidate the JDK Forest into a Single Repository
 * 304: Garbage-Collector Interface
 * 307: Parallel Full GC for G1
@@ -201,7 +205,7 @@ order: 1
 * 319: Root Certificates
 * 322: Time-Based Release Versioning
 
-## Java 9
+## Java 9(GA 2017/09/21)
 
 * 102: Process API Updates
 * 110: HTTP 2 Client
@@ -294,3 +298,5 @@ order: 1
 * 297: Unified arm32/arm64 Port
 * 298: Remove Demos and Samples
 * 299: Reorganize Documentation
+
+## Java 8(GA 2014/03/18)
