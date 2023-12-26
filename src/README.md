@@ -7,7 +7,7 @@ title: 最新发布
 #heroImage: IMG_5956.png
 #heroImageDark: IMG_5956.png
 # 指定首页背景图片
-bgImage: /assets/bg/wallhaven-o5762l.png
+bgImage: /assets/bg/wallhaven-85pgqk.jpg
 bgImageDark: /assets/bg/wallhaven-o5762l.png
 # 指定hero背景是否全屏
 heroFullScreen: false
