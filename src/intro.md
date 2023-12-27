@@ -6,7 +6,7 @@ icon: circle-info
 cover: /assets/images/cover3.jpg
 author: 会敲代码的程序猿
 isOriginal: false  # 是否原创文章
-date: 2023-12-20
+date: 1998-12-14
 category: 程序人生
 tag:
   - 程序人生
