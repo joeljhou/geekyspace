@@ -141,7 +141,7 @@ order: 1
 * 352:    Non-Volatile Mapped Byte Buffers
 * 358:    Helpful NullPointerExceptions
 * 359:    Records (Preview)
-* 361:    Switch Expressions (Standard)
+* 361:    [Switch Expressions (Standard)](java14/jep361-switch-expressions)
 * 362:    Deprecate the Solaris and SPARC Ports
 * 363:    Remove the Concurrent Mark Sweep (CMS) Garbage Collector
 * 364:    ZGC on macOS

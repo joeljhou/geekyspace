@@ -6,6 +6,12 @@ export default sidebar({
     "/java-features/": [
         {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
         {
+            text: "Java 14", prefix: "Java14/", link: "Java14/",
+            children: [
+                {text: "switch表达式增强", link: "jep361-switch-expressions"},
+            ],
+        },
+        {
             text: "Java 11", prefix: "Java11/", link: "Java11/",
             children: [
                 {text: "移除JavaEE和CORBA模块", link: "jep320-remove-JavaEE-CORBA"},

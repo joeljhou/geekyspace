@@ -1,5 +1,5 @@
 ---
-title: Java 11 新特性 ：移除 JavaEE 和 CORBA 模块以及 JavaFX 相关技术
+title: Java 11 新特性 ：移除JavaEE和CORBA模块以及JavaFX
 shortTitle: Java 11 新特性 ：移除JavaEE和CORBA模块
 description:
 author: 会敲代码的程序猿
@@ -12,7 +12,7 @@ tag:
 order: 320
 ---
 
-# Java 11 新特性 ：移除 JavaEE 和 CORBA 模块以及 JavaFX 相关技术
+# Java 11 新特性 ：移除JavaEE和CORBA模块以及JavaFX
 
 Java 11 中移除了 `Java EE` 和 `CORBA` 模块，同时 `JavaFX` 也被剥离，但仍可作为独立模块使用。
 
@@ -36,8 +36,8 @@ Java 11 完全删除了以下九个模块：
 
 删除后的影响：
 
-* 源代码从 OpenJDK 存储库中删除。
-* 在 JDK 运行时映像中将不包含这些类。
+* 源代码从 OpenJDK 存储库中删除
+* 在 JDK 运行时映像中将不包含这些类
 * 相关工具将不再可用:
     * wsgen and wsimport (来自 jdk.xml.ws)
     * schemagen and xjc (来自 jdk.xml.bind)
