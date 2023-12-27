@@ -3,7 +3,7 @@ title: Java 9 新特性：不可变集合的快捷创建方法
 description:
 author: 会敲代码的程序猿
 isOriginal: true
-date: 2023-12-25
+date: 2023-12-22
 category: Java
 tag:
   - Java
