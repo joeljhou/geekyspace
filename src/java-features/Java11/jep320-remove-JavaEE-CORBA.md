@@ -4,7 +4,7 @@ shortTitle: Java 11 新特性 ：移除JavaEE和CORBA模块
 description:
 author: 会敲代码的程序猿
 isOriginal: true
-date: 2023-12-23
+date: 2023-12-24
 category: Java
 tag:
   - Java

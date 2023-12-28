@@ -6,6 +6,13 @@ export default sidebar({
     "/java-features/": [
         {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
         {
+            text: "Java 15", prefix: "Java15/", link: "Java15/",
+            children: [
+                {text: "隐藏类", link: "jep371-hidden-classes"},
+                {text: "文本块", link: "jep378-text-blocks"},
+            ],
+        },
+        {
             text: "Java 14", prefix: "Java14/", link: "Java14/",
             children: [
                 {text: "switch表达式增强", link: "jep361-switch-expressions"},
