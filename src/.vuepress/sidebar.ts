@@ -6,6 +6,13 @@ export default sidebar({
     "/java-features/": [
         {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
         {
+            text: "Java 16", prefix: "Java16/", link: "Java16/",
+            children: [
+                {text: "instanceof增强", link: "jep394-pattern-matching-for-instanceof"},
+                {text: "record类", link: "jep395-records"},
+            ],
+        },
+        {
             text: "Java 15", prefix: "Java15/", link: "Java15/",
             children: [
                 {text: "隐藏类", link: "jep371-hidden-classes"},

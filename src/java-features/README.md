@@ -110,8 +110,8 @@ order: 1
 * 390:    Warnings for Value-Based Classes
 * 392:    Packaging Tool
 * 393:    Foreign-Memory Access API (Third Incubator)
-* 394:    Pattern Matching for instanceof
-* 395:    Records
+* [394:    Pattern Matching for instanceof](java16/jep394-pattern-matching-for-instanceof)
+* [395:    Records](java16/jep395-records)
 * 396:    Strongly Encapsulate JDK Internals by Default
 * 397:    Sealed Classes (Second Preview)
 
