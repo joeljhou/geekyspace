@@ -119,13 +119,13 @@ order: 1
 
 * 339:    Edwards-Curve Digital Signature Algorithm (EdDSA)
 * 360:    Sealed Classes (Preview)
-* 371:    Hidden Classes
+* [371:    Hidden Classes](java15/jep371-hidden-classes)
 * 372:    Remove the Nashorn JavaScript Engine
 * 373:    Reimplement the Legacy DatagramSocket API
 * 374:    Disable and Deprecate Biased Locking
 * 375:    Pattern Matching for instanceof (Second Preview)
 * 377:    ZGC: A Scalable Low-Latency Garbage Collector
-* 378:    Text Blocks
+* [378:    Text Blocks](java15/jep378-text-blocks)
 * 379:    Shenandoah: A Low-Pause-Time Garbage Collector
 * 381:    Remove the Solaris and SPARC Ports
 * 383:    Foreign-Memory Access API (Second Incubator)
@@ -141,7 +141,7 @@ order: 1
 * 352:    Non-Volatile Mapped Byte Buffers
 * 358:    Helpful NullPointerExceptions
 * 359:    Records (Preview)
-* 361:    [Switch Expressions (Standard)](java14/jep361-switch-expressions)
+* [361:    Switch Expressions (Standard)](java14/jep361-switch-expressions)
 * 362:    Deprecate the Solaris and SPARC Ports
 * 363:    Remove the Concurrent Mark Sweep (CMS) Garbage Collector
 * 364:    ZGC on macOS
