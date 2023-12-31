@@ -21,4 +21,10 @@ Hidden Classes 提供了一种在运行时生成类的机制，在编译时未�
 * **独立加载和卸载**：隐藏类可以独立于其他类加载和卸载
 * **框架扩展性**：适用于需要在运行时生成类的框架，提高语言的灵活性和效率
 
+## 原理
+
+
+## 框架中应用
+
+
 [https://bugs.openjdk.org/browse/JDK-8220607](https://bugs.openjdk.org/browse/JDK-8220607)
