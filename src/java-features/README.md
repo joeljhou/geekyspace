@@ -86,9 +86,9 @@ order: 1
 * 391:    macOS/AArch64 Port
 * 398:    Deprecate the Applet API for Removal
 * 403:    Strongly Encapsulate JDK Internals
-* 406:    Pattern Matching for switch (Preview)
+* [406:    Pattern Matching for switch (Preview)](java17/jep406-pattern-matching-for-switch-preview)
 * 407:    Remove RMI Activation
-* 409:    Sealed Classes
+* [409:    Sealed Classes](java17/jep409-sealed-classes)
 * 410:    Remove the Experimental AOT and JIT Compiler
 * 411:    Deprecate the Security Manager for Removal
 * 412:    Foreign Function & Memory API (Incubator)
