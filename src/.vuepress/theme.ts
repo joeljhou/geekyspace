@@ -28,6 +28,9 @@ export default hopeTheme({
   // 导航条Github图标
   // repo: "https://github.com/joeljhou/joeljhou",
 
+  // 全屏按钮
+  fullscreen: true,
+
   docsDir: "src",
 
   docsBranch: "master",
