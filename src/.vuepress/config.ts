@@ -30,17 +30,6 @@ export default defineUserConfig({
         { meta: true, key: "k", },
       ],
     }),
-
-    // searchPlugin({
-    //   locales: {'/': {placeholder: '搜索文档',}},                           // 搜索框的默认值
-    //   hotKeys: ['s', '/'],                                                 // 热键, 按下 s 或 / 时聚焦搜索框
-    //   maxSuggestions: 5,                                                  // 搜索结果最大数量
-    //   isSearchable: (page) => page.path !== '/',           // 排除首页
-    //   getExtraFields: (page) => [
-    //     ...toArray(page.frontmatter.tags),
-    //     ...toArray(page.frontmatter.category),
-    //   ],
-    // }),
   ],
 
   // Enable it with pwa
