@@ -18,15 +18,17 @@ export default hopeTheme({
     url: "https://github.com/joeljhou",
   },
 
-  // 默认图标资源
-  // iconAssets: "fontawesome-with-brands",
-  /* 使用阿里妈妈Iconfont矢量图标，日后添加了新的图标，请重新生成新的 CSS 地址并替换 */
+  // 使用阿里巴巴iconfont矢量图标库
   iconAssets: "//at.alicdn.com/t/c/font_4370612_23wa7yckp7fh.css",
 
+  // 网站图标
   logo: "IMG_5957.png",
 
-  // 导航栏Github图标
+  // 导航栏上的个人Github仓库地址
   // repo: "https://github.com/joeljhou/joeljhou",
+
+  // 页面显示信息
+  pageInfo: ["Author", "Original", "Category", "Date", "Tag", "ReadingTime", "Word", "PageView"],
 
   // 全屏按钮
   fullscreen: true,
