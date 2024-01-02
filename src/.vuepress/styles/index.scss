@@ -6,12 +6,12 @@
 }
 
 /* 渐变文本效果适用于博客英雄标题和描述(彩虹渐变) */
-.vp-blog-hero-title, .vp-blog-hero-description {
-  background: linear-gradient(45deg, #c0392b, #d35400, #f39c12, #27ae60, #16a085, #2980b9, #8e44ad);
-  filter: brightness(1.5);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+//.vp-blog-hero-title, .vp-blog-hero-description {
+//  background: linear-gradient(45deg, #c0392b, #d35400, #f39c12, #27ae60, #16a085, #2980b9, #8e44ad);
+//  filter: brightness(1.5);
+//  background-clip: text;
+//  -webkit-text-fill-color: transparent;
+//}
 
 /* 侧边栏目录字体加粗 */
 .vp-sidebar-heading .vp-sidebar-title {
@@ -27,7 +27,6 @@ html[data-theme] blockquote {
   background-color: var(--theme-color-mask);
 }
 
-
 /* 修改“标记”颜色 */
 html[data-theme] mark {
   background-color: var(--theme-color-mask);
@@ -36,4 +35,14 @@ html[data-theme] mark {
   margin: 0 2px;
   color: var(--text-color);
   font-weight: 500;
+}
+
+// 设置搜索框圆角
+.vp-navbar-end .search-pro-button {
+  border-radius: 100%;
+}
+
+// 隐藏搜索框文案 和 快捷键提示
+.search-pro-button .search-pro-placeholder, .search-pro-key-hints {
+  display: none;
 }
