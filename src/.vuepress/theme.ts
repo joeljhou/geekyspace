@@ -25,7 +25,8 @@ export default hopeTheme({
 
   logo: "IMG_5957.png",
 
-  repo: "https://github.com/joeljhou/joeljhou",
+  // 导航条Github图标
+  // repo: "https://github.com/joeljhou/joeljhou",
 
   docsDir: "src",
 
