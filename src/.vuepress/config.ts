@@ -13,8 +13,8 @@ export default defineUserConfig({
 
   plugins: [
     searchProPlugin({
-      indexContent: true,  // 索引全部内容
-      customFields: [      // 为分类和标签添加索引
+      indexContent: true,     // 索引全部内容
+      customFields: [         // 为分类和标签添加索引
         {
           formatter: "分类：$content",
           getter: (page) => toArray(page.frontmatter.category),
@@ -23,6 +23,11 @@ export default defineUserConfig({
           formatter: "标签：$content",
           getter: (page) => toArray(page.frontmatter.tags),
         },
+      ],
+      // 热键
+      hotKeys: [
+        // 按下 ⌘ 加 s 聚焦搜索框
+        { meta: true, key: "k", },
       ],
     }),
 
