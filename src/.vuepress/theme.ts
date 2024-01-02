@@ -25,11 +25,14 @@ export default hopeTheme({
 
   logo: "IMG_5957.png",
 
-  // 导航条Github图标
+  // 导航栏Github图标
   // repo: "https://github.com/joeljhou/joeljhou",
 
   // 全屏按钮
   fullscreen: true,
+
+  // 向下滚动时自动隐藏导航栏
+  navbarAutoHide: "always",
 
   docsDir: "src",
 
