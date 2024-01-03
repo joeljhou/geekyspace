@@ -14,7 +14,8 @@ tag:
 # 布局 Frontmatter 配置
 #navbar: false
 #sidebar: heading
-order: 1
+# 置顶特定文章
+sticky: true
 ---
 
 
