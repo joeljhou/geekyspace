@@ -1,10 +1,10 @@
+import {getDirname, path} from "@vuepress/utils";
 import {defineUserConfig} from "vuepress";
-import theme from "./theme.js";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
+import theme from "./theme.js";
 
 export default defineUserConfig({
   base: "/joeljhou/",
-
   lang: "zh-CN",
   title: "会敲代码的程序猿",
   description: "vuepress-theme-hope 的博客搭建",
@@ -12,6 +12,7 @@ export default defineUserConfig({
   theme,
 
   plugins: [
+    // 搜索插件
     searchProPlugin({
       indexContent: true,     // 索引全部内容
       customFields: [         // 为分类和标签添加索引
@@ -31,6 +32,14 @@ export default defineUserConfig({
       ],
     }),
   ],
+
+  alias: {
+    // 必应壁纸
+    "@theme-hope/modules/blog/components/BlogHero": path.resolve(
+        __dirname,
+        "./components/BlogHero.vue",
+    ),
+  },
 
   // Enable it with pwa
   // shouldPrefetch: false,

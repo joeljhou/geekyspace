@@ -235,4 +235,4 @@ displayFooter: true,
     //   },
     // },
   },
-});
+}, { custom: true });
