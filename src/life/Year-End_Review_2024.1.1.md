@@ -7,6 +7,10 @@ date: 2024-01-01
 category: 程序人生
 tag: 程序人生
 order: 1
+# 文章列表排除
+article: false
+# 时间轴排除
+timeline: false
 ---
 
 # 2023 年终回顾, 2024年的展望和计划
