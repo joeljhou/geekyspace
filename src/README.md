@@ -4,8 +4,8 @@ layout: BlogHome
 icon: home
 title: 最新发布
 # 指定首页背景头像
-#heroImage: IMG_5956.png
-#heroImageDark: IMG_5956.png
+heroImage: IMG_5956.png
+heroImageDark: IMG_5956.png
 # 指定首页背景图片
 bgImage: /assets/bg/wallhaven-8586my.png
 bgImageDark: /assets/bg/wallhaven-o5762l.png
