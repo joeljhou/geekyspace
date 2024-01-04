@@ -35,7 +35,7 @@ export default defineUserConfig({
 
         // rss 属性
         feedPlugin({
-            hostname: "joeljhou/",
+            hostname: "https://joeljhou.github.io/joeljhou/",
             rss: true,
             count: 10,
         }),
