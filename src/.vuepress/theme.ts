@@ -88,14 +88,19 @@ displayFooter: true,
     blog: true,
 
     /*
-    * 插件实现复制时，自动生成版权信息
-    * https://theme-hope.vuejs.press/zh/guide/feature/copyright.html
+    * 版权信息在复制时自动附加-vuepress-plugin-copyright2
     */
     copyright: {
       global: false,
       triggerLength: 100,
       author: "JoelJhou",
       license: "MIT",
+    },
+
+    // 代码复制功能-vuepress-plugin-copy-code2
+    copyCode: {
+      showInMobile: true,
+      fancy: false,
     },
 
     feed: {
