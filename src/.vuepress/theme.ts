@@ -62,7 +62,7 @@ displayFooter: true,
           Twitter: "https://twitter.com/StrayPurpose",
           Weibo: "https://weibo.com/u/7788864199",
           Zhihu: "https://www.zhihu.com/people/joeljhou",
-          Rss: "https://example.com",
+          Rss: "./rss.xml",
       },
   },
 
