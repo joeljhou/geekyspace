@@ -32,14 +32,6 @@ export default defineUserConfig({
                 {meta: true, key: "k",},
             ],
         }),
-
-        // rss 属性
-        feedPlugin({
-            hostname: "https://joeljhou.github.io/joeljhou/",
-            rss: true,
-            count: 10,
-        }),
-
     ],
 
     alias: {
