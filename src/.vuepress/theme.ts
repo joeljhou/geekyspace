@@ -65,7 +65,6 @@ displayFooter: true,
           Rss: "./rss.xml",
       },
   },
-
   /*
   * 文章目录加密：
   * https://theme-hope.vuejs.press/zh/guide/feature/encrypt.html
@@ -87,6 +86,9 @@ displayFooter: true,
   plugins: {
     blog: true,
 
+    // 开启git实现编辑此页面-最后更新时间-贡献者功能
+    git: true,
+
     /*
     * 版权信息在复制时自动附加-vuepress-plugin-copyright2
     */
@@ -103,6 +105,7 @@ displayFooter: true,
       fancy: false,
     },
 
+    // Feed生成器-vuepress-plugin-feed2
     feed: {
       rss: true,
     },
@@ -115,7 +118,7 @@ displayFooter: true,
     //   serverURL: "https://waline-comment.vuejs.press",
     // },
 
-    // all features are enabled for demo, only preserve features you need here
+    // MarkDown文件增强-vuepress-plugin-md-enhance
     mdEnhance: {
       align: true,
       attrs: true,
@@ -185,6 +188,20 @@ displayFooter: true,
 
       // install @vue/repl before enabling it
       // vuePlayground: true,
+    },
+
+    // MarkDown启用组件-vuepress-plugin-components
+    components: {
+      components: [
+        // 为站点提供了在MD文档中自定义颜色的徽章
+        "Badge",
+        // 为站点提供了在MD文档中加载B站视频的功能，但是不建议使用
+        "BiliBili",
+        // 为站点提供了在MD文档中加载PDF阅读器的功能，但是不建议使用
+        // 原因一：PDF书籍较大，上传到码云后会大量占用码云空间
+        // 原因二：当PDF阅读器较多的时候，将MD文档渲染成HTML页面比较耗费性能，使页面加载速度变慢
+        "PDF",
+      ]
     },
 
     // uncomment these if you want a PWA
