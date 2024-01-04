@@ -1,7 +1,6 @@
 import {getDirname, path} from "@vuepress/utils";
 import {defineUserConfig} from "vuepress";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
-import {feedPlugin} from "vuepress-plugin-feed2";
 import theme from "./theme.js";
 
 export default defineUserConfig({

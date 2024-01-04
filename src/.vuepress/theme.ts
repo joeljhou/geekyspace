@@ -11,7 +11,7 @@ export default hopeTheme({
 
   darkmode: "switch",   // 深色模式支持选项
 
-  hostname: "https://mister-hope.github.io",
+  hostname: "https://joeljhou.github.io/joeljhou/",
 
   author: {
     name: "JoelJhou",
