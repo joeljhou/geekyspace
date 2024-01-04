@@ -11,6 +11,7 @@ date: 2023-12-20
 category: Java
 tag:
   - Java
+star: true  # 收藏star标记
 # 布局 Frontmatter 配置
 #navbar: false
 #sidebar: heading
