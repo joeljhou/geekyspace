@@ -46,7 +46,7 @@ export default hopeTheme({
   // sidebar
   sidebar,
 
-  footer: "© 2023 - 至今 <a href=\"https://joeljhou.github.io/joeljhou/\" target=\"_blank\">joeljhou.github.io/joeljhou</a> 保留所有权利",
+  footer: "© 2023 - 至今 <a href=\"https://joeljhou.github.io/\" target=\"_blank\">joeljhou.github.io/joeljhou</a> 保留所有权利",
 
 
 displayFooter: true,

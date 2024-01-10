@@ -57,7 +57,7 @@ projects:
     desc: 观看海外免费教程的免费翻译配音软件
     link: https://youtube-dubbing.com/
 
-footer: © 2023 - 至今 <a href="https://joeljhou.github.io/joeljhou/" target="_blank">joeljhou.github.io/joeljhou</a> 保留所有权利
+footer: © 2023 - 至今 <a href="https://joeljhou.github.io/" target="_blank">joeljhou.github.io/joeljhou</a> 保留所有权利
 copyrightText: Copyright © 2023 JoelJhou
 ---
 
