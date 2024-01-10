@@ -40,16 +40,16 @@ export default hopeTheme({
 
   docsBranch: "master",
 
-  // navbar
+  // 导航栏
   navbar,
 
-  // sidebar
+  // 侧边栏
   sidebar,
 
+  // 页脚
   footer: "© 2023 - 至今 <a href=\"https://joeljhou.github.io/\" target=\"_blank\">joeljhou.github.io/joeljhou</a> 保留所有权利",
 
-
-displayFooter: true,
+  displayFooter: true,
 
   blog: {
     description: "会敲代码的程序员，分享技术，品味人生",
@@ -65,6 +65,7 @@ displayFooter: true,
           Rss: "./rss.xml",
       },
   },
+
   /*
   * 文章目录加密：
   * https://theme-hope.vuejs.press/zh/guide/feature/encrypt.html
@@ -77,6 +78,9 @@ displayFooter: true,
       // "/java-features/Java9/jep269-convenience-factory-methods-for-collections.html": ["1234"]
     },
   },
+
+  // 是否展示编辑此页链接
+  editLink: true,
 
   // page meta
   metaLocales: {
