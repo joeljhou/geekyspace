@@ -13,9 +13,11 @@ export default hopeTheme({
 
   hostname: "https://www.geekyspace.cn",
 
+  // 全局默认作者
   author: {
-    name: "JoelJhou",
+    name: "会敲代码的程序员",
     url: "https://github.com/joeljhou",
+    email: "joeljhou336@gmail.com"
   },
 
   // 使用阿里巴巴iconfont矢量图标库
@@ -47,7 +49,7 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "© 2023 - 至今 <a href=\"https://joeljhou.github.io/\" target=\"_blank\">joeljhou.github.io/joeljhou</a> 保留所有权利",
+  footer: "© 2023 - 至今 <a href=\"https://www.geekyspace.cn\" target=\"_blank\">www.geekyspace.cn</a> 保留所有权利",
 
   displayFooter: true,
 
@@ -99,7 +101,7 @@ export default hopeTheme({
     copyright: {
       global: false,
       triggerLength: 100,
-      author: "JoelJhou",
+      author: "GeekySpace",
       license: "MIT",
     },
 
