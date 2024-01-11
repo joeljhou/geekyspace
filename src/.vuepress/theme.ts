@@ -11,7 +11,7 @@ export default hopeTheme({
 
   darkmode: "switch",   // 深色模式支持选项
 
-  hostname: "https://joeljhou.github.io/",
+  hostname: "https://www.geekyspace.cn/",
 
   author: {
     name: "JoelJhou",
