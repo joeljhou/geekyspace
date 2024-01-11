@@ -6,7 +6,7 @@ import theme from "./theme.js";
 export default defineUserConfig({
     base: "/",
     lang: "zh-CN",
-    title: "会敲代码的程序猿",
+    title: "极客空间",
     description: "vuepress-theme-hope 的博客搭建",
 
     theme,
