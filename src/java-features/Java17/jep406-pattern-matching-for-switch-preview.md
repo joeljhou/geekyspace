@@ -24,7 +24,8 @@ order: 406
 
 ### 增强类型检查
 
-扩展`switch`模式匹配的`case`标签，支持除了常量之外的模式，如下所示：
+通过扩展`switch`模式匹配的`case`标签，现在支持除了**原始数据类型**（`char`、`byte`、`short` 或 `int`）之外，
+相应的**包装类**（`Character`、`Byte`、`Short` 或 `Integer`）、`String` 以及`Enum`类型等**任何引用类型**。
 
 ```java
 record Point(int i, int j) {}
@@ -190,10 +191,27 @@ switch (o) {
 }
 ```
 
-## 引入了守卫模式和括号模式
+## 保护模式和括号模式
+
+为了提高代码可读性，引入了 **guarded patterns**`(p && e)` 和 **parenthesized patterns**`(p)`，其中`p`是模式，`e`是布尔表达式。
+
+如下示例代码存在可读性问题：
 
 ```java
-// 引入守卫模式和括号模式，提高代码可读性
+static void test(Object o) {
+    switch (o) {
+    case String s:
+        if (s.length() == 1) { ... }
+        else { ... }
+        break;
+    ...
+    }
+}
+```
+
+使用**guarded patterns**改进，允许在 `case` 标签中结合模式和布尔表达式，使条件逻辑更加清晰：
+
+```java
 static void test(Object o) {
     switch (o) {
         case String s && (s.length() == 1) -> ...
