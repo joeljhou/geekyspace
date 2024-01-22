@@ -72,8 +72,3 @@ export default defineUserConfig({
     // Enable it with pwa
     // shouldPrefetch: false,
 });
-
-
-function toArray(value: any) {
-    return Array.isArray(value) ? value : [value].filter(Boolean);
-}

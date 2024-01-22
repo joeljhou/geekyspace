@@ -6,6 +6,14 @@ export default sidebar({
     "/java-features/": [
         {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
         {
+            text: "Java 18", prefix: "Java18/", link: "Java18/",
+            children: [
+                {text: "指定UTF-8为默认字符集", link: "jep400-utf8-by-default"},
+                {text: "简单Web服务器", link: "jep408-simple-web-server"},
+                {text: "新增@snipppet标签", link: "jep413-code-snippets-in-api-documentation"},
+            ],
+        },
+        {
             text: "Java 17", prefix: "Java17/", link: "Java17/",
             children: [
                 {text: "switch的模式匹配（Preview）", link: "jep406-pattern-matching-for-switch-preview"},

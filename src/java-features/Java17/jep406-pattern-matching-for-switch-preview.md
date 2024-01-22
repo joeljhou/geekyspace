@@ -92,6 +92,7 @@ static String getSound(Animal animal) {
     return switch (animal) {
         case Dog d -> "Woof!";
         case Cat c -> "Meow!";
+        // no default needed!
     };
 }
 ```
