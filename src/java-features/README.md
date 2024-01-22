@@ -70,9 +70,9 @@ sticky: true
 
 ## Java 18(GA 2022/03/22)
 
-* 400:    UTF-8 by Default
-* 408:    Simple Web Server
-* 413:    Code Snippets in Java API Documentation
+* [400:    UTF-8 by Default](java18/jep400-utf8-by-default)
+* [408:    Simple Web Server](java18/jep408-simple-web-server)
+* [413:    Code Snippets in Java API Documentation](java18/jep413-code-snippets-in-api-documentation)
 * 416:    Reimplement Core Reflection with Method Handles
 * 417:    Vector API (Third Incubator)
 * 418:    Internet-Address Resolution SPI
