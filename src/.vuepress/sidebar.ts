@@ -9,7 +9,7 @@ export default sidebar({
             text: "Java 17", prefix: "Java17/", link: "Java17/",
             children: [
                 {text: "switch的模式匹配（Preview）", link: "jep406-pattern-matching-for-switch-preview"},
-                {text: "密封类", link: "jep409-sealed-classes"},
+                {text: "sealed类", link: "jep409-sealed-classes"},
             ],
         },
         {

@@ -1,5 +1,5 @@
 ---
-title: Java 16 新特性：instanceof模式增强
+title: Java 16 新特性：instanceof模式匹配
 description:
 author: 会敲代码的程序猿
 isOriginal: true
@@ -13,7 +13,7 @@ order: 394
 
 # Java 16 新特性：instanceof模式匹配
 
-Java 16 引入了 `instanceof` 的增强语法，用于更简便地判断对象是否是某个类的实例并进行相应的**局部类型转换**。
+Java 16 引入了`instanceof`**模式匹配**的增强语法，用于更简便地判断对象是否是某个类的实例并进行相应的**局部类型转换**。
 
 ## instanceof 基础用法
 

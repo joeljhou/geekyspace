@@ -13,7 +13,7 @@ order: 286
 
 # Java 10 新特性：局部变量类型推断
 
-Java 10 引入了一项新的语言特性，即局部变量类型推断（Local-Variable Type Inference），
+Java 10 引入了一项新的语言特性，即**局部变量类型推断**（Local-Variable Type Inference），
 它允许在局部变量声明时，根据变量的初始值，推断出变量的数据类型。
 
 ## 语法
