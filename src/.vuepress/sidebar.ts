@@ -23,7 +23,7 @@ export default sidebar({
         {
             text: "Java 16", prefix: "Java16/", link: "Java16/",
             children: [
-                {text: "instanceof模式匹配", link: "jep394-pattern-matching-for-instanceof"},
+                {text: "instanceof类型模式", link: "jep394-pattern-matching-for-instanceof"},
                 {text: "record类", link: "jep395-records"},
             ],
         },
