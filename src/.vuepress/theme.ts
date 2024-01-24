@@ -27,7 +27,7 @@ export default hopeTheme({
   logo: "IMG_5957.png",
 
   // 导航栏上的个人Github仓库地址
-  // repo: "https://github.com/joeljhou/joeljhou",
+  repo: "https://github.com/joeljhou/joeljhou",
 
   // 页面显示信息
   pageInfo: ["Author", "Original", "Category", "Date", "Tag", "ReadingTime", "Word", "PageView"],
