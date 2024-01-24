@@ -27,7 +27,7 @@ export default hopeTheme({
   logo: "IMG_5957.png",
 
   // 导航栏上的个人Github仓库地址
-  repo: "https://github.com/joeljhou/joeljhou",
+  repo: "https://github.com/joeljhou",
 
   // 页面显示信息
   pageInfo: ["Author", "Original", "Category", "Date", "Tag", "ReadingTime", "Word", "PageView"],
@@ -37,10 +37,6 @@ export default hopeTheme({
 
   // 向下滚动时自动隐藏导航栏
   navbarAutoHide: "always",
-
-  docsDir: "src",
-
-  docsBranch: "master",
 
   // 导航栏
   navbar,
@@ -83,6 +79,11 @@ export default hopeTheme({
 
   // 是否展示编辑此页链接
   editLink: true,
+
+  // 编辑此页链接地址
+  docsRepo: "https://github.com/joeljhou/joeljhou.github.io",
+  docsDir: "src",
+  docsBranch: "master",
 
   // page meta
   metaLocales: {
