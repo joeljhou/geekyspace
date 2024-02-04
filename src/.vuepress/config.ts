@@ -1,6 +1,7 @@
 import {getDirname, path} from "@vuepress/utils";
+import {redirectPlugin} from '@vuepress/plugin-redirect'
 import {defineUserConfig} from "vuepress";
-import { docsearchPlugin } from "@vuepress/plugin-docsearch";
+import {docsearchPlugin} from "@vuepress/plugin-docsearch";
 import theme from "./theme.js";
 
 export default defineUserConfig({
@@ -61,12 +62,15 @@ export default defineUserConfig({
                 },
             },
         }),
+        // 设置重定向
+        redirectPlugin({
+            config: {},
+        }),
     ],
 
     alias: {
         // 必应壁纸，一言描述
-        "@theme-hope/modules/blog/components/BlogHero":
-            path.resolve(__dirname, "./components/BlogHero.vue"),
+        "@theme-hope/modules/blog/components/BlogHero": path.resolve(__dirname, "./components/BlogHero.vue"),
     },
 
     // Enable it with pwa
