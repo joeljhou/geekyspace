@@ -109,7 +109,6 @@ export default hopeTheme({
     // 代码复制功能-vuepress-plugin-copy-code2
     copyCode: {
       showInMobile: true,
-      fancy: false,
     },
 
     // Feed生成器-vuepress-plugin-feed2
