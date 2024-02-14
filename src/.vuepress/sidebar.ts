@@ -6,6 +6,18 @@ export default sidebar({
     "/java-features/": [
         {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
         {
+            text: "Java 20", prefix: "Java20/", link: "Java20/",
+            children: [
+                {text: "新特性总结", link: "java20-new-features-summary"},
+            ],
+        },
+        {
+            text: "Java 19", prefix: "Java19/", link: "Java19/",
+            children: [
+                {text: "新特性总结", link: "java19-new-features-summary"},
+            ],
+        },
+        {
             text: "Java 18", prefix: "Java18/", link: "Java18/",
             children: [
                 {text: "指定UTF-8为默认字符集", link: "jep400-utf8-by-default"},
