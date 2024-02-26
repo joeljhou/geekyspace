@@ -6,6 +6,12 @@ export default sidebar({
     "/java-features/": [
         {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
         {
+            text: "Java 21", prefix: "Java21/", link: "Java21/",
+            children: [
+                {text: "字符串模版(Preview)", link: "jep430-string-templates"},
+            ],
+        },
+        {
             text: "Java 20", prefix: "Java20/", link: "Java20/",
             children: [
                 {text: "新特性总结", link: "java20-new-features-summary"},
@@ -28,7 +34,7 @@ export default sidebar({
         {
             text: "Java 17", prefix: "Java17/", link: "Java17/",
             children: [
-                {text: "switch的模式匹配（Preview）", link: "jep406-pattern-matching-for-switch-preview"},
+                {text: "switch的模式匹配(Preview)", link: "jep406-pattern-matching-for-switch-preview"},
                 {text: "sealed类", link: "jep409-sealed-classes"},
             ],
         },
