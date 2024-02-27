@@ -9,6 +9,7 @@ export default sidebar({
             text: "Java 21", prefix: "Java21/", link: "Java21/",
             children: [
                 {text: "字符串模版(Preview)", link: "jep430-string-templates"},
+                {text: "有序集合", link: "jep431-sequenced-collections"},
             ],
         },
         {
@@ -34,22 +35,22 @@ export default sidebar({
         {
             text: "Java 17", prefix: "Java17/", link: "Java17/",
             children: [
-                {text: "switch的模式匹配(Preview)", link: "jep406-pattern-matching-for-switch-preview"},
+                {text: "switch模式匹配(Preview)", link: "jep406-pattern-matching-for-switch-preview"},
                 {text: "sealed类", link: "jep409-sealed-classes"},
             ],
         },
         {
             text: "Java 16", prefix: "Java16/", link: "Java16/",
             children: [
-                {text: "instanceof类型模式", link: "jep394-pattern-matching-for-instanceof"},
+                {text: "instanceof模式匹配", link: "jep394-pattern-matching-for-instanceof"},
                 {text: "record类", link: "jep395-records"},
             ],
         },
         {
             text: "Java 15", prefix: "Java15/", link: "Java15/",
             children: [
-                {text: "隐藏类", link: "jep371-hidden-classes"},
-                {text: "文本块", link: "jep378-text-blocks"},
+                {text: "隐藏类(Hidden Classes)", link: "jep371-hidden-classes"},
+                {text: "文本块(Text Blocks)", link: "jep378-text-blocks"},
             ],
         },
         {
@@ -67,7 +68,7 @@ export default sidebar({
         {
             text: "Java 10", prefix: "Java10/", link: "Java10/",
             children: [
-                {text: "局部变量的类型推断", link: "jep286-local-variable-type-inference"},
+                {text: "局部变量类型推断", link: "jep286-local-variable-type-inference"},
             ],
         },
         {

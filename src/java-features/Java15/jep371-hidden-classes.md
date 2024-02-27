@@ -1,5 +1,5 @@
 ---
-title: Java 15 新特性：隐藏类
+title: Java 15 新特性：隐藏类（Hidden Classes）
 description:
 author: 会敲代码的程序猿
 isOriginal: true
@@ -11,7 +11,7 @@ tag:
 order: 371
 ---
 
-# Java 15 新特性：隐藏类
+# Java 15 新特性：隐藏类（Hidden Classes）
 
 **隐藏类**（Hidden Classes） 提供了一种在运行时生成类的机制，在编译时未知，并且不能直接在源代码中引用，
 需要通过反射间接使用它们，隐藏类是为框架设计的，具有以下特性：

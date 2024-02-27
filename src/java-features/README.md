@@ -24,7 +24,10 @@ sticky: true
 这个专栏将详细解读从**Java 9 - 最新版本**的各种有趣的新特性。
 会持续不断地发布相关内容，希望大家能够关注并收藏起来，跟随我们一起深入了解Java的最新进展！
 
-详细了解Java Enhancement Proposals（JEPs）及其最新动态， 🚀 访问官方网站：[OpenJDK JEPs](https://openjdk.java.net/jeps/)
+详细了解Java Enhancement Proposals（JEPs）及其最新动态
+
+* 🚀 访问官方网站：[OpenJDK JEPs](https://openjdk.java.net/jeps/)
+* ❄️ 参考howtodoinjava博客：[Java Versions and Features](https://howtodoinjava.com/series/java-versions-features/)
 
 ## Java 23(in development)
 
@@ -32,8 +35,8 @@ sticky: true
 
 ## Java 21(GA 2023/09/19)
 
-* 430:    String Templates (Preview)
-* 431:    Sequenced Collections
+* [430:    String Templates (Preview)](java21/jep430-string-templates)
+* [431:    Sequenced Collections](java21/jep431-sequenced-collections)
 * 439:    Generational ZGC
 * 440:    Record Patterns
 * 441:    Pattern Matching for switch

@@ -1,5 +1,5 @@
 ---
-title: Java 15 新特性：文本块
+title: Java 15 新特性：文本块（Text Blocks）
 description:
 author: 会敲代码的程序猿
 isOriginal: true
@@ -11,7 +11,7 @@ tag:
 order: 378
 ---
 
-# Java 15 新特性：文本块
+# Java 15 新特性：文本块（Text Blocks）
 
 Java 15(JEP 378)引入了**文本块**（Text Blocks）这一新特性，旨在简化多行字符串的表示，提高代码可读性，并减少在字符串中使用转义符的需求。
 文本块通过引入三个双引号的**胖分隔符**（`"""`）来实现，同时支持转义序列，为开发人员提供更直观、易读的字符串处理方式。

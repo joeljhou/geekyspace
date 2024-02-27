@@ -1,5 +1,5 @@
 ---
-title: Java 17 新特性：switch的模式匹配（Preview）
+title: Java 17 新特性：switch模式匹配（Preview）
 description:
 author: 会敲代码的程序猿
 isOriginal: true
@@ -11,7 +11,7 @@ tag:
 order: 406
 ---
 
-# Java 17 新特性：switch的模式匹配（Preview）
+# Java 17 新特性：switch模式匹配（Preview）
 
 当case标签可以有模式时，有如下四个主要的设计问题，我们一一来看：
 
