@@ -19,7 +19,7 @@
 }
 
 /*Markdown*/
-/* 修改“块引用”颜色 */
+// 修改“块引用”颜色
 html[data-theme] blockquote {
   border-left: 4px solid var(--theme-color);
   padding: 10px 15px;
@@ -27,7 +27,7 @@ html[data-theme] blockquote {
   background-color: var(--theme-color-mask);
 }
 
-/* 修改“标记”颜色 */
+// 修改“标记”颜色
 html[data-theme] mark {
   background-color: var(--theme-color-mask);
   border-radius: 2px;
@@ -35,6 +35,18 @@ html[data-theme] mark {
   margin: 0 2px;
   color: var(--text-color);
   font-weight: 500;
+}
+
+// 修改“表格”宽度
+table {
+  display: inline-table;
+  width: 100%;
+  border-radius: 1px;
+}
+
+// 修改“表格”边框
+thead, tbody, tfoot, tr, td, th {
+  border-width: 0 0 1px 0;
 }
 
 // 设置搜索框圆角

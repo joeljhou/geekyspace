@@ -10,6 +10,7 @@ export default sidebar({
             children: [
                 {text: "字符串模版(Preview)", link: "jep430-string-templates"},
                 {text: "有序集合", link: "jep431-sequenced-collections"},
+                {text: "分代ZGC", link: "jep439-generational-zgc"},
             ],
         },
         {

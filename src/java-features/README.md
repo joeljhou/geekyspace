@@ -37,7 +37,7 @@ sticky: true
 
 * [430:    String Templates (Preview)](java21/jep430-string-templates)
 * [431:    Sequenced Collections](java21/jep431-sequenced-collections)
-* 439:    Generational ZGC
+* [439:    Generational ZGC](java21/jep439-generational-zgc)
 * 440:    Record Patterns
 * 441:    Pattern Matching for switch
 * 442:    Foreign Function & Memory API (Third Preview)
