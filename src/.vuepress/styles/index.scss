@@ -1,3 +1,8 @@
+// 解决当前Chrome最新版本 122.0.6261.94（正式版本） (arm64) 页面字体加粗问题
+body {
+  font-family: initial;
+}
+
 // place your custom styles here
 /* 圆角和溢出隐藏适用于导航栏logo、博客英雄图片和博主头像 */
 .vp-nav-logo, .vp-blog-hero-image, .vp-blogger-avatar {
