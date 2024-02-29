@@ -1,8 +1,8 @@
 ---
 # 信息 Frontmatter 配置
-title: Java 9-21：前沿特性解读系列（持续连载）
+title: Java 8-21：前沿特性解读系列（持续连载）
 #shortTitle: 总目录
-description: Java 9-21：前沿特性解读系列（持续连载），截至2023年9月中旬，Java已达到第21版本。
+description: Java 8-21：前沿特性解读系列（持续连载），截至2023年9月中旬，Java已达到第21版本。
   尽管如此，众多开发者仍停滞在Java 8的认知水平。为填补这一差距，我们推出专栏，聚焦分享最新Java知识。
 #icon: java
 author: 会敲代码的程序猿
@@ -19,9 +19,10 @@ star: true  # 收藏star标记
 sticky: true
 ---
 
+# Java 8-21：前沿特性解读系列（持续连载）
 
 为了帮助大家跟上最新的技术潮流，计划启动一个专栏，重点分享Java领域的前沿知识。
-这个专栏将详细解读从**Java 9 - 最新版本**的各种有趣的新特性。
+这个专栏将详细解读从**Java 8 - 最新版本**的各种有趣的新特性。
 会持续不断地发布相关内容，希望大家能够关注并收藏起来，跟随我们一起深入了解Java的最新进展！
 
 详细了解Java Enhancement Proposals（JEPs）及其最新动态
@@ -35,10 +36,10 @@ sticky: true
 
 ## Java 21(GA 2023/09/19)
 
-* [430:    String Templates (Preview)](java21/jep430-string-templates)
-* [431:    Sequenced Collections](java21/jep431-sequenced-collections)
-* [439:    Generational ZGC](java21/jep439-generational-zgc)
-* 440:    Record Patterns
+* [430:    String Templates (Preview)](Java21/jep430-string-templates)
+* [431:    Sequenced Collections](Java21/jep431-sequenced-collections)
+* [439:    Generational ZGC](Java21/jep439-generational-zgc)
+* [440:    Record Patterns](Java21/jep440-record-partterns)
 * 441:    Pattern Matching for switch
 * 442:    Foreign Function & Memory API (Third Preview)
 * 443:    Unnamed Patterns and Variables (Preview)
@@ -73,9 +74,9 @@ sticky: true
 
 ## Java 18(GA 2022/03/22)
 
-* [400:    UTF-8 by Default](java18/jep400-utf8-by-default)
-* [408:    Simple Web Server](java18/jep408-simple-web-server)
-* [413:    Code Snippets in Java API Documentation](java18/jep413-code-snippets-in-api-documentation)
+* [400:    UTF-8 by Default](Java18/jep400-utf8-by-default)
+* [408:    Simple Web Server](Java18/jep408-simple-web-server)
+* [413:    Code Snippets in Java API Documentation](Java18/jep413-code-snippets-in-api-documentation)
 * 416:    Reimplement Core Reflection with Method Handles
 * 417:    Vector API (Third Incubator)
 * 418:    Internet-Address Resolution SPI
@@ -91,9 +92,9 @@ sticky: true
 * 391:    macOS/AArch64 Port
 * 398:    Deprecate the Applet API for Removal
 * 403:    Strongly Encapsulate JDK Internals
-* [406:    Pattern Matching for switch (Preview)](java17/jep406-pattern-matching-for-switch-preview)
+* [406:    Pattern Matching for switch (Preview)](Java17/jep406-pattern-matching-for-switch-preview)
 * 407:    Remove RMI Activation
-* [409:    Sealed Classes](java17/jep409-sealed-classes)
+* [409:    Sealed Classes](Java17/jep409-sealed-classes)
 * 410:    Remove the Experimental AOT and JIT Compiler
 * 411:    Deprecate the Security Manager for Removal
 * 412:    Foreign Function & Memory API (Incubator)
@@ -115,8 +116,8 @@ sticky: true
 * 390:    Warnings for Value-Based Classes
 * 392:    Packaging Tool
 * 393:    Foreign-Memory Access API (Third Incubator)
-* [394:    Pattern Matching for instanceof](java16/jep394-pattern-matching-for-instanceof)
-* [395:    Records](java16/jep395-records)
+* [394:    Pattern Matching for instanceof](Java16/jep394-pattern-matching-for-instanceof)
+* [395:    Records](Java16/jep395-records)
 * 396:    Strongly Encapsulate JDK Internals by Default
 * 397:    Sealed Classes (Second Preview)
 
@@ -124,13 +125,13 @@ sticky: true
 
 * 339:    Edwards-Curve Digital Signature Algorithm (EdDSA)
 * 360:    Sealed Classes (Preview)
-* [371:    Hidden Classes](java15/jep371-hidden-classes)
+* [371:    Hidden Classes](Java15/jep371-hidden-classes)
 * 372:    Remove the Nashorn JavaScript Engine
 * 373:    Reimplement the Legacy DatagramSocket API
 * 374:    Disable and Deprecate Biased Locking
 * 375:    Pattern Matching for instanceof (Second Preview)
 * 377:    ZGC: A Scalable Low-Latency Garbage Collector
-* [378:    Text Blocks](java15/jep378-text-blocks)
+* [378:    Text Blocks](Java15/jep378-text-blocks)
 * 379:    Shenandoah: A Low-Pause-Time Garbage Collector
 * 381:    Remove the Solaris and SPARC Ports
 * 383:    Foreign-Memory Access API (Second Incubator)
@@ -146,7 +147,7 @@ sticky: true
 * 352:    Non-Volatile Mapped Byte Buffers
 * 358:    Helpful NullPointerExceptions
 * 359:    Records (Preview)
-* [361:    Switch Expressions (Standard)](java14/jep361-switch-expressions)
+* [361:    Switch Expressions (Standard)](Java14/jep361-switch-expressions)
 * 362:    Deprecate the Solaris and SPARC Ports
 * 363:    Remove the Concurrent Mark Sweep (CMS) Garbage Collector
 * 364:    ZGC on macOS
@@ -181,7 +182,7 @@ sticky: true
 * 309: Dynamic Class-File Constants
 * 315: Improve Aarch64 Intrinsics
 * 318: Epsilon: A No-Op Garbage Collector
-* [320: Remove the Java EE and CORBA Modules](java11/jep320-remove-JavaEE-CORBA)
+* [320: Remove the Java EE and CORBA Modules](Java11/jep320-remove-JavaEE-CORBA)
 * 321: HTTP Client (Standard)
 * 323: Local-Variable Syntax for Lambda Parameters
 * 324: Key Agreement with Curve25519 and Curve448
@@ -197,13 +198,13 @@ sticky: true
 
 ## Java 10(GA 2018/03/20)
 
-* [286: Local-Variable Type Inference](java10/jep286-local-variable-type-inference)
+* [286: Local-Variable Type Inference](Java10/jep286-local-variable-type-inference)
 * 296: Consolidate the JDK Forest into a Single Repository
 * 304: Garbage-Collector Interface
 * 307: Parallel Full GC for G1
 * 310: Application Class-Data Sharing
 * 312: Thread-Local Handshakes
-* 313: Remove the Native-Header Generation Tool (javah)
+* 313: Remove the Native-Header Generation Tool (Javah)
 * 314: Additional Unicode Language-Tag Extensions
 * 316: Heap Allocation on Alternative Memory Devices
 * 317: Experimental Java-Based JIT Compiler
@@ -232,7 +233,7 @@ sticky: true
 * 219: Datagram Transport Layer Security (DTLS)
 * 220: Modular Run-Time Images
 * 221: Simplified Doclet API
-* [222: jshell: The Java Shell (Read-Eval-Print Loop)](java9/jep222-jshell)
+* [222: jshell: The Java Shell (Read-Eval-Print Loop)](Java9/jep222-jshell)
 * 223: New Version-String Scheme
 * 224: HTML5 Javadoc
 * 225: Javadoc Search
