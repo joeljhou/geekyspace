@@ -102,6 +102,9 @@ enum Color { RED, GREEN, BLUE }
 record ColoredPoint(Point p, Color c) {}
 record Rectangle(ColoredPoint upperLeft, ColoredPoint lowerRight) {}
 
+Rectangle r = new Rectangle(new ColoredPoint(new Point(x1, y1), c1), 
+                            new ColoredPoint(new Point(x2, y2), c2));
+
 // Java 16 之前
 static void printUpperLeftColoredPoint(Rectangle r) {
     if (r instanceof Rectangle(ColoredPoint ul, ColoredPoint lr)) {
@@ -116,6 +119,8 @@ static void printUpperLeftColoredPoint(Rectangle r) {
     }
 }
 ```
+
+嵌套模式允许我们使用与将其组合的代码一样清晰简洁的代码来拆解聚合。
 
 ## 发展脉络
 
