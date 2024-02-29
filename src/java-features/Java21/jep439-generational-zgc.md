@@ -136,17 +136,3 @@ $ java -XX:+UseZGC -XX:-ZGenerational
 ```
 
 计划在更晚的版本中完全删除非分代ZGC。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
