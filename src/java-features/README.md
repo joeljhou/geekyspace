@@ -40,7 +40,7 @@ sticky: true
 * [431:    Sequenced Collections](Java21/jep431-sequenced-collections)
 * [439:    Generational ZGC](Java21/jep439-generational-zgc)
 * [440:    Record Patterns](Java21/jep440-record-partterns)
-* 441:    Pattern Matching for switch
+* [441:    Pattern Matching for switch](Java21/jep441-pattern-matching-for-switch)
 * 442:    Foreign Function & Memory API (Third Preview)
 * 443:    Unnamed Patterns and Variables (Preview)
 * 444:    Virtual Threads

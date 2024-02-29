@@ -12,6 +12,7 @@ export default sidebar({
                 {text: "有序集合", link: "jep431-sequenced-collections"},
                 {text: "分代ZGC", link: "jep439-generational-zgc"},
                 {text: "记录模式", link: "jep440-record-partterns"},
+                {text: "switch模式匹配", link: "jep441-pattern-matching-for-switch"},
             ],
         },
         {
