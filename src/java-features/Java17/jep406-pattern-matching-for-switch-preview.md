@@ -171,6 +171,7 @@ static void test(Object o) {
 ```
 
 由空标签产生的新标签形式， JDK 16中，`switch`块支持两种风格，
+
 1. `:` 形式，允许`fallthrough`，多个标签通常写为`case l1: case l2:`
 2. `->`形式，不允许`fallthrough`，多个标签写为`case l1, l2->`
 
@@ -219,6 +220,14 @@ static void test(Object o) {
         case String s                      -> ...
     }
 }
+```
+
+## 启用预览功能
+
+Preview阶段的功能并不是默认开启的，需要在编译和运行时启用。
+
+```shell
+java --enable-preview --source 17 PatternMatching.java
 ```
 
 
