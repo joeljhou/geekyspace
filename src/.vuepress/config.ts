@@ -12,6 +12,23 @@ export default defineUserConfig({
 
     theme,
 
+    head: [
+        // 添加百度统计代码
+        [
+            "script",
+            {},
+            `
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?c3b455c45c9c9b349e7d28e7e13e950f";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+            })();
+            `
+        ]
+    ],
+
     plugins: [
         // 搜索插件
         docsearchPlugin({
