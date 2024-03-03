@@ -14,7 +14,7 @@ order: 441
 # Java 21 新特性：switch模式匹配
 
 Java 21 引入了 switch 模式匹配功能，它增强了 switch 语句的功能，允许使用更简洁的语法来执行类型检查和数据提取。
-该功能与[记录模式（JEP 440）](/java-features/Java21/jep440-record-partterns.html)共同发展，并与之有相当大的互动。
+该功能与[记录模式（JEP 440）](/java-features/Java21/jep440-record-partterns)共同发展，并与之有相当大的互动。
 
 
 ## switch + instanceof

@@ -1,5 +1,5 @@
 ---
-title: Java 21 新特性：记录模式（Record Patterns）
+title: Java 21 新特性：记录模式
 description:
 author: 会敲代码的程序猿
 isOriginal: true
@@ -18,7 +18,7 @@ Java 21 中的**记录模式**（Record Patterns）是对模式匹配的扩展�
 
 ## 仅仅是类型匹配
 
-到目前为止，Java中的模式匹配主要局限于匹配类型：[instanceof类型匹配](/java-features/Java16/jep394-pattern-matching-for-instanceof.html)
+到目前为止，Java中的模式匹配主要局限于匹配类型：[instanceof类型匹配](/java-features/Java16/jep394-pattern-matching-for-instanceof)
 
 ```java
 // Java 16 之前
@@ -34,7 +34,7 @@ if (obj instanceof String str) {
 ```
 
 Java
-21扩展了这个概念，使其可用于switch语句和表达式: [switch的模式匹配](/java-features/Java21/jep441-pattern-matching-for-switch.html)
+21扩展了这个概念，使其可用于switch语句和表达式: [switch的模式匹配](/java-features/Java21/jep441-pattern-matching-for-switch)
 
 ```java
 // JAVA 21之前

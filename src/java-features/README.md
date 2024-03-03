@@ -43,7 +43,7 @@ sticky: true
 * [441:    Pattern Matching for switch](Java21/jep441-pattern-matching-for-switch)
 * 442:    Foreign Function & Memory API (Third Preview)
 * 443:    Unnamed Patterns and Variables (Preview)
-* 444:    Virtual Threads
+* [444:    Virtual Threads](Java21/jep444-virtual-threads)
 * 445:    Unnamed Classes and Instance Main Methods (Preview)
 * 446:    Scoped Values (Preview)
 * 448:    Vector API (Sixth Incubator)

@@ -13,6 +13,7 @@ export default sidebar({
                 {text: "分代ZGC", link: "jep439-generational-zgc.html"},
                 {text: "记录模式", link: "jep440-record-partterns.html"},
                 {text: "switch模式匹配", link: "jep441-pattern-matching-for-switch.html"},
+                {text: "虚拟线程", link: "jep444-virtual-threads.html"},
             ],
         },
         {
