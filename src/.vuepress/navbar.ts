@@ -36,19 +36,9 @@ export default navbar([
         // icon: "spring",
         children: [
             {
-                text: "Spring Boot 教程",
+                text: "Spring Data JPA",
                 icon: "spring",
-                link: "spring-boot/",
-            },
-            {
-                text: "Spring Cloud 教程",
-                icon: "spring",
-                link: "spring-cloud/",
-            },
-            {
-                text: "Spring Cloud Alibaba 教程",
-                icon: "spring",
-                link: "spring-cloud-alibaba/",
+                link: "spring-data-jpa/",
             },
         ]
     },
