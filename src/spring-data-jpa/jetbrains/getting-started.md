@@ -194,7 +194,7 @@ Spring Data JPA 会为你处理这些！你只需要定义你的 Repository 接�
 例如，如果我们尝试创建一个用于查询具有不正确 `LName` 属性的员工的方法，IntelliJ IDEA
 会给出一个错误，说`Cannot resolve property LName`。
 
-![Method Signature Validation](https://www.jetbrains.com/guide/assets/MethodSignatureValidation-9e703516.png)
+![Method Signature Validation](http://img.geekyspace.cn/pictures/2024/202403032330980.png)
 
 最终，你的 EmployeeRepository 接口应该如下所示：
 
@@ -219,7 +219,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 在我们的 application.properties 文件中，我们可以利用 IntelliJ IDEA 的建议来指定连接到我们的 H2 数据库所需的属性。
 我们将开始输入 ==url==，并从建议列表中选择 ==spring.datasource.url== 属性。
 
-![Application Properties URL](https://www.jetbrains.com/guide/assets/ApplicationProperties-9272e3ae.png)
+![Application Properties URL](http://img.geekyspace.cn/pictures/2024/202403032332643.png)
 
 如果你没有使用 H2 作为你的数据库，你可以在这里指定你自己的数据库 URL。
 在我们的情况下，我们将指定 ==jdbc:h2:file:./data/myDB== 作为我们的 URL，这将创建一个名为 ==myDB== 的 H2 数据库。
@@ -301,7 +301,7 @@ IntelliJ IDEA[数据库连接帮助页面](https://www.jetbrains.com/help/java/c
 要创建我们的H2数据源，我们将打开数据库工具窗口（**View | Tool Windows | Database**），然后点击`+`按钮。
 有多种方式可以创建我们的连接。我们将使用**Data source from URL**选项。
 
-![New Database](https://www.jetbrains.com/guide/assets/NewDatabase-616f8402.png)
+![New Database](http://img.geekyspace.cn/pictures/2024/202403032330533.png)
 
 我们将输入我们的数据库URL：==jdbc:h2:file:./data/myDB==，然后点击确定。
 
@@ -309,7 +309,7 @@ IntelliJ IDEA[数据库连接帮助页面](https://www.jetbrains.com/help/java/c
 我们将输入在我们的`application.properties`文件中设置的用户和密码（==sa==，==password==）。
 如果你收到有关缺少H2驱动程序的警告，请点击下载缺失的驱动程序文件。
 
-![Data Source myDB Config](https://www.jetbrains.com/guide/assets/IJConfigMyDB-37a8e177.png)
+![Data Source myDB Config](http://img.geekyspace.cn/pictures/2024/202403032332971.png)
 
 **可选步骤**：在选项选项卡下，启用“设置后自动断开连接”，并将其设置为在3秒后断开连接。
 此设置将断开IntelliJ IDEA中的数据库并释放所有锁定，使我们应用程序的进程可以持续连接并写入数据库。
@@ -318,13 +318,13 @@ IntelliJ IDEA[数据库连接帮助页面](https://www.jetbrains.com/help/java/c
 
 然后，我们将点击“**Test Connection**”以确保我们的配置是有效的。
 
-![Data Source Config Options](https://www.jetbrains.com/guide/assets/IJConfigOptions-166a29d9.png)
+![Data Source Config Options](http://img.geekyspace.cn/pictures/2024/202403032331974.png)
 
 一旦我们点击"**OK**"，我们就会看到一个新的数据源，用于我们的H2数据库。
 
 最终结果 ，在数据库视图中，我们现在可以导航到我们的Employee表，并通过双击表格查看所有员工数据。
 
-![Database View](http://img.geekyspace.cn/pictures/2024/202403032235746.png)
+![Database View](http://img.geekyspace.cn/pictures/2024/202403032331767.png)
 
 ## 调用自定义查询
 
@@ -371,7 +371,6 @@ public CommandLineRunner run(EmployeeRepository repository) {
 * [(documentation) Explore Spring support features](https://www.jetbrains.com/help/idea/spring-support-tutorial.html)
 * [(documentation) Database Connection in IntelliJ IDEA](https://www.jetbrains.com/help/idea/connecting-to-a-database.html)
 * [(video) Getting started with Spring Data JPA](https://www.youtube.com/watch?v=wuX2ESOy-Ts)
-
 
 
 
