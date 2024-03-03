@@ -195,9 +195,12 @@ switch (o) {
 
 ## 保护模式和括号模式
 
-为了提高代码可读性，引入了 **guarded patterns**`(p && e)` 和 **parenthesized patterns**`(p)`，其中`p`是模式，`e`是布尔表达式。
+为了增强代码的可读性并避免歧义，引入了两种新的模式匹配技术：
 
-如下示例代码存在可读性问题：
+* 保护模式 (guarded patterns)，允许在模式匹配成功后添加一个布尔表达式
+* 括号模式 (parenthesized patterns)，将模式放在括号中，避免歧义，控制顺序
+
+在成功匹配模式后，我们经常会进一步测试匹配结果。这会导致代码变得繁琐，例如：
 
 ```java
 static void test(Object o) {
@@ -211,16 +214,18 @@ static void test(Object o) {
 }
 ```
 
-使用**guarded patterns**改进，允许在 `case` 标签中结合模式和布尔表达式，使条件逻辑更加清晰：
+使用**保护模式**，写成`p && e`改进上面的代码，使其更加简洁
 
 ```java
 static void test(Object o) {
     switch (o) {
-        case String s && (s.length() == 1) -> ...
-        case String s                      -> ...
+        case String s && s.length() == 1 -> ...
+        case String s                    -> ...
     }
 }
 ```
+
+> JDK 17中还加入了**括号模式**，以避免解析歧义。支持括号内写入`(p)` 其中p是一个模式。在JDK 21中，括号模式被移除。
 
 ## 启用预览功能
 
@@ -229,6 +234,3 @@ Preview阶段的功能并不是默认开启的，需要在编译和运行时启�
 ```shell
 java --enable-preview --source 17 PatternMatching.java
 ```
-
-
-
