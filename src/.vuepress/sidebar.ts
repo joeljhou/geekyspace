@@ -87,7 +87,7 @@ export default sidebar({
     "/spring-data-jpa/": [
         {text: "总目录", prefix: "/spring-data-jpa/", link: "/spring-data-jpa/",},
         {
-            text: "快速启动", prefix: "jetbrains/", link: "jetbrains/quick-start",
+            text: "快速入门", prefix: "jetbrains/", link: "jetbrains/getting-started",
         },
     ],
 });
