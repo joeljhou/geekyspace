@@ -14,7 +14,10 @@ order: 1
 
 > 目标： 了解如何使用Spring Data JPA从数据库中存储和检索数据。
 
-参考：[Jetbrains 官方文档](https://www.jetbrains.com/guide/java/tutorials/getting-started-spring-data-jpa/)
+参考：
+
+* [Spring Data JPA 官方文档](https://docs.spring.io/spring-data/jpa/reference/jpa/getting-started.html)
+* [Jetbrains 官方文档](https://www.jetbrains.com/guide/java/tutorials/getting-started-spring-data-jpa/)
 
 ## 介绍
 
@@ -100,8 +103,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Employee {
-    @Id
-    @GeneratedValue
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
@@ -353,12 +356,12 @@ public CommandLineRunner run(EmployeeRepository repository) {
 
 一些在教程中提到的有用的快捷方式包括：
 
-| Name                      | Windows Shortcut | macOS Shortcut |
-| ------------------------- | ---------------- | -------------- |
+| Name          | Windows Shortcut | macOS Shortcut |
+|---------------|------------------|----------------|
 | 创建类并生成构造函数/方法 | Alt+Insert       | ⌘N             |
-| 上下文感知代码完成        | Ctrl+Space       | ⌃Space         |
-| 到处搜索                  | Shift+Shift      | Shift+Shift    |
-| 运行你的应用程序          | Shift+F10        | ⌃R             |
+| 上下文感知代码完成     | Ctrl+Space       | ⌃Space         |
+| 到处搜索          | Shift+Shift      | Shift+Shift    |
+| 运行你的应用程序      | Shift+F10        | ⌃R             |
 
 你可以在这个[GitHub仓库](https://github.com/daliasheasha/SpringDataJPA)中找到通过这个教程创建的最终项目。
 
