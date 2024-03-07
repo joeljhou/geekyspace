@@ -7,10 +7,12 @@ import HitokotoBlogHero from "vuepress-theme-hope/presets/HitokotoBlogHero.js";
 <template>
   <BlogHero>
     <!--必应壁纸-->
-    <template #heroBg><BingHeroBackground /></template>
+    <template #heroBg>
+      <BingHeroBackground/>
+    </template>
     <!--一言描述-->
     <template #heroInfo="heroInfo">
-      <HitokotoBlogHero v-bind="heroInfo" />
+      <HitokotoBlogHero v-bind="heroInfo"/>
     </template>
   </BlogHero>
 </template>

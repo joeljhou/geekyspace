@@ -1,8 +1,11 @@
 import {getDirname, path} from "@vuepress/utils";
-import {redirectPlugin} from '@vuepress/plugin-redirect'
+import {redirectPlugin} from '@vuepress/plugin-redirect';
 import {defineUserConfig} from "vuepress";
 import {docsearchPlugin} from "@vuepress/plugin-docsearch";
 import theme from "./theme.js";
+
+// @ts-ignore
+const __dirname = getDirname(import.meta.url);
 
 export default defineUserConfig({
     base: "/",
@@ -11,23 +14,6 @@ export default defineUserConfig({
     description: "vuepress-theme-hope 的博客搭建",
 
     theme,
-
-    head: [
-        // 添加百度统计代码
-        [
-            "script",
-            {},
-            `
-            var _hmt = _hmt || [];
-            (function() {
-                var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?c3b455c45c9c9b349e7d28e7e13e950f";
-                var s = document.getElementsByTagName("script")[0]; 
-                s.parentNode.insertBefore(hm, s);
-            })();
-            `
-        ]
-    ],
 
     plugins: [
         // 搜索插件
@@ -87,9 +73,29 @@ export default defineUserConfig({
 
     alias: {
         // 必应壁纸，一言描述
-        "@theme-hope/modules/blog/components/BlogHero": path.resolve(__dirname, "./components/BlogHero.vue"),
+        "@theme-hope/modules/blog/components/BlogHero": path.resolve(
+            __dirname,
+            "./components/BlogHero.vue"),
     },
 
     // Enable it with pwa
     // shouldPrefetch: false,
+
+    head: [
+        // 添加百度统计代码
+        [
+            "script",
+            {},
+            `
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?c3b455c45c9c9b349e7d28e7e13e950f";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+            `
+        ]
+    ],
+
 });
