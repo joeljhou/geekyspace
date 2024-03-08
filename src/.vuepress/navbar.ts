@@ -38,7 +38,7 @@ export default navbar([
             {
                 text: "Spring Data JPA",
                 icon: "spring",
-                link: "spring-data-jpa/",
+                link: "spring-data-jpa/jetbrains/getting-started",
             },
         ]
     },
