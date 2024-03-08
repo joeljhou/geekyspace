@@ -57,7 +57,7 @@ export default hopeTheme({
           GitHub: "https://github.com/joeljhou",
           Gitee: "https://gitee.com/joeljhou",
           BiliBili: "https://space.bilibili.com/3546587190004175",
-          Twitter: "https://twitter.com/StrayPurpose",
+          Twitter: "https://twitter.com/tD91Ri2okMAfYno",
           Weibo: "https://weibo.com/u/7788864199",
           Zhihu: "https://www.zhihu.com/people/joeljhou",
           Rss: "./rss.xml",

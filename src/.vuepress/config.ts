@@ -2,6 +2,7 @@ import {getDirname, path} from "@vuepress/utils";
 import {redirectPlugin} from '@vuepress/plugin-redirect';
 import {defineUserConfig} from "vuepress";
 import {docsearchPlugin} from "@vuepress/plugin-docsearch";
+import {googleAnalyticsPlugin} from '@vuepress/plugin-google-analytics'
 import theme from "./theme.js";
 
 // @ts-ignore
@@ -68,6 +69,11 @@ export default defineUserConfig({
         // 设置重定向
         redirectPlugin({
             config: {},
+        }),
+        // 设置谷歌分析
+        googleAnalyticsPlugin({
+            id: "G-3L19EZ1HH8",
+            debug: true,
         }),
     ],
 
