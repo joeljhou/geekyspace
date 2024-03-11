@@ -1,3 +1,4 @@
+// config.ts   ---> 配置文件
 import {getDirname, path} from "@vuepress/utils";
 import {redirectPlugin} from '@vuepress/plugin-redirect';
 import {defineUserConfig} from "vuepress";
@@ -73,7 +74,7 @@ export default defineUserConfig({
         // 设置谷歌分析
         googleAnalyticsPlugin({
             id: "G-3L19EZ1HH8",
-            debug: true,
+            debug: false,
         }),
     ],
 

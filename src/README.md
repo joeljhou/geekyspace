@@ -4,8 +4,8 @@ layout: BlogHome
 icon: home
 title: 最新发布
 # 指定首页背景头像
-heroImage: IMG_5956.png
-heroImageDark: IMG_5956.png
+heroImage: geekyspace.png
+heroImageDark: geekyspace.png
 # 指定首页背景图片
 bgImage: /assets/bg/wallhaven-8586my.png
 bgImageDark: /assets/bg/wallhaven-o5762l.png
@@ -42,7 +42,7 @@ projects:
     desc: 适合MySQL 数据库入门的免费教程
     link: /mysql
 
-  - icon: /logo.svg
+  - icon: /vuepress-theme-hope.svg
     name: 秒懂技术专栏
     desc: 用生动的视频科普那些常见的技术概念
     link: /youtube
@@ -58,5 +58,5 @@ projects:
     link: https://youtube-dubbing.com/
 
 footer: © 2023 - 至今 <a href="https://www.geekyspace.cn/" target="_blank">www.geekyspace.cn</a> 保留所有权利
-copyrightText: Copyright © 2024 会敲代码的程序员
+copyright: Copyright © 2024 会敲代码的程序员
 ---

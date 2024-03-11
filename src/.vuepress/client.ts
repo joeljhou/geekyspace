@@ -1,8 +1,9 @@
+// client.ts   ---> 客户端配置文件
 // @ts-ignore
 import {defineClientConfig} from "vuepress/client";
 
 export default defineClientConfig({
-    enhance({router}) {
+    enhance({app, router, siteData}) {
 
         // baidu analytics
         router.beforeEach((to, from, next) => {
@@ -16,5 +17,8 @@ export default defineClientConfig({
 
             next();
         });
-    }
+    },
+    setup() {
+    },
+    rootComponents: [],
 })

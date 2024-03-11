@@ -8,6 +8,7 @@ category: Java
 tag:
   - Java
   - Java20
+sticky: true
 ---
 
 # Spring Data JPA
