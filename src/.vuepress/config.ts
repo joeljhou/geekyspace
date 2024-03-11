@@ -1,9 +1,10 @@
 // config.ts   ---> 配置文件
 import {getDirname, path} from "@vuepress/utils";
-import {redirectPlugin} from '@vuepress/plugin-redirect';
 import {defineUserConfig} from "vuepress";
+import {redirectPlugin} from '@vuepress/plugin-redirect';
 import {docsearchPlugin} from "@vuepress/plugin-docsearch";
-import {googleAnalyticsPlugin} from '@vuepress/plugin-google-analytics'
+import {googleAnalyticsPlugin} from '@vuepress/plugin-google-analytics';
+import {commentPlugin} from '@vuepress/plugin-comment';
 import theme from "./theme.js";
 
 // @ts-ignore
@@ -75,6 +76,14 @@ export default defineUserConfig({
         googleAnalyticsPlugin({
             id: "G-3L19EZ1HH8",
             debug: false,
+        }),
+        // 设置评论插件
+        commentPlugin({
+            provider: 'Giscus',
+            repo: 'joeljhou/joeljhou.github.io',
+            repoId: 'R_kgDOK4fo4g，',
+            category: 'Announcements',
+            categoryId: 'DIC_kwDOK4fo4s4Cd4Y9',
         }),
     ],
 
