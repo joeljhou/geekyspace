@@ -52,7 +52,7 @@ projects:
     desc: 写博客必备的一键扩散工具
     link: https://openwrite.cn/
 
-  - icon: http://img.geekyspace.cn/pictures/2024/202403111447465.png
+  - icon: "/youtube-dubbing.svg"
     name: Youtube配音
     desc: 观看海外免费教程的免费翻译配音软件
     link: https://youtube-dubbing.com/
