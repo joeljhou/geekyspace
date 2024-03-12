@@ -4,7 +4,8 @@ import {defineUserConfig} from "vuepress";
 import {redirectPlugin} from '@vuepress/plugin-redirect';
 import {docsearchPlugin} from "@vuepress/plugin-docsearch";
 import {googleAnalyticsPlugin} from '@vuepress/plugin-google-analytics';
-import {commentPlugin} from '@vuepress/plugin-comment';
+import {commentPlugin} from "vuepress-plugin-comment2";
+
 import theme from "./theme.js";
 
 // @ts-ignore
@@ -79,11 +80,8 @@ export default defineUserConfig({
         }),
         // 设置评论插件
         commentPlugin({
-            provider: 'Giscus',
-            repo: 'joeljhou/joeljhou.github.io',
-            repoId: 'R_kgDOK4fo4g，',
-            category: 'Announcements',
-            categoryId: 'DIC_kwDOK4fo4s4Cd4Y9',
+            // 插件选项
+            provider: "Giscus", // Artalk | Giscus | Waline | Twikoo
         }),
     ],
 
