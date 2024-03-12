@@ -20,12 +20,12 @@ projects:
   - icon: link
     name: 开发者安装大全
     desc: 好用工具、开发环境、中间件配置等安装指南
-    link: /installation-guide
+    link: /installation-guide/
 
   - icon: java
     name: Java新特性
-    desc: Java 8之后的所有新特性解读
-    link: /java-features
+    desc: 从Java 8开始所有新特性解读
+    link: /java-features/
 
   - icon: intellij-idea
     name: 玩转IDEA
@@ -35,17 +35,17 @@ projects:
   - icon: https://docs.spring.io/spring-boot/docs/current/reference/html/img/banner-logo.svg
     name: Spring Boot
     desc: 适合Spring Boot入门的免费教程
-    link: /spring-boot
+    link: /spring-boot/
 
   - icon: https://labs.mysql.com/common/logos/mysql-logo.svg
     name: MySQL教程
     desc: 适合MySQL 数据库入门的免费教程
-    link: /mysql
+    link: /mysql/
 
   - icon: /vuepress-theme-hope.svg
     name: 秒懂技术专栏
     desc: 用生动的视频科普那些常见的技术概念
-    link: /youtube
+    link: /youtube/
     
   - icon: https://openwrite.cn/logo.png
     name: OpenWrite
