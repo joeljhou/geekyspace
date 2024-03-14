@@ -95,6 +95,7 @@ factoryThread.start();
 虚拟线程是一个新的轻量级`java.lang.Thread`变体，由JVM的[Project Loom](https://openjdk.org/projects/loom/)项目实现的。
 它使用了一种称为`Continuation`的技术，不受操作系统的管理或调度。相反，JVM负责调度。
 
-![Java中虚拟线程的结构](https://images.idgesg.net/images/article/2022/10/iw-virtual-threads-100933997-large.jpg?auto=webp&quality=85,70)
+![Java中虚拟线程的结构](https://img.geekyspace.cn/pictures/2024/202403141847457.jpg)
 
-![JVM/OS线程管理=](https://belief-driven-design.com/images/2023/2023-10-05-java-21-virtual-threads-scheduler.webp)
+![JVM/OS线程管理](https://img.geekyspace.cn/pictures/2024/202403141846557.webp)
+
