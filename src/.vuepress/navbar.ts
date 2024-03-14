@@ -16,12 +16,12 @@ export default navbar([
     /*Java教程*/
     {
         text: "Java教程",
-        // icon: "java",
+        icon: "java",
         children: [
             {
                 text: "Java 8 教程",
                 icon: "java",
-                link: "https://books.didispace.com/java8-tutorial/index.html",
+                link: "https://docs.oracle.com/javase/tutorial/index.html",
             },
             {
                 text: "Java 新特性",
@@ -33,8 +33,18 @@ export default navbar([
     /*Spring教程*/
     {
         text: "Spring教程",
-        // icon: "spring",
+        icon: "spring",
         children: [
+            {
+                text: "Spring 框架",
+                icon: "spring",
+                link: "https://spring.io/projects/spring-framework",
+            },
+            {
+                text: "Spring Boot 教程",
+                icon: "spring",
+                link: "spring-boot/",
+            },
             {
                 text: "Spring Data JPA",
                 icon: "spring",

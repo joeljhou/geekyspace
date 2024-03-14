@@ -1,13 +1,15 @@
 ---
 title: Spring Data JPA
+icon: spring
 description:
 author: 会敲代码的程序猿
 isOriginal: true
-date: 2024-01-05
-category: Java
+date: 2024-04-04
+category: Spring Data
 tag:
-  - Java
-  - Java20
+  - Spring
+  - Spring Data
+  - Spring Data JPA
 sticky: true
 ---
 

@@ -83,6 +83,15 @@ export default sidebar({
             ],
         }
     ],
+    /*SpringBoot教程*/
+    "/spring-boot/": [
+        {text: "Spring Boot 教程", prefix: "/spring-boot/", link: "/spring-boot/"},
+        {
+            text: "快速入门", children: [
+                {text: "Spring Boot 入门", link: "quickstart"},
+            ]
+        },
+    ],
     /*Spring Data JPA*/
     "/spring-data-jpa/": [
         {text: "总目录", prefix: "/spring-data-jpa/", link: "/spring-data-jpa/",},
