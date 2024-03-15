@@ -38,7 +38,7 @@ export default navbar([
             {
                 text: "Spring 框架",
                 icon: "spring",
-                link: "https://spring.io/projects/spring-framework",
+                link: "spring-framework/",
             },
             {
                 text: "Spring Boot 教程",
