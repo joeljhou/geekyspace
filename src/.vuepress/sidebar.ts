@@ -85,9 +85,14 @@ export default sidebar({
     ],
     /*Spring框架教程*/
     "/spring-framework/": [
-        {text: "总目录", prefix: "/spring-framework/", link: "/spring-framework/"},
         {
-            text: "快速入门", children: [
+            text: "概述", prefix: "/spring-framework/overview/", link: "/spring-framework/overview/",
+            children: [
+                {text: "快速开始", link: "quickstart"},
+            ]
+        },
+        {
+            text: "核心技术", children: [
                 {text: "Spring 框架", link: "quickstart"},
             ]
         },

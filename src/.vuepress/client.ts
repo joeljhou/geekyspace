@@ -12,8 +12,7 @@ defineGiscusConfig({
     repoId: 'R_kgDOK4fo4g',
     category: 'Announcements',
     categoryId: 'DIC_kwDOK4fo4s4Cd4Y9',
-    mapping: 'title',
-    lightTheme: 'preferred_color_scheme',
+    mapping: 'title'
 })
 
 export default defineClientConfig({
