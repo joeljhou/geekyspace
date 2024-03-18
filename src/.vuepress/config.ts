@@ -1,5 +1,6 @@
 // config.ts   ---> 配置文件
-import {getDirname, path} from "@vuepress/utils";
+// @ts-ignore
+import {getDirname, path} from "vuepress/utils";
 import {defineUserConfig} from "vuepress";
 import {redirectPlugin} from '@vuepress/plugin-redirect';
 import {docsearchPlugin} from "@vuepress/plugin-docsearch";

@@ -128,7 +128,7 @@ public class SpringBootTutorialApplication {
 
 ![image-20240316015405566](http://img.geekyspace.cn/pictures/2024/image-20240316015405566.png)
 
-## 接下来呢？
+## 下一个教程
 
 这个简单的应用程序演示了如何开始使用 Spring。 要了解 IntelliJ IDEA 如何帮助你编写代码并在运行时管理应用程序，
 请参考下一个教程，该教程重点介绍更高级的 [Spring 支持功能](https://www.jetbrains.com/help/idea/spring-support-tutorial.html)。
