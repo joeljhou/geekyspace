@@ -19,7 +19,7 @@ tag:
 容器通过读取==配置元数据==来获取指令，从而确定要实例化、配置和组装哪些对象。
 配置元数据可以用 `XML`、`Java注解`或`Java代码`表示， 用于描述应用程序中的对象及它们之间的复杂相互依赖关系。
 
-## 实现类
+## ApplicationContext实现类
 
 Spring 提供了多个 `ApplicationContext` 接口的实现类
 
@@ -29,7 +29,7 @@ Spring 提供了多个 `ApplicationContext` 接口的实现类
 虽然 `XML` 一直是定义==配置元数据==的传统格式， 但通过提供少量的 `XML` 配置，您可以声明性地启用对`Java注解`或`Java代码`
 作为元数据格式的支持，从而更灵活地定义应用程序的配置信息。
 
-## 初始化
+## 初始化IoC容器
 
 在大多数应用场景中，无需手动编写代码来实例化**Spring IoC**容器
 
@@ -76,6 +76,11 @@ Spring框架传统上使用`XML`文件来配置`ApplicationContext`，以下是�
 有关在`Spring`容器中使用其他形式的元数据信息，请参阅：
 
 * [基于XML的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-properties-detailed.html)
-* [基于注解的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config.html)
-* [基于Java的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/java.html)
+* [基于注解的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config.html)（Spring
+  2.5开始支持）
+* [基于Java的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/java.html)（Spring 3.0开始支持）
 * 等等
+
+## 实例化容器
+
+* [链接](https://docs.spring.io/spring-framework/reference/core/beans/basics.html#beans-factory-instantiation)
