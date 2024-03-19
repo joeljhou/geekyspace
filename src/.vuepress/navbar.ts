@@ -62,7 +62,8 @@ export default navbar([
     {
         text: "玩转IDEA",
         icon: "intellij-idea",
-        link: "idea-tips/",
+        // link: "idea-tips/",
+        link: "https://www.jetbrains.com/help/idea/getting-started.html",
     },
     /*文库汇总*/
     {
