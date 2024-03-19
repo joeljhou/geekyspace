@@ -1,6 +1,5 @@
 ---
 title: Bean 定义
-icon: spring
 author: 会敲代码的程序猿
 isOriginal: true
 date: 2024-03-18
