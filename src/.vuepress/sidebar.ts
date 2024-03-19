@@ -95,6 +95,7 @@ export default sidebar({
             text: "核心技术", prefix: "/spring-framework/core/", link: "/spring-framework/core/",
             children: [
                 {text: "IoC 容器", link: "ioc-container"},
+                {text: "Bean 定义", link: "bean-definition"},
             ]
         },
     ],
