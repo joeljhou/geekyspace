@@ -10,7 +10,6 @@ tag:
   - Spring
   - Spring Data
   - Spring Data JPA
-sticky: true
 ---
 
 # Spring Data JPA
