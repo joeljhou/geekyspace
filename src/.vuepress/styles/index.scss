@@ -1,6 +1,6 @@
-// 解决当前Chrome最新版本 122.0.6261.94（正式版本） (arm64) 页面字体加粗问题
+// 解决当前Chrome页面字体加粗问题，移除‘STHeiti’字体
 body {
-  font-family: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Microsoft YaHei", SimSun, sans-serif;
 }
 
 /* 圆角和溢出隐藏适用于导航栏logo、博客英雄图片和博主头像 */
