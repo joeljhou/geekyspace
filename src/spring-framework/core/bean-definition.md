@@ -9,4 +9,10 @@ tag:
   - Spring Framework
 ---
 
-## Bean 定义
+# Bean 定义
+
+## 概述
+
+`Spring`框架的核心是`Bean`，`Bean`是`Spring`框架的基本构建块。
+`Bean`是由`Spring`容器管理的对象。`Bean`是一个被实例化、组装和管理的对象。
+

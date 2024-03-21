@@ -8,6 +8,8 @@ category: Spring
 tag:
   - Spring
   - Spring Framework
+star: true
+sticky: true
 ---
 
 # Spring Framework 概述
