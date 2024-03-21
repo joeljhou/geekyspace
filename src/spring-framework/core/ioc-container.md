@@ -13,12 +13,13 @@ tag:
 
 ## 概述
 
-> `org.springframework.context.ApplicationContext` 接口代表了**Spring IoC**容器，负责实例化、配置和组装`Bean`
+> Spring IoC（控制反转）容器是Spring框架的核心。
+> 由 `org.springframework.context.ApplicationContext`接口表示，负责实例化、配置和组装`Bean`。
 
 容器通过读取==配置元数据==来获取指令，从而确定要实例化、配置和组装哪些对象。
 配置元数据可以用 `XML`、`Java注解`或`Java代码`表示， 用于描述应用程序中的对象及它们之间的复杂相互依赖关系。
 
-## ApplicationContext实现类
+## ApplicationContext
 
 Spring 提供了多个 `ApplicationContext` 接口的实现类
 
