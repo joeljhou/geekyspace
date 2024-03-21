@@ -111,3 +111,9 @@ html[data-theme=dark] {
     color: #e6edf3;
   }
 }
+
+// 背景图片遮罩
+[data-theme=dark] .vp-blog-hero .vp-blog-mask:after {
+  background: #000;
+  opacity: .7 !important;
+}
