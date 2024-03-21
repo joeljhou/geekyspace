@@ -84,20 +84,20 @@ thead, tbody, tfoot, tr, td, th {
  */
 // 背景颜色：#1b1f23
 html[data-theme=dark] {
-  --text-color: #fff; /*页面字体颜色*/
+  --text-color: #e6edf3; /*页面字体颜色*/
   --bg-color: #1b1f23; /*页面背景颜色*/
   --bg-color-blur: #1b1f23; /*侧边栏背景颜色*/
   --border-color: #30363d; /*页面边框线条颜色*/
-  --dark-grey: #fff; /*图标颜色*/
-  --light-grey: #fff;
+  --dark-grey: #e6edf3; /*图标颜色*/
+  --light-grey: #e6edf3;
 
   .vp-project-name {
-    color: #fff;
+    color: #e6edf3;
   }
 
   //文章，分类，标签，时间轴标签颜色
   .vp-blog-type-button {
-    color: #fff;
+    color: #e6edf3;
   }
 }
 
@@ -108,6 +108,6 @@ html[data-theme=dark] {
   }
 
   html[data-theme=dark] & {
-    color: #fff;
+    color: #e6edf3;
   }
 }
