@@ -62,6 +62,17 @@ table th {
   text-align: left;
 }
 
+// 鼠标悬停时改变行颜色
+tr:hover {
+  html[data-theme=light] & {
+    background-color: #ebebeb;
+  }
+
+  html[data-theme=dark] & {
+    background-color: #30363d;
+  }
+}
+
 // 去除“表格”的边框，看起来更加美观
 thead, tbody, tfoot, tr, td, th {
   border-width: 0 0 1px 0;
@@ -82,6 +93,12 @@ thead, tbody, tfoot, tr, td, th {
 /**
  * ========== 夜间模式显示优化 ==========
  */
+// 夜间模式背景图片遮罩
+[data-theme=dark] .vp-blog-hero .vp-blog-mask:after {
+  background: #000;
+  opacity: .7 !important;
+}
+
 // 背景颜色：#1b1f23
 html[data-theme=dark] {
   --text-color: #e6edf3; /*页面字体颜色*/
@@ -94,30 +111,5 @@ html[data-theme=dark] {
   --sidebar-bg-color: #1b1f23;
   --bg-color-back: #1b1f23;
   --bg-color-blur: #1b1f23;
-
-  //.vp-project-name {
-  //  color: #e6edf3;
-  //}
-
-  //文章，分类，标签，时间轴标签颜色
-  .vp-blog-type-button {
-    color: #e6edf3;
-  }
-}
-
-// 右侧目录
-.vp-toc-link {
-  html[data-theme=light] & {
-    color: #999;
-  }
-
-  html[data-theme=dark] & {
-    color: #e6edf3;
-  }
-}
-
-// 背景图片遮罩
-[data-theme=dark] .vp-blog-hero .vp-blog-mask:after {
-  background: #000;
-  opacity: .7 !important;
+  --bg-color-float: #1b1f23; /*首页个人简介等卡片背景颜色*/
 }
