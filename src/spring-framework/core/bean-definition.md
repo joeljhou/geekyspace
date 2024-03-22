@@ -78,7 +78,6 @@ tag:
 在XML配置文件中，可以使用`<constructor-arg>`元素指定构造函数的参数来实例化Bean对象。例如：
 
 ```xml
-
 <bean id="myBean" class="com.example.MyBean">
     <constructor-arg value="parameterValue" type="java.lang.String"/>
 </bean>
@@ -95,7 +94,6 @@ tag:
 可以使用`<bean>`元素的`factory-method`属性指定静态工厂方法来实例化Bean对象。例如：
 
 ```xml
-
 <bean id="myBean" class="com.example.MyBeanFactory" factory-method="createInstance"/>
 ```
 
@@ -106,7 +104,6 @@ tag:
 可以使用`<bean>`元素的`factory-bean`属性和`factory-method`属性结合起来使用实例工厂方法来实例化Bean对象。例如：
 
 ```xml
-
 <bean id="myBeanFactory" class="com.example.MyBeanFactory"/>
 <bean id="myBean" factory-bean="myBeanFactory" factory-method="createInstance"/>
 ```
