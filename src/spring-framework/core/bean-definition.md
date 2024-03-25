@@ -110,7 +110,7 @@ tag:
 
 在`MyBeanFactory`类中，有一个非静态的`createInstance`方法返回MyBean对象。
 
-## 确定Bean的运行时类型
+### 确定Bean的运行时类型
 
 确定特定bean的==运行时类型==并非易事。
 

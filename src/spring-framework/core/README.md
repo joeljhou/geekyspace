@@ -6,7 +6,6 @@ isOriginal: true
 date: 2024-03-18
 category: Spring
 tag:
-
   - Spring
   - Spring Framework
 ---
@@ -27,17 +26,29 @@ Spring 框架的核心技术主要包括：
 * SpEL（Spring Expression Language）
 * **面向切面编程（AOP）**
 
-其中最重要的技术之一是Spring框架的==控制反转（IOC）== 容器，它是Spring框架的核心。
-紧随其后的是Spring框架的==面向切面编程（AOP）== 技术。
+## Spring IoC容器和Bean简介
 
-## AOP支持
+**Spring IoC（控制反转）** 也被称为**依赖注入（DI）**。
 
-Spring框架独有的AOP框架采用基于代理的实现方式，这种方式使AOP
-概念易于理解，并且成功地满足了Java企业编程中80%的AOP需求。
-此外，Spring 可以与`AspectJ`无缝集成，后者是Java企业领域功能最丰富、最成熟的 AOP 实现之一。
+它是一个过程，对象仅通过构造函数参数、工厂方法参数 或在 构造函数或工厂方法实例化后设置的属性来定义它们的依赖关系。
+在IoC容器创建bean时，它会注入这些依赖项。 这个过程对象不再通过直接构造依赖项或使用服务定位器模式等方式来控制其实例化或位置，
+而是交由IoC容器来管理，因此称为**控制反转**。
 
-## AOT（Ahead-of-Time）处理
+[org.springframework.beans](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/beans/factory/BeanFactory.html)
+和 [org.springframework.context](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/context/ApplicationContext.html)
+包是Spring Framework的IoC容器的基础。
+[BeanFactory](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/beans/factory/BeanFactory.html)
+接口提供了一种高级配置机制，能够管理任何类型的`object`对象。
+[ApplicationContext](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/context/ApplicationContext.html)
+是 BeanFactory 的一个子接口。它增加了：
 
-`AOT（Ahead-of-Time）`处理用于优化应用程序的性能。通常用于使用`GraalVM`进行本地图像部署。
-通过AOT编译，应用程序可以在启动时更快地启动和执行，提高了应用程序的响应速度和资源利用率。
+* 与Spring的AOP特性更好的集成
+* `Message resource`消息资源处理（用于国际化）
+* `Event publication`事件发布
+* 应用层特定的上下文，例如Web应用程序的`WebApplicationContext`
 
+简而言之，`BeanFactory` 提供了配置框架和基本功能，`ApplicationContext` 添加了更多企业特定的功能。
+`ApplicationContext` 是 `BeanFactory` 的一个超集。 在特别要求轻量级应用程序的情况下，可以考虑使用`BeanFactory`。
+
+想要了解 BeanFactory
+请参阅 [BeanFactory API](https://docs.spring.io/spring-framework/reference/core/beans/beanfactory.html) 。
