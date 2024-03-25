@@ -14,16 +14,15 @@ tag:
 ## 概述
 
 > 构建应用程序主干并由Spring IoC 容器管理的对象称为 Bean。
-> 由`org.springframework.beans.factory.config.BeanDefinition` 接口表示，定义了Bean的配置元数据。
+>
+> 在容器中，Bean的定义表示为`org.springframework.beans.factory.config.BeanDefinition`对象。
 
-## BeanDefinition
+**BeanDefinition包含以下元数据：**
 
-`BeanDefinition` 包含以下元数据：
-
-* Bean的包限定类名
-* Bean的行为配置元素，例如作用域、生命周期回调等
-* Bean的依赖关系
-* 其他配置信息（如：管理连接池的Bean可以配置池的大小，连接数量等）
+* **全路径类名**：通常，被定义为Bean的实现类
+* **行为配置元素**：说明了Bean在容器中的行为方式，例如作用域scope、生命周期回调等
+* **依赖关系**：描述Bean与其他Bean之间的依赖关系，包括依赖注入，依赖查找等
+* 其他配置信息：如：管理连接池的Bean可以配置pool的大小限制，使用的连接数量等
 
 该元数据转换为组成每个bean定义的一组属性。 下表介绍了这些属性：
 
@@ -41,33 +40,32 @@ tag:
 
 ## 命名Beans
 
-在Spring IoC容器中，每个Bean都必须有一个==唯一的标识符==。
+在Spring IoC容器中，每个Bean都必须有一个==唯一的标识符==（identifier），如果需要一个以上的标识符，多余的标识符可以被视为==别名==。
 
-**基于XML的配置元数据中**
+**基于XML的配置元数据**
 
-使用`id`属性、`name`属性为Bean命名（默认采取小写字母开头的驼峰命名法），通过`ref`属性引用其他Bean
+可以使用`id`属性、`name`属性来指定Bean标识符（默认采取小写字母开头的驼峰命名法）
 
-```xml
-<!-- 示例XML配置 -->
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+| 属性/元素   | 描述                                     |
+|---------|----------------------------------------|
+| `id`    | Bean的唯一标识符；                            |
+| `name`  | Bean的别名，可以有多个别名；用逗号（`,`）、分号（`;`）或空格分隔  |
+| `alias` | 与name作用相同，都是用于指定Bean的别名（Spring 5.0中废弃） |
+| `ref`   | 引用其他Bean                               |
 
-    <!-- 命名Bean并引用其他Bean -->
-    <bean id="userService" class="com.example.UserService">
-        <property name="userRepository" ref="userRepo"/>  <!-- 使用别名引用 Bean -->
-    </bean>
+建议为每个Bean提供一个唯一的`id`属性，以便使用`ref`属性引用该Bean。
+不提供名称的动机与使用[内部Bean](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-properties-detailed.html#beans-inner-beans)
+和[自动装配协作者](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-autowire.html)有关
 
-    <bean id="userRepository" class="com.example.UserRepository"/>
-    <!-- 使用别名定义 Bean -->
-    <alias name="userRepository" alias="userRepo"/>
-</beans>
-```
+**使用Introspector生成默认Bean名称**
 
-> 如果使用Java Configuration，则可以使用`@Bean`注解为Bean命名。
->
-> 详细信息请参阅[使用@Bean注释](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html)。
+在classpath中的组件扫描，Spring会自动为为命名的组件按照`java.beans.Introspector`的规则生成一个默认的bean名称
+
+* 默认将类名的转为==小写字母开头的驼峰命名法==；如`com.example.MyBean`类的默认bean名称是`myBean`
+* 特殊的，如果类名的第一个和第二个字符都是大写字母，则 Spring 会保留原始的大小写; 例如：`URL`类的默认bean名称还是`URL`
+
+> 如果你使用**Java配置**，`@Bean` 注解可以被用来提供别名。
+> 参阅 [使用@Bean注释](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html)。
 
 ## 实例化Bean
 
@@ -78,6 +76,7 @@ tag:
 在XML配置文件中，可以使用`<constructor-arg>`元素指定构造函数的参数来实例化Bean对象。例如：
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <bean id="myBean" class="com.example.MyBean">
     <constructor-arg value="parameterValue" type="java.lang.String"/>
 </bean>
@@ -94,6 +93,8 @@ tag:
 可以使用`<bean>`元素的`factory-method`属性指定静态工厂方法来实例化Bean对象。例如：
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
 <bean id="myBean" class="com.example.MyBeanFactory" factory-method="createInstance"/>
 ```
 
@@ -104,6 +105,8 @@ tag:
 可以使用`<bean>`元素的`factory-bean`属性和`factory-method`属性结合起来使用实例工厂方法来实例化Bean对象。例如：
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
 <bean id="myBeanFactory" class="com.example.MyBeanFactory"/>
 <bean id="myBean" factory-bean="myBeanFactory" factory-method="createInstance"/>
 ```

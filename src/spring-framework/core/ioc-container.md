@@ -52,7 +52,7 @@ Spring提供了几个 ApplicationContext 接口的实现，在独立应用程序
 
 有关在`Spring`容器中使用其他形式的元数据信息，请参阅：
 
-* [基于XML的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-properties-detailed.html)
+* [基于XML的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html)
 * [基于注解的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config.html)（Spring
   2.5开始支持）
 * [基于Java的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/java.html)（Spring
@@ -80,14 +80,15 @@ Spring的配置包含至少一个，通常是多个`<bean>`元素。容器必须
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="..." class="...">(1) (2)
-        <!-- 这个bean的合作者和配置在这里 -->
+        <!-- 这个bean的协作者和配置在这里 -->
     </bean>
 
     <bean id="..." class="...">
-        <!-- 这个bean的合作者和配置在这里 -->
+        <!-- 这个bean的协作者和配置在这里 -->
     </bean>
 
     <!-- 更多bean 定义在这里 -->
+
 </beans>
 ```
 
@@ -125,7 +126,7 @@ ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", 
     <bean id="petStore" class="org.springframework.samples.jpetstore.services.PetStoreServiceImpl">
         <property name="accountDao" ref="accountDao"/>
         <property name="itemDao" ref="itemDao"/>
-        <!-- 这个bean的合作者和配置在这里 -->
+        <!-- 这个bean的协作者和配置在这里 -->
     </bean>
 
     <!-- 更多服务的bean 定义在这里 -->
@@ -144,11 +145,11 @@ ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", 
 
     <bean id="accountDao"
           class="org.springframework.samples.jpetstore.dao.jpa.JpaAccountDao">
-        <!-- 这个bean的合作者和配置在这里 -->
+        <!-- 这个bean的协作者和配置在这里 -->
     </bean>
 
     <bean id="itemDao" class="org.springframework.samples.jpetstore.dao.jpa.JpaItemDao">
-        <!-- 这个bean的合作者和配置在这里 -->
+        <!-- 这个bean的协作者和配置在这里 -->
     </bean>
 
     <!-- 更多数据访问对象的bean 定义在这里 -->
