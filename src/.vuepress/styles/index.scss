@@ -78,17 +78,17 @@ thead, tbody, tfoot, tr, td, th {
   border-width: 0 0 1px 0;
 }
 
-// 左侧边栏边框和滚动条样式
-.vp-sidebar {
-  html[data-theme=light] & {
-    border-right: 1px solid #eaecef;
-  }
-
-  html[data-theme=dark] & {
-    scrollbar-color: #5f5f5f #30363d;
-    border-right: 1px solid #30363d;
-  }
-}
+//// 左侧边栏边框和滚动条样式
+//.vp-sidebar {
+//  html[data-theme=light] & {
+//    border-right: 1px solid #eaecef;
+//  }
+//
+//  html[data-theme=dark] & {
+//    scrollbar-color: #5f5f5f #30363d;
+//    border-right: 1px solid #30363d;
+//  }
+//}
 
 /**
  * ========== 夜间模式显示优化 ==========

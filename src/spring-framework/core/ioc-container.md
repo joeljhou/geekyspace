@@ -67,7 +67,7 @@ Spring的配置包含至少一个，通常是多个`<bean>`元素。容器必须
 * Java配置：将这些Bean配置为`@Configuration`类中的`@Bean`注解的方法
 
 这些Bean的定义对应于构成应用程序的实际对象，
-如服务层对象，持久层对象（Dao），表示层对象（Web控制器），基础设施对象（JPA EntityManagerFactory），JMS队列对象等。
+如服务层对象，持久层对象（Dao），表示层对象（Web控制器），基础设施对象（JPA EntityManagerFactory），JMS队列等。
 通常，人们不会在容器中配置细粒度的`domain`对象，因为创建和加载`domain`对象的通常是`repository`和`service`层逻辑的责任。
 
 下面的例子显示了基于XML的配置元数据的基本结构：
@@ -84,7 +84,7 @@ Spring的配置包含至少一个，通常是多个`<bean>`元素。容器必须
     </bean>
 
     <bean id="..." class="...">
-        <!-- c这个bean的合作者和配置在这里 -->
+        <!-- 这个bean的合作者和配置在这里 -->
     </bean>
 
     <!-- 更多bean 定义在这里 -->
@@ -95,28 +95,24 @@ Spring的配置包含至少一个，通常是多个`<bean>`元素。容器必须
 2. `class`属性是一个字符串，用于指定bean的==完整类名==（包括包名）
 
 `id`属性的值可以用来指代其他bean的`ref`属性，从而实现bean之间的依赖关系。
-参阅 [依赖（Dependencies）](https://docs.spring.io/spring-framework/reference/core/beans/dependencies.html)。
+参阅 [依赖](https://docs.spring.io/spring-framework/reference/core/beans/dependencies.html)。
 
 ## 实例化容器
 
-`ApplicationContext`的构造函数中可以提供资源路径，
-这些路径是资源字符串，用于让容器从外部[资源(Resources)](https://docs.spring.io/spring-framework/reference/core/resources.html)
-加载配置元数据，比如本地文件系统和Java `CLASSPATH`路径。
-
-**使用容器**
+提供给`ApplicationContext`
+构造函数的一条或多条路径是==资源字符串==，它让容器从各种外部资源（如本地文件系统、Java `CLASSPATH`
+等）加载配置元数据。
 
 ```java
-// 创建和配置Bean
 ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
-
-// 获取配置的实例
-PetStoreService service = context.getBean("petStore", PetStoreService.class);
-
-// 使用配置的实例
-List<String> userList = service.getUsernameList();
 ```
 
-以下示例显示**服务层对象**（`services.xml`）配置文件：
+> 了解更多关于[资源加载](https://docs.spring.io/spring-framework/reference/core/resources.html)的信息；
+> 它提供了一种简单的方法，可以从`URI`语法中定义的位置读取`InputStream`。 特别是，`Resource`路径被用来构建应用程序上下文， 如
+> [Application Context和资源路径](https://docs.spring.io/spring-framework/reference/core/resources.html#resources-app-ctx)
+> 中所述。
+
+以下示例显示了**服务层对象**`services.xml` 配置文件：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -129,12 +125,15 @@ List<String> userList = service.getUsernameList();
     <bean id="petStore" class="org.springframework.samples.jpetstore.services.PetStoreServiceImpl">
         <property name="accountDao" ref="accountDao"/>
         <property name="itemDao" ref="itemDao"/>
-        <!-- 其他关于这个bean的协作者和配置信息在这里添加 -->
+        <!-- 这个bean的合作者和配置在这里 -->
     </bean>
+
+    <!-- 更多服务的bean 定义在这里 -->
+
 </beans>
 ```
 
-以下示例显示**数据访问对象**`daos.xml`文件：
+以下示例显示**数据访问对象**（data access object）`daos.xml` 文件：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -145,17 +144,50 @@ List<String> userList = service.getUsernameList();
 
     <bean id="accountDao"
           class="org.springframework.samples.jpetstore.dao.jpa.JpaAccountDao">
-        <!-- 这里可以添加关于这个bean的其他协作者和配置信息 -->
+        <!-- 这个bean的合作者和配置在这里 -->
     </bean>
 
     <bean id="itemDao" class="org.springframework.samples.jpetstore.dao.jpa.JpaItemDao">
-        <!-- 这里可以添加关于这个bean的其他协作者和配置信息 -->
+        <!-- 这个bean的合作者和配置在这里 -->
     </bean>
+
+    <!-- 更多数据访问对象的bean 定义在这里 -->
+
 </beans>
 ```
 
-在前面的示例中，服务层由`PetStoreServiceImpl`类和两个类型为`JpaAccountDao`和`JpaItemDao`（基于JPA对象关系映射标准）的数据访问对象组成。
+在前面的示例中，服务层由 `PetStoreServiceImpl` 类和两个类型为 `JpaAccountDao` 和 `JpaItemDao` 的数据访问对象组成（基于JPA对象-关系映射标准）。
 
-属性名称元素引用`JavaBean`属性的名称，`ref`元素引用另一个`bean`定义的名称。
-`id`和`ref`元素之间的这种链接表达了协作对象之间的依赖性。
-有关配置对象依赖项的详细信息，请参见依赖项。
+* `property name` 元素指的是`JavaBean`属性的名称
+* `ref` 元素指的是引用另一个`Bean`定义的名称
+
+`id` 和 `ref`元素之间的这种联系，表达了协作对象之间的依赖关系。
+有关配置对象依赖项的详细信息，参阅 [依赖](https://docs.spring.io/spring-framework/reference/core/beans/dependencies.html)。
+
+## 使用容器
+
+`ApplicationContext`是一个高级工厂的接口，能够维护不同Bean及其依赖关系的注册表。
+通过使用方法 `T getBean(String name, Class<T> requiredType)`，你可以检索到Bean的实例。
+
+`ApplicationContext`可以让你读取Bean定义（definition）并访问它们，如下例所示。
+
+```java
+// 创建和配置bean
+ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
+
+// 检索配置的实例
+PetStoreService service = context.getBean("petStore", PetStoreService.class);
+
+// 使用配置的实例
+List<String> userList = service.getUsernameList();
+```
+
+**不直接依赖于 Spring 的 API**
+
+> 理想情况下，应用程序代码不应该直接依赖于Spring的API，而是通过元数据（如自动装配`@Autowired`注解）声明对特定Bean的依赖。
+
+虽然 ApplicationContext 接口提供了一些检索 Bean 的方法，如 getBean() 等，但在设计上，应该避免直接依赖这些方法。
+
+例如，Spring与Web框架的集成 为各种**Web框架组件**（如Controller控制器 和 JSF管理的Bean）提供了==依赖注入==的能力，
+使得你可以通过元数据（如 @`Autowired` 注解）声明对特定 Bean 的依赖，而不必直接调用 getBean() 等方法。
+这样可以使代码更加模块化、可维护性更高。

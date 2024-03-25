@@ -18,8 +18,8 @@ sticky: true
 
 Spring是一个开源、轻量级、依赖注入(DI)容器和框架，用于构建Java企业应用程序。
 
-* 官网地址：[spring-framework-overview](https://docs.spring.io/spring-framework/reference/index.html)
-* Spring项目： [spring.io/projects](https://spring.io/projects)
+* Spring 官网：[spring.io](https://docs.spring.io/spring-framework/reference/)
+* Spring 中文网：[springdoc.cn](https://springdoc.cn/spring/)
 
 ## 为什么使用Spring？
 
