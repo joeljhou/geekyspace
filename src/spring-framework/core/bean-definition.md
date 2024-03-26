@@ -69,7 +69,37 @@ tag:
 
 ## 实例化Bean
 
-> `Bean`定义实际上是创建一个或多个对象的方法。 当容器被询问时，它会查看指定名称的Bean定义，并使用该定义创建（或获取）一个对象。
+`Bean`定义（definition）本质上是创建一个或多个对象的“配方”。
+容器在被询问时查看指定名称的bean的“配方”，并使用该Bean定义所封装的元数据来创建（或获取）一个对象。
+
+**使用XML配置元数据实例化Bean**
+
+如果使用基于XML的配置元数据，可以在`<bean>`元素中的`class`属性中指定要实例化对象的类型。
+这个`class`属性通常是必需的，用于定义内部`BeanDefinition`对象实例的`Class`属性。
+对于一些例外情况，参阅  [使用实例工厂方法实例化](#使用实例工厂方法实例化)
+以及 [Bean定义的继承](https://docs.spring.io/spring-framework/reference/core/beans/child-bean-definitions.html)。
+
+**使用`Class`属性**
+
+1. 通过反射调用构造函数创建Bean
+    * 这种方式类似于Java中的`new`操作符，容器通过反射调用构造函数来创建Bean
+    ```xml
+    <bean id="myBean" class="com.example.MyClass"/>
+    ```
+2. 通过静态工厂方法创建Bean
+    * 这种方式不太常见，容器会调用一个类上的`static`工厂方法来创建Bean
+   ```xml
+   <bean id="myBean" class="com.example.MyFactoryClass" factory-method="createInstance"/>
+   ```
+
+**嵌套类的Bean定义**
+
+> 如果要为嵌套类配置bean定义，可以使用嵌套类的==二进制名称==或==源名称==，通过美元符号 (`$`) 或点 (`.`) 分隔。
+
+示例：假设有一个名为`OuterClass`的外围类，其中包含一个名为`InnerClass`的嵌套类
+
+* 二进制名称：`com.example.OuterClass$InnerClass`
+* 源名称：`com.example.OuterClass.InnerClass`
 
 ### 使用构造函数实例化
 
