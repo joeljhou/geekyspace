@@ -1,9 +1,6 @@
-import {sidebar} from "vuepress-theme-hope";
+import {arraySidebar} from "vuepress-theme-hope";
 
-export default sidebar({
-    "/": [],
-    /*Java新特性*/
-    "/java-features/": [
+export const javaFeatures = arraySidebar([
         {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
         {
             text: "Java 21", prefix: "Java21/", link: "Java21/",
@@ -82,37 +79,5 @@ export default sidebar({
                 {text: "不可变集合的快捷创建方法", link: "jep269-convenience-factory-methods-for-collections"},
             ],
         }
-    ],
-    /*Spring框架教程*/
-    "/spring-framework/": [
-        {
-            text: "概述", prefix: "/spring-framework/overview/", link: "/spring-framework/overview/",
-            children: [
-                {text: "快速开始", link: "quickstart"},
-            ]
-        },
-        {
-            text: "核心技术", prefix: "/spring-framework/core/", link: "/spring-framework/core/",
-            children: [
-                {text: "IoC 容器", link: "ioc-container"},
-                {text: "Bean 定义", link: "bean-definition"},
-            ]
-        },
-    ],
-    /*SpringBoot教程*/
-    "/spring-boot/": [
-        {text: "总目录", prefix: "/spring-boot/", link: "/spring-boot/"},
-        {
-            text: "快速入门", children: [
-                {text: "Spring Boot 入门", link: "quickstart"},
-            ]
-        },
-    ],
-    /*Spring Data JPA*/
-    "/spring-data-jpa/": [
-        {text: "总目录", prefix: "/spring-data-jpa/", link: "/spring-data-jpa/",},
-        {
-            text: "快速入门", prefix: "jetbrains/", link: "jetbrains/getting-started",
-        },
-    ],
-});
+    ]
+);
