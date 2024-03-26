@@ -34,7 +34,7 @@ order: 1
 我们还可以将 "**Group**" 字段更改为我们公司的名称。
 对于其余的字段，你可以接受默认值。请随意为你的项目使用最新的 Java 版本。
 
-![New Project Window](http://img.geekyspace.cn/pictures/2024/202403032048778.png)
+![New Project Window](https://img.geekyspace.cn/pictures/2024/202403032048778.png)
 
 接下来，我们将点击 "**Next**"。
 
@@ -44,7 +44,7 @@ order: 1
 对于本教程，我们将使用 H2 作为我们的数据库，因为它很容易设置。
 如果你想使用不同的数据库，比如 MySQL 或 HyperSQL，可以随意选择这些依赖项，或者稍后将它们添加到你的 pom.xml 文件中。
 
-![New Project Window Dependency](http://img.geekyspace.cn/pictures/2024/202403032053947.png)
+![New Project Window Dependency](https://img.geekyspace.cn/pictures/2024/202403032053947.png)
 
 一旦我们点击 "**Finish**"，IntelliJ IDEA 就会创建一个带有 Spring Data JPA 和数据库依赖的新的 Spring Boot 项目。
 
@@ -60,7 +60,7 @@ order: 1
 在 Employee 类中，我们将通过在类定义中添加 ==@Entity== 注解并导入 `javax.persistence.Entity` 包来将其设置为实体。
 一旦你这样做了，你会注意到你的类中出现了一个错误。
 
-![Employee Entity Error](http://img.geekyspace.cn/pictures/2024/202403032108680.png)
+![Employee Entity Error](https://img.geekyspace.cn/pictures/2024/202403032108680.png)
 
 正如错误消息所指示的，实体必须有一个由 `@Id `注解指定的主键字段。我们将使用 **⌥⏎** (macOS) / **Alt+Enter** (Windows/Linux)
 快捷键，
@@ -68,7 +68,7 @@ order: 1
 你可以选择 "**Field Access**" 复选框（我更喜欢在字段上使用注解，而不是在 setter 方法上，因为我觉得这样更易读）。
 你也可以选择 "**Generated**" 复选框，这样你就不必自己分配员工 ID。
 
-![Add Employee ID](http://img.geekyspace.cn/pictures/2024/202403032111916.png)
+![Add Employee ID](https://img.geekyspace.cn/pictures/2024/202403032111916.png)
 
 然后，我们将点击 "**OK**"。你会注意到 IntelliJ IDEA 创建了一个带有其 setter 和 getter 的 `id` 字段。
 
@@ -78,7 +78,7 @@ order: 1
 我们不需要构造函数接收一个 id，因为我们的 id 将会自动生成，
 所以我们将点击 **firstName**，然后按住 **⌘** (macOS) / **Ctrl** (Windows/Linux) 键，然后选择 **lastName**。
 
-![Generate Constructor](http://img.geekyspace.cn/pictures/2024/202403032114060.png)
+![Generate Constructor](https://img.geekyspace.cn/pictures/2024/202403032114060.png)
 
 然后，我们将点击 "**OK**"。
 
@@ -183,12 +183,12 @@ id 类型。
 然后，我们需要指定一个由两部分组成的方法名：引入部分和条件部分。
 我们可以在 IntelliJ IDEA 中使用 **⌃␣** (macOS) / **Ctrl+Space** (Windows/Linux) 来查看引入部分的方法建议列表：
 
-![Repository Method Suggestion Introducer](http://img.geekyspace.cn/pictures/2024/202403032144256.png)
+![Repository Method Suggestion Introducer](https://img.geekyspace.cn/pictures/2024/202403032144256.png)
 
 我们将选择 ==findEmployeesBy== 作为引入部分。
 然后，我们将再次点击 **⌃␣** (macOS) / **Ctrl+Space** (Windows/Linux) 来查看可以选择的条件列表。
 
-![Repository Method Suggestion Criteria](http://img.geekyspace.cn/pictures/2024/202403032145040.png)
+![Repository Method Suggestion Criteria](https://img.geekyspace.cn/pictures/2024/202403032145040.png)
 
 我们将选择 `LastNameContaining`。最后，我们将声明一个 String 方法参数，表示我们要检查的字符串。
 现在我们有了一个方法，可以找到所有姓氏中包含所提供字符串的员工。
@@ -199,7 +199,7 @@ Spring Data JPA 会为你处理这些！你只需要定义你的 Repository 接�
 例如，如果我们尝试创建一个用于查询具有不正确 `LName` 属性的员工的方法，IntelliJ IDEA
 会给出一个错误，说`Cannot resolve property LName`。
 
-![Method Signature Validation](http://img.geekyspace.cn/pictures/2024/202403032330980.png)
+![Method Signature Validation](https://img.geekyspace.cn/pictures/2024/202403032330980.png)
 
 最终，你的 EmployeeRepository 接口应该如下所示：
 
@@ -224,7 +224,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 在我们的 application.properties 文件中，我们可以利用 IntelliJ IDEA 的建议来指定连接到我们的 H2 数据库所需的属性。
 我们将开始输入 ==url==，并从建议列表中选择 ==spring.datasource.url== 属性。
 
-![Application Properties URL](http://img.geekyspace.cn/pictures/2024/202403032332643.png)
+![Application Properties URL](https://img.geekyspace.cn/pictures/2024/202403032332643.png)
 
 如果你没有使用 H2 作为你的数据库，你可以在这里指定你自己的数据库 URL。
 在我们的情况下，我们将指定 ==jdbc:h2:file:./data/myDB== 作为我们的 URL，这将创建一个名为 ==myDB== 的 H2 数据库。
@@ -233,13 +233,13 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 我们可以类似地搜索 ==driver==，并从我们的建议列表中选择 ==spring.datasource.driver-class-name==。
 一旦我们选择了这个，IntelliJ IDEA 将根据我们之前指定的 URL 提供 H2 驱动程序的建议值，因此我们可以选择它。
 
-![Application Properties Driver Class](http://img.geekyspace.cn/pictures/2024/202403032156491.png)
+![Application Properties Driver Class](https://img.geekyspace.cn/pictures/2024/202403032156491.png)
 
 接下来，我们同样搜索 ==username== 和 ==password== 属性，并将它们的值分别设置为 ==sa== 和 ==password==。
 
 最后，我们不想手动创建任何表，因此我们将添加 ==spring.jpa.hibernate.ddl-auto== 属性，并使用代码完成来查看可能的值列表。
 
-![Application Properties ddl-auto](http://img.geekyspace.cn/pictures/2024/202403032158424.png)
+![Application Properties ddl-auto](https://img.geekyspace.cn/pictures/2024/202403032158424.png)
 
 对于我的应用程序，我将把属性值设置为 ==update==，这样如果表不存在，它将在数据库中创建表，并在我对实体进行更改时更新它们。
 
@@ -275,7 +275,7 @@ private void insertFourEmployees(EmployeeRepository repository) {
 ```
 
 现在，让我们继续在我们的应用程序中调用那个方法。在一个典型的 Spring Boot 应用程序中，我们会有一个服务类，其中包含服务提供的功能。
-然而，由于我们只是做一些一次性的操作，让我们保持简单，使用一个 bean 来调用我们的 `insertFourEmployees` 方法。
+然而，由于我们只是做一些一次性的操作，让我们保持简单，使用一个 Bean 来调用我们的 `insertFourEmployees` 方法。
 然后，让我们调用 `repository.findAll()` 来检索已插入的实体。下面是代码示例：
 
 ```java
@@ -293,7 +293,7 @@ public CommandLineRunner run(EmployeeRepository repository) {
 最终结果，一旦我们的应用程序启动，我们可以看到控制台日志显示我们的 Spring Boot 应用程序正在启动。
 然后，我们可以看到 `findAll` 调用的结果，打印出数据库中所有的员工。
 
-![Application Run Successfully](http://img.geekyspace.cn/pictures/2024/202403032212130.png)
+![Application Run Successfully](https://img.geekyspace.cn/pictures/2024/202403032212130.png)
 
 ## 创建数据源
 
@@ -306,7 +306,7 @@ IntelliJ IDEA[数据库连接帮助页面](https://www.jetbrains.com/help/java/c
 要创建我们的H2数据源，我们将打开数据库工具窗口（**View | Tool Windows | Database**），然后点击`+`按钮。
 有多种方式可以创建我们的连接。我们将使用**Data source from URL**选项。
 
-![New Database](http://img.geekyspace.cn/pictures/2024/202403032330533.png)
+![New Database](https://img.geekyspace.cn/pictures/2024/202403032330533.png)
 
 我们将输入我们的数据库URL：==jdbc:h2:file:./data/myDB==，然后点击确定。
 
@@ -314,7 +314,7 @@ IntelliJ IDEA[数据库连接帮助页面](https://www.jetbrains.com/help/java/c
 我们将输入在我们的`application.properties`文件中设置的用户和密码（==sa==，==password==）。
 如果你收到有关缺少H2驱动程序的警告，请点击下载缺失的驱动程序文件。
 
-![Data Source myDB Config](http://img.geekyspace.cn/pictures/2024/202403032332971.png)
+![Data Source myDB Config](https://img.geekyspace.cn/pictures/2024/202403032332971.png)
 
 **可选步骤**：在选项选项卡下，启用“设置后自动断开连接”，并将其设置为在3秒后断开连接。
 此设置将断开IntelliJ IDEA中的数据库并释放所有锁定，使我们应用程序的进程可以持续连接并写入数据库。
@@ -323,13 +323,13 @@ IntelliJ IDEA[数据库连接帮助页面](https://www.jetbrains.com/help/java/c
 
 然后，我们将点击“**Test Connection**”以确保我们的配置是有效的。
 
-![Data Source Config Options](http://img.geekyspace.cn/pictures/2024/202403032331974.png)
+![Data Source Config Options](https://img.geekyspace.cn/pictures/2024/202403032331974.png)
 
 一旦我们点击"**OK**"，我们就会看到一个新的数据源，用于我们的H2数据库。
 
 最终结果 ，在数据库视图中，我们现在可以导航到我们的Employee表，并通过双击表格查看所有员工数据。
 
-![Database View](http://img.geekyspace.cn/pictures/2024/202403032331767.png)
+![Database View](https://img.geekyspace.cn/pictures/2024/202403032331767.png)
 
 ## 调用自定义查询
 
@@ -350,7 +350,7 @@ public CommandLineRunner run(EmployeeRepository repository) {
 
 最终结果， 如果你插入了教程中提到的相同数据，你应该在控制台输出中看到"`Dalia`"员工。
 
-![Application Run Successfully](http://img.geekyspace.cn/pictures/2024/202403032250455.png)
+![Application Run Successfully](https://img.geekyspace.cn/pictures/2024/202403032250455.png)
 
 ## 总结
 

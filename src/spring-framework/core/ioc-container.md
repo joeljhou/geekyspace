@@ -39,7 +39,7 @@ Spring提供了几个 ApplicationContext 接口的实现，在独立应用程序
 下图表展示了Spring框架的工作原理高层视图。通过将您的应用程序类与配置元数据结合起来，
 一旦`ApplicationContext`被创建和初始化，您就获得了一个完全配置且可执行的系统或应用程序。
 
-![Spring IoC容器](http://img.geekyspace.cn/pictures/2024/202403181756387.png)
+![Spring IoC容器](https://img.geekyspace.cn/pictures/2024/202403181756387.png)
 
 ## 配置元数据
 
@@ -50,7 +50,7 @@ Spring提供了几个 ApplicationContext 接口的实现，在独立应用程序
 > 如今，许多开发者选择使用[基于Java的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/java.html)
 > 来构建他们的Spring应用程序。
 
-有关在`Spring`容器中使用其他形式的元数据信息，请参阅：
+有关在`Spring`容器中使用其他形式的元数据信息，参阅：
 
 * [基于XML的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html)
 * [基于注解的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config.html)（Spring
@@ -92,10 +92,10 @@ Spring的配置包含至少一个，通常是多个`<bean>`元素。容器必须
 </beans>
 ```
 
-1. `id`属性是一个字符串，用于==唯一标识==bean
-2. `class`属性是一个字符串，用于指定bean的==完整类名==（包括包名）
+1. `id`属性是一个字符串，用于==唯一标识==Bean
+2. `class`属性是一个字符串，用于指定Bean的==完整类名==（包括包名）
 
-`id`属性的值可以用来指代其他bean的`ref`属性，从而实现bean之间的依赖关系。
+`id`属性的值可以用来指代其他Bean的`ref`属性，从而实现Bean之间的依赖关系。
 参阅 [依赖](https://docs.spring.io/spring-framework/reference/core/beans/dependencies.html)。
 
 ## 实例化容器
@@ -173,7 +173,7 @@ ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", 
 `ApplicationContext`可以让你读取Bean定义（definition）并访问它们，如下例所示。
 
 ```java
-// 创建和配置bean
+// 创建和配置Bean
 ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
 
 // 检索配置的实例
