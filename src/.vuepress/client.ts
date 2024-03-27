@@ -1,11 +1,11 @@
 // client.ts   ---> 客户端配置文件
 // @ts-ignore
-import {defineClientConfig} from "vuepress/client";
-// @ts-ignore
 import {defineGiscusConfig} from 'vuepress-plugin-comment2/client'
+// @ts-ignore
+import {defineClientConfig} from "vuepress/client";
 
 /**
- * Giscus 选项：https://giscus.app/zh-CN
+ * // 设置评论插件Giscus客户端选项：https://giscus.app/zh-CN
  */
 defineGiscusConfig({
     repo: 'joeljhou/joeljhou.github.io',
@@ -16,8 +16,8 @@ defineGiscusConfig({
 })
 
 export default defineClientConfig({
+    // 解决百度统计单页面应用无法统计的问题
     enhance({app, router, siteData}) {
-        // baidu analytics
         router.beforeEach((to, from, next) => {
             // @ts-ignore
             if (typeof _hmt != "undefined") {
