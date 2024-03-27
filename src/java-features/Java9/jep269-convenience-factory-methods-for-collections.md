@@ -5,9 +5,7 @@ author: 会敲代码的程序猿
 isOriginal: true
 date: 2023-12-22
 category: Java
-tag:
-  - Java
-  - Java 9
+tag: Java Features
 order: 266
 ---
 

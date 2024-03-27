@@ -8,7 +8,7 @@ author: 会敲代码的程序猿
 isOriginal: true  # 是否原创文章
 date: 2023-12-20
 category: Java
-tag: Java
+tag: Java Features
 star: true  # 收藏star标记
 # 布局 Frontmatter 配置
 # navbar: false

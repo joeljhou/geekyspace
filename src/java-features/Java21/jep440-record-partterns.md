@@ -5,9 +5,7 @@ author: 会敲代码的程序猿
 isOriginal: true
 date: 2024-01-09
 category: Java
-tag:
-  - Java
-  - Java21
+tag: Java Features
 order: 440
 ---
 

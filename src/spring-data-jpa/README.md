@@ -6,10 +6,7 @@ author: 会敲代码的程序猿
 isOriginal: true
 date: 2024-04-04
 category: Spring Data
-tag:
-  - Spring
-  - Spring Data
-  - Spring Data JPA
+tag: Spring Data JPA
 ---
 
 # Spring Data JPA

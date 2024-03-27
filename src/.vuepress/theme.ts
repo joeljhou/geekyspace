@@ -56,8 +56,9 @@ export default hopeTheme({
     // 字体图标资源链接（阿里巴巴iconfont矢量图标：https://www.iconfont.cn/）
     iconAssets: "//at.alicdn.com/t/c/font_4370612_23wa7yckp7fh.css",
 
-    // 页面显示信息
-    pageInfo: ["Author", "Original", "Category", "Date", "Tag", "ReadingTime", "Word", "PageView"],
+    // 页面显示信息：作者、原创、分类、日期、标签、阅读时间、字数、阅读量
+    // "Author", "Original", "Category", "Date", "Tag", "ReadingTime", "Word", "PageView"
+    pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
     // 是否在向下滚动时自动隐藏导航栏
     navbarAutoHide: "always",
