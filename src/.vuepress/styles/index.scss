@@ -17,10 +17,22 @@ body {
 //  -webkit-text-fill-color: transparent;
 //}
 
-/* 侧边栏目录字体加粗 */
-.vp-sidebar-links .vp-sidebar-group .vp-sidebar-header .vp-sidebar-title {
+/* 侧边栏目录样式设置 */
+// 第一级vp-sidebar-title设置
+.vp-sidebar-links .vp-sidebar-title {
   font-weight: 900;
 }
+
+// 第二级vp-sidebar-title设置
+.vp-sidebar-links .vp-sidebar-links .vp-sidebar-title {
+  font-weight: 700;
+}
+
+// 第三级vp-sidebar-title设置
+.vp-sidebar-links .vp-sidebar-links .vp-sidebar-links .vp-sidebar-title {
+  font-weight: 500;
+}
+
 
 //// 针对使用“vuepress-plugin-search-pro”插件，调整搜索框样式
 //// 设置搜索框圆角
