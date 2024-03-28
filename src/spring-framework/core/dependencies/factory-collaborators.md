@@ -24,7 +24,7 @@ tag: Spring Framework
 因此，你的类变得更易于测试，特别是当依赖是在接口或抽象基类上时，可以使用`stub`或`mock`进行单元测试。
 这种方式使代码更加整洁，同时也更符合面向对象的设计原则。
 
-DI有两个主要的变体。 基于[构造器的依赖注入](#基于构造函数的依赖注入)和[基于Setter的依赖注入](#基于Setter的依赖注入)。
+DI有两个主要的变体。 基于[构造器的依赖注入](#基于构造函数的依赖注入)和[基于Setter的依赖注入](#基于setter的依赖注入)。
 
 ## 基于构造函数的依赖注入
 
@@ -76,6 +76,7 @@ public class ThingOne {
 因此，下面的配置可以正常工作，你不需要在`<constructor-arg/>`元素中显示指定构造函数参数的索引或类型。
 
 ```xml
+
 <beans>
     <bean id="beanOne" class="x.y.ThingOne">
         <constructor-arg ref="beanTwo"/>
@@ -114,6 +115,7 @@ public class ExampleBean {
 在上述情况下，可以通过使用`type`属性显式指定构造函数参数的类型，容器就对简单类型进行类型匹配，如下例所示：
 
 ```xml
+
 <bean id="exampleBean" class="examples.ExampleBean">
     <constructor-arg type="int" value="7500000"/>
     <constructor-arg type="java.lang.String" value="42"/>
@@ -125,6 +127,7 @@ public class ExampleBean {
 你还可以使用`index`属性显示指定构造函数参数的索引，如下例所示：
 
 ```xml
+
 <bean id="exampleBean" class="examples.ExampleBean">
     <constructor-arg index="0" value="7500000"/>
     <constructor-arg index="1" value="42"/>
@@ -138,6 +141,7 @@ public class ExampleBean {
 你还可以使用构造函数的参数名称来消除值的歧义，如下例所示：
 
 ```xml
+
 <bean id="exampleBean" class="examples.ExampleBean">
     <constructor-arg name="years" value="7500000"/>
     <constructor-arg name="ultimateAnswer" value="42"/>
@@ -216,5 +220,36 @@ Spring团队倡导使用构造函数注入，它允许你将应用程序组件�
 :::
 
 ## 依赖的解析过程
+
+容器执行Bean依赖解析的步骤如下：
+
+1. `ApplicationContext` 是用描述所有Bean的配置元数据创建和初始化的。配置元数据可以由XML、Java代码或注解来指定
+2. 对于每个Bean来说，它的依赖是以属性、构造函数参数或静态工厂方法的参数（如果你用它代替正常的构造函数）的形式表达的。在实际创建Bean时，这些依赖被提供给Bean。
+3. 每个属性或构造函数参数都是要设置的值的实际定义，或对容器中另一个Bean的引用。
+4. 每个作为值的属性或构造函数参数都会从其指定格式转换为该属性或构造函数参数的实际类型。
+   默认情况下，Spring 可以将以字符串格式提供的值转换为所有内置类型，如`int`、`long`、`String`、`boolean`等等。
+
+Spring容器在创建时，会验证每个Bean的配置。 然而，直到实际创建Bean之后，才会设置Bean的属性值。
+当容器被创建时，那些具有单例作用域并被设置为预实例化的Bean（默认）被创建。
+作用域范围在[Bean Scope](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html)中定义。
+否则，Bean只有在被请求时才会被创建。
+创建Bean有可能导致创建Bean Graph，因为Bean的依赖项及其依赖项的依赖项（以此类推）会被创建和分配。
+请注意，这些依赖项之间的解析不匹配可能会在创建受影响的Bean时才会出现问题。
+
+::: tip 循环依赖
+
+循环依赖是指在使用主要基于构造函数的依赖注入时，可能会创建一个无法解决的循环依赖场景。
+
+例如：Class A通过构造函数注入需要Class B的实例，而Class B通过构造函数注入需要Class A的实例。
+如果配置Bean A和Bean B相互注入对方，Spring IoC容器会在运行时检测到这种循环引用，并抛出`BeanCurrentlyInCreationException`
+异常。
+
+解决这种问题的一个可能方法是编辑某些类的源代码，改为通过Setter方法配置，而不是构造函数。
+另一个方法是避免构造函数注入，只使用Setter注入。换句话说，虽然不推荐，但你可以通过Setter注入配置循环依赖。
+
+与典型情况（没有循环依赖）不同，Bean A和Bean B之间的循环依赖会导致其中一个Bean在自身完全初始化之前被注入到另一个Bean中（经典的鸡生蛋蛋生鸡的情况）。
+
+实际开发过程中，还可以使用`@Lazy`注解或`<lazy-init>`属性来解决循环依赖问题。
+:::
 
 ## 依赖注入的例子
