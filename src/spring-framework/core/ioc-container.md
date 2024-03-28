@@ -44,7 +44,7 @@ Spring提供了几个 ApplicationContext 接口的实现，在独立应用程序
 如上图所示，Spring IoC容器消费一种配置元数据。
 这种配置元数据代表了你作为一个应用开发者，如何告诉Spring容器在你的应用中实例化、配置和组装对象。
 
-> **注意**：Spring IoC容器本身与实际配置元数据的编写格式完全解耦。
+> **注意⚠️**：Spring IoC容器本身与实际配置元数据的编写格式完全解耦。
 > 如今，许多开发者选择使用[基于Java的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/java.html)
 > 来构建他们的Spring应用程序。
 
@@ -187,6 +187,6 @@ List<String> userList = service.getUsernameList();
 
 虽然 ApplicationContext 接口提供了一些检索 Bean 的方法，如 getBean() 等，但在设计上，应该避免直接依赖这些方法。
 
-例如，Spring与Web框架的集成 为各种**Web框架组件**（如Controller控制器 和 JSF管理的Bean）提供了==依赖注入==的能力，
-使得你可以通过元数据（如 @`Autowired` 注解）声明对特定 Bean 的依赖，而不必直接调用 getBean() 等方法。
+例如，Spring与Web框架的集成为各种**Web框架组件**（如Controller控制器和JSF管理的Bean）提供了依赖注入的能力，
+使得你可以通过元数据（如`@Autowired`注解）声明对特定`Bean`的依赖，而不必直接调用`getBean()`等方法。
 这样可以使代码更加模块化、可维护性更高。
