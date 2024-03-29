@@ -109,7 +109,7 @@ interface SequencedMap<K,V> extends Map<K,V> {
 
 上述定义的三个新接口完美地适应了现有的集合类型层次结构（点击放大）：
 
-![Sequenced-Collections](https://cr.openjdk.org/~smarks/collections/SequencedCollectionDiagram20220216.png)
+![Sequenced-Collections](http://img.geekyspace.cn/pictures/2024/SequencedCollectionDiagram20220216.png)
 
 具体而言，我们对现有的类和接口进行以下调整：
 
