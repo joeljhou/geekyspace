@@ -189,24 +189,14 @@ public class SimpleMovieLister {
 }
 ```
 
-**ApplicationContext的依赖注入支持**
-
-`ApplicationContext`在管理的`Bean`时支持基于构造函数和基于Setter的依赖注入（DI）。
+**ApplicationContext的依赖注入支持**：`ApplicationContext`在管理的`Bean`时支持基于构造函数和基于Setter的依赖注入（DI）。
 此外，它还支持通过构造函数注入依赖项后，再使用Setter方法注入其他依赖项。
-
-**配置依赖关系和属性转换**
-
-你可以通过`BeanDefinition`来配置依赖关系，并利用`java.beans.PropertyEditor`接口实例将属性值从一种格式转换为另一种格式。
-
-**Spring用户的使用方式**
-
-然而，大多数Spring用户并不直接使用这些类（即以编程方式），而是使用XML Bean定义、
+**配置依赖关系和属性转换**：你可以通过`BeanDefinition`来配置依赖关系，并利用`java.beans.PropertyEditor`
+接口实例将属性值从一种格式转换为另一种格式。
+**Spring用户的使用方式**：然而，大多数Spring用户并不直接使用这些类（即以编程方式），而是使用XML Bean定义、
 注解组件（即使用`@Component`、`@Controller`等注解的类），
 或基于Java的`@Configuration`类中的`@Bean`方法。
-
-**内部转换为BeanDefinition**
-
-然后，这些来源在内部被转换为`BeanDefinition`的实例，并用于加载整个Spring IoC容器实例。
+**内部转换为BeanDefinition**：然后，这些来源在内部被转换为`BeanDefinition`的实例，并用于加载整个Spring IoC容器实例。
 
 ::: tip 基于构造器的DI还是基于Setter的DI？
 
@@ -262,23 +252,141 @@ Spring团队倡导使用构造函数注入，它允许你将应用程序组件�
 与典型情况（没有循环依赖）不同，Bean A和Bean B之间的循环依赖会导致其中一个Bean在自身完全初始化之前被注入到另一个Bean中（经典的鸡生蛋蛋生鸡的情况）。
 :::
 
-**Spring容器的行为**
-
-通常情况下，你可以相信Spring会做正确的事情。
+**Spring容器的行为**： 通常情况下，你可以相信Spring会做正确的事情。
 它在容器加载时检测配置问题，例如引用不存在的Bean或存在循环依赖等。
-
-**异常生成可能性**
-
-Spring会尽可能地延迟设置属性和解析依赖，直到真正创建Bean时才会进行。
+**异常生成可能性**： Spring会尽可能地延迟设置属性和解析依赖，直到真正创建Bean时才会进行。
 这意味着，一个正确加载的Spring容器在请求对象时可能会生成异常；例如在创建该对象或其依赖关系时出现问题，Bean由于缺少或无效属性而抛出异常。
-
-**ApplicationContext的预实例化**
-
-这种潜在的延迟暴露一些配置的情况，是`ApplicationContext`实现默认预先实例化单例Bean的原因。
+**ApplicationContext的预实例化**： 这种潜在的延迟暴露一些配置的情况，是`ApplicationContext`实现默认预先实例化单例Bean的原因。
 在实际创建这些Bean之前，尽管需要花费一些前期时间和内存代价，但这样做可以在创建`ApplicationContext`时发现配置问题，而不是之后。
-
-**覆盖默认行为**
-
-你仍然可以覆盖这种默认行为，使得单例Bean延迟（懒加载）初始化，而不是预先实例化。
+**覆盖默认行为**： 你仍然可以覆盖这种默认行为，使得单例Bean延迟（懒加载）初始化，而不是预先实例化。
 
 ## 依赖注入的例子
+
+### Setter依赖注入
+
+以下示例使用基于XML的配置元数据来实现基于Setter的依赖注入。Spring XML配置文件的一小部分如下所示，指定了一些`Bean`定义：
+
+```xml
+<bean id="exampleBean" class="examples.ExampleBean">
+    <!-- 使用嵌套的 ref 元素进行Setter注入 -->
+    <property name="beanOne">
+        <ref bean="anotherExampleBean"/>
+    </property>
+
+    <!-- 使用更简洁的 ref 属性进行Setter注入 -->
+    <property name="beanTwo" ref="yetAnotherBean"/>
+    <property name="integerProperty" value="1"/>
+</bean>
+
+<bean id="anotherExampleBean" class="examples.AnotherBean"/>
+<bean id="yetAnotherBean" class="examples.YetAnotherBean"/>
+```
+
+以下示例展示了相应的`ExampleBean`类：
+
+```java
+public class ExampleBean {
+
+    private AnotherBean beanOne;
+
+    private YetAnotherBean beanTwo;
+
+    private int i;
+
+    public void setBeanOne(AnotherBean beanOne) {
+        this.beanOne = beanOne;
+    }
+
+    public void setBeanTwo(YetAnotherBean beanTwo) {
+        this.beanTwo = beanTwo;
+    }
+
+    public void setIntegerProperty(int i) {
+        this.i = i;
+    }
+}
+```
+
+### 构造函数依赖注入
+
+在上面的例子中，Setter 方法被声明来匹配 XML 文件中指定的属性。以下示例使用基于构造函数依赖注入（DI）：
+
+```xml
+<bean id="exampleBean" class="examples.ExampleBean">
+    <!-- 使用嵌套的ref元素进行构造函数注入 -->
+    <constructor-arg>
+        <ref bean="anotherExampleBean"/>
+    </constructor-arg>
+
+    <!-- 使用更简洁的ref属性进行构造函数注入 -->
+    <constructor-arg ref="yetAnotherBean"/>
+    <constructor-arg type="int" value="1"/>
+</bean>
+
+<bean id="anotherExampleBean" class="examples.AnotherBean"/>
+<bean id="yetAnotherBean" class="examples.YetAnotherBean"/>
+```
+
+对应的`ExampleBean`类如下所示：
+
+```java
+public class ExampleBean {
+
+    private AnotherBean beanOne;
+
+    private YetAnotherBean beanTwo;
+
+    private int i;
+
+    public ExampleBean(
+        AnotherBean anotherBean, YetAnotherBean yetAnotherBean, int i) {
+        this.beanOne = anotherBean;
+        this.beanTwo = yetAnotherBean;
+        this.i = i;
+    }
+}
+```
+
+在`Bean`定义中指定的构造函数参数将作为`ExampleBean`的构造函数参数使用。
+
+### 静态工厂方法依赖注入
+
+现在考虑这个示例的一个变体，在这个变体中，不是使用构造函数，而是告诉 Spring 调用一个静态工厂方法来返回对象的实例：
+
+```xml
+<bean id="exampleBean" class="examples.ExampleBean" factory-method="createInstance">
+    <constructor-arg ref="anotherExampleBean"/>
+    <constructor-arg ref="yetAnotherBean"/>
+    <constructor-arg value="1"/>
+</bean>
+
+<bean id="anotherExampleBean" class="examples.AnotherBean"/>
+<bean id="yetAnotherBean" class="examples.YetAnotherBean"/>
+```
+
+以下示例展示了相应的`ExampleBean`类：
+
+```java
+public class ExampleBean {
+
+	// 私有构造函数
+	private ExampleBean(...) {
+		...
+	}
+
+	// 静态工厂方法；该方法的参数可以被视为返回的Bean的依赖项，
+	// 不管这些参数实际上是如何使用的。
+	public static ExampleBean createInstance (
+		AnotherBean anotherBean, YetAnotherBean yetAnotherBean, int i) {
+
+		ExampleBean eb = new ExampleBean (...);
+		// 其他操作...
+		return eb;
+	}
+}
+```
+
+静态工厂方法的参数由`<constructor-arg/>`元素提供，与实际使用构造函数时完全相同。
+被工厂方法返回的类的类型不一定与包含静态工厂方法的类的类型相同（尽管在这个例子中，它是相同的）。
+实例（非静态）工厂方法可以以基本相同的方式使用（除了使用`factory-bean`属性而不是`class`属性），因此我们不在此讨论这些细节。
+
