@@ -28,7 +28,7 @@ Spring使用 [转换服务](https://docs.spring.io/spring-framework/reference/co
 </bean>
 ```
 
-以下示例使用了[p命名空间](#使用p命名空间的xml快捷方式)，使得 XML 配置更加简洁：
+以下示例使用了[p-命名空间](#使用p-命名空间的xml快捷方式)，使得 XML 配置更加简洁：
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -317,9 +317,91 @@ public class SomeClass {
 
 ## Null和空字符串值
 
-## 使用p命名空间的XML快捷方式
+Spring 将属性等的空参数视为空字符串。下面这个基于XML的配置元数据片段将`email`属性设置为空字符串值（`""`）。
 
-## 使用c命名空间的XML快捷方式
+```xml
+<bean class="ExampleBean">
+	<property name="email" value=""/>
+</bean>
+```
+
+上述示例等同于以下Java代码：
+
+```java
+exampleBean.setEmail("");
+```
+
+## 使用p-命名空间的XML快捷方式
+
+**p-namespace**（命名空间）提供了一种便捷的XML配置方式，允许你直接在`bean`
+元素的属性中定义属性值或引用其他Bean，而无需使用嵌套的`<property/>`标签。
+
+Spring框架支持通过XML Schema定义的扩展配置格式和命名空间。
+虽然`beans`的配置格式在XML Schema文档中有所定义，但**p-命名空间**并未在XSD文件中声明，它是Spring框架内部的一个特性。
+
+**简化bean属性设置**
+
+以下是一个示例，展示了两种不同的XML配置片段（标准XML格式和使用p-命名空间的格式），它们将产生相同的配置结果：
+
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 用于bean设置的标准XML配置 -->
+    <bean name="classic" class="com.example.ExampleBean">
+        <property name="email" value="someone@somewhere.com"/>
+    </bean>
+
+    <!-- 用于bean设置的p-命名空间快捷方式 -->
+    <bean name="p-namespace" class="com.example.ExampleBean"
+          p:email="someone@somewhere.com"/>
+</beans>
+```
+
+在这个例子中，p-命名空间 中的`email`属性告诉Spring框架需要设置一个属性。需要注意的是，由于p-命名空间没有对应的schema定义，您可以直接使用属性名作为属性值。
+
+这个示例展示了在Bean定义中，p-命名空间中有一个名为`email`的属性。这告诉Spring要包含一个属性声明。
+如前所述，p-命名空间没有schema定义，所以你可以直接使用属性名作为属性值，而无需按照常规方式指定属性值。
+
+**简化bean属性引用**
+
+以下示例包含了两个bean定义，它们都引用了另一个bean：
+
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 用于bean引用的标准XML配置 -->
+    <bean name="john-classic" class="com.example.Person">
+        <property name="name" value="John Doe"/>
+        <property name="spouse" ref="jane"/>
+    </bean>
+
+    <!-- 用于bean引用的p-命名空间快捷方式 -->
+    <bean name="john-modern"
+          class="com.example.Person"
+          p:name="John Doe"
+          p:spouse-ref="jane"/>
+
+    <!-- 另一个bean定义，名称为jane -->
+    <bean name="jane" class="com.example.Person">
+        <property name="name" value="Jane Doe"/>
+    </bean>
+</beans>
+```
+
+以下示例不仅使用p-命名空间声明了属性值，还使用了一种特殊的格式来声明属性的引用。
+第一个bean定义使用`<property name="spouse" ref="jane"/>`创建了从Bean `john` 到 Bean `jane`的引用，
+而第二个bean定义使用了`p:spouse-ref="jane"`作为属性来实现完全相同的功能。
+在这种情况下，`spouse`是属性名称，而`-ref`部分表示这不仅仅是一个直接的值，而是对另一个bean的引用。
+
+## 使用c-命名空间的XML快捷方式
 
 ## 复合属性名
 
