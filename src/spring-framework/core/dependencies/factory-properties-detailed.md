@@ -177,6 +177,108 @@ Spring容器会利用JavaBeans的`PropertyEditor`机制，将`<value/>`元素内
 
 ## 集合（Collection）
 
+`<list/>`、`<set/>`、`<map/>`和`<props/>` 元素分别用于设置 Java 集合类型`List`、`Set`、`Map`和`Properties`的属性和参数。
+
+以下示例展示了如何使用它们：
+
+```xml
+<bean id="moreComplexObject" class="example.ComplexObject">
+    <!-- 调用 setAdminEmails(java.util.Properties) 方法 -->
+    <property name="adminEmails">
+        <props>
+            <prop key="administrator">administrator@example.org</prop>
+            <prop key="support">support@example.org</prop>
+            <prop key="development">development@example.org</prop>
+        </props>
+    </property>
+    <!-- 调用 setSomeList(java.util.List) 方法 -->
+    <property name="someList">
+        <list>
+            <value>a list element followed by a reference</value>
+            <ref bean="myDataSource" />
+        </list>
+    </property>
+    <!-- 调用 setSomeMap(java.util.Map) 方法 -->
+    <property name="someMap">
+        <map>
+            <entry key="an entry" value="just some string"/>
+            <entry key="a ref" value-ref="myDataSource"/>
+        </map>
+    </property>
+    <!-- 调用 setSomeSet(java.util.Set) 方法 -->
+    <property name="someSet">
+        <set>
+            <value>just some string</value>
+            <ref bean="myDataSource" />
+        </set>
+    </property>
+</bean>
+```
+
+`Map`的键值对中的值、或者`Set`中的元素，可以是以下任一元素：
+
+```
+bean | ref | idref | list | set | map | props | value | null
+```
+
+### 集合合并（merging）
+
+Spring 容器还支持集合合并。开发者可以定义一个父级`<list/>`、`<map/>`、`<set/>`或`<props/>`元素，
+并让子级`<list/>`、`<map/>`、`<set/>` 或 `<props/>`元素继承并覆盖父集合中的值。
+
+也就是说，子集合的值是合并父子集合的元素后的结果，其中子集合的元素会覆盖在父集合中指定的值。
+这部分关于合并（merging）的内容讨论了父子Bean机制。对于不熟悉父子Bean定义的读者，建议在继续阅读之前阅读[相关章节](https://docs.spring.io/spring-framework/reference/core/beans/child-bean-definitions.html)。
+
+以下示例演示了集合合并（merging）：
+
+```xml
+<beans>
+    <!-- 父 Bean 定义 -->
+    <bean id="parent" abstract="true" class="example.ComplexObject">
+        <property name="adminEmails">
+            <props>
+                <prop key="administrator">administrator@example.com</prop>
+                <prop key="support">support@example.com</prop>
+            </props>
+        </property>
+    </bean>
+    <!-- 子 Bean 继承父 Bean 定义 -->
+    <bean id="child" parent="parent">
+        <property name="adminEmails">
+            <!-- merge 在子集合定义上进行了指定 -->
+            <props merge="true">
+                <prop key="sales">sales@example.com</prop>
+                <prop key="support">support@example.co.uk</prop>
+            </props>
+        </property>
+    </bean>
+<beans>
+```
+
+请注意，在子Bean定义的`adminEmails`属性的`<props/>`元素上使用了`merge=true`属性。
+当容器解析并实例化子Bean时，生成的实例具有一个`adminEmails Properties`集合，
+该集合是合并子Bean的 `adminEmails`集合与父Bean的`adminEmails`集合的结果。
+
+以下列表显示了合并的结果：
+
+```properties
+administrator=administrator@example.com
+sales=sales@example.com
+support=support@example.co.uk
+```
+
+子代`Properties`集合的值集继承了父`<props/>`中的所有属性元素，并且子集合中对于`support`键的值会覆盖父代集合中的值。
+
+这种合并行为同样适用于`<list/>`、`<map/>` 和 `<set/>`等集合类型。在`<list/>`元素的特定情况下，与List集合类型相关的语义（即有序值集合的概念）被保留。
+父集合的值位于子列表所有值之前。对于Map、Set和Properties集合类型，不存在任何排序。因此，在容器内部使用的关于
+Map、Set和Properties实现的集合类型，没有排序语义。
+
+### 集合合并的限制
+
+
+### 强类型集合
+
+
 ## Null和空字符串值
 
 ## 使用p命名空间的XML快捷方式
