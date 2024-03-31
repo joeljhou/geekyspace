@@ -275,9 +275,45 @@ Map、Set和Properties实现的集合类型，没有排序语义。
 
 ### 集合合并的限制
 
+你不能合并不同的集合类型（例如 Map 和 List）。如果你试图这样做，会抛出一个适当的`Exception`异常。
+合并属性（merge attribute）必须在较低层级、被继承的子定义上指定。
+在父级集合定义上指定`merge`属性是多余的，不会产生期望的合并行为。
 
 ### 强类型集合
 
+得益于Java的泛型特性，你能够创建特定类型的强类型的集合（Collection）。
+例如，可以声明一个Collection类型，使其只能包含（例如）String元素。
+当你通过Spring进行依赖注入时，Spring的类型转换功能将确保Collection中的元素在添加之前被自动转换为正确的类型。
+
+以下示例 Java 类和 Bean 定义展示了如何实现这一点：
+
+```java
+public class SomeClass {
+
+    private Map<String, Float> accounts;
+
+    public void setAccounts(Map<String, Float> accounts) {
+        this.accounts = accounts;
+    }
+}
+```
+
+```xml
+<beans>
+    <bean id="something" class="x.y.SomeClass">
+        <property name="accounts">
+            <map>
+                <entry key="one" value="9.99"/>
+                <entry key="two" value="2.75"/>
+                <entry key="six" value="3.99"/>
+            </map>
+        </property>
+    </bean>
+</beans>
+```
+
+当准备注入`something` Bean 的`accounts`属性时，关于强类型`Map<String, Float>`的元素类型的泛型信息可通过反射获得。 
+因此，Spring 的类型转换基础设施能够识别出这些值元素属于 `Float` 类型，并将字符串值（9.99、2.75 和 3.99）转换为实际的 `Float` 类型。
 
 ## Null和空字符串值
 
