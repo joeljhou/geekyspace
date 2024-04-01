@@ -22,7 +22,7 @@ Spring提供了几个 ApplicationContext 接口的实现，在独立应用程序
 
 **支持以XML、Java注释或Java代码作为配置元数据的格式**
 
-虽然`XML`一直是定义配置元数据的传统格式， 但您可以通过提供少量的`XML`配置来指定容器使用`Java注解`或`Java代码`作为元数据格式。
+虽然`XML`一直是定义配置元数据的传统格式， 但你可以通过提供少量的`XML`配置来指定容器使用`Java注解`或`Java代码`作为元数据格式。
 以声明式方式启用对这些元数据格式的支持，从而更灵活地定义应用程序的配置信息。
 
 **为Web应用程序提供方便的ApplicationContext实例化**
@@ -34,14 +34,14 @@ Spring提供了几个 ApplicationContext 接口的实现，在独立应用程序
 
 **解析Spring框架的工作原理：==应用程序类==与==配置元数据==的整合**
 
-下图表展示了Spring框架的工作原理高层视图。通过将您的应用程序类与配置元数据结合起来，
-一旦`ApplicationContext`被创建和初始化，您就获得了一个完全配置且可执行的系统或应用程序。
+下图表展示了Spring框架的工作原理高层视图。通过将你的应用程序类与配置元数据结合起来，
+一旦`ApplicationContext`被创建和初始化，你就获得了一个完全配置且可执行的系统或应用程序。
 
 ![Spring IoC容器](https://img.geekyspace.cn/pictures/2024/202403181756387.png)
 
 ## 配置元数据
 
-如上图所示，Spring IoC容器消费一种配置元数据。
+如上图所示，Spring IoC容器消费配置元数据。
 这种配置元数据代表了你作为一个应用开发者，如何告诉Spring容器在你的应用中实例化、配置和组装对象。
 
 > **注意⚠️**：Spring IoC容器本身与实际配置元数据的编写格式完全解耦。
@@ -181,7 +181,7 @@ PetStoreService service = context.getBean("petStore", PetStoreService.class);
 List<String> userList = service.getUsernameList();
 ```
 
-**不直接依赖于 Spring 的 API**
+**不直接依赖于Spring的API**
 
 > 理想情况下，应用程序代码不应该直接依赖于Spring的API，而是通过元数据（如自动装配`@Autowired`注解）声明对特定Bean的依赖。
 

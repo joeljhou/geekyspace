@@ -38,36 +38,35 @@ tag: Spring Framework
 
 ## 命名Beans
 
-在Spring IoC容器中，每个Bean都必须有一个==唯一的标识符==（identifier），如果需要一个以上的标识符，多余的标识符可以被视为==别名==。
+在Spring IoC容器中，每个Bean都必须有一个**唯一的标识符**（identifier），如果需要一个以上的标识符，多余的标识符可以被视为**别名
+**。
 
 **基于XML的配置元数据**
 
-可以使用`id`属性、`name`属性来指定Bean标识符（默认采取小写字母开头的驼峰命名法）
-
 | 属性/元素   | 描述                                     |
 |---------|----------------------------------------|
-| `id`    | Bean的唯一标识符；                            |
+| `id`    | Bean的唯一标识符；默认采取小写字母开头的驼峰命名法            |
 | `name`  | Bean的别名，可以有多个别名；用逗号（`,`）、分号（`;`）或空格分隔  |
 | `alias` | 与name作用相同，都是用于指定Bean的别名（Spring 5.0中废弃） |
 | `ref`   | 引用其他Bean                               |
 
 建议为每个Bean提供一个唯一的`id`属性，以便使用`ref`属性引用该Bean。
-不提供名称的动机与使用[内部Bean](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-properties-detailed.html#beans-inner-beans)
-和[自动装配协作者](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-autowire.html)有关
+不提供Bean名称的动机与使用[内部Bean](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-properties-detailed.html#beans-inner-beans)
+和[自动装配协作者](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-autowire.html)有关。
 
 **使用`Introspector`生成默认Bean名称**
 
-在classpath中的组件扫描，Spring会自动为为命名的组件按照`java.beans.Introspector`的规则生成一个默认的bean名称
+在classpath中的组件扫描，Spring会自动为未命名的组件按照`java.beans.Introspector`的规则生成一个默认的bean名称
 
-* 默认将类名的转为==小写字母开头的驼峰命名法==；如`com.example.MyBean`类的默认bean名称是`myBean`
-* 特殊的，如果类名的第一个和第二个字符都是大写字母，则 Spring 会保留原始的大小写; 例如：`URL`类的默认bean名称还是`URL`
+默认将类名的转为==小写字母开头的驼峰命名法==；如`com.example.MyBean`类的Bean名称是`myBean`。
+特殊的，如果类名的第一个和第二个字符都是大写字母，则 Spring 会保留原始的大小写；如`URL`类的默认Bean名称还是`URL`
 
 > 如果你使用**Java配置**，`@Bean` 注解可以被用来提供别名。
 > 参阅 [使用@Bean注释](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html)。
 
 ## 实例化Bean
 
-`Bean`定义（definition）本质上是创建一个或多个对象的“配方”。
+Bean定义（definition）本质上是创建一个或多个对象的“配方”。
 容器在被询问时查看指定名称的Bean的“配方”，并使用该Bean定义所封装的元数据来创建（或获取）一个对象。
 
 **使用XML配置元数据实例化Bean**
@@ -109,6 +108,7 @@ tag: Spring Framework
 通过基于XML的配置元数据，你可以按以下方式指定你的bean类。
 
 ```xml
+
 <bean id="exampleBean" class="examples.ExampleBean"/>
 
 <bean name="anotherExample" class="examples.ExampleBeanTwo"/>
@@ -156,7 +156,7 @@ public class ClientService {
     <!-- 注入此定位器Bean所需的任何依赖项 -->
 </bean>
 
-<!-- 通过工厂Bean创建的Bean -->
+        <!-- 通过工厂Bean创建的Bean -->
 <bean id="clientService"
       factory-bean="serviceLocator"
       factory-method="createClientServiceInstance"/>
