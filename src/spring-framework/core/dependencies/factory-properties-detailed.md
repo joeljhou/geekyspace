@@ -461,5 +461,5 @@ c-命名空间与p-命名空间使用相同的约定（以`-ref`结尾表示Bean
 </bean>
 ```
 
-在这个示例中，`something` Bean有一个`fred`属性，该属性又有一个`bob`属性，`bob`属性又有一个`sammy`属性，最终`sammy`属性被设置为值 123。
-为了使这个设置生效，除了最终属性名`sammy`外，需要保证路径中的所有属性的构建必须不为 `null`。否则，将抛出 `NullPointerException` 异常。
+在这个示例中，`something` Bean有一个`fred`属性，该属性又有一个`bob`属性，属性下又有一个`sammy`属性，最终`sammy`属性被设置为值 123。
+为了使这个设置生效，除了最终的属性名`sammy`外，要保证路径中的所有属性不为 `null`。否则，将抛出 NullPointerException 异常。
