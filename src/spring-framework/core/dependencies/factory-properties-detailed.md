@@ -331,13 +331,13 @@ Spring 将属性等的空参数视为空字符串。下面这个基于XML的配�
 exampleBean.setEmail("");
 ```
 
-## 使用p-命名空间的XML快捷方式
+## 使用 p-命名空间
 
-**p-namespace**（命名空间）提供了一种便捷的XML配置方式，允许你直接在`bean`
+p-命名空间提供了一种便捷的XML配置方式，允许你直接在`bean`
 元素的属性中定义属性值或引用其他Bean，而无需使用嵌套的`<property/>`标签。
 
 Spring框架支持通过XML Schema定义的扩展配置格式和命名空间。
-虽然`beans`的配置格式在XML Schema文档中有所定义，但**p-命名空间**并未在XSD文件中声明，它是Spring框架内部的一个特性。
+虽然`beans`的配置格式在XML Schema文档中有所定义，但p-命名空间并未在XSD文件中声明，它是Spring框架内部的一个特性。
 
 **简化bean属性设置**
 
@@ -361,10 +361,8 @@ Spring框架支持通过XML Schema定义的扩展配置格式和命名空间。
 </beans>
 ```
 
-在这个例子中，p-命名空间 中的`email`属性告诉Spring框架需要设置一个属性。需要注意的是，由于p-命名空间没有对应的schema定义，您可以直接使用属性名作为属性值。
-
 这个示例展示了在Bean定义中，p-命名空间中有一个名为`email`的属性。这告诉Spring要包含一个属性声明。
-如前所述，p-命名空间没有schema定义，所以你可以直接使用属性名作为属性值，而无需按照常规方式指定属性值。
+如前所述，p-命名空间没有Schema定义，所以你可以直接使用属性名作为属性值，而无需按照常规方式指定属性值。
 
 **简化bean属性引用**
 
@@ -396,13 +394,72 @@ Spring框架支持通过XML Schema定义的扩展配置格式和命名空间。
 </beans>
 ```
 
-以下示例不仅使用p-命名空间声明了属性值，还使用了一种特殊的格式来声明属性的引用。
-第一个bean定义使用`<property name="spouse" ref="jane"/>`创建了从Bean `john` 到 Bean `jane`的引用，
-而第二个bean定义使用了`p:spouse-ref="jane"`作为属性来实现完全相同的功能。
-在这种情况下，`spouse`是属性名称，而`-ref`部分表示这不仅仅是一个直接的值，而是对另一个bean的引用。
+此示例不仅使用p-命名空间声明了属性值，还使用了一种特殊的格式来声明属性的引用。
+第一个bean定义使用了传统的<property/>标签来创建从john到jane的引用，
+而第二个bean定义则使用了`p:spouse-ref="jane"`属性，以更简洁的方式实现了相同的依赖注入。
 
-## 使用c-命名空间的XML快捷方式
+* `p:name`：这是使用p-命名空间设置name属性值的简洁方式
+* `p:spouse-ref`：这是使用p-命名空间声明spouse属性的引用，`-ref`后跟被引用Bean
+
+> 注意⚠️：p-命名空间不如标准XML格式灵活。例如，声明属性引用的格式与以`Ref`结尾的属性发生冲突，而标准XML格式则不会。
+> 我们建议你谨慎选择这种方式，并将此决策传达给你的团队成员，以避免同时使用这三种格式的XML文档。
+
+## 使用 c-命名空间
+
+与带有[p-命名空间的XML快捷方式](#使用-p-命名空间)类似，
+Spring 3.1中引入的c-命名空间，允许使用内联属性来配置构造函数参数，而不是嵌套的`constructor-arg`元素。
+
+以下示例使用c-命名空间来实现与基于构造函数依赖注入相同的功能：
+
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="beanTwo" class="x.y.ThingTwo"/>
+	<bean id="beanThree" class="x.y.ThingThree"/>
+
+	<!-- 传统的声明，可以使用可选的参数名称 -->
+	<bean id="beanOne" class="x.y.ThingOne">
+		<constructor-arg name="thingTwo" ref="beanTwo"/>
+		<constructor-arg name="thingThree" ref="beanThree"/>
+		<constructor-arg name="email" value="something@somewhere.com"/>
+	</bean>
+
+	<!-- 使用c-命名空间声明参数名称 -->
+	<bean id="beanOne" class="x.y.ThingOne" c:thingTwo-ref="beanTwo"
+		c:thingThree-ref="beanThree" c:email="something@somewhere.com"/>
+
+</beans>
+```
+
+c-命名空间与p-命名空间使用相同的约定（以`-ref`结尾表示Bean引用）来通过名称设置构造函数参数。
+同样，即使c-命名空间在XSD模式中未定义（它存在于Spring核心中），但在XML文件中仍然需要声明。
+
+对于构造函数参数名称不可用的罕见情况（通常是因为字节码是在没有调试debug信息的情况下编译的），可以使用参数索引（下标）作为备用，如下所示：
+
+```xml
+<!-- c-namespace索引声明 -->
+<bean id="beanOne" class="x.y.ThingOne" c:_0-ref="beanTwo" c:_1-ref="beanThree"
+      c:_2="something@somewhere.com"/>
+```
+
+> 由于XML语法限制，索引表示法需要以下划线（_）开头，因为XML属性名不能以数字开头（尽管一些IDE允许这样做）。
+> 对于`<constructor-arg>`元素，也有相应的索引表示法可用，但并不常用，因为通常情况下，普通的声明顺序已经足够了。
+
+在实践中，构造函数解析机制在匹配参数方面非常高效，因此除非确实需要，我们建议在整个配置中始终使用名称标记。
 
 ## 复合属性名
 
+在设置Bean属性时，只要路径中除最终属性名外的所有组件不为null，就可以使用复合或嵌套的属性名称。以下是一个Bean定义的示例：
 
+```xml
+<bean id="something" class="things.ThingOne">
+    <property name="fred.bob.sammy" value="123"/>
+</bean>
+```
+
+在这个示例中，`something` Bean有一个`fred`属性，该属性又有一个`bob`属性，`bob`属性又有一个`sammy`属性，最终`sammy`属性被设置为值 123。
+为了使这个设置生效，除了最终属性名`sammy`外，需要保证路径中的所有属性的构建必须不为 `null`。否则，将抛出 `NullPointerException` 异常。
