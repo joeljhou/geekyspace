@@ -10,7 +10,7 @@ tag: Spring Framework
 # 使用depends-on
 
 如果一个Bean是另一个Bean的依赖项，这意味着一个Bean被设置为另一个Bean的属性。
-通常，你可以通过基于XML配置元数据中的[<ref/>元素](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-dependson.html#beans-ref-element)
+可以通过[<ref\/>元素](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-dependson.html#beans-ref-element)
 来实现这一点。 然而，有时Bean之间的依赖关系并不那么直接。
 
 举个例子：当一个类中的静态初始化器需要被触发时，比如数据库驱动程序的注册。
