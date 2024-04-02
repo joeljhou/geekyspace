@@ -19,7 +19,7 @@ export const springFramework = arraySidebar([
                         {text: "依赖注入", link: "factory-collaborators"},
                         {text: "依赖和配置详解", link: "factory-properties-detailed"},
                         {text: "使用depends-on", link: "factory-dependson"},
-                        {text: "延迟初始化的Bean", link: "factory-lazy-init"},
+                        {text: "懒加载Bean", link: "factory-lazy-init"},
                         {text: "自动装配协作者", link: "factory-autowire"},
                         {text: "方法注入", link: "factory-method-injection"},
                     ]

@@ -20,7 +20,7 @@ tag: Spring Framework
 * [依赖注入](./factory-collaborators.md)
 * [依赖和配置详解](./factory-properties-detailed.md)
 * [使用depends-on](./factory-dependson.md)
-* [延迟初始化的Bean](./factory-lazy-init.md)
+* [懒加载Bean](./factory-lazy-init.md)
 * [自动装配协作者](./factory-autowire.md)
 * [方法注入](./factory-method-injection.md)
 
