@@ -63,3 +63,18 @@ Spring提供了四种自动装配模式，允许你为每个Bean单独指定使�
 
 ## 从自动装配中排除Bean
 
+在Spring的XML配置中，可以通过设置`<bean/>`元素的`autowire-candidate`属性来控制特定Bean是否参与自动装配。
+设置为`false`将阻止Spring容器自动装配该Bean，这一设置对注解式配置（如`@Autowired`）同样有效。
+
+> **注意⚠️**：`autowire-candidate`属性主要影响基于类型的自动装配。
+> 对于按名称进行的自动装配（`byName`），即使Bean未标记为自动装配候选项，只要名称匹配，它仍然可以被注入。
+
+你也可以基于对Bean名称进行模式匹配来限制自动装配候选项。
+顶层的 `<beans/>` 元素接受一个或多个模式，并将其放在 `default-autowire-candidates` 属性中。
+例如，要将自动装配候选项限制为任何名称以 Repository 结尾的Bean，请提供一个值为 *Repository。
+如果要提供多个模式，请在逗号分隔的列表中定义它们。
+Bean定义的 `autowire-candidate` 属性显式设置为 true 或 false 的值始终具有优先权。
+对于这种Bean，不适用模式匹配规则。
+
+使用这些技术，您可以精确地控制自动装配的行为，避免不期望的依赖注入，确保Bean的自动装配符合您的设计意图。
+
