@@ -30,4 +30,33 @@ Bean定义可以是多种作用域之一。Spring框架支持六种作用域，�
 > Scope）在Spring框架中是可用的，但默认情况下并没有注册。参阅 [SimpleThreadScope](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/context/support/SimpleThreadScope.html)。
 > 关于如何注册此Scope或任何其他自定义Scope的说明，参阅 [自定义Scope](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#beans-factory-scopes-custom-using)。
 
+## 单例作用域（singleton）
 
+单例作用域（singleton scope）是Spring框架中Bean定义的默认作用域。
+当你将一个Bean定义为单例作用域时，对所有具有匹配ID或名称的Bean的调用都会返回这个特定的Bean实例。
+
+下图显示了单例作用域的工作原理：
+
+![singleton](http://img.geekyspace.cn/pictures/2024/singleton.png)
+
+Spring的单例Bean概念与《设计模式》GoF（四人帮）书中定义的单例模式有所不同。
+
+* GoF单例模式通过硬编码对象的作用域，确保每个类加载器（ClassLoader）下，仅有一个特定类的实例被创建
+* Spring单例的作用域最好被描述为每个容器（per-container）和每个bean（per-bean）
+
+单例作用域是Spring中的默认作用域。要在XML中将一个Bean定义为单例，参考按照以下示例：
+
+```xml
+<bean id="accountService" class="com.something.DefaultAccountService"/>
+
+<!-- 以下是等效的冗余写法（因为单例作用域是默认的） -->
+<bean id="accountService" class="com.something.DefaultAccountService" scope="singleton"/>
+```
+
+## 原型作用域（prototype）
+
+## 单例Bean与原型Bean依赖
+
+## 请求、会话、应用程序和WebSocket作用域
+
+## 自定义作用域
