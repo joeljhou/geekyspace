@@ -35,7 +35,7 @@ Bean定义可以是多种作用域之一。Spring框架支持六种作用域，�
 单例作用域（singleton scope）是Spring框架中Bean定义的默认作用域。
 当你将一个Bean定义为单例作用域时，对所有具有匹配ID或名称的Bean的调用都会返回这个特定的Bean实例。
 
-下图显示了单例作用域的工作原理：
+下图说明了单例作用域：
 
 ![singleton](http://img.geekyspace.cn/pictures/2024/singleton.png)
 
@@ -54,6 +54,34 @@ Spring的单例Bean概念与《设计模式》GoF（四人帮）书中定义的�
 ```
 
 ## 原型作用域（prototype）
+
+原型作用域（prototype scope）的Bean部署，意味着每次请求该特定Bean时都会创建一个新的Bean实例。
+也就是说，当一个Bean被注入到另一个Bean中，或者通过容器上的`getBean()`方法调用请求它，每次都会产生一个新的实例。
+作为一项规则，将原型（prototype）作用域用于所有有状态的Bean，将单例（singleton）作用域用于无状态的Bean。
+
+下图说明了原型作用域：
+
+![prototype](http://img.geekyspace.cn/pictures/2024/prototype.png)
+
+（注意⚠️：以上图片中的数据访问对象（DAO）通常不配置为原型作用域，因为典型的DAO不持有任何会话状态。）
+
+以下示例展示了如何在XML中将一个Bean定义为原型作用域：
+
+```xml
+<bean id="accountService" class="com.something.DefaultAccountService" scope="prototype"/>
+```
+
+与其他作用域相比，Spring并不管理原型（prototype）Bean的完整生命周期。
+容器实例化、配置并组装原型对象，然后将其交给客户端，之后就不会对那个原型实例保持任何记录。
+因此，尽管初始化生命周期回调方法（如`@PostConstruct`）会在所有对象上调用，而不考虑作用域，
+但在原型作用域的情况下，配置的销毁生命周期回调方法（如`@PreDestroy`）则不会被调用。
+客户端代码必须清理原型作用域的对象，并释放原型Bean所持有的昂贵资源。
+要让Spring容器释放原型作用域Bean所持有的资源，可以尝试使用一个自定义的[Bean后置处理器](https://docs.spring.io/spring-framework/reference/core/beans/factory-extension.html#beans-factory-extension-bpp)
+，该后置处理器持有需要清理的Bean的引用。
+
+在某些方面，Spring容器对于原型（prototype）作用域Bean的角色类似于Java中的`new`运算符。
+但是，一旦Spring容器创建并交付原型Bean给客户端，所有生命周期管理的工作都需要由客户端自行处理。
+有关Spring容器中Bean的生命周期的详细信息，参阅 [生命周期回调](https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html#beans-factory-lifecycle)
 
 ## 单例Bean与原型Bean依赖
 
