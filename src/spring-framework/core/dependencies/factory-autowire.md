@@ -50,7 +50,7 @@ Spring提供了四种自动装配模式，允许你为每个Bean单独指定使�
 2. **不适用于基本类型**：自动装配不适用于基本类型，如`int`、`long`、`String`等，因为它们没有Bean名称
 3. **精确性问题**：自动装配不如显式注入精确，因为它依赖于类型匹配，而不是Bean的名称或其他限定符，这可能导致意外的结果
 4. **文档化缺失**：自动装配的依赖关系可能不会自动包含在生成的文档中，因此开发者需要额外的文档或注释来解释Bean之间的依赖关系
-5. **多重匹配问题**：当存在多个Bean定义与自动装配的属性类型匹配时，Spring将抛出异常。
+5. **多重匹配问题**：当存在多个Bean定义与自动装配的属性类型匹配时，Spring将抛出异常
 6. **歧义性**：当存在多个Bean定义与自动装配的属性类型匹配时，Spring将无法确定哪个Bean是首选的,就会抛出异常
 
 你有以下几种方法来解决**多重匹配问题和歧义性**：
@@ -63,18 +63,27 @@ Spring提供了四种自动装配模式，允许你为每个Bean单独指定使�
 
 ## 从自动装配中排除Bean
 
-在Spring的XML配置中，可以通过设置`<bean/>`元素的`autowire-candidate`属性来控制特定Bean是否参与自动装配。
-设置为`false`将阻止Spring容器自动装配该Bean，这一设置对注解式配置（如`@Autowired`）同样有效。
+在每个Bean定义中，你可以设置`autowire-candidate`属性来控制Bean是否标记为自动装配候选项。
 
-> **注意⚠️**：`autowire-candidate`属性主要影响基于类型的自动装配。
-> 对于按名称进行的自动装配（`byName`），即使Bean未标记为自动装配候选项，只要名称匹配，它仍然可以被注入。
+* 默认情况下，`autowire-candidate`属性的值为`true`，表示Bean是自动装配的候选项
+* 属性为`false`时，Bean将被排除在自动装配之外，这一设置对注解式配置
+  （如[@Autowired](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config/autowired.html)）同样有效
 
-你也可以基于对Bean名称进行模式匹配来限制自动装配候选项。
-顶层的 `<beans/>` 元素接受一个或多个模式，并将其放在 `default-autowire-candidates` 属性中。
-例如，要将自动装配候选项限制为任何名称以 Repository 结尾的Bean，请提供一个值为 *Repository。
-如果要提供多个模式，请在逗号分隔的列表中定义它们。
-Bean定义的 `autowire-candidate` 属性显式设置为 true 或 false 的值始终具有优先权。
-对于这种Bean，不适用模式匹配规则。
+> **注意⚠️**：`autowire-candidate`属性仅影响基于类型的自动装配模式。
+> 对于按名称的显示引用，`autowire-candidate`属性不起作用。 只要名称匹配，它仍然可以被注入。
 
-使用这些技术，您可以精确地控制自动装配的行为，避免不期望的依赖注入，确保Bean的自动装配符合您的设计意图。
+你还可以根据`byName`的模式匹配来限制自动装配候选项。
+顶层的`<beans/>`元素接受一个或多个模式，并将其放在 `default-autowire-candidates` 属性中，以逗号分隔。
+例如，要将自动装配候选项限制为任何**名称以Repository结尾的Bean**，提供值为`*Repository`。
+
+```xml
+<beans default-autowire-candidates="*Repository">
+    <!-- Bean definitions -->
+</beans>
+```
+
+Bean定义的`autowire-candidate`属性显式设置为 true 的值始终具有优先权。
+对于这种Bean，不适用于模式匹配规则。
+
+使用这些技术，你可以精确地控制自动装配的行为，避免不期望的依赖注入，确保Bean的自动装配符合你的设计意图。
 
