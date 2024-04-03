@@ -27,8 +27,10 @@ Bean定义可以是多种作用域之一。Spring框架支持六种作用域，�
 | websocket      | Web程序中，为每个`WebSocket`连接创建一个Bean实例    |
 
 > 线程作用域（Thread
-> Scope）在Spring框架中是可用的，但默认情况下并没有注册。参阅 [SimpleThreadScope](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/context/support/SimpleThreadScope.html)。
-> 关于如何注册此Scope或任何其他自定义Scope的说明，参阅 [自定义Scope](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#beans-factory-scopes-custom-using)。
+>
+Scope）在Spring框架中是可用的，但默认情况下并没有注册。参阅 [SimpleThreadScope](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/context/support/SimpleThreadScope.html)。
+>
+关于如何注册此Scope或任何其他自定义Scope的说明，参阅 [自定义Scope](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#beans-factory-scopes-custom-using)。
 
 ## 单例作用域（singleton）
 
@@ -47,9 +49,10 @@ Spring的单例Bean概念与《设计模式》GoF（四人帮）书中定义的�
 单例作用域是Spring中的默认作用域。要在XML中将一个Bean定义为单例，参考按照以下示例：
 
 ```xml
+
 <bean id="accountService" class="com.something.DefaultAccountService"/>
 
-<!-- 以下是等效的冗余写法（因为单例作用域是默认的） -->
+        <!-- 以下是等效的冗余写法（因为单例作用域是默认的） -->
 <bean id="accountService" class="com.something.DefaultAccountService" scope="singleton"/>
 ```
 
@@ -68,6 +71,7 @@ Spring的单例Bean概念与《设计模式》GoF（四人帮）书中定义的�
 以下示例展示了如何在XML中将一个Bean定义为原型作用域：
 
 ```xml
+
 <bean id="accountService" class="com.something.DefaultAccountService" scope="prototype"/>
 ```
 
@@ -95,4 +99,22 @@ Spring的单例Bean概念与《设计模式》GoF（四人帮）书中定义的�
 
 ## 请求、会话、应用程序和WebSocket作用域
 
+`request`、`session`、`application`和`webSocket`作用域只有在使用Web感知（aware）的Spring应用程序上下文实现，
+如`XmlWebApplicationContext`时才可用。
+如果你在常规的Spring IoC容器中使用这些作用域，比如`ClassPathXmlApplicationContext`，
+将会抛出一个IllegalStateException异常，提示未知的Bean作用域。
+
+### 初始Web配置
+
+### Request Scope
+
+### Session Scope
+
+### Application Scope
+
+### WebSocket Scope
+
+### Bean Scope作为依赖项
+
 ## 自定义作用域
+
