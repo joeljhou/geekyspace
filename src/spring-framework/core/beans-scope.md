@@ -85,6 +85,14 @@ Spring的单例Bean概念与《设计模式》GoF（四人帮）书中定义的�
 
 ## 单例Bean与原型Bean依赖
 
+当你在单例作用域的Bean中使用对原型作用域Bean的依赖时，请注意依赖关系是在实例化时解析的。
+因此，如果你将一个原型作用域的Bean注入到一个单例作用域的Bean中，将会实例化一个新的原型Bean，然后将其依赖注入到单例Bean中。
+这个原型实例是唯一供给单例作用域Bean的实例。
+
+然而，假设你希望单例作用域的Bean在运行时重复获取原型作用域的Bean的新实例。
+你不能将一个原型作用域的Bean注入到您的单例Bean中，因为这种注入只会在Spring容器实例化单例Bean并解析并注入其依赖时发生一次。
+如果你需要在运行时多次获取原型Bean的新实例，参阅 [方法注入（Method Injection）](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-method-injection.html)。
+
 ## 请求、会话、应用程序和WebSocket作用域
 
 ## 自定义作用域
