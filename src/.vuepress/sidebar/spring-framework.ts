@@ -23,7 +23,8 @@ export const springFramework = arraySidebar([
                         {text: "自动装配协作者", link: "factory-autowire"},
                         {text: "方法注入", link: "factory-method-injection"},
                     ]
-                }
+                },
+                {text: "Bean作用域", link: "beans-scope"},
             ]
         },
     ]
