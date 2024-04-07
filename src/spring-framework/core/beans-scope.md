@@ -94,7 +94,7 @@ Spring的单例Bean概念与《设计模式》GoF（四人帮）书中定义的�
 这个原型实例是唯一供给单例作用域Bean的实例。
 
 然而，假设你希望单例作用域的Bean在运行时重复获取原型作用域的Bean的新实例。
-你不能将一个原型作用域的Bean注入到您的单例Bean中，因为这种注入只会在Spring容器实例化单例Bean并解析并注入其依赖时发生一次。
+你不能将一个原型作用域的Bean注入到你的单例Bean中，因为这种注入只会在Spring容器实例化单例Bean并解析并注入其依赖时发生一次。
 如果你需要在运行时多次获取原型Bean的新实例，参阅 [方法注入（Method Injection）](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-method-injection.html)。
 
 ## 请求、会话、应用程序和WebSocket作用域
@@ -106,15 +106,141 @@ Spring的单例Bean概念与《设计模式》GoF（四人帮）书中定义的�
 
 ### 初始Web配置
 
+为了支持对`request`、`session`、`application`和`websocket`级别的Bean进行作用域范围设置（即Web作用域的Bean），
+在定义Bean之前需要进行一些简单的初始配置。（对于标准作用域：单例（`singleton`）和原型（`prototype`）则不需要进行这些初始设置。）
+
+你如何完成这个初始设置取决于你的特定Servlet环境。
+
+如果你在Spring Web MVC中访问作用域内的Bean，实际上是在一个由Spring `DispatcherServlet`处理的请求（request）中进行访问，
+无需进行特殊设置。`DispatcherServlet`已经暴露了所有相关状态。
+
+如果你使用Servlet Web容器，在Spring的 DispatcherServlet 之外处理请求（例如，在使用JSF时），
+你需要注册 org.springframework.web.context.request.RequestContextListener ServletRequestListener。
+这可以通过使用 WebApplicationInitializer 接口以编程方式完成。或者，在你的Web应用程序的 web.xml 文件中添加以下声明。
+
+如果你使用Servlet Web容器，在Spring的`DispatcherServlet`之外处理请求（例如，使用JSF），
+你需要注册`org.springframework.web.context.request.RequestContextListener` `ServletRequestListener`。
+可以通过使用`WebApplicationInitializer`接口以编程方式完成。或者，在你的Web应用程序的`web.xml`文件中添加以下声明：
+
+```xml
+<web-app>
+    ...
+    <listener>
+        <listener-class>
+            org.springframework.web.context.request.RequestContextListener
+        </listener-class>
+    </listener>
+    ...
+</web-app>
+```
+
+如果你在设置监听器（listener）时遇到问题，可以考虑使用Spring的`RequestContextFilter`。
+过滤器（filter）的映射取决于周围Web应用程序的配置，因此你需要根据实际情况进行适当的调整。
+以下示例展示了Web应用中过滤器的部分配置：
+
+```xml
+<web-app>
+    ...
+    <filter>
+        <filter-name>requestContextFilter</filter-name>
+        <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>requestContextFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    ...
+</web-app>
+```
+
+`DispatcherServlet`、`RequestContextListener`和`RequestContextFilter`都执行着相同的作用，即把HTTP请求对象绑定到正在处理该请求的线程（Thread）上。
+这使得**请求范围**（request-scoped）和**会话范围**（session-scoped）的Bean在整个调用链中更下游可用。
+
 ### Request Scope
+
+以下是一个用于定义Bean的XML配置的示例：
+
+```xml
+<bean id="loginAction" class="com.something.LoginAction" scope="request"/>
+```
+
+Spring容器使用`loginAction` Bean定义为每个HTTP请求创建一个新的`LoginAction` Bean实例。
+换句话说，`loginAction` Bean的作用域是HTTP请求级别的。
+你可以随意更改创建的实例的内部状态，因为从同一个`loginAction` Bean定义中创建的其他实例不会看到这些状态的变化。
+它们是针对单个请求的特定状态。当请求完成处理时，该请求所涉及的Bean会被丢弃。
+
+当使用注解驱动（annotation-driven）的组件或Java配置时，你可以使用`@RequestScope`注解将组件分配到请求作用域（Request Scope）。
+以下示例展示了如何实现：
+
+```java
+@RequestScope
+@Component
+public class LoginAction {
+	// ...
+}
+```
 
 ### Session Scope
 
+以下是一个用于定义Bean的XML配置的示例：
+
+```xml
+<bean id="userPreferences" class="com.something.UserPreferences" scope="session"/>
+```
+
+Spring容器使用`userPreferences` Bean定义为单个HTTP 会话（Session）的生命周期创建一个新的`UserPreferences` Bean实例。
+换句话说，`userPreferences` Bean的作用域实际上是HTTP会话级别的。
+与[请求作用域](#request-scope)的Bean一样，你可以随意更改创建的实例的内部状态，
+因为其他使用相同`userPreferences` Bean定义创建的实例所在的HTTP会话实例不会看到这些状态的变化，因为它们是针对单个HTTP会话的特定状态。
+当HTTP会话（Session）最终被丢弃时，与该特定HTTP会话范围关联的Bean也会被丢弃。
+
+当使用注解驱动（annotation-driven）的组件或Java配置时，你可以使用`@SessionScope`注解将组件分配到会话作用域（Session Scope）。
+以下示例展示了如何实现：
+
+```java
+@SessionScope
+@Component
+public class UserPreferences {
+	// ...
+}
+```
+
 ### Application Scope
 
+以下是一个用于定义Bean的XML配置的示例：
+
+```xml
+<bean id="appPreferences" class="com.something.AppPreferences" scope="application"/>
+```
+
+Spring容器使用`appPreferences` Bean定义为整个Web应用程序创建一个新的`AppPreferences` Bean实例。
+换句话说，`appPreferences` Bean的作用域是`ServletContext`级别，并作为常规的`ServletContext`属性存储。
+这与Spring的单例Bean有些类似，但有两个重要区别：
+
+1. 它是每个`ServletContext`的单例，而不是每个Spring `ApplicationContext`（在任何给定的Web应用程序中可能有多个ApplicationContext） 
+2. 并且它实际上是作为`ServletContext`属性暴露和可见的
+
+当使用注解驱动（annotation-driven）的组件或Java配置时，你可以使用`@ApplicationScope`注解将组件分配到应用程序作用域（Application Scope）。
+以下示例展示了如何实现：
+
+```java
+@ApplicationScope
+@Component
+public class AppPreferences {
+	// ...
+}
+```
+
 ### WebSocket Scope
+
+WebSocket作用域与WebSocket会话的生命周期相关联，适用于基于WebSocket的STOMP应用程序，
+详情参阅：[WebSocket作用域](https://docs.spring.io/spring-framework/reference/web/websocket/stomp/scope.html)
 
 ### Bean Scope作为依赖项
 
 ## 自定义作用域
+
+### 创建自定义 Scope
+
+### 使用自定义 Scope
 
