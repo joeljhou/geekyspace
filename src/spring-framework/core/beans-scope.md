@@ -234,6 +234,28 @@ WebSocket作用域与WebSocket会话的生命周期相关联，适用于基于We
 
 ### Bean Scope作为依赖项
 
+Spring IoC容器不仅管理对象（Bean）的实例化，还管理协作对象（或依赖项）的注入。
+如果你想要将（例如）一个HTTP请求作用域的Bean注入到另一个生命周期较长的Bean中，你可以选择注入一个AOP代理而不是作用域Bean。
+换句话说，你需要注入一个代理对象，它暴露与作用域对象相同的公共接口，但也可以从相关作用域（例如HTTP请求）中获取真实目标对象，
+并将方法调用委派到真实对象上。
+
+::: tip
+你还可以在定义为`singleton`作用域的Bean之间使用 `<aop:scoped-proxy/>`，
+这样引用就会通过一个可序列化的中间代理进行，因此能够在反序列化时重新获取目标`singleton` Bean。
+
+当对`prototype`作用域的Bean声明`<aop:scoped-proxy/>`时，对共享代理的每个方法调用都会导致创建一个新的目标实例，并将调用转发到新创建的实例上。
+
+此外，作用域代理并不是以生命周期安全的方式从较短作用域中访问Bean的唯一方法。
+你还可以将注入点（即构造函数或setter参数或autowired字段）声明为`ObjectFactory<MyTargetBean>`，
+允许在每次需要时通过调用`getObject()`来获取当前实例，而无需持有实例或将其分开存储。
+
+作为一个扩展变体，你还可以声明`ObjectProvider<MyTargetBean>`，它提供了几个额外的访问变体，包括`getIfAvailable`
+和`getIfUnique`。
+
+JSR-330的变体被称为Provider，使用`Provider<MyTargetBean>`声明，并且每次检索尝试时都需要对应的`get()`调用。有关JSR-330的更多细节，
+请参阅[此处](https://docs.spring.io/spring-framework/reference/core/beans/standard-annotations.html)。
+:::
+
 ## 自定义作用域
 
 ### 创建自定义 Scope
