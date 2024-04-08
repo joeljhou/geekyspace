@@ -38,8 +38,7 @@ tag: Spring Framework
 
 ## 命名Beans
 
-在Spring IoC容器中，每个Bean都必须有一个**唯一的标识符**（identifier），如果需要一个以上的标识符，多余的标识符可以被视为**别名
-**。
+在Spring IoC容器中，每个Bean都必须有一个**唯一的标识符**（identifier），如果需要一个以上的标识符，多余的标识符可以被视为**别名**。
 
 **基于XML的配置元数据**
 
@@ -187,10 +186,12 @@ public class DefaultServiceLocator {
 
 这种方法表明，工厂Bean本身可以通过依赖注入（DI）进行管理和配置。参阅 [依赖和配置详解](https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-properties-detailed.html)。
 
-> 在 Spring 文档中，“`factory bean`”是指Spring容器中配置的Bean，它通过[实例](#使用实例工厂方法实例化)
-> 或[静态](#使用静态工厂方法实例化)工厂方法创建对象。 相比之下，`FactoryBean`（注意大小写）是Spring特定
-> [FactoryBean](https://docs.spring.io/spring-framework/reference/core/beans/factory-extension.html#beans-factory-extension-factorybean)
-> 接口的实现，它允许自定义实例化逻辑。
+::: note
+在 Spring 文档中，“`factory bean`”是指Spring容器中配置的Bean，它通过[实例](#使用实例工厂方法实例化)
+或[静态](#使用静态工厂方法实例化)工厂方法创建对象。 相比之下，`FactoryBean`（注意大小写）是Spring特定
+[FactoryBean](https://docs.spring.io/spring-framework/reference/core/beans/factory-extension.html#beans-factory-extension-factorybean)
+接口的实现，它允许自定义实例化逻辑。
+:::
 
 ### 确定Bean的运行时类型
 

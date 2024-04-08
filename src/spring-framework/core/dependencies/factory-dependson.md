@@ -33,7 +33,9 @@ tag: Spring Framework
 <bean id="accountDao" class="x.y.jdbc.JdbcAccountDao"/>
 ```
 
-> `depends-on`属性不仅可以指定初始化时的依赖关系，而且在
-> [单例](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#beans-factory-scopes-singleton)
-> Bean的情况下，还可以指定相应的销毁时依赖关系。
-> `depends-on`指定的依赖Bean会在给定Bean本身被销毁之前被首先销毁。因此，`depends-on`也可以控制关闭顺序。
+::: note
+`depends-on`属性不仅可以指定初始化时的依赖关系，而且在
+[单例](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#beans-factory-scopes-singleton)
+Bean的情况下，还可以指定相应的销毁时依赖关系。
+`depends-on`指定的依赖Bean会在给定Bean本身被销毁之前被首先销毁。因此，`depends-on`也可以控制关闭顺序。
+:::

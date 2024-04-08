@@ -69,8 +69,10 @@ Spring提供了四种自动装配模式，允许你为每个Bean单独指定使�
 * 属性为`false`时，Bean将被排除在自动装配之外，这一设置对注解式配置
   （如[@Autowired](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config/autowired.html)）同样有效
 
-> **注意⚠️**：`autowire-candidate`属性仅影响基于类型的自动装配模式。
-> 对于按名称的显示引用，`autowire-candidate`属性不起作用。 只要名称匹配，它仍然可以被注入。
+::: note
+**注意⚠️**：`autowire-candidate`属性仅影响基于类型的自动装配模式。
+对于按名称的显示引用，`autowire-candidate`属性不起作用。 只要名称匹配，它仍然可以被注入。
+:::
 
 你还可以根据`byName`的模式匹配来限制自动装配候选项。
 顶层的`<beans/>`元素接受一个或多个模式，并将其放在 `default-autowire-candidates` 属性中，以逗号分隔。

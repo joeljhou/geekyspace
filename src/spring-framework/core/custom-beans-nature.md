@@ -86,7 +86,7 @@ public class AnotherExampleBean implements InitializingBean {
 
 然而，前面两个示例中的第一个并未将代码与Spring耦合。
 
-::: tip
+::: note
 请注意，`@PostConstruct`和初始化方法一般在容器的单例创建锁内执行。只有在从`@PostConstruct`方法返回后，
 Bean实例才被视为完全初始化并准备好发布给其他对象。
 这些单独的初始化方法仅用于验证配置状态并可能根据给定的配置准备一些数据结构，但不涉及外部Bean访问相关的进一步活动。
@@ -163,7 +163,6 @@ public class AnotherExampleBean implements DisposableBean {
 ::: note
 对于延长的关闭阶段，您可以实现该Lifecycle接口并在调用任何单例 bean 的 destroy 方法之前接收提前停止信号。您还可以实现SmartLifecycle一个有时限的停止步骤，其中容器将等待所有此类停止处理完成，然后再继续销毁方法。
 :::
-
 
 ### 默认的初始化和销毁方法
 

@@ -44,9 +44,11 @@ Spring提供了几个 ApplicationContext 接口的实现，在独立应用程序
 如上图所示，Spring IoC容器消费配置元数据。
 这种配置元数据代表了你作为一个应用开发者，如何告诉Spring容器在你的应用中实例化、配置和组装对象。
 
-> **注意⚠️**：Spring IoC容器本身与实际配置元数据的编写格式完全解耦。
-> 如今，许多开发者选择使用[基于Java的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/java.html)
-> 来构建他们的Spring应用程序。
+::: note
+**注意⚠️**：Spring IoC容器本身与实际配置元数据的编写格式完全解耦。
+如今，许多开发者选择使用[基于Java的容器配置](https://docs.spring.io/spring-framework/reference/core/beans/java.html)
+来构建他们的Spring应用程序。
+:::
 
 有关在`Spring`容器中使用其他形式的元数据信息，参阅：
 
@@ -106,10 +108,12 @@ Spring的配置包含至少一个，通常是多个`<bean>`元素。容器必须
 ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
 ```
 
-> 了解更多关于[资源加载](https://docs.spring.io/spring-framework/reference/core/resources.html)的信息；
-> 它提供了一种简单的方法，可以从`URI`语法中定义的位置读取`InputStream`。 特别是，`Resource`路径被用来构建应用程序上下文， 如
-> [Application Context和资源路径](https://docs.spring.io/spring-framework/reference/core/resources.html#resources-app-ctx)
-> 中所述。
+::: note
+了解更多关于[资源加载](https://docs.spring.io/spring-framework/reference/core/resources.html)的信息；
+它提供了一种简单的方法，可以从`URI`语法中定义的位置读取`InputStream`。 特别是，`Resource`路径被用来构建应用程序上下文， 如
+[Application Context和资源路径](https://docs.spring.io/spring-framework/reference/core/resources.html#resources-app-ctx)
+中所述。
+:::
 
 以下示例显示了**服务层对象**`services.xml` 配置文件：
 
