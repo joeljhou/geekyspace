@@ -25,6 +25,7 @@ export const springFramework = arraySidebar([
                     ]
                 },
                 {text: "Bean作用域", link: "beans-scope"},
+                {text: "自定义Bean的性质", link: "custom-beans-nature"},
             ]
         },
     ]
