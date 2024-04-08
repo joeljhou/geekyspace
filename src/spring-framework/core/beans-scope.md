@@ -360,7 +360,9 @@ Bean作用域机制是可扩展的。你可以定义自己的作用域，甚至�
 要了解如何实现自定义作用域，请参阅Spring框架自带的Scope实现以及[Scope](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/beans/factory/config/Scope.html)
 javadoc，其中更详细地解释了你需要实现的方法。
 
-Scope 接口有四个方法用于从作用域中获取对象、将它们从scope中移除，以及让对象被销毁。
+Scope 接口有四个方法用于从作用域中获取对象、将它们从Scope中移除，以及让对象被销毁。
+
+**获取作用域内的对象**
 
 例如，会话作用域的实现会返回会话作用域的Bean（如果不存在，则该方法会返回该Bean的新实例，并将其绑定到会话中以供将来引用）。
 以下方法返回底层作用域中的对象：
@@ -369,12 +371,16 @@ Scope 接口有四个方法用于从作用域中获取对象、将它们从scope
 Object get(String name, ObjectFactory<?> objectFactory)
 ```
 
+**移除作用域内的对象**
+
 例如，会话作用域的实现会从底层会话中移除会话作用域的Bean。
 应该返回对象，但如果找不到指定名称的对象，则可以返回`null`。以下方法从底层作用域中移除对象：
 
 ```xml
 Object remove(String name)
 ```
+
+**注册销毁回调**
 
 以下方法注册一个回调（callback），该回调在作用域被销毁 或 作用域中的指定对象被销毁时调用：
 
@@ -383,7 +389,9 @@ void registerDestructionCallback(String name, Runnable destructionCallback)
 ```
 
 参阅 [javadoc](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/beans/factory/config/Scope.html#registerDestructionCallback)
-或 Spring scope 的实现，以了解更多关于销毁callback的信息。
+或 Spring Scope 的实现，以了解更多关于销毁callback的信息。
+
+**获取会话标识符**
 
 以下方法获取底层作用域的会话标识符（conversation id）：
 
@@ -395,3 +403,66 @@ String getConversationId()
 
 ### 使用自定义 Scope
 
+在编写和测试一个或多个自定义Scope实现之后，你需要让Spring容器知道你的新作用域。
+下面的方法是向Spring容器注册新Scope的核心方法：
+
+```java
+void registerScope(String scopeName, Scope scope);
+```
+
+该方法声明在`ConfigurableBeanFactory`接口上，可以通过大多数Spring ApplicationContext实现中的BeanFactory属性访问到。
+
+`registerScope(..)`方法的第一个参数是与作用域相关联的唯一名称。
+Spring容器本身中的示例名称包括`singleton`和`prototype`。
+`registerScope(..)`方法的第二个参数是你希望注册和使用的自定义Scope实现的实际实例。
+
+假设你编写了自定义的Scope实现，并按下面的示例进行注册：
+
+> 下面的示例使用了`SimpleThreadScope`，它包含在Spring中，但不是默认注册的。对于你自己的自定义Scope实现，注册的步骤是相同的。
+
+```java
+Scope threadScope = new SimpleThreadScope();
+beanFactory.registerScope("thread", threadScope);
+```
+
+接下来可以创建符合你自定义Scope规则的Bean定义，示例如下：
+
+```xml
+<bean id="..." class="..." scope="thread">
+```
+
+使用自定义Scope实现，你不仅可以通过编程方式注册作用域，还可以通过使用`CustomScopeConfigurer`类进行声明性的作用域注册，示例如下：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop
+		https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="thread">
+                    <bean class="org.springframework.context.support.SimpleThreadScope"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="thing2" class="x.y.Thing2" scope="thread">
+        <property name="name" value="Rick"/>
+        <aop:scoped-proxy/>
+    </bean>
+
+    <bean id="thing1" class="x.y.Thing1">
+        <property name="thing2" ref="thing2"/>
+    </bean>
+
+</beans>
+```
+
+> 当你将`<aop:scoped-proxy/>`放置在`FactoryBean`实现的`<bean>`声明内部时，作用域的是工厂Bean本身，而不是从`getObject()`返回的对象。
