@@ -39,6 +39,81 @@ Spring框架在内部使用`BeanPostProcessor`实现来处理它找到的任何�
 
 生命周期回调接口在本节中有详细描述。
 
+### 初始化回调
+
+`org.springframework.beans.factory.InitializingBean`接口允许Bean在容器设置了所有必要属性之后执行初始化工作。
+`InitializingBean`接口指定了一个方法：
+
+```java
+void afterPropertiesSet() throws Exception;
+```
+
+我们建议不要使用`InitializingBean`接口，因为它会将代码不必要地耦合到Spring。
+相反，我们建议使用`@PostConstruct`注解或指定一个POJO初始化方法。
+在基于XML的配置元数据中，你可以使用`init-method`属性来指定具有`void`无参数签名的方法的名称。
+对于Java配置，你可以使用`@Bean`的`initMethod`属性。
+参阅 [接收生命周期回调](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html#beans-java-lifecycle-callbacks)。
+考虑以下示例：
+
+```xml
+<bean id="exampleInitBean" class="examples.ExampleBean" init-method="init"/>
+```
+
+```java
+public class ExampleBean {
+
+	public void init() {
+		// 做一些初始化工作
+	}
+}
+```
+
+上一个示例与以下示例几乎具有相同的效果，以下示例分为两个部分：
+
+```xml
+<bean id="exampleInitBean" class="examples.AnotherExampleBean"/>
+```
+
+```java
+public class AnotherExampleBean implements InitializingBean {
+
+	@Override
+	public void afterPropertiesSet() {
+		// 做一些初始化工作
+	}
+}
+```
+
+然而，前面两个示例中的第一个并未将代码与Spring耦合在一起。
+
+::: tip
+请注意，`@PostConstruct`和初始化方法一般在容器的单例创建锁内执行。只有在从`@PostConstruct`方法返回后，
+Bean实例才被视为完全初始化并准备好发布给其他对象。
+这些单独的初始化方法仅用于验证配置状态并可能根据给定的配置准备一些数据结构，但不涉及外部Bean访问相关的进一步活动。
+否则，存在初始化死锁的风险。
+
+对于需要触发昂贵的初始化后活动的场景，例如异步数据库准备步骤，你的Bean应该实现
+`SmartInitializingSingleton.afterSingletonsInstantiated()`方法，或依赖于上下文刷新事件：实现
+`ApplicationListener<ContextRefreshedEvent>`或声明其注解等效的 `@EventListener(ContextRefreshedEvent.class)`。
+这些变体在所有常规单例初始化之后，因此不会在任何单例创建锁内。
+
+或者，你可以实现`(Smart)Lifecycle`接口并与容器的整体生命周期管理集成，包括自动启动机制、预销毁停止步骤和潜在的停止/重新启动回调（参见下文）。
+:::
+
+### 销毁回调
+
+
+
+
+### 默认的初始化和销毁方法
+
+### 结合生命周期机制
+
+### 启动和关闭的回调
+
+### 在非Web应用中优雅地关闭Spring IoC容器
+
+
 ## ApplicationContextAware和BeanNameAware
 
 
