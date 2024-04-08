@@ -352,7 +352,46 @@ Spring 通常为这些请求和会话对象注入代理，这样做的好处是�
 
 ## 自定义作用域
 
+Bean作用域机制是可扩展的。你可以定义自己的作用域，甚至重新定义现有的作用域，尽管后者被认为是不良实践，而且你不能覆盖内置的`singleton`和`prototype`作用域。
+
 ### 创建自定义 Scope
+
+要将自定义作用域集成到Spring容器中，你需要实现`org.springframework.beans.factory.config.Scope`接口，该接口在本节中有详细描述。
+要了解如何实现自定义作用域，请参阅Spring框架自带的Scope实现以及[Scope](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/beans/factory/config/Scope.html)
+javadoc，其中更详细地解释了你需要实现的方法。
+
+Scope 接口有四个方法用于从作用域中获取对象、将它们从scope中移除，以及让对象被销毁。
+
+例如，会话作用域的实现会返回会话作用域的Bean（如果不存在，则该方法会返回该Bean的新实例，并将其绑定到会话中以供将来引用）。
+以下方法返回底层作用域中的对象：
+
+```xml
+Object get(String name, ObjectFactory<?> objectFactory)
+```
+
+例如，会话作用域的实现会从底层会话中移除会话作用域的Bean。
+应该返回对象，但如果找不到指定名称的对象，则可以返回`null`。以下方法从底层作用域中移除对象：
+
+```xml
+Object remove(String name)
+```
+
+以下方法注册一个回调（callback），该回调在作用域被销毁 或 作用域中的指定对象被销毁时调用：
+
+```xml
+void registerDestructionCallback(String name, Runnable destructionCallback)
+```
+
+参阅 [javadoc](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/beans/factory/config/Scope.html#registerDestructionCallback)
+或 Spring scope 的实现，以了解更多关于销毁callback的信息。
+
+以下方法获取底层作用域的会话标识符（conversation id）：
+
+```java
+String getConversationId()
+```
+
+对于每个作用域，这个标识符是不同的。对于会话作用域的实现，这个标识符（id）可以是会话标识符（session id）。
 
 ### 使用自定义 Scope
 
