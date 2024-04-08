@@ -317,6 +317,31 @@ JSR-330的变体被称为Provider，使用`Provider<MyTargetBean>`声明，并�
 </bean>
 ```
 
+#### 选择要创建的代理类型
+
+默认情况下，当Spring容器为使用`<aop:scoped-proxy/>`元素标记的Bean创建代理时，会创建一个基于CGLIB的类代理。
+
+> CGLIB代理只拦截public方法的调用! 不要在这样的代理上调用非public的方法。它们不会被委托给实际的作用域目标对象。
+
+另外，你也可以通过在`<aop:scoped-proxy/>`元素的`proxy-target-class`属性中指定`false`的方式，
+配置Spring容器为这些作用域Bean创建基于JDK接口的标准代理。
+使用基于JDK接口的代理，意味着你的应用程序 classpath 中不需要额外的库来影响这种代理。
+然而，这也意味着作用域Bean的类**必须实现至少一个接口**，并且所有注入该作用域Bean的协作对象必须通过其中一个接口引用该Bean。
+以下示例展示了基于接口的代理：
+
+```xml
+<!-- DefaultUserPreferences 实现了 UserPreferences 接口 -->
+<bean id="userPreferences" class="com.stuff.DefaultUserPreferences" scope="session">
+    <aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+
+<bean id="userManager" class="com.stuff.UserManager">
+    <property name="userPreferences" ref="userPreferences"/>
+</bean>
+```
+
+关于选择基于类或基于接口的代理的更多详细信息，请参阅 [代理机制](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html)。
+
 ## 自定义作用域
 
 ### 创建自定义 Scope
