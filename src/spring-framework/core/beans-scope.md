@@ -342,6 +342,14 @@ JSR-330的变体被称为Provider，使用`Provider<MyTargetBean>`声明，并�
 
 关于选择基于类或基于接口的代理的更多详细信息，请参阅 [代理机制](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html)。
 
+### 直接注入`request`/`session`引用
+
+作为**工厂作用域的替代方案**，Spring `WebApplicationContext`还支持将
+`HttpServletRequest`、`HttpServletResponse`、`HttpSession`、`WebRequest` 
+和（如果存在 JSF）`FacesContext`和`ExternalContext`直接注入到Spring管理的Bean中，
+只需通过基于类型的自动装配即可，与普通Bean的其他注入点一起。
+Spring 通常为这些请求和会话对象注入代理，这样做的好处是可以在单例Bean和可序列化Bean中正常工作，类似于工厂作用域Bean的作用域代理。
+
 ## 自定义作用域
 
 ### 创建自定义 Scope
