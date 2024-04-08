@@ -41,7 +41,7 @@ Spring框架在内部使用`BeanPostProcessor`实现来处理它找到的任何�
 
 ### 初始化回调
 
-`org.springframework.beans.factory.InitializingBean`接口允许Bean在容器设置了所有必要属性之后执行初始化工作。
+实现`org.springframework.beans.factory.InitializingBean`接口允许Bean在容器设置了所有必要属性之后执行初始化工作。
 `InitializingBean`接口指定了一个方法：
 
 ```java
@@ -50,7 +50,7 @@ void afterPropertiesSet() throws Exception;
 
 我们建议不要使用`InitializingBean`接口，因为它会将代码不必要地耦合到Spring。
 相反，我们建议使用`@PostConstruct`注解或指定一个POJO初始化方法。
-在基于XML的配置元数据中，你可以使用`init-method`属性来指定具有`void`无参数签名的方法的名称。
+在基于XML的配置中，你可以使用`init-method`属性来指定具有`void`无参数签名的方法的名称。
 对于Java配置，你可以使用`@Bean`的`initMethod`属性。
 参阅 [接收生命周期回调](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html#beans-java-lifecycle-callbacks)。
 考虑以下示例：
@@ -68,7 +68,7 @@ public class ExampleBean {
 }
 ```
 
-上一个示例与以下示例几乎具有相同的效果，以下示例分为两个部分：
+上一个示例与以下示例几乎具有相同的效果：
 
 ```xml
 <bean id="exampleInitBean" class="examples.AnotherExampleBean"/>
@@ -84,7 +84,7 @@ public class AnotherExampleBean implements InitializingBean {
 }
 ```
 
-然而，前面两个示例中的第一个并未将代码与Spring耦合在一起。
+然而，前面两个示例中的第一个并未将代码与Spring耦合。
 
 ::: tip
 请注意，`@PostConstruct`和初始化方法一般在容器的单例创建锁内执行。只有在从`@PostConstruct`方法返回后，
@@ -102,7 +102,67 @@ Bean实例才被视为完全初始化并准备好发布给其他对象。
 
 ### 销毁回调
 
+实现`org.springframework.beans.factory.DisposableBean`接口允许Bean在包含它的容器销毁时获得回调。
+`DisposableBean`接口指定了一个方法：
 
+```java
+void destroy() throws Exception;
+```
+
+我们建议你不要使用 DisposableBean 回调接口，因为它不必要地将代码耦合到Spring。
+另外，我们建议使用 @PreDestroy 注解或指定一个bean定义所支持的通用方法。对于基于XML的配置元数据，你可以使用 <bean/> 上的 destroy-method 属性。使用Java配置，你可以使用 @Bean 的 destroyMethod 属性。参见接收生命周期的回调。考虑一下下面的定义。
+
+我们建议不要使用`DisposableBean`回调接口，因为它会将代码不必要地耦合到Spring。
+相反，我们建议使用`@PreDestroy`注解或指定一个由Bean定义支持的通用方法。
+在基于XML的配置中，你可以在`<bean/>`元素中使用`destroy-method`属性。
+在Java配置中，你可以使用`@Bean`的`destroyMethod`属性。
+参阅 [接收生命周期回调](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html#beans-java-lifecycle-callbacks)。
+考虑以下示例：
+
+```xml
+<bean id="exampleInitBean" class="examples.ExampleBean" destroy-method="cleanup"/>
+```
+
+```java
+public class ExampleBean {
+
+    public void cleanup() {
+        // 做一些销毁工作(比如释放池连接)
+    }
+}
+```
+
+上一个示例与以下示例几乎具有相同的效果：
+
+```xml
+<bean id="exampleInitBean" class="examples.AnotherExampleBean"/>
+```
+
+```java
+public class AnotherExampleBean implements DisposableBean {
+
+    @Override
+    public void destroy() {
+        // 做一些销毁工作(比如释放池连接)
+    }
+}
+```
+
+然而，前面两个示例中的第一个并未将代码与Spring耦合。
+
+请注意，Spring还支持推断销毁方法，可以检测到公开的`close`或`shutdown`方法。
+这是Java配置类中`@Bean`方法的默认行为，并且自动匹配`java.lang.AutoCloseable`或`java.io.Closeable`实现，也不会将销毁逻辑与Spring耦合。
+
+::: tip
+在XML配置中，你可以将`<bean>`元素的`destroy-method`属性设置为一个特殊的(inferred)值。
+该值指示Spring自动检测特定Bean类上的public `close`或`shutdown`方法。
+另外，你也可以将这个特殊（inferred）值赋给`<beans>`元素的`default-destroy-method`属性，以将此行为应用于一组Bean定义。
+（参阅 [默认初始化和销毁方法](https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html#beans-factory-lifecycle-default-init-destroy-methods)）。
+:::
+
+::: note
+对于延长的关闭阶段，您可以实现该Lifecycle接口并在调用任何单例 bean 的 destroy 方法之前接收提前停止信号。您还可以实现SmartLifecycle一个有时限的停止步骤，其中容器将等待所有此类停止处理完成，然后再继续销毁方法。
+:::
 
 
 ### 默认的初始化和销毁方法

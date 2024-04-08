@@ -26,8 +26,10 @@ Bean定义可以是多种作用域之一。Spring框架支持六种作用域，�
 | application    | Web程序中，为每个`ServletContext`创建一个Bean实例 |
 | websocket      | Web程序中，为每个`WebSocket`连接创建一个Bean实例    |
 
-> 线程作用域（Thread Scope）在Spring框架中是可用的，但默认情况下并没有注册。参阅 [SimpleThreadScope](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/context/support/SimpleThreadScope.html)。
-> 关于如何注册此Scope或任何其他自定义Scope的说明，参阅 [自定义Scope](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#beans-factory-scopes-custom-using)。
+::: note
+线程作用域（Thread Scope）在Spring框架中是可用的，但默认情况下并没有注册。参阅 [SimpleThreadScope](https://docs.spring.io/spring-framework/docs/6.1.5/javadoc-api/org/springframework/context/support/SimpleThreadScope.html)。
+关于如何注册此Scope或任何其他自定义Scope的说明，参阅 [自定义Scope](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#beans-factory-scopes-custom-using)。
+:::
 
 ## 单例作用域（singleton）
 
@@ -228,7 +230,7 @@ Spring IoC容器不仅管理对象（Bean）的实例化，还管理协作对象
 当需要将生命周期较短的Bean（HTTP请求作用域的Bean）注入到生命周期较长的Bean中，可以选择**注入一个AOP代理对象**。
 换句话说，你需要注入一个代理对象，具有与被代理Bean相同的接口，能够从相关作用域获取实际的Bean实例，并代理其方法调用。
 
-::: tip
+::: note
 你还可以在定义`singleton`作用域的Bean之间使用 `<aop:scoped-proxy/>`，
 这样引用就会通过一个可序列化的中间代理进行，因此能够在反序列化时重新获取目标`singleton` Bean。
 
@@ -321,7 +323,9 @@ JSR-330的变体被称为Provider，使用`Provider<MyTargetBean>`声明，并�
 
 默认情况下，当Spring容器为使用`<aop:scoped-proxy/>`元素标记的Bean创建代理时，会创建一个基于CGLIB的类代理。
 
-> CGLIB代理只拦截public方法的调用! 不要在这样的代理上调用非public的方法。它们不会被委托给实际的作用域目标对象。
+::: note
+CGLIB代理只拦截public方法的调用! 不要在这样的代理上调用非public的方法。它们不会被委托给实际的作用域目标对象。
+:::
 
 另外，你也可以通过在`<aop:scoped-proxy/>`元素的`proxy-target-class`属性中指定`false`的方式，
 配置Spring容器为这些作用域Bean创建基于JDK接口的标准代理。
@@ -418,7 +422,9 @@ Spring容器本身中的示例名称包括`singleton`和`prototype`。
 
 假设你编写了自定义的Scope实现，并按下面的示例进行注册：
 
-> 下面的示例使用了`SimpleThreadScope`，它包含在Spring中，但不是默认注册的。对于你自己的自定义Scope实现，注册的步骤是相同的。
+::: note
+下面的示例使用了`SimpleThreadScope`，它包含在Spring中，但不是默认注册的。对于你自己的自定义Scope实现，注册的步骤是相同的。
+:::
 
 ```java
 Scope threadScope = new SimpleThreadScope();
@@ -465,4 +471,6 @@ beanFactory.registerScope("thread", threadScope);
 </beans>
 ```
 
-> 当你将`<aop:scoped-proxy/>`放置在`FactoryBean`实现的`<bean>`声明内部时，作用域的是工厂Bean本身，而不是从`getObject()`返回的对象。
+::: note
+当你将`<aop:scoped-proxy/>`放置在`FactoryBean`实现的`<bean>`声明内部时，作用域的是工厂Bean本身，而不是从`getObject()`返回的对象。
+:::

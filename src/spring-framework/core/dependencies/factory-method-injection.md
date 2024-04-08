@@ -60,5 +60,8 @@ public class CommandManager implements ApplicationContextAware {
 
 > 你可以在[这篇博客文章](https://spring.io/blog/2004/08/06/method-injection/)中阅读更多关于方法注入的动机。
 
+## 查找方法依赖注入
+
+## 任意方法替换
 
 
