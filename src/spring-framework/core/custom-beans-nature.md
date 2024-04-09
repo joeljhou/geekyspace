@@ -343,6 +343,51 @@ public interface SmartLifecycle extends Lifecycle, Phased {
 
 ### 在非Web应用中优雅地关闭Spring IoC容器
 
+::: note
+本节仅适用于非Web应用。Spring的基于Web的`ApplicationContext`实现已经有代码可以在相关Web应用关闭时优雅地关闭Spring IoC容器。
+:::
+
+如果你在非Web应用程序环境中（例如，在客户端桌面环境中）使用Spring的IoC容器，请向JVM注册一个关闭钩子（shutdown hook）。
+这样做可以确保优雅地关闭，并调用你的单例Bean上的相关销毁`destroy`方法，以释放所有资源。你仍然必须正确配置和实现这些销毁`destroy`回调。
+
+要注册一个关闭钩子（shutdown hook），调用`ConfigurableApplicationContext`接口上声明的`registerShutdownHook`()方法，如下例所示。
+
+```java
+public final class Boot {
+
+	public static void main(final String[] args) throws Exception {
+		// 加载Spring配置文件并创建应用上下文
+		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
+
+		// 为上述上下文添加一个关闭钩子...
+		ctx.registerShutdownHook();
+
+		// 应用程序在此处运行...
+
+		// main方法退出前，钩子在应用关闭之前被调用...
+	}
+}
+```
+
+### 线程安全性和可见性
+
+Spring核心容器以线程安全的方式发布创建的单例实例，通过一个单例锁来保护访问，并确保在其他线程中的可见性。
+
+因此，由应用程序提供的Bean类不必担心其初始化状态的可见性。
+只要常规配置字段仅在初始化阶段被修改，它们就不需要被标记为`volatile`，从而提供了类似于`final`的可见性保证，
+即使是对于在初始阶段可变的基于setter的配置状态也是如此。
+如果这些字段在Bean创建阶段之后及其随后的初始发布之后被更改，则需要将它们声明为`volatile`或在访问时受到公共锁的保护。
+
+请注意，在从容器方面进行安全初始发布后，对单例Bean实例中的这种配置状态进行并发访问
+（例如控制器实例或存储库实例） 是完全线程安全的。这还包括通用的单例`FactoryBean`实例，这些实例也在通用单例锁中进行处理。
+
+对于销毁回调，配置状态仍然是线程安全的，但在初始化和销毁之间累积的任何运行时状态应该保存在线程安全的结构中
+（或者对于简单情况，保存在`volatile`字段中），根据常见的Java指导方针。
+
+如上所示，更深入的生命周期集成涉及到运行时可变状态，例如一个可运行字段，这个字段将需要声明为`volatile`。
+虽然常见的生命周期回调遵循一定的顺序，例如，启动回调只会在完全初始化之后发生，而停止回调只会在初始启动之后发生，
+但与常见的停止前销毁安排有一个特殊情况：强烈建议在任何这样的Bean中内部状态也允许在没有先前停止的情况下立即进行销毁回调，
+因为这可能会在取消引导时或在由另一个bean引起的停止超时的情况下发生非常规关闭时发生。
 
 ## ApplicationContextAware和BeanNameAware
 
