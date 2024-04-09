@@ -217,7 +217,34 @@ Spring容器保证在为Bean提供所有依赖项之后立即调用配置的初�
 首先完全创建目标Bean，然后再应用AOP代理（例如）及其拦截器链。 如果目标Bean和代理是分开定义的，你的代码甚至可以与原始目标Bean交互，绕过代理。
 因此，将拦截器应用于`init`方法是不一致的，因为这样做会将目标Bean的生命周期与它的代理或拦截器耦合在一起，当你的代码直接与原始目标Bean交互时，会留下奇怪的语义。
 
-### 结合生命周期机制
+### 组合式生命周期机制
+
+截至Spring 2.5，你有三种选项来控制bean的生命周期行为：
+
+* [InitializingBean](https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html#beans-factory-lifecycle-initializingbean)
+  和[DisposableBean](https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html#beans-factory-lifecycle-disposablebean)
+  回调接口
+* 自定义`init()`和`destroy()`方法
+* `@PostConstruct`和`@PreDestroy`注解
+    1. 你可以组合这些机制来控制Bean的生命周期行为
+
+::: note
+如果为一个Bean配置了多种生命周期机制，并且每种机制都配置了不同的方法名称，则每个配置的方法按照本说明后面列出的顺序运行。
+然而，如果为这些生命周期机制中的一个或多个配置了相同的方法名称，例如使用`init()`
+作为初始化方法的名称，则该方法只会被执行一次，详细说明参考 [上一节](https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html#beans-factory-lifecycle-default-init-destroy-methods)。
+:::
+
+为同一个Bean配置了多个生命周期机制，并且使用了不同的初始化方法时，调用顺序如下：
+
+1. 使用`@PostConstruct`注解的方法
+2. 实现`InitializingBean`接口定义的`afterPropertiesSet()`方法
+3. 自定义配置的`init()`方法
+
+销毁方法的调用顺序也类似：
+
+1. 使用`@PreDestroy`注解的方法
+2. 实现`DisposableBean`接口定义的`destroy()`方法
+3. 自定义配置的`destroy()`方法
 
 ### 启动和关闭的回调
 
