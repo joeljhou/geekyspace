@@ -27,10 +27,6 @@ Spring框架提供了多种接口，你可以使用这些接口来定制Bean的�
 如果你不想使用JSR-250注解，但仍然希望消除耦合，可以考虑使用`init-method`和`destroy-method`的Bean定义元数据。
 :::
 
-在内部，Spring框架使用 BeanPostProcessor 实现来处理它能找到的任何回调接口并调用相应的方法。
-如果你需要自定义功能或其他Spring默认不提供的生命周期行为，你可以自己实现一个 BeanPostProcessor。
-欲了解更多信息，请参见 容器扩展点。
-
 Spring框架在内部使用`BeanPostProcessor`实现来处理它找到的任何回调接口，并调用适当的方法。
 如果你需要自定义功能或其他Spring默认不提供的生命周期行为，你可以自己实现一个`BeanPostProcessor`。 
 参阅 [容器扩展点](https://docs.spring.io/spring-framework/reference/core/beans/factory-extension.html)。
@@ -161,10 +157,65 @@ public class AnotherExampleBean implements DisposableBean {
 :::
 
 ::: note
-对于延长的关闭阶段，您可以实现该Lifecycle接口并在调用任何单例 bean 的 destroy 方法之前接收提前停止信号。您还可以实现SmartLifecycle一个有时限的停止步骤，其中容器将等待所有此类停止处理完成，然后再继续销毁方法。
+要实现扩展的关闭阶段，你可以实现`Lifecycle`接口，这样可以在调用任何单例Bean的销毁方法之前接收到早期停止信号。
+此外，你还可以实现`SmartLifecycle`接口，用于时间限制的停止步骤，容器将等待所有这类停止处理完成后再继续执行销毁方法。
 :::
 
 ### 默认的初始化和销毁方法
+
+当你编写初始化和销毁方法时，如果不使用Spring特定`InitializingBean`和`DisposableBean`回调接口，
+通常会使用`init()`、`initialize()`、`dispose()`等名称的方法。
+理想情况下，这些生命周期回调方法的命名应在项目中标准化，以便所有开发人员使用相同的方法名称并确保一致性。
+
+在Spring中，你可以配置容器来自动"寻找"每个Bean上具有特定名称的初始化和销毁回调方法。
+这意味着作为应用开发者，你可以编写应用类并使用名为`init()`的初始化回调，而无需在每个Bean定义中配置`init-method="init"`属性。
+Spring IoC容器会在创建Bean时调用该方法
+（并且符合[之前描述](https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html#beans-factory-lifecycle)
+的标准生命周期回调约定）。这个特性还可以强制执行初始化和销毁方法回调的一致命名约定。
+
+假设你的初始化回调方法命名为`init()`，销毁回调方法命名为`destroy()`。那么你的类将类似于以下示例中的类：
+
+```java
+public class DefaultBlogService implements BlogService {
+
+	private BlogDao blogDao;
+
+	public void setBlogDao(BlogDao blogDao) {
+		this.blogDao = blogDao;
+	}
+
+	// 这个方法被标记为初始化回调方法
+	public void init() {
+		if (this.blogDao == null) {
+			throw new IllegalStateException("必须设置 [blogDao] 属性");
+		}
+	}
+}
+```
+
+然后你可以在一个类似于以下示例的Bean中使用该类：
+
+```xml
+<beans default-init-method="init">
+
+    <bean id="blogService" class="com.something.DefaultBlogService">
+        <property name="blogDao" ref="blogDao" />
+    </bean>
+
+</beans>
+```
+
+在顶层`<beans/>`元素中添加`default-init-method`属性会导致Spring IoC容器识别Bean类中名为`init`的方法作为初始化方法的回调。
+当创建和组装Bean时，如果Bean类具有这样的方法，它会在适当的时候被调用。
+
+你可以类似地（在XML中）通过在顶层`<beans/>`元素上使用`default-destroy-method`属性来配置销毁方法的回调。
+
+如果现有的Bean类已经有了与约定不符的回调方法的名称，你可以通过在`<bean/>`本身上使用`init-method`和`destroy-method`
+属性（在XML中）来覆盖默认值，指定方法的名称。
+
+Spring容器保证在为Bean提供所有依赖项之后立即调用配置的初始化回调。 因此，初始化回调在原始Bean引用上被调用，这意味着AOP拦截器等还没有被应用到Bean上。
+首先完全创建目标Bean，然后再应用AOP代理（例如）及其拦截器链。 如果目标Bean和代理是分开定义的，你的代码甚至可以与原始目标Bean交互，绕过代理。
+因此，将拦截器应用于`init`方法是不一致的，因为这样做会将目标Bean的生命周期与它的代理或拦截器耦合在一起，当你的代码直接与原始目标Bean交互时，会留下奇怪的语义。
 
 ### 结合生命周期机制
 
