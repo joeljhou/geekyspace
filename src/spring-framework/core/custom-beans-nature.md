@@ -248,6 +248,99 @@ Spring容器保证在为Bean提供所有依赖项之后立即调用配置的初�
 
 ### 启动和关闭的回调
 
+`Lifecycle`接口定义了任何具有自身生命周期要求的对象的基本方法（例如启动和停止某些后台进程）：
+
+```java
+public interface Lifecycle {
+
+    // 启动方法
+	void start();
+
+    // 停止方法
+	void stop();
+
+    // 是否正在运行
+	boolean isRunning();
+}
+```
+
+任何由Spring管理的对象都可以实现`Lifecycle`接口。
+然后，当`ApplicationContext`本身接收到启动和停止信号时（例如，在运行时进行停止/重启场景），它会将这些调用级联到该上下文中定义的所有`Lifecycle`实现中。
+它通过委托给一个`LifecycleProcessor`来实现这一点，如下所示。
+
+```java
+public interface LifecycleProcessor extends Lifecycle {
+
+    // 刷新时触发的方法
+	void onRefresh();
+
+    // 关闭时触发的方法
+	void onClose();
+}
+```
+
+请注意，`LifecycleProcessor`本身就实现了`Lifecycle`接口。它还添加了另外两个方法，用于在上下文（context）被刷新和关闭时做出反应。
+
+::: tip
+请注意，常规的`org.springframework.context.Lifecycle`接口是一个明确的`start`和`stop`通知的简单约定，并不意味着在上下文刷新时自动启动。
+为了对特定Bean的自动启动进行细粒度控制（包括启动和停止阶段），建议实现扩展的`org.springframework.context.SmartLifecycle`接口。
+
+此外，请注意，`stop`通知不能保证在销毁之前执行。
+在正常关闭时，所有`Lifecycle` Bean首先接收到`stop`通知，然后才会被传播到一般的销毁回调。
+然而，在上下文生命周期中的热刷新或`stop`刷新时，只会调用销毁方法。
+:::
+
+启动和关闭调用的顺序可能非常重要。如果任何两个对象之间存在“依赖(depends-on)”关系，则依赖方会在其依赖项之后启动，并在其依赖项之前停止。
+然而，有时候直接的依赖关系是未知的。你可能只知道某种类型的对象应该在另一种类型的对象之前启动。
+在这种情况下，`SmartLifecycle`接口定义了另一种选择，即其父接口`Phased`上定义的`getPhase()`方法。以下代码展示了`Phased`接口的定义：
+
+```java
+public interface Phased {
+    
+    // 返回一个整数值，表示该对象的启动和停止顺序
+    int getPhase();
+}
+```
+
+下面列出了`SmartLifecycle`接口的定义：
+
+```java
+public interface SmartLifecycle extends Lifecycle, Phased {
+
+    // 返回一个boolean值，表示该对象是否应该自动启动
+	boolean isAutoStartup();
+
+    // 通知该对象已请求停止
+	void stop(Runnable callback);
+}
+```
+
+启动时，`phase`最低的对象首先启动。停止时，按相反的顺序执行。
+因此，实现`SmartLifecycle`接口并且`getPhase()`方法返回Integer.MIN_VALUE的对象会是最先启动和最后停止的对象之一。
+在另一端，如果阶段值为Integer.MAX_VALUE，则表示该对象应该最后启动并且最先停止（通常是因为它依赖于其他正在运行的进程）。
+在考虑`phase`值时，还要知道任何没有实现`SmartLifecycle`接口的“正常”`Lifecycle`对象的默认`phase`是0。
+因此，任何负的`phase`值表示对象应该在这些标准组件之前启动（并在它们之后停止）。反之，任何正的`phase`值也是如此。
+
+`SmartLifecycle`定义的`stop`方法接受一个回调。 任何实现都必须在该实现的关闭过程完成后调用该回调的`run()`方法。
+这使得在必要时可以实现异步关机，因为`LifecycleProcessor`接口的默认实现`DefaultLifecycleProcessor`会等待每个阶段内的对象组调用该回调，直到其超时值。
+每个阶段的默认超时时间是30秒。你可以通过在上下文中定义一个名为`lifecycleProcessor`的Bean来覆盖默认的生命周期处理器实例。
+如果你只想修改超时时间，定义以下内容就足够了：
+
+```xml
+<bean id="lifecycleProcessor" class="org.springframework.context.support.DefaultLifecycleProcessor">
+    <!-- 超时值，单位为毫秒 -->
+	<property name="timeoutPerShutdownPhase" value="10000"/>
+</bean>
+```
+
+如前所述，`LifecycleProcessor`接口还定义了用于刷新和关闭上下文（context ）的回调方法。
+后者驱动关闭过程，就像显式调用了`stop()`方法一样，但它发生在上下文关闭时。
+另一方面，“`refresh`”回调实现了`SmartLifecycle` Bean的另一个特性。
+当上下文被刷新（在所有对象都被实例化和初始化之后）时，该回调被调用。
+此时，默认的生命周期处理器会检查每个`SmartLifecycle`对象的`isAutoStartup()`方法返回的布尔值。
+如果为true，该对象将在此时启动，而不是等待上下文或自身`start()`方法的显式调用（与上下文刷新不同，上下文的启动不会自动发生在标准的上下文实现中）。
+如前所述，`phase`值和任何"依赖"关系决定了启动的顺序。
+
 ### 在非Web应用中优雅地关闭Spring IoC容器
 
 
