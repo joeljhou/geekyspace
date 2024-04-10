@@ -26,6 +26,7 @@ export const springFramework = arraySidebar([
                 },
                 {text: "Bean作用域", link: "beans-scope"},
                 {text: "Bean生命周期", link: "beans-lifecycle"},
+                {text: "Bean定义继承", link: "child-bean-definitions"},
             ]
         },
     ]
