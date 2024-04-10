@@ -391,7 +391,41 @@ Spring核心容器以线程安全的方式发布创建的单例实例，通过�
 
 ## ApplicationContextAware和BeanNameAware
 
+**ApplicationContextAware**
 
+在Spring中，当一个类实现了`org.springframework.context.ApplicationContextAware`接口时，
+该类的实例会得到对应的`ApplicationContext`实例的引用。以下是`ApplicationContextAware`接口的定义示例：
+
+```java
+public interface ApplicationContextAware {
+
+	void setApplicationContext(ApplicationContext applicationContext) throws BeansException;
+}
+```
+
+这意味着，当一个Bean实现了`ApplicationContextAware`接口 或 将引用转换为该接口的已知子类（如`ConfigurableApplicationContext`），
+它就可以通过`ApplicationContext`接口来访问Spring容器的各种功能， 比如访问其他Bean、获取文件资源、发布事件，以及访问`MessageSource`的功能。
+这些额外功能在[`ApplicationContext`的附加功能](https://docs.spring.io/spring-framework/reference/core/beans/context-introduction.html)中描述。
+不过，通常情况下不推荐过度使用这种方式，因为它会将代码与Spring框架耦合在一起，不符合控制反转的原则。
+
+另一种获得对`ApplicationContext`引用的方式是通过自动装配（Autowiring）。
+你可以使用`@Autowired`注解来自动装配 ApplicationContext，这样就可以在需要时轻松访问 Spring 容器的功能。
+详细信息可以查阅使用[使用@Autowired](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config/autowired.html)。
+
+**BeanNameAware**
+
+与`ApplicationContextAware`类似，当一个类实现了`org.springframework.beans.factory.BeanNameAware`接口时，
+这个类的实例会得到对应的Bean名称的引用。以下是`BeanNameAware`接口的定义示例：
+
+```java
+public interface BeanNameAware {
+
+	void setBeanName(String name) throws BeansException;
+}
+```
+
+这个回调方法会在Bean的普通属性填充完成后但在初始化回调（如`InitializingBean.afterPropertiesSet`()或自定义`init`方法）之前被调用。
+通过实现`BeanNameAware`接口，Bean可以在需要时获取自己在Spring容器中的名称，这在某些场景下可能会很有用。
 
 ## 其他Aware接口
 
