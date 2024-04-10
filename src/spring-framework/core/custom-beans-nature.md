@@ -105,9 +105,6 @@ Bean实例才被视为完全初始化并准备好发布给其他对象。
 void destroy() throws Exception;
 ```
 
-我们建议你不要使用 DisposableBean 回调接口，因为它不必要地将代码耦合到Spring。
-另外，我们建议使用 @PreDestroy 注解或指定一个bean定义所支持的通用方法。对于基于XML的配置元数据，你可以使用 <bean/> 上的 destroy-method 属性。使用Java配置，你可以使用 @Bean 的 destroyMethod 属性。参见接收生命周期的回调。考虑一下下面的定义。
-
 我们建议不要使用`DisposableBean`回调接口，因为它会将代码不必要地耦合到Spring。
 相反，我们建议使用`@PreDestroy`注解或指定一个由Bean定义支持的通用方法。
 在基于XML的配置中，你可以在`<bean/>`元素中使用`destroy-method`属性。
@@ -389,12 +386,12 @@ Spring核心容器以线程安全的方式发布创建的单例实例，通过�
 但与常见的停止前销毁安排有一个特殊情况：强烈建议在任何这样的Bean中内部状态也允许在没有先前停止的情况下立即进行销毁回调，
 因为这可能会在取消引导时或在由另一个bean引起的停止超时的情况下发生非常规关闭时发生。
 
-## ApplicationContextAware和BeanNameAware
+## ApplicationContextAware
 
-**ApplicationContextAware**
+当一个类实现了`org.springframework.context.ApplicationContextAware`接口时，
+该类的实例会得到对应的`ApplicationContext`实例的引用。
 
-在Spring中，当一个类实现了`org.springframework.context.ApplicationContextAware`接口时，
-该类的实例会得到对应的`ApplicationContext`实例的引用。以下是`ApplicationContextAware`接口的定义示例：
+以下是`ApplicationContextAware`接口的定义示例：
 
 ```java
 public interface ApplicationContextAware {
@@ -403,19 +400,22 @@ public interface ApplicationContextAware {
 }
 ```
 
-这意味着，当一个Bean实现了`ApplicationContextAware`接口 或 将引用转换为该接口的已知子类（如`ConfigurableApplicationContext`），
-它就可以通过`ApplicationContext`接口来访问Spring容器的各种功能， 比如访问其他Bean、获取文件资源、发布事件，以及访问`MessageSource`的功能。
-这些额外功能在[`ApplicationContext`的附加功能](https://docs.spring.io/spring-framework/reference/core/beans/context-introduction.html)中描述。
-不过，通常情况下不推荐过度使用这种方式，因为它会将代码与Spring框架耦合在一起，不符合控制反转的原则。
+这意味着，当一个Bean实现了`ApplicationContextAware`接口或 引用了该接口的已知子类（如`ConfigurableApplicationContext`），
+它就可以通过`ApplicationContext`接口来访问Spring容器的各种功能，
+比如访问其他Bean、获取文件资源、发布事件，以及访问`MessageSource`的功能。
+这些额外功能在[ApplicationContext的附加功能](https://docs.spring.io/spring-framework/reference/core/beans/context-introduction.html)
+中描述。 不过，通常情况下不推荐过度使用这种方式，因为它会将代码与Spring框架耦合在一起，不符合控制反转的原则。
 
 另一种获得对`ApplicationContext`引用的方式是通过自动装配（Autowiring）。
-你可以使用`@Autowired`注解来自动装配 ApplicationContext，这样就可以在需要时轻松访问 Spring 容器的功能。
+你可以使用`@Autowired`注解来自动装配 ApplicationContext，这样就可以在需要时轻松访问Spring容器的功能。
 详细信息可以查阅使用[使用@Autowired](https://docs.spring.io/spring-framework/reference/core/beans/annotation-config/autowired.html)。
 
-**BeanNameAware**
+## BeanNameAware
 
-与`ApplicationContextAware`类似，当一个类实现了`org.springframework.beans.factory.BeanNameAware`接口时，
-这个类的实例会得到对应的Bean名称的引用。以下是`BeanNameAware`接口的定义示例：
+当一个类实现了`org.springframework.beans.factory.BeanNameAware`接口时，
+这个类的实例会得到对应的Bean名称的引用。
+
+以下是`BeanNameAware`接口的定义示例：
 
 ```java
 public interface BeanNameAware {
@@ -424,8 +424,26 @@ public interface BeanNameAware {
 }
 ```
 
-这个回调方法会在Bean的普通属性填充完成后但在初始化回调（如`InitializingBean.afterPropertiesSet`()或自定义`init`方法）之前被调用。
+回调方法会在Bean的属性填充后 & 初始化回调之前（如`InitializingBean.afterPropertiesSet`() 或 自定义`init`方法）被调用。
 通过实现`BeanNameAware`接口，Bean可以在需要时获取自己在Spring容器中的名称，这在某些场景下可能会很有用。
 
 ## 其他Aware接口
 
+除了之前讨论的`ApplicationContextAware`和`BeanNameAware`，Spring还提供了一系列广泛的`Aware`回调接口，
+让Bean向容器表明它们需要某种基础设施的依赖性。通常，接口名称反映了依赖的类型。以下表格总结了最重要的`Aware`接口：
+
+| Aware 接口                         | 注入的依赖                       | 解释                                                                                                                                                                                |
+|----------------------------------|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ApplicationContextAware`        | `ApplicationContext`        | 获取对Spring容器的引用，参阅 [ApplicationContext](#applicationcontextaware)                                                                                                                  |
+| `ApplicationEventPublisherAware` | `ApplicationEventPublisher` | 获取对`ApplicationEventPublisher`的引用，用于发布事件，参阅[ApplicationContext的附加功能](https://docs.spring.io/spring-framework/reference/core/beans/context-introduction.html)                      |
+| `BeanClassLoaderAware`           | `ClassLoader`               | 获取加载Bean类的类加载器，参阅[实例化Bean](/spring-framework/core/beans-definition.html#实例化bean)                                                                                                  |
+| `BeanFactoryAware`               | `BeanFactory`               | 获取对BeanFactory的引用，参阅[BeanFactory API](https://docs.spring.io/spring-framework/reference/core/beans/beanfactory.html)                                                              |
+| `BeanNameAware`                  | `String` 	                  | 获取Bean的名称，参阅 [BeanNameAware](#beannameaware)                                                                                                                                      |
+| `LoadTimeWeaverAware`            | `LoadTimeWeaver`            | 获取对`LoadTimeWeaver`的引用，用于加载时织入，参阅 [AspectJ加载时编织](https://docs.spring.io/spring-framework/reference/core/aop/using-aspectj.html#aop-aj-ltw)                                        |
+| `MessageSourceAware`             | `MessageSource`             | 获取对`MessageSource`的引用，用于访问消息资源，参阅[ApplicationContext的附加功能](https://docs.spring.io/spring-framework/reference/core/beans/context-introduction.html)                                |
+| `NotificationPublisherAware`     | `NotificationPublisher`     | 获取对`NotificationPublisher`的引用，用于发布通知，参阅[Notifications](https://docs.spring.io/spring-framework/reference/integration/jmx/notifications.html)                                      |
+| `ResourceLoaderAware`            | `ResourceLoader`            | 获取对`ResourceLoader`的引用，用于访问资源，参阅[Resources](https://docs.spring.io/spring-framework/reference/web/webflux-webclient/client-builder.html#webflux-client-builder-reactor-resources) |
+| `ServletConfigAware`             | `ServletConfig`             | 获取对`ServletConfig`的引用，参阅[Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html#mvc)                                                                       |
+| `ServletContextAware`            | `ServletContext`            | 获取对`ServletContext`的引用，参阅[Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html#mvc)                                                                      |
+
+请注意，使用这些接口会将你的代码与Spring API紧密耦合，并且不符合控制反转的风格。因此，我们建议将它们用于需要以编程方式访问容器的基础设施Bean。
