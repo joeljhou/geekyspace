@@ -1,5 +1,5 @@
 ---
-title: 依赖
+title: 依赖（Dependencies）
 author: 会敲代码的程序猿
 isOriginal: true
 date: 2024-03-26
