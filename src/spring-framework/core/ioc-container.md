@@ -1,5 +1,5 @@
 ---
-title: IoC 容器
+title: IoC 容器（Container）
 author: 会敲代码的程序猿
 isOriginal: true
 date: 2024-03-18
@@ -7,7 +7,7 @@ category: Spring
 tag: Spring Framework
 ---
 
-# IoC 容器
+# IoC 容器（Container）
 
 ## 概述
 

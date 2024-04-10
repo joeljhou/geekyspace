@@ -7,7 +7,7 @@ category: Spring
 tag: Spring Framework
 ---
 
-# 依赖
+# 依赖（Dependencies）
 
 企业应用程序通常不是由单个对象（或`Spring`术语中的`Bean`）构成的。
 即使是最简单的应用程序，也是由多个对象共同协作来呈现给最终用户一个连贯的应用体验。

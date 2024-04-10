@@ -1,5 +1,5 @@
 ---
-title: Bean 定义
+title: Bean 定义（Definition）
 author: 会敲代码的程序猿
 isOriginal: true
 date: 2024-03-18
@@ -7,7 +7,7 @@ category: Spring
 tag: Spring Framework
 ---
 
-# Bean 定义
+# Bean 定义（Definition）
 
 ## 概述
 
