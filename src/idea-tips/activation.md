@@ -16,13 +16,13 @@ star: true
 
 ### 1️⃣ 第一步：下载激活文件
 
-下载线路（蓝奏网盘）：[https://wwi.lanzoup.com/b00oggoyf](https://wwi.lanzoup.com/b00oggoyf)  提取码：5gus
+[https://m.tb.cn/h.ga8m4it?tk=QujxWrXRYZz](https://m.tb.cn/h.ga8m4it?tk=QujxWrXRYZz)
 
 ### 2️⃣ 第二步：打开激活文件 `macjihuo.zip`，解压缩
 
-![image.png](http://img.geekyspace.cn/pictures/2024/202404171725739.png)
-
 ### 3️⃣ 第三步："macjihuo"文件夹上右键，新建终端窗口
+
+![image.png](http://img.geekyspace.cn/pictures/2024/202404171725739.png)
 
 ### 4️⃣ 第三步：运行脚本，输入对应软件的命令-回车（看下图）
 
@@ -48,8 +48,7 @@ star: true
 
 ### 1️⃣ 第一步：下载激活文件
 
-* 点击==绿色==图标**立即下载**：[![img](http://img.geekyspace.cn/pictures/2024/202404171715739.png)](https://wwbn.lanzoul.com/i0nec17jg2lc)
-* 备用下载地址：[激活码-Win系统.zip  123云盘](https://www.123pan.com/s/Zni0Vv-WaWx.html)
+[https://m.tb.cn/h.ga8m4it?tk=QujxWrXRYZz](https://m.tb.cn/h.ga8m4it?tk=QujxWrXRYZz)
 
 ### 2️⃣ 第二步：解压下载的压缩包
 

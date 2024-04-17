@@ -135,7 +135,7 @@ export default hopeTheme({
     encrypt: {
         config: {
             // 这会加密整个 demo 目录，并且两个密码都是可用的
-            "/idea-tips/activation.html": ["52ff"],
+            // "/idea-tips/activation.html": ["52ff"],
         },
     },
 
