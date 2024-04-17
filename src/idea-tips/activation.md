@@ -5,6 +5,7 @@ isOriginal: true
 date: 2024-04-17
 category: IDEA
 tag: IntelliJ IDEA
+star: true
 ---
 
 # 2024最新IntelliJ IDEA专业版稳定正版激活码
