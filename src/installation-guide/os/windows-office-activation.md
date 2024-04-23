@@ -12,7 +12,7 @@ tag:
 
 # Windows、Office激活密钥，脚本，程序
 
-## 使用微软官方正版秘钥激活
+## 微软官方正版秘钥
 
 > 官方正版秘钥激活，可激活任意版本的Windows系统
 
@@ -67,7 +67,7 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 * [360杀毒软件怎么添加文件白名单](https://www.eyunsou.com/360sd/gongnneg/bmd/)
   :::
 
-### 01.数字激活工具-HWID_KMS38_CN_62.exe
+### 数字激活工具 HWID_KMS38_CN_62
 
 **概述**
 
@@ -87,13 +87,13 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 ![计算机已永久激活](http://img.geekyspace.cn/pictures/2024/202404232347627.png)
 
-### 02.KMS激活工具-DragonKMS v24.04.02.exe
+### KMS激活工具 DragonKMS
 
 互联网论坛上的知名激活工具，也是我个人常用的激活工具，常用于激活Windows和Office全家桶，通过联网KMS激活
 
 ![MicroKMS神龙版](http://img.geekyspace.cn/pictures/2024/202404232356474.png)
 
-### 03.Github开源激活工具-HEU_KMS_Activator_42.0.1.exe
+### 开源激活工具 HEU_KMS_Activator
 
 仅供研究激活原理使用，在“智能激活”中点击“开始”，即按照最佳激活方式"数字许可证/KMS38/OEM/KMS"依次激活，直到激活成功
 
@@ -103,7 +103,7 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 ![Success](http://img.geekyspace.cn/pictures/2024/202404240027800.png)
 
-### 04.小马激活工具-KMS10  v3.1.exe
+### 小马激活工具 KMS10
 
 老牌激活工具，文件大小仅1M，我以前还用来激活Win7，可以想象年代的久远。支持离线激活，永久有效，无需考虑激活时限。office版本为retail的用户请自行转换版本到volume，即channel switch。
 
@@ -111,7 +111,7 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 
 
-### 05.大神Ratiborus制作的W10DigitalActivation x64 v1.5.3.0.exe
+### 大神制作 W10DigitalActivation
 
 大神Ratiborus制作的，它还有开发激活Office的 **KMSAuto++** 工具，以及可定制化安装Office的 **Office2013-2021 C2R Install**。可以关注它的[Twitter](https://twitter.com/ratiborus58)。
 
@@ -119,8 +119,8 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 ![永久激活](http://img.geekyspace.cn/pictures/2024/202404240057039.png)
 
-### 06.云萌 Windows 10+激活工具 -CMWTAT_Digital_2.6.4.0.exe
+### 云萌激活工具 CMWTAT_Digital
 
 云萌 Windows 10 激活工具，专门用于数字权利激活的软件。本软件是一款使用CSharp编写的 Windows 10 数字权利激活工具
 
-![	](http://img.geekyspace.cn/pictures/2024/202404240106825.png)
+![云萌 Windows 10 激活工具](http://img.geekyspace.cn/pictures/2024/202404240106825.png)
