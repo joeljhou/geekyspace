@@ -1,5 +1,5 @@
 ---
-title: Windows、Office激活密钥，程序，脚本
+title: Windows、Office激活密钥，脚本，程序
 description:
 author: 会敲代码的程序猿
 isOriginal: true
@@ -10,7 +10,7 @@ tag:
   - Office
 ---
 
-# Windows、Office激活密钥，程序，脚本
+# Windows、Office激活密钥，脚本，程序
 
 ## 使用微软官方正版秘钥激活
 
