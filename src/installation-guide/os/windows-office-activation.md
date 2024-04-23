@@ -40,7 +40,7 @@ start slui 3
 
 > 可激活Windows，查看激活状态
 
-如果你有新的零售产品密钥，将X替换为实际的密钥，来**安装新的产品密钥**
+如果你有新的零售产品密钥，将 X 替换为实际的密钥，来**安装新的产品密钥**
 
 ```shell
 slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
@@ -52,7 +52,7 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 [KMS一键激活windows/office网站](https://kms.cx/)
 
-![image-20240424011655055](http://img.geekyspace.cn/pictures/2024/202404240116136.png)
+![KMS一键激活windows/office网站](http://img.geekyspace.cn/pictures/2024/202404240116136.png)
 
 ## 一键激活程序
 
@@ -108,7 +108,6 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 老牌激活工具，文件大小仅1M，我以前还用来激活Win7，可以想象年代的久远。支持离线激活，永久有效，无需考虑激活时限。office版本为retail的用户请自行转换版本到volume，即channel switch。
 
 ![小马激活工具](http://img.geekyspace.cn/pictures/2024/202404240037901.png)
-
 
 
 ### 大神制作 W10DigitalActivation
