@@ -22,7 +22,7 @@ star: true
 
 ### 3️⃣ 第三步："macjihuo"文件夹上右键，新建终端窗口
 
-![image.png](http://img.geekyspace.cn/pictures/2024/202404171725739.png)
+![macjihuo](http://img.geekyspace.cn/pictures/2024/202404171725739.png)
 
 ### 4️⃣ 第三步：运行脚本，输入对应软件的命令-回车（看下图）
 
@@ -40,7 +40,7 @@ star: true
 如果你要激活rider：    则输入 sh rider.sh
 ```
 
-![image.png](http://img.geekyspace.cn/pictures/2024/202404171714345.png)
+![Success](http://img.geekyspace.cn/pictures/2024/202404171714345.png)
 
 ## 适用于Windows系统
 
@@ -56,7 +56,7 @@ star: true
 
 ==双击要激活软件的vbs==
 
-![img](http://img.geekyspace.cn/pictures/2024/202404171718775.png)
+![Double-click](http://img.geekyspace.cn/pictures/2024/202404171718775.png)
 
 **♦♦比如：**
 
@@ -65,5 +65,4 @@ star: true
 
 等待出现 如下 `Success` 提示，再次打开软件即可正常使用！
 
-![img](http://img.geekyspace.cn/pictures/2024/202404171718903.png)
-
+![Success](http://img.geekyspace.cn/pictures/2024/202404171718903.png)

@@ -18,5 +18,12 @@ export default sidebar({
         {text: "总目录", prefix: "/spring-data-jpa/", link: "/spring-data-jpa/"},
         {text: "快速入门", prefix: "jetbrains/", link: "jetbrains/getting-started"},
     ],
-
+    "/installation-guide/": [
+        {text: "开发者安装大全", prefix: "/installation-guide/", link: "/installation-guide/"},
+        {
+            text: "操作系统", prefix: "os/", children: [
+                {text: "Windows、Office激活", link: "windows-office-activation"},
+            ]
+        },
+    ],
 });
