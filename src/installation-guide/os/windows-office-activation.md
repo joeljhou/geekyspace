@@ -28,13 +28,13 @@ start slui 3
 
 ![更改产品密钥](http://img.geekyspace.cn/pictures/2024/202404232040995.png)
 
-3. 输入“[微软官方正版秘钥](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J )”，点击“下一页”，再点击“激活”
+3. 输入“[微软官方正版秘钥](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J)”，点击“下一页”，再点击“激活”
 
 ![输入产品密钥](http://img.geekyspace.cn/pictures/2024/202404232318292.png)
 
 4. “激活”成功
 
-![Success](http://img.geekyspace.cn/pictures/2024/202404232327475.png)	
+![Success](http://img.geekyspace.cn/pictures/2024/202404232327475.png)
 
 ## 一键激活脚本
 
@@ -46,7 +46,7 @@ start slui 3
 slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 ```
 
-[脚本获取](/https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J )
+[脚本获取](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J)
 
 ![脚本-持续更新](http://img.geekyspace.cn/pictures/2024/202404231900072.png)
 
@@ -71,7 +71,8 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 **概述**
 
-`HWID_KMS38_CN_62.exe` 是一种**数字激活工具**，主要用于激活 Microsoft Windows 操作系统。它采用 HWID 技术，生成硬件标识符并将其发送到 Microsoft 的激活服务器进行验证，实现系统长期激活。 
+`HWID_KMS38_CN_62.exe` 是一种**数字激活工具**，主要用于激活 Microsoft Windows 操作系统。它采用 HWID 技术，生成硬件标识符并将其发送到
+Microsoft 的激活服务器进行验证，实现系统长期激活。
 
 **激活步骤**
 
@@ -105,14 +106,15 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 ### 小马激活工具 KMS10
 
-老牌激活工具，文件大小仅1M，我以前还用来激活Win7，可以想象年代的久远。支持离线激活，永久有效，无需考虑激活时限。office版本为retail的用户请自行转换版本到volume，即channel switch。
+老牌激活工具，文件大小仅1M，我以前还用来激活Win7，可以想象年代的久远。支持离线激活，永久有效，无需考虑激活时限。office版本为retail的用户请自行转换版本到volume，即channel
+switch。
 
 ![小马激活工具](http://img.geekyspace.cn/pictures/2024/202404240037901.png)
 
-
 ### 大神制作 W10DigitalActivation
 
-大神Ratiborus制作的，它还有开发激活Office的 **KMSAuto++** 工具，以及可定制化安装Office的 **Office2013-2021 C2R Install**。可以关注它的[Twitter](https://twitter.com/ratiborus58)。
+大神Ratiborus制作的，它还有开发激活Office的 **KMSAuto++** 工具，以及可定制化安装Office的 **Office2013-2021 C2R Install**
+。可以关注它的[Twitter](https://twitter.com/ratiborus58)。
 
 ![WIN0-HWID数字永久激活](http://img.geekyspace.cn/pictures/2024/202404240055203.png)
 
