@@ -28,7 +28,7 @@ start slui 3
 
 ![更改产品密钥](http://img.geekyspace.cn/pictures/2024/202404232040995.png)
 
-3. 输入“[微软官方正版秘钥](闲鱼地址)”，点击“下一页”，再点击“激活”
+3. 输入“[微软官方正版秘钥](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J )”，点击“下一页”，再点击“激活”
 
 ![输入产品密钥](http://img.geekyspace.cn/pictures/2024/202404232318292.png)
 
@@ -46,7 +46,7 @@ start slui 3
 slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 ```
 
-[脚本获取](/闲鱼地址)
+[脚本获取](/https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J )
 
 ![脚本-持续更新](http://img.geekyspace.cn/pictures/2024/202404231900072.png)
 
