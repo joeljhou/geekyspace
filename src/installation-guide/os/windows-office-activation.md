@@ -65,7 +65,8 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 * [关闭 Windows 安全中心中的Defender 防病毒保护](https://support.microsoft.com/zh-cn/windows/%E5%85%B3%E9%97%AD-windows-%E5%AE%89%E5%85%A8%E4%B8%AD%E5%BF%83%E4%B8%AD%E7%9A%84defender-%E9%98%B2%E7%97%85%E6%AF%92%E4%BF%9D%E6%8A%A4-99e6004f-c54c-8509-773c-a4d776b77960)
 * [360安全卫士设置白名单](http://www.fastaux.com/index.php?c=show&id=54)
 * [360杀毒软件怎么添加文件白名单](https://www.eyunsou.com/360sd/gongnneg/bmd/)
-  :::
+
+:::
 
 ### 数字激活工具 HWID_KMS38_CN_62
 
