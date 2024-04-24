@@ -14,41 +14,41 @@ tag:
 
 ## 微软官方正版秘钥
 
-> 官方正版秘钥激活，可激活任意版本的Windows系统
+> 获取 [官方正版秘钥](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J)，可激活任意版本的Windows系统
 
 ![微软官方密钥](http://img.geekyspace.cn/pictures/2024/202404231858402.png)
 
-1. `Win+R` 打开终端，输入以下命令，打开“系统激活”窗口
+1. `Win+R` 打开终端，输入命令
 
 ```shell
 start slui 3
 ```
 
-2. 点击更改产品密钥一栏的“更改”按钮
+2. 打开“系统激活”窗口，点击“更改”按钮
 
 ![更改产品密钥](http://img.geekyspace.cn/pictures/2024/202404232040995.png)
 
-3. 输入“[微软官方正版秘钥](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J)”，点击“下一页”，再点击“激活”
+3. 输入“秘钥”，点击“下一页” 进行 “激活”
 
 ![输入产品密钥](http://img.geekyspace.cn/pictures/2024/202404232318292.png)
 
 4. “激活”成功
 
-![Success](http://img.geekyspace.cn/pictures/2024/202404232327475.png)
+![Windows官方密钥激活](http://img.geekyspace.cn/pictures/2024/202404232327475.png)
 
 ## 一键激活脚本
 
-> 可激活Windows，查看激活状态
+> 获取 [一键激活脚本](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J)，简化激活过程
 
-如果你有新的零售产品密钥，将 X 替换为实际的密钥，来**安装新的产品密钥**
+![脚本-持续更新](http://img.geekyspace.cn/pictures/2024/202404231900072.png)
+
+**原理：通过脚本命令，将密钥写入系统，实现激活**
+
+如果你有新的零售产品密钥，将 X 替换为实际的密钥，运行以下命令即可激活
 
 ```shell
 slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 ```
-
-[脚本获取](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J)
-
-![脚本-持续更新](http://img.geekyspace.cn/pictures/2024/202404231900072.png)
 
 [KMS一键激活windows/office网站](https://kms.cx/)
 
@@ -56,11 +56,11 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 ## 一键激活程序
 
-> 可激活任意版本的Windows和Office
+> 获取 [一键激活程序](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J) ,提供多种激活方式
 
 ![程序-持续更新](http://img.geekyspace.cn/pictures/2024/202404231900370.png)
 
-::: tip 注意：使用程序激活，需先关闭电脑相关的杀毒程序
+::: note 注意：使用一键激活程序，需先关闭电脑相关的杀毒程序
 
 * [关闭 Windows 安全中心中的Defender 防病毒保护](https://support.microsoft.com/zh-cn/windows/%E5%85%B3%E9%97%AD-windows-%E5%AE%89%E5%85%A8%E4%B8%AD%E5%BF%83%E4%B8%AD%E7%9A%84defender-%E9%98%B2%E7%97%85%E6%AF%92%E4%BF%9D%E6%8A%A4-99e6004f-c54c-8509-773c-a4d776b77960)
 * [360安全卫士设置白名单](http://www.fastaux.com/index.php?c=show&id=54)
