@@ -55,7 +55,7 @@ const DOCSEARCH_ZH_LOCALES = {
 const __dirname = getDirname(import.meta.url);
 
 export default defineUserConfig({
-    base: "/",
+    base: "/geekyspace/",
     lang: "zh-CN",
     title: "极客空间",
     description: "vuepress-theme-hope 的博客搭建",
