@@ -7,56 +7,58 @@ title: 文库汇总
 heroImage: geekyspace.png
 heroImageDark: geekyspace.png
 # 指定首页背景图片
-bgImage: /assets/bg/wallhaven-8586my.png
-bgImageDark: /assets/bg/wallhaven-o5762l.png
+#bgImage: /assets/bg/wallhaven-8586my.png
+#bgImageDark: /assets/bg/wallhaven-o5762l.png
 bgImageStyle:
   background-attachment: fixed
-heroText: 极客空间
+heroText: 文库汇总
 tagline: 极客空间，一个专注于技术分享的博客网站
 actions:
-  - text: 使用指南
-    icon: lightbulb
-    link: ./demo/
+  - text: 访问首页
+    icon: home
+    link: /
     type: primary
-  - text: 文档
-    link: ./guide/
+  - text: 友链
+    icon: youlian
+    link: /flink-iv
 
 features:
-  - title: 轻量
-    icon: light
-    details: 53kb gzip 的完整客户端大小
+  - title: RabbitMQ
+    icon: rabbitmq
+    # icon: https://avatars.githubusercontent.com/u/96669?s=48&v=4
+    details: 高并发实战-RabbitMQ消息队列
+    link: https://github.com/joeljhou/RabbitMQ
 
-  - title: 完全免费部署
-    icon: free
-    details: 可免费部署在 Vercel 上
+  - title: JVM
+    icon: jvm-xx
+    details: 深入理解Java虚拟机
+    
+  - title: Docker
+    icon: docker
+    details: Docker容器化最佳实践
+    
+  - title: K8S
+    icon: k8s
+    details: Kubernetes云原生时代
+    
+  - title: MySQL
+    icon: mysql
+    # icon: https://labs.mysql.com/common/logos/mysql-logo.svg
+    details: MySQL原理与SQL调优
 
-  - title: 易于部署
-    icon: strong
-    details: 多种部署部署方式和存储服务支持
+  - title: Redis
+    icon: redis
+    #icon: https://redis.io/wp-content/uploads/2024/04/Logotype.svg
+    details: Redis缓存高可用实战
 
-  - title: 登录支持
-    icon: register
-    details: 在允许匿名评论的基础上，支持账号注册，保持身份
+  - title: Elasticsearch
+    icon: elasticsearch
+    #icon: https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt36f2da8d650732a0/5d0823c3d8ff351753cbc99f/logo-elasticsearch-32-color.svg
+    details: Elasticsearch搜索引擎
 
-  - title: 自由评论
-    icon: markdown
-    details: 完全的 Markdown 支持，同时包含表情、数学公式、HTML 嵌入
-    link: /guide/features/syntax.html
-
-  - title: 强大的安全性
-    icon: safe
-    details: 内容校验、防灌水、保护敏感数据等
-    link: /guide/features/safety.html
-
-  - title: 文章反应
-    icon: reaction
-    details: 快速表达你对文章的态度
-    link: /guide/features/reaction.html
-
-  - title: 浏览量统计
-    icon: counter
-    details: 通过 <1kb 代码可靠统计文章浏览量
-    link: /guide/features/pageview.html
+  - title: Google Istio
+    icon: istio_bypass_mode_s
+    details: Google Istio服务网格
 
 copyright: false
 footer: "© 2023 - 至今 <a href=\"https://www.geekyspace.cn\" target=\"_blank\">www.geekyspace.cn</a> 保留所有权利"
