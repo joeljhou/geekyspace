@@ -17,11 +17,16 @@ export default navbar([
         ]
     },
     {text: "安装大全", icon: "launch", link: "installation-guide/"},
-    {text: "玩转IDEA", icon: "intellij-idea", prefix: "idea-tips/", children: [
-            {text: "IDEA 教程", icon: "intellij-idea", link: "https://www.jetbrains.com/help/idea/getting-started.html"},
+    {
+        text: "玩转IDEA", icon: "intellij-idea", prefix: "idea-tips/", children: [
+            {
+                text: "IDEA 教程",
+                icon: "intellij-idea",
+                link: "https://www.jetbrains.com/help/idea/getting-started.html"
+            },
             {text: "正版激活码", icon: "intellij-idea", link: "activation"},
         ]
     },
-    {text: "文库汇总", icon: "article", link: "home/"},
+    {text: "文库汇总", icon: "article", link: "home.html"},
     {text: "加群交流", icon: "wechat", link: "wechat/"},
 ]);

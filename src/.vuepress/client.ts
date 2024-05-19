@@ -8,7 +8,7 @@ import {defineClientConfig} from "vuepress/client";
  * // 设置评论插件Giscus客户端选项：https://giscus.app/zh-CN
  */
 defineGiscusConfig({
-    repo: 'joeljhou/joeljhou.github.io',
+    repo: 'joeljhou/geekyspace',
     repoId: 'R_kgDOK4fo4g',
     category: 'Announcements',
     categoryId: 'DIC_kwDOK4fo4s4Cd4Y9',
