@@ -8,6 +8,7 @@ category: 安装大全
 tag:
   - Windows
   - Office
+star: true
 ---
 
 # Windows、Office激活密钥，脚本，程序
