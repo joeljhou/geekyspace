@@ -57,8 +57,6 @@ const __dirname = getDirname(import.meta.url);
 export default defineUserConfig({
     base: "/",
     lang: "zh-CN",
-    title: "极客空间",
-    description: "vuepress-theme-hope 的博客搭建",
 
     theme,
 

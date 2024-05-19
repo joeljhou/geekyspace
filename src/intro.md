@@ -1,7 +1,7 @@
 ---
 # 信息 Frontmatter 配置
-title: GeekySpace | 软件开发者与技术领袖的信息平台
-description: 软件开发者与技术领袖的信息平台
+title: 极客空间 | 一个专注于技术分享的博客网站
+description: 一个专注于技术分享的博客网站
 icon: circle-info
 cover: /assets/images/cover3.jpg
 author: 会敲代码的程序猿
@@ -13,7 +13,7 @@ tag: 程序人生
 sidebar: false  # 禁用侧边栏
 ---
 
-# GeekySpace | 软件开发者与技术领袖的信息平台
+# 极客空间 | 一个专注于技术分享的博客网站
 
 > 🚀 当坚持成为一种热爱，极致成为一种精神，那么成功就是一种必然
 
