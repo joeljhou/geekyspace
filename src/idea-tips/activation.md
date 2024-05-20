@@ -16,7 +16,7 @@ star: true
 
 ### 1️⃣ 第一步：下载激活文件
 
-[https://m.tb.cn/h.ga8m4it?tk=QujxWrXRYZz](https://m.tb.cn/h.ga8m4it?tk=QujxWrXRYZz)
+[https://h5.m.goofish.com/item?id=787912789834](https://h5.m.goofish.com/item?id=787912789834)
 
 ### 2️⃣ 第二步：打开激活文件 `macjihuo.zip`，解压缩
 
@@ -48,7 +48,7 @@ star: true
 
 ### 1️⃣ 第一步：下载激活文件
 
-[https://m.tb.cn/h.ga8m4it?tk=QujxWrXRYZz](https://m.tb.cn/h.ga8m4it?tk=QujxWrXRYZz)
+[https://h5.m.goofish.com/item?id=787912789834](https://h5.m.goofish.com/item?id=787912789834)
 
 ### 2️⃣ 第二步：解压下载的压缩包
 

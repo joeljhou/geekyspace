@@ -40,7 +40,7 @@ start slui 3
 
 ## 一键激活脚本
 
-> 获取 [一键激活脚本](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J)，简化激活过程
+> 获取 [一键激活脚本](https://wwi.lanzoup.com/b0foh27ne)，密码：gkjb，简化激活过程
 
 ![脚本-持续更新](http://img.geekyspace.cn/pictures/2024/202404231900072.png)
 
