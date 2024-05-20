@@ -15,7 +15,8 @@ star: true
 
 ## 微软官方正版秘钥
 
-> 获取 [官方正版秘钥](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J)，可激活任意版本的Windows系统
+> 获取 [官方正版秘钥](https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys)
+> ，可激活任意版本的Windows系统
 
 ![微软官方密钥](http://img.geekyspace.cn/pictures/2024/202404231858402.png)
 
