@@ -30,7 +30,7 @@ projects:
   - icon: intellij-idea
     name: 玩转IDEA
     desc: 了解IDEA更多牛x功能、推荐很有意思的主题和插件
-    link: https://你的书籍链接
+    link: /idea-tips/activation
 
   - icon: https://docs.spring.io/spring-boot/docs/current/reference/html/img/banner-logo.svg
     name: Spring Boot

@@ -12,7 +12,7 @@ heroImageDark: geekyspace.png
 bgImageStyle:
   background-attachment: fixed
 heroText: 文库汇总
-tagline: 极客空间，一个专注于技术分享的博客网站
+tagline: 极客空间，一个专注于技术分享的博客网站✨
 actions:
   - text: 访问首页
     icon: home
