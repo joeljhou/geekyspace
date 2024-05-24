@@ -1,6 +1,6 @@
 ## 在线访问地址
 
-https://www.geekyspace.cn
+https://www.geekyspace.cn/
 
 ## 博客效果图展示：
 
@@ -15,3 +15,11 @@ https://www.geekyspace.cn
 <img width="1680" alt="image" src="https://github.com/joeljhou/geekyspace/assets/45135095/b1fc78ed-eb7d-4744-a50d-cfa24b338b0f">
 
 <img width="1680" alt="image" src="https://github.com/joeljhou/geekyspace/assets/45135095/da2646f8-4ea3-4908-a322-4a8ade7f69a4">
+
+## 项目介绍
+
+本项目是一个基于VuePress的个人博客项目，主要用于记录个人的学习和工作经验，以及一些技术分享。
+
+## 代码仓库地址
+
+https://github.com/joeljhou/geekyspace/
