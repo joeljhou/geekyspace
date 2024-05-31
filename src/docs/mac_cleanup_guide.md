@@ -1,6 +1,17 @@
+---
+title: Java开发工程师离职前Mac电脑清理指南
+author: 会敲代码的程序猿
+isOriginal: true
+date: 2024-05-31
+category: Mac
+tag: Mac
+---
+
 # Java开发工程师离职前Mac电脑清理指南
 
 [使用“时间机器”备份你的 Mac](https://support.apple.com/zh-cn/104984)
+
+[在 Mac 上更改登录密码](https://support.apple.com/zh-cn/guide/mac-help/mchlp1550/mac)
 
 [抹掉Mac并重新安装MacOS](https://support.apple.com/zh-cn/102655)
 
@@ -20,13 +31,34 @@
 
 Adobe Creative Cloud 注销
 
+删除`.ssh`,`.aws`,`.SwitchHosts`文件夹
+
 [备份微信聊天记录](https://support.weixin.qq.com/cgi-bin/readtemplate?t=weixin_winbakup_upgrade)
 
 [备份Typora个性化主题](https://wwi.lanzoup.com/i90iK20austa)
 
+备份`.zshrc`
 
+```shell
+# Homebrew
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
+# Java
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH
 
+# Python
+export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
+
+# Maven
+export MAVEN_HOME=/Users/joeljhou/Development/maven/apache-maven-3.9.4
+export PATH=$MAVEN_HOME/bin:$PATH
+
+# Gradle
+export GRADLE_HOME=/Users/joeljhou/Development/gradle/gradle-8.3
+export PATH=$GRADLE_HOME/bin:$PATH
+```
 
 账号退出，数据清除
 
@@ -50,13 +82,4 @@ Adobe Creative Cloud 注销
     * Bucket：`usmap`
     * 访问地址：`http://img.geekyspace.cn` 
     * 存储区域：`na0`
-
-
-
-## 3. 删除敏感数据
-删除或移除以下数据：
-- **代码库**：删除所有本地的代码库，确保版本控制工具（如Git、Subversion）中没有留下任何敏感信息。
-- **配置文件**：删除所有配置文件（如`.bash_profile`, `.zshrc`, `.gitconfig`, `.m2`等）。
-- **应用数据**：清理IDE（如IntelliJ IDEA、Eclipse、VSCode）的配置和项目数据。
-- **缓存和日志**：清理系统和应用的缓存和日志文件。
 
