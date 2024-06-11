@@ -15,15 +15,18 @@ star: true
 
 ## 微软官方正版秘钥
 
-> 获取 [官方正版秘钥](https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys)
+> 获取 [Windows官方正版秘钥](https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys)
 > ，可激活任意版本的Windows系统
+
+> 获取 [Office官方正版秘钥](https://learn.microsoft.com/zh-cn/deployoffice/vlactivation/gvlks)
+> ，可激活Office软件
 
 ![微软官方密钥](http://img.geekyspace.cn/pictures/2024/202404231858402.png)
 
 1. `Win+R` 打开终端，输入命令
 
 ```shell
-start slui 3
+slui 3
 ```
 
 2. 打开“系统激活”窗口，点击“更改”按钮
