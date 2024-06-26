@@ -28,7 +28,7 @@ export default hopeTheme({
      * 外观选项
      */
     // 深色模式支持选项 (switch：默认)
-    darkmode: "switch",
+    darkmode: "toggle",
 
     /**
      * 导航栏本地选项
@@ -36,22 +36,13 @@ export default hopeTheme({
     navbar,
 
     // 网站图标
-    logo: "geekyspace.png",
-
-    // 夜间模式下导航栏图标
-    logoDark: "geekyspace.png",
+    // logo: "geekyspace.png",
 
     // 导航栏标题
     navTitle: "极客空间",
 
-    // 仓库链接
-    repo: "https://github.com/joeljhou",
-
-    // 是否在导航栏显示仓库链接
-    repoDisplay: false,
-
     // 全屏按钮
-    fullscreen: true,
+    fullscreen: false,
 
     // 字体图标资源链接（阿里巴巴iconfont矢量图标：https://www.iconfont.cn/）
     iconAssets: "//at.alicdn.com/t/c/font_4370612_uon4h73rl.css",
@@ -60,8 +51,8 @@ export default hopeTheme({
     // "Author", "Original", "Category", "Date", "Tag", "ReadingTime", "Word", "PageView"
     pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
-    // 是否在向下滚动时自动隐藏导航栏
-    navbarAutoHide: "always",
+    // 是否在向下滚动时自动隐藏导航栏 "always" | "mobile" | "none"
+    navbarAutoHide: "mobile",
 
     // 导航栏布局设置
     navbarLayout: {
@@ -100,6 +91,7 @@ export default hopeTheme({
      */
     // 博客功能配置
     blog: {
+        avatar: "geekyspace.png",
         description: "会敲代码的程序员，分享技术，品味人生",
         intro: "/intro.html",
         medias: {

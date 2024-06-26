@@ -2,7 +2,7 @@ import {navbar} from "vuepress-theme-hope";
 
 export default navbar([
     {text: "首页", icon: "home", link: "/"},
-    {text: "所有文章", icon: "list", link: "timeline/"},
+    {text: "时间轴", icon: "list", link: "timeline/"},
     {
         text: "Java教程", icon: "java", children: [
             {text: "Java 8 教程", icon: "java", link: "https://docs.oracle.com/javase/tutorial/index.html"},
