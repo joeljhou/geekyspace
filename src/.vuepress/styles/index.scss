@@ -4,7 +4,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  color: #2c3e50;
 }
 
 // 博客标题加粗，设置右边距
@@ -13,10 +12,20 @@ body {
   padding-right: 0.5rem;
 }
 
-// 导航栏设置
+// 导航栏去掉阴影
 .vp-navbar{
   box-shadow: none;
-  border-bottom: 1px solid #eaecef;
+}
+
+// 导航栏添加下边线
+.vp-navbar{
+  html[data-theme=light] & {
+    border-bottom: 1px solid #eaecef;
+  }
+
+  html[data-theme=dark] & {
+    border-bottom: 1px solid #30363d;
+  }
 }
 
 // 设置博客上边距为 20 像素
@@ -36,86 +45,86 @@ body {
   //padding-inline-start: 0;
 }
 
-///**
-// * ========== Markdown 样式 ==========
-// */
-//// 参考 Typora Vue 主题，修改 > 块引用 颜色
-//html[data-theme] blockquote {
-//  border-left: 4px solid var(--theme-color);
-//  padding: 10px 15px;
-//  color: var(--text-color);
-//  background-color: var(--theme-color-mask);
-//}
-//
-//// 修改 `标记` 颜色
-//html[data-theme] mark {
-//  background-color: var(--theme-color-mask);
-//  border-radius: 2px;
-//  padding: 2px 4px;
-//  margin: 0 2px;
-//  color: var(--text-color);
-//  font-weight: 500;
-//}
-//
-//// 默认情况下，“表格” 宽度不会占满整个屏幕，这里设置为 100%
-//table {
-//  display: inline-table;
-//  width: 100%;
-//  border-radius: 1px;
-//}
-//
-//// “表格” 标题居左显示
-//table th {
-//  text-align: left;
-//}
-//
-//// 鼠标悬停时改变行颜色
-//tr:hover {
-//  html[data-theme=light] & {
-//    background-color: #ebebeb;
-//  }
-//
-//  html[data-theme=dark] & {
-//    background-color: #30363d;
-//  }
-//}
-//
-//// 去除“表格”的边框，看起来更加美观
-//thead, tbody, tfoot, tr, td, th {
-//  border-width: 0 0 1px 0;
-//}
-//
-//// 左侧边栏边框样式
-//.vp-sidebar {
-//  html[data-theme=light] & {
-//    border-right: 1px solid #eaecef;
-//  }
-//
-//  html[data-theme=dark] & {
-//    border-right: 1px solid #30363d;
-//  }
-//}
-//
-///**
-// * ========== 夜间模式显示优化 ==========
-// */
-//// 夜间模式背景图片遮罩
-//[data-theme=dark] .vp-blog-hero .vp-blog-mask:after {
-//  background: #000;
-//  opacity: .7 !important;
-//}
+// 侧边栏添加边框线条
+.vp-sidebar {
+  html[data-theme=light] & {
+    border-right: 1px solid #eaecef;
+  }
 
-//// 背景颜色：#1b1f23
-//html[data-theme=dark] {
-//  --text-color: #e6edf3; /*页面字体颜色*/
-//  --bg-color: #1b1f23; /*页面背景颜色*/
-//  --bg-color-secondary: #0d1117; /*搜索框按钮样式*/
-//  --border-color: #30363d; /*页面边框线条颜色*/
-//  --dark-grey: #e6edf3; /*图标文字颜色*/
-//  --light-grey: #e6edf3; /*小图标颜色*/
-//  --navbar-bg-color: #1b1f23;
-//  --sidebar-bg-color: #1b1f23;
-//  --bg-color-back: #1b1f23;
-//  --bg-color-blur: #1b1f23;
-//  --bg-color-float: #1b1f23; /*首页个人简介等卡片背景颜色*/
-//}
+  html[data-theme=dark] & {
+    border-right: 1px solid #30363d;
+  }
+}
+
+/**
+ * ========== Markdown 样式 ==========
+ */
+// 参考 Typora Vue 主题，修改 > 块引用 颜色
+html[data-theme] blockquote {
+  border-left: 4px solid var(--theme-color);
+  padding: 10px 15px;
+  color: var(--text-color);
+  background-color: var(--theme-color-mask);
+}
+
+// 修改 `标记` 颜色
+html[data-theme] mark {
+  background-color: var(--theme-color-mask);
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin: 0 2px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+// 默认情况下，“表格” 宽度不会占满整个屏幕，这里设置为 100%
+table {
+  display: inline-table;
+  width: 100%;
+  border-radius: 1px;
+}
+
+// “表格” 标题居左显示
+table th {
+  text-align: left;
+}
+
+// 鼠标悬停时改变行颜色
+tr:hover {
+  html[data-theme=light] & {
+    background-color: #ebebeb;
+  }
+
+  html[data-theme=dark] & {
+    background-color: #30363d;
+  }
+}
+
+// 去除“表格”的边框，看起来更加美观
+thead, tbody, tfoot, tr, td, th {
+  border-width: 0 0 1px 0;
+}
+
+/**
+ * ========== 夜间模式显示优化 ==========
+ */
+// 夜间模式背景图片遮罩
+[data-theme=dark] .vp-blog-hero .vp-blog-mask:after {
+  background: #000;
+  opacity: .7 !important;
+}
+
+// 背景颜色：#1b1f23
+html[data-theme=dark] {
+  --text-color: #e6edf3; /*页面字体颜色*/
+  --bg-color: #1b1f23; /*页面背景颜色*/
+  --bg-color-secondary: #0d1117; /*搜索框按钮样式*/
+  --border-color: #30363d; /*页面边框线条颜色*/
+  --dark-grey: #e6edf3; /*图标文字颜色*/
+  --light-grey: #e6edf3; /*小图标颜色*/
+  --navbar-bg-color: #1b1f23;
+  --sidebar-bg-color: #1b1f23;
+  --bg-color-back: #1b1f23;
+  --bg-color-blur: #1b1f23;
+  --bg-color-float: #1b1f23; /*首页个人简介等卡片背景颜色*/
+}
