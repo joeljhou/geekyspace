@@ -4,8 +4,8 @@ icon: home
 title: 文库汇总
 
 # 指定首页背景头像
-heroImage: geekyspace.png
-heroImageDark: geekyspace.png
+heroImage: /images/personal/geekyspace.png
+heroImageDark: /images/personal/geekyspace.png
 # 指定首页背景图片
 #bgImage: /assets/bg/wallhaven-8586my.png
 #bgImageDark: /assets/bg/wallhaven-o5762l.png
@@ -14,13 +14,16 @@ bgImageStyle:
 heroText: 文库汇总
 tagline: 极客空间，一个专注于技术分享的博客网站✨
 actions:
-  - text: 访问首页
+  - text: 首页
     icon: home
     link: /
     type: primary
-  - text: 友链
+  - text: 所有文章
+    icon: article
+    link: /article/
+  - text: 收藏文章
     icon: youlian
-    link: /flink-iv
+    link: /star/
 
 features:
   - title: RabbitMQ

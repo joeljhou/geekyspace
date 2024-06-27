@@ -1,7 +1,7 @@
 import {hopeTheme} from "vuepress-theme-hope";
 
-import navbar from "./navbar.js";
-import sidebar from "./sidebar";
+import navbar from "./path/navbar.js";
+import sidebar from "./path/sidebar";
 
 export default hopeTheme({
 
@@ -36,7 +36,7 @@ export default hopeTheme({
     navbar,
 
     // 网站图标
-    // logo: "geekyspace.png",
+    // logo: "/images/system/geekyspace.png",
 
     // 导航栏标题
     navTitle: "极客空间",
@@ -91,7 +91,7 @@ export default hopeTheme({
      */
     // 博客功能配置
     blog: {
-        avatar: "geekyspace.png",
+        avatar: "/images/personal/geekyspace.png",
         description: "会敲代码的程序员，分享技术，品味人生",
         intro: "/intro.html",
         medias: {

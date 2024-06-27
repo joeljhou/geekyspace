@@ -12,22 +12,6 @@ body {
   padding-right: 0.5rem;
 }
 
-// 导航栏去掉阴影
-.vp-navbar{
-  box-shadow: none;
-}
-
-// 导航栏添加下边线
-.vp-navbar{
-  html[data-theme=light] & {
-    border-bottom: 1px solid #eaecef;
-  }
-
-  html[data-theme=dark] & {
-    border-bottom: 1px solid #30363d;
-  }
-}
-
 // 设置博客上边距为 20 像素
 .blog-page-wrapper {
   margin-top: 20px;
@@ -105,16 +89,6 @@ thead, tbody, tfoot, tr, td, th {
   border-width: 0 0 1px 0;
 }
 
-/**
- * ========== 夜间模式显示优化 ==========
- */
-// 夜间模式背景图片遮罩
-[data-theme=dark] .vp-blog-hero .vp-blog-mask:after {
-  background: #000;
-  opacity: .7 !important;
-}
-
-// 背景颜色：#1b1f23
 html[data-theme=dark] {
   --text-color: #e6edf3; /*页面字体颜色*/
   --bg-color: #1b1f23; /*页面背景颜色*/
@@ -127,4 +101,5 @@ html[data-theme=dark] {
   --bg-color-back: #1b1f23;
   --bg-color-blur: #1b1f23;
   --bg-color-float: #1b1f23; /*首页个人简介等卡片背景颜色*/
+  --grey3: #fff;
 }
