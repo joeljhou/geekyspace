@@ -9,6 +9,12 @@ body {
 // 导航栏
 #navbar {
   border-bottom: 1px solid var(--border-color);
+
+  // 去掉父级标题“文本转换为大写字母”
+  .dropdown-subtitle {
+    text-transform: none;
+  }
+
 }
 
 // 侧边栏
@@ -80,19 +86,19 @@ table {
 
 // 视觉优化 “夜间模式”
 html[data-theme=dark] {
-  --bg-color: #22272e;         /*页面背景颜色*/
-  --navbar-bg-color: #22272e;  /*导航栏背景颜色*/
+  --bg-color: #22272e; /*页面背景颜色*/
+  --navbar-bg-color: #22272e; /*导航栏背景颜色*/
   --sidebar-bg-color: #22272e; /*侧边栏背景颜色*/
-  --bg-color-back: #22272e;    /*首页页背景颜色*/
-  --bg-color-float: #2b313a;   /*首页卡片背景颜色*/
+  --bg-color-back: #22272e; /*首页页背景颜色*/
+  --bg-color-float: #2b313a; /*首页卡片背景颜色*/
 
-  --text-color: #e6edf3;       /*页面字体颜色*/
-  --grey3: #e6edf3;            /*首页项目卡片字体颜色*/
-  --dark-grey: #e6edf3;        /*图标文字颜色*/
-  --light-grey: #e6edf3;       /*图标文字颜色*/
+  --text-color: #e6edf3; /*页面字体颜色*/
+  --grey3: #e6edf3; /*首页项目卡片字体颜色*/
+  --dark-grey: #e6edf3; /*图标文字颜色*/
+  --light-grey: #e6edf3; /*图标文字颜色*/
 }
 
 html[data-theme=light] {
   //--dark-grey: #2c3e50;      /*图标文字颜色*/
-  --light-grey: #2c3e50;       /*图标文字颜色*/
+  --light-grey: #2c3e50; /*图标文字颜色*/
 }
