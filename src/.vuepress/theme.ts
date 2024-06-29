@@ -9,7 +9,7 @@ export default hopeTheme({
      * 信息选项
      */
     // 站点图标
-    favicon: "/images/system/geeky_red.png",
+    favicon: "/images/system/geeky.png",
 
     // 全局默认作者
     author: {
@@ -39,7 +39,8 @@ export default hopeTheme({
     // navTitle: "极客空间",
 
     // 导航栏图标
-    logo: "/images/system/geeky_red.png",
+    logo: "/images/system/geeky.png",
+    // logoDark: "/images/system/geeky_zh.png",
 
     // 全屏按钮
     fullscreen: false,
