@@ -1,7 +1,7 @@
 import {arraySidebar} from "vuepress-theme-hope";
 
 export const javaFeatures = arraySidebar([
-        {text: "总目录", prefix: "/java-features/", link: "/java-features/",},
+        {text: "总目录", prefix: "/md/java-features/", link: "/md/java-features/",},
         {
             text: "Java 21", prefix: "Java21/", link: "Java21/",
             children: [
