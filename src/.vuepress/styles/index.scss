@@ -32,7 +32,7 @@ body {
 /**
  * ========== Markdown 样式 ==========
  */
-// 参考 Typora Vue 主题，修改 > 块引用 颜色
+// 修改 > 块引用 样式
 html[data-theme] blockquote {
   border-left: 4px solid var(--theme-color);
   padding: 10px 15px;
@@ -40,55 +40,59 @@ html[data-theme] blockquote {
   background-color: var(--theme-color-mask);
 }
 
-// 修改 `标记` 颜色
+// 修改 `标记` 样式
 html[data-theme] mark {
-  background-color: var(--theme-color-mask);
   border-radius: 2px;
   padding: 2px 4px;
   margin: 0 2px;
-  color: var(--text-color);
   font-weight: 500;
+  color: var(--text-color);
+  background-color: var(--theme-color-mask);
 }
 
-// 默认情况下，“表格” 宽度不会占满整个屏幕，这里设置为 100%
+// 修改 “表格” 样式
 table {
+  // 默认情况下，“表格” 宽度不会占满整个屏幕，这里设置为 100%
   display: inline-table;
   width: 100%;
   border-radius: 1px;
-}
 
-// “表格” 标题居左显示
-table th {
-  text-align: left;
-}
-
-// 鼠标悬停时改变行颜色
-tr:hover {
-  html[data-theme=light] & {
-    background-color: #ebebeb;
+  th {
+    text-align: left;
   }
 
-  html[data-theme=dark] & {
-    background-color: #30363d;
+  // 鼠标悬停时改变行颜色
+  tr:hover {
+    html[data-theme=light] & {
+      background-color: #ebebeb;
+    }
+
+    html[data-theme=dark] & {
+      background-color: #30363d;
+    }
+  }
+
+  // 去除“表格”的边框，看起来更加美观
+  thead, tbody, tfoot, tr, td, th {
+    border-width: 0 0 1px 0;
   }
 }
 
-// 去除“表格”的边框，看起来更加美观
-thead, tbody, tfoot, tr, td, th {
-  border-width: 0 0 1px 0;
-}
-
+// 视觉优化 “夜间模式”
 html[data-theme=dark] {
-  //--text-color: #e6edf3; /*页面字体颜色*/
-  //--bg-color: #1b1f23; /*页面背景颜色*/
-  //--bg-color-secondary: #0d1117; /*搜索框按钮样式*/
-  //--border-color: #30363d; /*页面边框线条颜色*/
-  //--dark-grey: #e6edf3; /*图标文字颜色*/
-  //--light-grey: #e6edf3; /*小图标颜色*/
-  //--navbar-bg-color: #1b1f23;
-  //--sidebar-bg-color: #1b1f23;
-  //--bg-color-back: #1b1f23;
-  //--bg-color-blur: #1b1f23;
-  //--bg-color-float: #1b1f23; /*首页个人简介等卡片背景颜色*/
-  //--grey3: #fff;
+  --bg-color: #22272e;         /*页面背景颜色*/
+  --navbar-bg-color: #22272e;  /*导航栏背景颜色*/
+  --sidebar-bg-color: #22272e; /*侧边栏背景颜色*/
+  --bg-color-back: #22272e;    /*首页页背景颜色*/
+  --bg-color-float: #2b313a;   /*首页卡片背景颜色*/
+
+  --text-color: #e6edf3;       /*页面字体颜色*/
+  --grey3: #e6edf3;            /*首页项目卡片字体颜色*/
+  --dark-grey: #e6edf3;        /*图标文字颜色*/
+  --light-grey: #e6edf3;       /*图标文字颜色*/
+}
+
+html[data-theme=light] {
+  //--dark-grey: #2c3e50;      /*图标文字颜色*/
+  --light-grey: #2c3e50;       /*图标文字颜色*/
 }
