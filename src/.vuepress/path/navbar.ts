@@ -2,7 +2,6 @@ import {navbar} from "vuepress-theme-hope";
 
 export default navbar([
     {text: "首页", icon: "home", link: "/"},
-    {text: "文库汇总", icon: "article", link: "article.html"},
     {text: "时间轴", icon: "list", link: "timeline/"},
     {
         text: "Java", icon: "java", children: [
@@ -36,4 +35,5 @@ export default navbar([
             {text: "正版激活码", icon: "intellij-idea", link: "md/activation"},
         ]
     },
+    {text: "文库汇总", icon: "article", link: "article.html"},
 ]);
