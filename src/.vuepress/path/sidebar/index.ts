@@ -19,9 +19,9 @@ export default sidebar({
         {text: "快速入门", prefix: "/md/jetbrains/", link: "/md/jetbrains/getting-started"},
     ],
     "/md/installation-guide/": [
-        {text: "开发者安装大全", prefix: "/md/installation-guide/", link: "/installation-guide/"},
+        {text: "开发者安装大全", prefix: "/md/installation-guide/", link: "/md/installation-guide/"},
         {
-            text: "操作系统", prefix: "/md/os/", children: [
+            text: "操作系统", prefix: "os/", children: [
                 {text: "Windows、Office激活", link: "windows-office-activation"},
             ]
         },

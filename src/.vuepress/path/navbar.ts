@@ -6,12 +6,12 @@ export default navbar([
     {
         text: "Java", icon: "java", children: [
             {
-                text: "Java进阶-新版本特性", children:[
+                text: "Java进阶-新版本特性", children: [
                     {text: "Java 8+ 版本特性体系", icon: "java", link: "md/java-features/"},
                 ],
             },
             {
-                text: "Java进阶-JVM相关", children:[
+                text: "Java进阶-JVM相关", children: [
                     {text: "Java 类加载机制", icon: "java", link: "md/jvm/"},
                 ],
             },
@@ -32,7 +32,7 @@ export default navbar([
                 icon: "intellij-idea",
                 link: "https://www.jetbrains.com/help/idea/getting-started.html"
             },
-            {text: "正版激活码", icon: "intellij-idea", link: "md/activation"},
+            {text: "正版激活码", icon: "intellij-idea", link: "activation"},
         ]
     },
     {text: "文库汇总", icon: "article", link: "article.html"},
