@@ -32,7 +32,7 @@ export default navbar([
                 icon: "intellij-idea",
                 link: "https://www.jetbrains.com/help/idea/getting-started.html"
             },
-            {text: "正版激活码", icon: "intellij-idea", link: "md/activation"},
+            {text: "正版激活码", icon: "intellij-idea", link: "activation"},
         ]
     },
     {text: "文库汇总", icon: "article", link: "article.html"},
