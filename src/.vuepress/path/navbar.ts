@@ -12,7 +12,7 @@ export default navbar([
             },
             {
                 text: "Java进阶-JVM相关", children:[
-                    {text: "Java 类加载机制", icon: "java", link: "md/jvm/"},
+                    {text: "深入理解Java虚拟机", icon: "java", link: "md/jvm/"},
                 ],
             },
         ]

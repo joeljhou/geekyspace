@@ -40,7 +40,7 @@ body {
  */
 // 修改 > 块引用 样式
 html[data-theme] blockquote {
-  border-left: 4px solid var(--theme-color);
+  border-left: 4px solid var(--theme-color-dark);
   padding: 10px 15px;
   color: var(--text-color);
   background-color: var(--theme-color-mask);
@@ -65,10 +65,18 @@ table {
 
   th {
     text-align: left;
+    color: #fff;
+    background-color: var(--theme-color-dark);
+  }
+
+  tr:nth-child(odd) {
+    background-color: var(--theme-color-mask);
   }
 
   // 鼠标悬停时改变行颜色
   tr:hover {
+    color: var(--theme-color);
+
     html[data-theme=light] & {
       background-color: #ebebeb;
     }
@@ -79,9 +87,9 @@ table {
   }
 
   // 去除“表格”的边框，看起来更加美观
-  thead, tbody, tfoot, tr, td, th {
-    border-width: 0 0 1px 0;
-  }
+  //thead, tbody, tfoot, tr, td, th {
+  //  border-width: 0 0 1px 0;
+  //}
 }
 
 // 视觉优化 “夜间模式”
