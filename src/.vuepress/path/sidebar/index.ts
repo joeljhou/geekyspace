@@ -5,6 +5,28 @@ import {springFramework} from "./spring-framework";
 
 export default sidebar({
     "/md/java-features/": javaFeatures,        // Java新特性
+    "/md/jvm/": [
+        {text: "总目录", prefix: "/md/jvm/", link: "/md/jvm/",},
+        {
+            text: "JVM 基础", prefix: "basics/", link: "basics/",
+            children: [
+                {text: "概述", link: "overview"},
+                {text: "类字节码详解", link: "class"},
+            ],
+        },
+        {
+            text: "GC 垃圾回收", prefix: "GC/", link: "GC/",
+            children: [
+                {text: "jvm", link: "jvm"},
+            ],
+        },
+        {
+            text: "调试排错", prefix: "debug/", link: "debug/",
+            children: [
+                {text: "jvm", link: "jvm"},
+            ],
+        },
+    ],        // Java新特性
     "/md/spring-framework/": springFramework,  // Spring框架
     "/md/spring-boot/": [
         {text: "总目录", prefix: "/md/spring-boot/", link: "/md/spring-boot/"},
