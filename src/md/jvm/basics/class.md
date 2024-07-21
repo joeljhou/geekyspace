@@ -63,11 +63,19 @@ ClassFile {
 
 ![ClassFile 内容分析](https://img.geekyspace.cn/pictures/2024/202407220149546.png)
 
-### 魔数与Class文件的版本
+### 魔数
 
-每个Class文件的头4个字节被称为魔数（Magic Number），它的唯一作用是确定这个文件是否为一个能被虚拟机接受的Class文件。
+Java Class文件的魔数是头4个字节的值`0xCAFEBABE`，用于验证文件是否为有效的Class文件。
+不仅限于Class文件，很多文件格式如`GIF`或`JPEG`等也使用魔数来进行身份识别。
 
+* GIF文件：`47 49 46 38`
+* JPEG文件：`FF D8 FF E0`
 
+在Java被称为“Oak”语言时期（大约1991年前后），`0xCAFEBABE`被选为魔数。
+Java开发小组关键成员Patrick Naughton提到，他们选择这个值是因为它好玩且容易记忆，
+象征着著名咖啡品牌Peet’s Coffee深受欢迎的Baristas咖啡，也预示着日后“Java”这一商标名称的出现。
+
+### Class文件的版本
 
 ### 常量池
 
