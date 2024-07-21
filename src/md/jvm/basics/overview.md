@@ -11,7 +11,7 @@ order: 1
 
 # JVM 概述
 
-> Java虚拟机（Java Virtual Machine，简称JVM）是运行所有Java程序的虚拟计算机，是Java平台的核心实现。
+> **Java虚拟机**（Java Virtual Machine，简称JVM）是运行所有Java程序的虚拟计算机，是Java平台的核心实现。
 > 它提供了一种独立于底层硬件和操作系统的运行环境，使Java程序能够在任何安装了JVM的系统上执行。
 > JVM通过将Java字节码（.class文件）转换为机器码来实现跨平台运行，这一特性被称为“Write Once, Run Anywhere”。
 
