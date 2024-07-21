@@ -44,7 +44,7 @@ ClassFile {
   u2 minor_version;           // 次版本号
   u2 major_version;           // 主版本号
   u2 constant_pool_count;     // 常量池计数
-  cp_info constant_pool[constant_pool_count-1]; // 常量池
+  cp_info constant_pool[constant_pool_count - 1]; // 常量池
   u2 access_flags;            // 访问标志
   u2 this_class;              // 当前类索引
   u2 super_class;             // 父类索引
@@ -63,9 +63,9 @@ ClassFile {
 
 ![ClassFile 内容分析](https://img.geekyspace.cn/pictures/2024/202407220149546.png)
 
-### 魔数
+### 魔数（Magic Number）
 
-Java Class文件的魔数是头4个字节的值`0xCAFEBABE`，用于验证文件是否为有效的Class文件。
+魔数是头4个字节的值`0xCAFEBABE`，用于验证文件是否为有效的Class文件。
 不仅限于Class文件，很多文件格式如`GIF`或`JPEG`等也使用魔数来进行身份识别。
 
 * GIF文件：`47 49 46 38`
@@ -75,7 +75,26 @@ Java Class文件的魔数是头4个字节的值`0xCAFEBABE`，用于验证文件
 Java开发小组关键成员Patrick Naughton提到，他们选择这个值是因为它好玩且容易记忆，
 象征着著名咖啡品牌Peet’s Coffee深受欢迎的Baristas咖啡，也预示着日后“Java”这一商标名称的出现。
 
-### Class文件的版本
+### Class文件版本号（Minor&Major Version）
+
+紧跟魔数`0xCAFEBABE`之后的4个字节存储的是Class文件的版本号，其中：
+
+* 第5~6字节：次版本号（Minor Version）
+* 第7~8字节：主版本号（Major Version），Java 8 = 52.0
+
+Java的主版本号从JDK 1.0的45开始，每次大版本发布都会+1。
+次版本号通常保持为0，对应一些次要的特性改进或修复。
+以下是一些JDK版本及其对应的Class文件主版本号：
+
+| JDK 版本  | 主版本号（10 进制） | 主版本号（16 进制） |
+|---------|-------------|-------------|
+| JDK 1.0 | 45          | 0x2D        |
+| JDK 6   | 50          | 0x32        |
+| JDK 7   | 51          | 0x33        |
+| JDK 8   | 52          | 0x34        |
+| JDK 11  | 55          | 0x37        |
+| JDK 17  | 61          | 0x3D        |
+| JDK 21  | 65          | 0x41        |
 
 ### 常量池
 
