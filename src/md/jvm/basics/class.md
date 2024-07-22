@@ -159,27 +159,52 @@ cp_info {
 2. 为支持动态语言，增加了4种动态语言相关的常量 
 3. 为支持Java模块化系统（Jigsaw），新增了`CONSTANT_Module_info`和`CONSTANT_Package_info`
 
-| 类型                               | 标志（tag） | 描述              |
-|----------------------------------|---------|-----------------|
-| CONSTANT_Utf8_info               | 1       | UTF-8编码的字符串     |
-| CONSTANT_Integer_info            | 3       | 整型字面量           |
-| CONSTANT_Float_info              | 4       | 浮点型字面量          |
-| CONSTANT_Long_info               | 5       | 长整型字面量          |
-| CONSTANT_Double_info             | 6       | 双精度浮点型字面量       |
-| CONSTANT_Class_info              | 7       | 类或接口的符号引用       |
-| CONSTANT_String_info             | 8       | 字符串类型字面量        |
-| CONSTANT_Fieldref_info           | 9       | 字段的符号引用         |
-| CONSTANT_Methodref_info          | 10      | 类中方法的符号引用       |
-| CONSTANT_InterfaceMethodref_info | 11      | 接口中方法的符号引用      |
-| CONSTANT_NameAndType_info        | 12      | 字段或方法的部分符号引用    |
-| CONSTANT_MethodHandle_info       | 15      | 表示方法句柄          |
-| CONSTANT_MethodType_info         | 16      | 表示方法类型          |
-| CONSTANT_Dynamic_info            | 17      | 表示一个动态计算常量      |
-| CONSTANT_InvokeDynamic_info      | 18      | 表示一个动态方法调用点     |
-| CONSTANT_Module_info             | 19      | 表示一个模块          |
-| CONSTANT_Package_info            | 20      | 表示一个模块中开放或者导出的包 |
+| 类型(tag)                              | 描述              | 结构细节（起始`u1 tag;`）                                                                                  |
+|--------------------------------------|-----------------|----------------------------------------------------------------------------------------------------|
+| CONSTANT_Utf8_info(1)                | UTF-8编码的字符串     | `u2 length;`<br />字符串的字节长度<br />`u1 bytes[length];`<br />UTF-8编码的字节数据                              |
+| CONSTANT_Integer_info(3)             | 整型字面量           | `u4 bytes;` 32位整数值                                                                                 |
+| CONSTANT_Float_info(4)               | 浮点型字面量          | `u4 bytes;` 32位浮点数值                                                                                |
+| CONSTANT_Long_info(5)                | 长整型字面量          | `u4 high_bytes;` 高32位<br />`u4 low_bytes;` 低32位                                                    |
+| CONSTANT_Double_info(6)              | 双精度浮点型字面量       | `u4 high_bytes;` 高32位<br />`u4 low_bytes;` 低32位                                                    |
+| CONSTANT_Class_info(7)               | 类或接口的符号引用       | `u2 name_index;`<br />指向类或接口名称的索引                                                                  |
+| CONSTANT_String_info(8)              | 字符串类型字面量        | `u2 string_index;`<br />指向字符串字面量的索引                                                                |
+| CONSTANT_Fieldref_info(9)            | 字段的符号引用         | `u2 class_index;`<br />指向字段所在类的索引<br />`u2 name_and_type_index;`<br />指向字段名称和描述符的索引                |
+| CONSTANT_Methodref_info(10)          | 类中方法的符号引用       | `u2 class_index;`<br />指向方法所在类的索引<br />`u2 name_and_type_index;`<br />指向方法名称和描述符的索引                |
+| CONSTANT_InterfaceMethodref_info(11) | 接口中方法的符号引用      | `u2 class_index;`<br />指向接口所在类的索引<br />`u2 name_and_type_index;`<br />指向方法名称和描述符的索引                |
+| CONSTANT_NameAndType_info(12)        | 字段或方法的部分符号引用    | `u2 name_index;`<br />指向字段或方法名称的索引<br />`u2 descriptor_index;`<br />指向字段或方法描述符的索引                  |
+| CONSTANT_MethodHandle_info(15)       | 表示方法句柄          | `u1 reference_kind;`<br />方法句柄的类型<br />`u2 reference_index;`<br />指向方法句柄引用的索引                      |
+| CONSTANT_MethodType_info(16)         | 表示方法类型          | `u2 descriptor_index;`<br />指向方法类型描述符的索引                                                           |
+| CONSTANT_Dynamic_info(17)            | 表示一个动态计算常量      | `u2 bootstrap_method_attr_index;`<br />指向引导方法属性的索引<br />`u2 name_and_type_index;`<br />指向名称和描述符的索引 |
+| CONSTANT_InvokeDynamic_info(18)      | 表示一个动态方法调用点     | `u2 bootstrap_method_attr_index;`<br />指向引导方法属性的索引<br />`u2 name_and_type_index;`<br />指向名称和描述符的索引 |
+| CONSTANT_Module_info(19)             | 表示一个模块          | `u2 name_index;`<br />指向模块名称的索引                                                                    |
+| CONSTANT_Package_info(20)            | 表示一个模块中开放或者导出的包 | `u2 name_index;`<br />指向包名称的索引                                                                     |
+
+常量池的数据结构复杂，因为包含17种独立的常量类型，彼此没有共性，因此需要逐项讲解。
 
 ### 访问标志
+
+在常量池结束后，紧接的2个字节代表访问标志（`access_flags`），用于识别类或接口的访问信息，包括：
+
+* 类或接口的类型
+* 是否定义为`public`
+* 是否定义为`abstract`
+* 如果是类，是否声明为`final`
+
+| 标志名称           | 标志值    | 含义                                                                                                                 |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------|
+| ACC_PUBLIC     | 0x0001 | 是否为 `public` 类型                                                                                                    |
+| ACC_FINAL      | 0x0010 | 是否被声明为 `final`，只有类可设置                                                                                              |
+| ACC_SUPER      | 0x0020 | 是否允许使用 `invokespecial` 字节码指令的新语义，`invokespecial` 指令的语义在 JDK 1.0.2 发生过改变，为了区别该指令使用哪种语义，JDK 1.0.2 之后编译出来的类的这个标志都必须为真 |
+| ACC_INTERFACE  | 0x0200 | 标识这是一个接口                                                                                                           |
+| ACC_ABSTRACT   | 0x0400 | 是否为 `abstract` 类型，对于接口或抽象类来说，此标志值为真，其他类型值为假                                                                        |
+| ACC_SYNTHETIC  | 0x1000 | 标识这个类并非由用户代码产生的                                                                                                    |
+| ACC_ANNOTATION | 0x2000 | 标识这是一个注解                                                                                                           |
+| ACC_ENUM       | 0x4000 | 标识这是一个枚举                                                                                                           |
+| ACC_MODULE     | 0x8000 | 标识这是一个模块                                                                                                           |
+
+总共有 16 个标记位可供使用，但常用的只有其中 7 个，见下图：
+
+![16个访问标记位](https://img.geekyspace.cn/pictures/2024/202407230642248.png)
 
 ### 类索引、父类索引与接口索引集合
 
