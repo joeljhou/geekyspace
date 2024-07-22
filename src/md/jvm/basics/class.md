@@ -208,9 +208,18 @@ cp_info {
 
 ### 类索引、父类索引与接口索引集合
 
+类索引（this_class）、父类索引（super_class） 和 接口索引集合（interfaces） 是Class文件中用于确定类的继承关系的重要部分。
+
+* **类索引**（u2类型）：类的全限定名
+* **父类索引**（u2类型）：父类的全限定名。除`Object`外，父类索引都不为0
+* **接口索引集合**（u2类型的集合）：描述类实现的接口
+  * 入口第一项`u2`类型的数据为**接口计数器**（interfaces_count）
+
 ### 字段表集合
 
 ### 方法表集合
 
 ### 属性表集合
 
+
+[酷 壳 – CoolShell《实例分析JAVA CLASS的文件结构》](https://coolshell.cn/articles/9229.html)
