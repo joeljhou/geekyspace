@@ -62,6 +62,7 @@ table {
   display: inline-table;
   width: 100%;
   border-radius: 1px;
+  margin: 0;
 
   th {
     text-align: left;
@@ -87,9 +88,9 @@ table {
   }
 
   // 去除“表格”的边框，看起来更加美观
-  //thead, tbody, tfoot, tr, td, th {
-  //  border-width: 0 0 1px 0;
-  //}
+  thead, tbody, tfoot, tr, td, th {
+    border-width: 0 0 1px 0;
+  }
 }
 
 // 视觉优化 “夜间模式”
