@@ -208,18 +208,94 @@ cp_info {
 
 ### 类索引、父类索引与接口索引集合
 
-类索引（this_class）、父类索引（super_class） 和 接口索引集合（interfaces） 是Class文件中用于确定类的继承关系的重要部分。
+在Java类文件结构中，类索引、父类索引和接口索引集合用于确定类的继承和实现关系。
 
-* **类索引**（u2类型）：类的全限定名
-* **父类索引**（u2类型）：父类的全限定名。除`Object`外，父类索引都不为0
-* **接口索引集合**（u2类型的集合）：描述类实现的接口
-  * 入口第一项`u2`类型的数据为**接口计数器**（interfaces_count）
+* **类索引（`this_class`）：** 确定当前类的全限定名
+* **父类索引（`super_class`）：** 确定当前类的父类的全限定名
+  * 类索引和父类索引都是`u2`类型的索引值，指向`CONSTANT_Class_info`常量
+  * 再通过`CONSTANT_Class_info`常量中的索引值，找到定义在`CONSTANT_Utf8_info`中的全限定名字符串
+* **接口索引集合（`interfaces`）：** 描述当前类实现的所有接口
+   * 接口索引集合是一个数组，首项为`u2`类型的接口计数器（`interfaces_count`）
+   * 接口计数器值为0时，后面的接口索引表不占用任何字节，否则每个索引指向常量池中的一个`CONSTANT_Class_info`类型的接口名称
 
 ### 字段表集合
+
+字段表（field_info）用于描述接口或者类中声明的变量。
+Java语言中的“字段”（Field）包括类级变量以及实例级变量，但不包括在方法内部声明的局部变量。
 
 ### 方法表集合
 
 ### 属性表集合
 
+
+## 编译字节码分析
+
+使用`javac Main.java`命令，编译生成`Main.class`文件：
+
+```java
+public class Main {
+
+    private int m;
+
+    public int inc() {
+        return m + 1;
+    }
+}
+```
+
+使用[WinHex](https://www.ghxi.com/winhex.html)(十六进制编辑器) 打开`.class`文件查看：
+
+```shell
+CA FE BA BE 00 00 00 3D 00 13 0A 00 02 00 03 07
+00 04 0C 00 05 00 06 01 00 10 6A 61 76 61 2F 6C
+61 6E 67 2F 4F 62 6A 65 63 74 01 00 06 3C 69 6E
+69 74 3E 01 00 03 28 29 56 09 00 08 00 09 07 00
+0A 0C 00 0B 00 0C 01 00 04 4D 61 69 6E 01 00 01
+6D 01 00 01 49 01 00 04 43 6F 64 65 01 00 0F 4C
+69 6E 65 4E 75 6D 62 65 72 54 61 62 6C 65 01 00
+03 69 6E 63 01 00 03 28 29 49 01 00 0A 53 6F 75
+72 63 65 46 69 6C 65 01 00 09 4D 61 69 6E 2E 6A
+61 76 61 00 21 00 08 00 02 00 00 00 01 00 02 00 
+0B 00 0C 00 00 00 02 00 01 00 05 00 06 00 01 00
+0D 00 00 00 1D 00 01 00 01 00 00 00 05 2A B7 00
+01 B1 00 00 00 01 00 0E 00 00 00 06 00 01 00 00
+00 01 00 01 00 0F 00 10 00 01 00 0D 00 00 00 1F
+00 02 00 01 00 00 00 07 2A B4 00 07 04 60 AC 00
+00 00 01 00 0E 00 00 00 06 00 01 00 00 00 06 00
+01 00 11 00 00 00 02 00 12
+```
+
+* `CA FE BA BE`：**魔数**，用于标识Class文件格式
+* `00 00 00 3D`：**版本号**，其中`00 00`是次版本号，`00 3D`是主版本号（61，对应Java17）
+* `00 13`：**常量池计数**，`0x13`十进制为19，第0项常量空出，因此常量池中有18个常量
+
+使用`javap -verbose Main`命令查看**常量池**内容：
+
+```shell
+Constant pool:
+   #1 = Methodref          #2.#3          // java/lang/Object."<init>":()V
+   #2 = Class              #4             // java/lang/Object
+   #3 = NameAndType        #5:#6          // "<init>":()V
+   #4 = Utf8               java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = Fieldref           #8.#9          // Main.m:I
+   #8 = Class              #10            // Main
+   #9 = NameAndType        #11:#12        // m:I
+  #10 = Utf8               Main
+  #11 = Utf8               m
+  #12 = Utf8               I
+  #13 = Utf8               Code
+  #14 = Utf8               LineNumberTable
+  #15 = Utf8               inc
+  #16 = Utf8               ()I
+  #17 = Utf8               SourceFile
+  #18 = Utf8               Main.java
+```
+
+* `00 21`：**访问标志**，`ACC_PUBLIC`（public）和`ACC_SUPER`（super）
+* `00 08`：**类索引**，指向常量池第8项`#8 = Class #10 // Main`，表示当前类是`Main`
+* `00 02`：**父类索引**，指向常量池第2项`#2 = Class #4 // java/lang/Object`，表示父类是`Object`
+* `00 00`: **接口计数器**，为0表示该类没有实现任何接口，所以**接口索引集合**为空
 
 [酷 壳 – CoolShell《实例分析JAVA CLASS的文件结构》](https://coolshell.cn/articles/9229.html)
