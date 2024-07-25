@@ -222,10 +222,10 @@ cp_info {
 
 ```java
 field_info {
-  u2 access_flags;
-  u2 name_index;
-  u2 descriptor_index;
-  u2 attributes_count;
+  u2             access_flags;
+  u2             name_index;
+  u2             descriptor_index;
+  u2             attributes_count;
   attribute_info attributes[attributes_count];
 }
 ```
@@ -287,7 +287,111 @@ Class文件、字段表、和方法表都包含各自的属性表集合，用于
 
 ### 方法表集合
 
+方法表（`method_info`）用于描述类或接口中声明的方法。
+
+[JVM虚拟机规范第四章-方法表](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.6)
+定义了结构，与属性表相似：
+
+```java
+method_info {
+    u2             access_flags;
+    u2             name_index;
+    u2             descriptor_index;
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
+}
+```
+
+**1、方法访问标志（`access_flags`）**
+
+* 去除`volatile`和`transient`关键字，不能修饰方法
+* 新增`synchronized`、`native`、`strictfp`和`abstract`关键字
+
+| 标志名称             | 标志值    | 含义                   |
+|------------------|--------|----------------------|
+| ACC_PUBLIC       | 0x0001 | 方法是否为 `public`       |
+| ACC_PRIVATE      | 0x0002 | 方法是否为 `private`      |
+| ACC_PROTECTED    | 0x0004 | 方法是否为 `protected`    |
+| ACC_STATIC       | 0x0008 | 方法是否为 `static`       |
+| ACC_FINAL        | 0x0010 | 方法是否为 `final`        |
+| ACC_SYNCHRONIZED | 0x0020 | 方法是否为 `synchronized` |
+| ACC_BRIDGE       | 0x0040 | 方法是否是由编译器产生的桥接方法     |
+| ACC_VARARGS      | 0x0080 | 方法接受不定参数             |
+| ACC_NATIVE       | 0x0100 | 方法是否为 `native`       |
+| ACC_ABSTRACT     | 0x0400 | 方法是否为 `abstract`     |
+| ACC_STRICT       | 0x0800 | 方法是否为 `strictfp`     |
+| ACC_SYNTHETIC    | 0x1000 | 方法是否由编译器自动产生         |
+
+**2、方法的代码`Code`**
+  
+方法的定义可以通过访问标志、名称索引、描述符索引来表达清楚。
+而方法的代码，经过`javac`编译成字节码指令后存放在**方法属性表集合**中的`Code`的属性中。
+
 ### 属性表集合
+
+Class文件、字段表、和方法表都包含各自的属性表集合，用于记录特定场景下的附加信息。
+
+**虚拟机规范预定义的属性**
+
+| 属性名称                                 | 使用位置              | 含义                                                                                                                                                                                                 |
+|--------------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Code                                 | 方法表               | Java代码编译成的字节码指令                                                                                                                                                                                    |
+| ConstantValue                        | 字段表               | 由`final`关键字定义的常量值                                                                                                                                                                                  |
+| Deprecated                           | 类、方法表、字段表         | 被声明为`deprecated`的方法和字段                                                                                                                                                                             |
+| Exceptions                           | 方法表               | 方法抛出的异常列表                                                                                                                                                                                          |
+| EnclosingMethod                      | 类文件               | 仅当一个类为局部类或者匿名类时才可能拥有此属性，用于标示此类存在的外部方法                                                                                                                                                              |
+| InnerClasses                         | 类文件               | 内部类列表                                                                                                                                                                                              |
+| LineNumberTable                      | Code属性            | Java代码的行号与字节码指令的对应关系                                                                                                                                                                               |
+| LocalVariableTable                   | Code属性            | 方法的局部变量信息                                                                                                                                                                                          |
+| StackMapTable                        | Code属性            | JDK6新增属性，供新的类型检查验证器（Type Checker）检查和处理目标方法的局部变量和操作数栈所需要的类型是否匹配                                                                                                                                     |
+| Signature                            | 类、方法表、字段表         | JDK5新增属性，用于支持泛型标记下的方法签名。在 Java 语言中，任何类、接口、初始化方法或成员的字段如果包含了类型变量（Type Variables）或参数化类型（Parameterized Types），则 Signature 属性会记录泛型签名信息。由于 Java 的泛型采用擦除实现，为了能够在泛型擦除后还能确保签名信息，可以通过 Signature 属性记录泛型签名相关信息 |
+| SourceFile                           | 类文件               | 记录源文件名称                                                                                                                                                                                            |
+| SourceDebugExtension                 | 类文件               | JDK5新增属性，用于存储额外的调试信息。譬如如在 JSP 文件调试时，无法通过 Java 推栈来推导到 JSP 文件的代码。JSR 45 提议的运行时通过插桩机制向虚拟机中的程序提供了一种进行调试的标准机制，使用该属性可以用于存储插桩时额外新增的调试信息                                                                   |
+| Synthetic                            | 类、方法表、字段表         | 标示为编译器自动生成的代码                                                                                                                                                                                      |
+| LocalVariableTypeTable               | 类                 | JDK5新增属性，使用扩展的签名标示符，是为了引入泛型方法之后能描述泛型参数的类型而添加                                                                                                                                                       |
+| RuntimeVisibleAnnotations            | 类、方法表、字段表         | JDK5新增属性，为动态注解提供支持。该属性用于指明哪些注解是在运行时（实际在运行时就意味着反射调用）可见的                                                                                                                                             |
+| RuntimeInvisibleAnnotations          | 类、方法表、字段表         | JDK5新增属性，与 RuntimeVisibleAnnotations 属性作用相反，用于指明哪些注解是在运行时不可见的                                                                                                                                      |
+| RuntimeVisibleParameterAnnotations   | 方法表               | JDK5新增属性，作用与 RuntimeVisibleAnnotations 属性类似，只不过作用对象为方法参数                                                                                                                                           |
+| RuntimeInvisibleParameterAnnotations | 方法表               | JDK5新增属性，作用与 RuntimeInvisibleAnnotations 属性类似，只不过作用对象为方法参数                                                                                                                                         |
+| AnnotationDefault                    | 方法表               | JDK5新增属性，用于记录注解类型元素默认值                                                                                                                                                                             |
+| BootstrapMethods                     | 类文件               | JDK7新增属性，用于保存 invokedynamic 指令引用的引导方法限定符                                                                                                                                                           |
+| RuntimeVisibleTypeAnnotations        | 类、方法表、字段表、Code 属性 | JDK8新增属性，为实现 JSR 308 中新增的类型注解提供的支持。用于指明哪些注解是在运行时（实际在运行时意味着反射调用）可见的                                                                                                                                 |
+| RuntimeInvisibleTypeAnnotations      | 类、方法表、字段表、Code 属性 | JDK8新增属性，为实现 JSR 308 中新增的类型注解提供的支持。与 RuntimeVisibleTypeAnnotations 属性作用相反，用于指明哪些注解是在运行时不可见的                                                                                                        |
+| MethodParameters                     | 方法表               | JDK8新增属性，用于支持（编译时加上 -parameters 参数）将方法参数名称保存进 Class 文件中，并可运行时获取此数据。此数据可用于方法参数名称（典型的如 IDE 的代码提示）只能通过 Javadoc 中得到                                                                                    |
+| Module                               | 类                 | JDK9新增属性，用于记录一个 Module 的名称以及相关信息（requires、exports、opens、uses、provides）                                                                                                                             |
+| ModulePackages                       | 类                 | JDK9新增属性，用于记录一个模块中所有存在 exports 或者 opens 的包                                                                                                                                                         |
+| ModuleMainClass                      | 类                 | JDK9新增属性，用于指定一个模块的主类                                                                                                                                                                               |
+| NestHost                             | 类                 | JDK11新增属性，用于支持嵌套类（Java中的内部类）的成员和访问控制的 API。——宿主类通过此属性知道自己有哪些内部类                                                                                                                                     |
+| NestMembers                          | 类                 | JDK11新增属性，用于支持嵌套类（Java中的内部类）的成员和访问控制的 API。——宿主类通过此属性知道自己有哪些内部类                                                                                                                                     |
+
+[JVM虚拟机规范第四章-属性表](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.7)
+定义了结构：
+
+```shell
+attribute_info {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u1 info[attribute_length];
+}
+```
+
+对于每个属性，其名称从常量池中引用1个`CONSTANT_Utf8_info`表示，
+通过1个`u4`的`attribute_length`说明属性值的字节数，属性值的结构完全自定义。
+
+1. Code属性
+2. Exceptions属性
+3. LineNumberTable属性
+4. LocalVariableTable及LocalVariableTypeTable属性
+5. SourceFile及SourceDebugExtension属性
+6. ConstantValue属性
+7. InnerClasses属性
+8. Deprecated及Synthetic属性
+9. StackMapTable属性
+10. Signature属性
+11. BootstrapMethods属性
+12. MethodParameters属性
+13. 模块化相关属性
+14. 运行时注解相关属性
 
 
 ## 编译字节码分析（实践）
@@ -331,7 +435,7 @@ CA FE BA BE 00 00 00 3D 00 13 0A 00 02 00 03 07
 * `00 00 00 3D`：**版本号**，其中`00 00`是次版本号，`00 3D`是主版本号（61，对应Java17）
 * `00 13`：**常量池计数**，`0x13`十进制为19，第0项常量空出，因此常量池中有18个常量
 
-使用`javap -verbose Main`命令查看**常量池**内容：
+使用`javap -verbose Main`命令查看**常量池**：
 
 ```shell
 Constant pool:
@@ -368,6 +472,40 @@ Constant pool:
   * `name_index`：`00 0B`指向常量池中的第11项`#11 = Utf8 m`，表示字段名为`m`
   * `descriptor_index`：`00 0C`指向常量池中的第12项`#12 = Utf8 I`，表示字段类型为`int`
   * `attributes_count`：`00 00`表示没有属性，所以`attribute_info`为空
+* `00 02`：**方法计数器**，表示有2个方法
+
+使用`javap -verbose Main`命令查看**方法表集合**，
+或使用[IDEA jclasslib插件](https://plugins.jetbrains.com/plugin/9248-jclasslib-bytecode-viewer)查看：
+
+```shell
+{
+  public Main();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  public int inc();
+    descriptor: ()I
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #7                  // Field m:I
+         4: iconst_1
+         5: iadd
+         6: ireturn
+      LineNumberTable:
+        line 6: 0
+}
+```
+
+
 
 
 
