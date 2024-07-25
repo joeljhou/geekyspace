@@ -23,7 +23,7 @@ Java字节码具有“平台无关性”和“语言无关性”。
 
 ![Java虚拟机提供的语言无关性](https://img.geekyspace.cn/pictures/2024/202407200209120.png)
 
-## Class类文件结构
+## Class类文件结构（理论）
 
 Java技术的良好向后兼容性得益于Class文件结构的稳定性，
 每个Class文件对应一个类或接口的定义信息，是一组以8个字节为单位的二进制流。各数据项严格按顺序排列，没有任何分隔符。
@@ -185,11 +185,6 @@ cp_info {
 
 在常量池结束后，紧接的2个字节代表访问标志（`access_flags`），用于识别类或接口的访问信息，包括：
 
-* 类或接口的类型
-* 是否定义为`public`
-* 是否定义为`abstract`
-* 如果是类，是否声明为`final`
-
 | 标志名称           | 标志值    | 含义                                                                                                                 |
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------|
 | ACC_PUBLIC     | 0x0001 | 是否为 `public` 类型                                                                                                    |
@@ -220,15 +215,82 @@ cp_info {
 
 ### 字段表集合
 
-字段表（field_info）用于描述接口或者类中声明的变量。
-Java语言中的“字段”（Field）包括类级变量以及实例级变量，但不包括在方法内部声明的局部变量。
+字段表（`field_info`）用于描述接口或者类中声明的变量。
+
+[JVM虚拟机规范第四章-字段表](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.5)
+定义了结构：
+
+```java
+field_info {
+  u2 access_flags;
+  u2 name_index;
+  u2 descriptor_index;
+  u2 attributes_count;
+  attribute_info attributes[attributes_count];
+}
+```
+
+**1、字段访问标志（`access_flags`）**
+
+与类中的`access_flags`类似，都是一个`u2`的数据类型，取值如下表：
+
+| 标志名称          | 标志值    | 含义               |
+|---------------|--------|------------------|
+| ACC_PUBLIC    | 0x0001 | 字段是否 `public`    | 
+| ACC_PRIVATE   | 0x0002 | 字段是否 `private`   |
+| ACC_PROTECTED | 0x0004 | 字段是否 `protected` |
+| ACC_STATIC    | 0x0008 | 字段是否 `static`    |
+| ACC_FINAL     | 0x0010 | 字段是否 `final`     |
+| ACC_VOLATILE  | 0x0040 | 字段是否 `volatile`  |
+| ACC_TRANSIENT | 0x0080 | 字段是否 `transient` |
+| ACC_SYNTHETIC | 0x1000 | 字段是编译器自动产生       |
+| ACC_ENUM      | 0x4000 | 字段是否 `enum`      |
+
+受Java语法规则的约束：
+
+* `public`、`private`、`protected` 只能三选一
+* `final`、`volatile`不能同时选择
+* 接口中的字段必须有 `public`、`static`和`final`
+
+**2、简单名称（`name_index`）和描述符（`descriptor_index`）**
+
+跟随`access_flags`标志之后的两项索引值；以及**全限定名**这三种特殊字符串的概念解释：
+
+* 全限定名：表示字段或方法在类中的完整路径，包括包名和类名。例如`java.lang.String`
+* 简单名称：表示字段或方法的名称。例如`name`是字段的简单名称，`toString`是方法的简单名称
+* 描述符：表示字段或方法的类型信息
+  * 对于字段，描述符表示字段的类型，例如`I`表示`int`类型
+  * 对于方法，描述符表示方法的参数和返回类型，例如`(I)V`表示接受`int`参数且无返回值的方法
+
+**描述符标识字符含义**
+
+| 标识字符 | 含义                           |
+|------|------------------------------|
+| B    | 基本类型 `byte`                  |
+| C    | 基本类型 `char`                  |
+| D    | 基本类型 `double`                |
+| F    | 基本类型 `float`                 |
+| I    | 基本类型 `int`                   |
+| J    | 基本类型 `long`                  |
+| S    | 基本类型 `short`                 |
+| Z    | 基本类型 `boolean`               |
+| V    | 特殊类型 `void`                  |
+| L    | 对象类型，例如 `Ljava/lang/Object;` |
+
+**3、属性表集合**
+
+Class文件、字段表、和方法表都包含各自的属性表集合，用于记录特定场景下的附加信息。
+每个属性表集合由属性计数（`attributes_count`）和若干属性信息（`attribute_info`）组成。
+
+* **属性计数 (`attributes_count`)：** 表示该集合中包含的属性个数
+* **属性信息 (`attribute_info`)：** 每个属性的信息结构，提供详细的元数据
 
 ### 方法表集合
 
 ### 属性表集合
 
 
-## 编译字节码分析
+## 编译字节码分析（实践）
 
 使用`javac Main.java`命令，编译生成`Main.class`文件：
 
@@ -294,8 +356,22 @@ Constant pool:
 ```
 
 * `00 21`：**访问标志**，`ACC_PUBLIC`（public）和`ACC_SUPER`（super）
+
+![类索引查找全限定名的过程](https://img.geekyspace.cn/pictures/2024/202407251001215.png)
+
 * `00 08`：**类索引**，指向常量池第8项`#8 = Class #10 // Main`，表示当前类是`Main`
 * `00 02`：**父类索引**，指向常量池第2项`#2 = Class #4 // java/lang/Object`，表示父类是`Object`
-* `00 00`: **接口计数器**，为0表示该类没有实现任何接口，所以**接口索引集合**为空
+* `00 00`：**接口计数器**，为0表示该类没有实现任何接口，所以**接口索引集合**为空
+* `00 01`：**字段计数器**，表示有1个字段
+* `00 02 00 0B 00 0C 00 00`: **字段表集合**
+  * `access_flags`：`00 02`表示`private`访问权限
+  * `name_index`：`00 0B`指向常量池中的第11项`#11 = Utf8 m`，表示字段名为`m`
+  * `descriptor_index`：`00 0C`指向常量池中的第12项`#12 = Utf8 I`，表示字段类型为`int`
+  * `attributes_count`：`00 00`表示没有属性，所以`attribute_info`为空
+
+
+
+
+
 
 [酷 壳 – CoolShell《实例分析JAVA CLASS的文件结构》](https://coolshell.cn/articles/9229.html)
