@@ -13,6 +13,7 @@ export default sidebar({
                 {text: "概述", link: "overview"},
                 {text: "编译JDK", link: "compile_jdk"},
                 {text: "类字节码详解", link: "class"},
+                {text: "类加载机制", link: "classload"},
             ],
         },
         {
