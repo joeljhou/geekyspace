@@ -11,6 +11,7 @@ export default sidebar({
             text: "JVM 基础", prefix: "basics/", link: "basics/",
             children: [
                 {text: "概述", link: "overview"},
+                {text: "编译JDK", link: "compile_jdk"},
                 {text: "类字节码详解", link: "class"},
             ],
         },
