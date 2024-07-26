@@ -1,5 +1,5 @@
 ---
-title: JVM 概述
+title: Java虚拟机概述
 description:
 author: 会敲代码的程序猿
 isOriginal: true
@@ -9,11 +9,19 @@ tag: JVM
 order: 1
 ---
 
-# JVM 概述
+# Java虚拟机概述
 
 > **Java虚拟机**（Java Virtual Machine，简称JVM）是运行所有Java程序的虚拟计算机，是Java平台的核心实现。
 > 它提供了一种独立于底层硬件和操作系统的运行环境，使Java程序能够在任何安装了JVM的系统上执行。
 > JVM通过将Java字节码（.class文件）转换为机器码来实现跨平台运行，这一特性被称为“Write Once, Run Anywhere”。
+
+## 跨平台开发的通用平台
+
+随着发展，JVM不再是Java独享的Moment，越来越多的语言开始在JVM上运行，使JVM逐渐演变成一个**跨平台开发的通用平台**。
+
+![jvm-class](https://img.geekyspace.cn/pictures/2024/image-20240620020158368.png)
+
+JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什么语言编写的。
 
 ## Java虚拟机家族
 
@@ -132,16 +140,70 @@ order: 1
 * MRP：[https://github.com/codehaus/mrp](https://github.com/codehaus/mrp)
 * Moxie JVM：[http://moxie.sourceforge.net/](http://moxie.sourceforge.net/)
 
-## 跨平台开发的通用平台
+## Java虚拟机架构
 
-随着发展，JVM不再是Java独享的Moment，越来越多的语言开始在JVM上运行，使JVM逐渐演变成一个**跨平台开发的通用平台**。
-
-![jvm-class](https://img.geekyspace.cn/pictures/2024/image-20240620020158368.png)
-
-JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什么语言编写的。
-
-## Java虚拟机体系结构
-
-[参考面向初学者的Java虚拟机架构](https://www.freecodecamp.org/news/jvm-tutorial-java-virtual-machine-architecture-explained-for-beginners/)
+理解总体知识点在全局上与知识体系之间的对应关系
 
 ![Java虚拟机架构](https://img.geekyspace.cn/pictures/2024/0082zybply1gc6fz21n8kj30u00wpn5v.jpg)
+
+从整体上看，JVM 由三个不同的组件组成：
+
+1. **类加载子系统（Class Loader SubSystem）**：主要负责将类`.class`加载到内存中
+2. **运行时数据区（Runtime Data Area）**：管理JVM运行时所需的数据结构
+3. **执行引擎（Execution Engine）**：负责执行字节码指令，将其转换为机器代码，供机器理解
+
+![JVM三大组件](https://img.geekyspace.cn/pictures/2024/image-39.png)
+
+---
+
+第一个组件 ==**类加载过程**== 分为三个阶段：加载、链接和初始化。
+
+**1、加载（Loading）**：将类的字节码文件加载到内存中，并生成 JVM 运行时的类表示
+
+* **启动类加载器（Bootstrap Class Loader）：**
+  * 负责加载Java的核心类库，如`java.lang`、`java.net`、`java.util`、`java.io`等
+  * 这些类库位于`$JAVA_HOME/jre/lib`目录中，例如`rt.jar`
+* **扩展类加载器（Extension Class Loader）：**
+  * Bootstrap类加载器的子类，同时也是Application类加载器的父类。
+  * 它负责加载位于`$JAVA_HOME/jre/lib/ext`目录中的Java标准库的扩展
+* **系统类加载器（Application Class Loader）：**
+  * Extension类加载器的子类，加载位于类路径上的类文件，默认情况下，类路径为应用程序的目录
+  * 可通过添加命令行选项`-classpath`或`-cp`来修改类路径
+
+**2、链接（Linking）**：将类的二进制数据合并到JVM的运行时状态中，分为以下三个步骤：
+
+- **验证（Verify）**：通过一组约束或规则检查`.class`文件的正确性，验证失败抛出`VerifyException`
+- **准备（Prepare）**：为类或接口的静态字段分配内，存并设置默认初始值
+- **解析（Resolve）**：将符号引用替换为常量池中存在的直接引用
+
+**3、初始化（Initialization）**：执行类的静态初始化块和静态变量的初始化
+
+![类加载三个阶段](https://img.geekyspace.cn/pictures/2024/image-40.png)
+
+---
+
+第二个组件 ==**运行时数据区域**== 内含有五个数据区域：
+
+* 线程共享区：
+  - **方法区（Method Area）**：存储已加载的类信息、常量池、静态变量和即时编译后的代码
+  - **堆（Heap Area）**：用于动态分配对象实例和数组
+* 线程隔离区：
+  - **虚拟机栈（Virtual Machine Stack）**：存储局部变量、操作数栈、栈帧和方法调用信息
+  - **程序计数器（PC寄存器，Program Counter Register）**：存储当前执行的字节码指令的地址
+  - **本地方法栈（Native Method Stack）**：用于执行本地方法（非Java代码，如C或C++编写的代码）
+
+![运行时数据区](https://img.geekyspace.cn/pictures/2024/image-32.png)
+
+---
+
+第三个组件 ==**执行引擎**== 包含解释器、编译器和垃圾回收区：
+
+* **解释器（Interpreter）**：逐条解释执行字节码指令，速度较慢，但实现简单
+* **即时编译器（JIT Compiler，Just-In-Time Compiler）**：将热点字节码（经常执行的字节码）编译成机器码，以提高执行效率
+* **垃圾回收器（Garbage Collector）**：自动管理和回收堆中的无用对象，防止内存泄漏
+
+![执行引擎](https://img.geekyspace.cn/pictures/2024/image-33.png)
+
+这些部分共同组成了JVM的核心功能，使得Java程序可以跨平台运行，并且具有良好的性能和安全性
+
+[Siben Nayak—《面向初学者的Java虚拟机架构》](https://www.freecodecamp.org/news/jvm-tutorial-java-virtual-machine-architecture-explained-for-beginners/)
