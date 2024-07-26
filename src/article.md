@@ -33,9 +33,9 @@ features:
     link: https://github.com/joeljhou/RabbitMQ
 
   - title: JVM
-    icon: jvm-xx
+    icon: javaJvm-xx
     details: 深入理解Java虚拟机
-    link: /md/jvm/
+    link: /md/javaJvm/
     
   - title: Docker
     icon: docker
