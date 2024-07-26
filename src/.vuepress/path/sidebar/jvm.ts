@@ -1,13 +1,13 @@
 import {arraySidebar} from "vuepress-theme-hope";
 
-export const javaJvm = arraySidebar([
+export const jvm = arraySidebar([
         {text: "总目录", prefix: "/md/jvm/", link: "/md/jvm/",},
         {
             text: "JVM 基础", prefix: "basics/", link: "basics/",
             children: [
                 {text: "概述", link: "overview"},
                 {text: "类文件结构", link: "class"},
-                {text: "字节码指令", link: "bytecode"},
+                {text: "字节码指令集", link: "bytecode"},
                 {text: "类加载机制", link: "classload"},
             ],
         },

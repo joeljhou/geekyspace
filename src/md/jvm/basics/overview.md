@@ -136,7 +136,7 @@ order: 1
 
 随着发展，JVM不再是Java独享的Moment，越来越多的语言开始在JVM上运行，使JVM逐渐演变成一个**跨平台开发的通用平台**。
 
-![javaJvm-class](https://img.geekyspace.cn/pictures/2024/image-20240620020158368.png)
+![jvm-class](https://img.geekyspace.cn/pictures/2024/image-20240620020158368.png)
 
 JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什么语言编写的。
 

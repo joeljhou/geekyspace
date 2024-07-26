@@ -1,12 +1,12 @@
 import {sidebar} from "vuepress-theme-hope";
 
 import {javaFeatures} from "./java-features.js";
-import {javaJvm} from "./java-jvm.js";
+import {jvm} from "./jvm.js";
 import {springFramework} from "./spring-framework";
 
 export default sidebar({
     "/md/java-features/": javaFeatures,        // Java新特性
-    "/md/jvm/": javaJvm,                       // 深入理解Java虚拟机
+    "/md/jvm/": jvm,                           // 深入理解Java虚拟机
     "/md/spring-framework/": springFramework,  // Spring框架
     "/md/spring-boot/": [
         {text: "总目录", prefix: "/md/spring-boot/", link: "/md/spring-boot/"},
