@@ -94,7 +94,7 @@ export default hopeTheme({
     blog: {
         avatar: "/images/personal/geekyspace.png",
         description: "会敲代码的程序员，分享技术，品味人生",
-        intro: "/intro.html",
+        intro: "/about-me.html",
         medias: {
             GitHub: "https://github.com/joeljhou",
             Gitee: "https://gitee.com/joeljhou",
