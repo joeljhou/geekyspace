@@ -35,7 +35,7 @@ features:
   - title: JVM
     icon: javaJvm-xx
     details: 深入理解Java虚拟机
-    link: /md/javaJvm/
+    link: /md/jvm/overview
     
   - title: Docker
     icon: docker
