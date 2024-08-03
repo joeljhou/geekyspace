@@ -19,117 +19,72 @@ order: 3
 
 注：并非所有的类都会经历完整的生命周期，有些类可能在某些阶段就结束其在JVM中的生涯。
 
-**初始化的时机**
+**1、初始化时机的六种情况称为“主动引用”**
 
-Java虚拟机规范中类初始化的6种场景，称为对一个类进行**主动引用**。
+在Java虚拟机规范中，“有且只有”以下六种情况会触发类的初始化，称为对一个类的**主动引用**：
 
-1. 使用`new`关键字创建对象实例时、获取或设置静态字段值时、调用类的静态方法时。即遇到`new`、`getstatic`、`putstatic`
-   或`invokestatic`字节码指令这 4 种指令。
+1. 创建对象实例时、获取或设置静态字段值时（非常量）、调用类的静态方法时。即遇到`new`、`getstatic`、`putstatic`
+  或`invokestatic`字节码指令这 4 种指令。
 2. 通过反射机制（如`Class.forName()`）调用类时。
 3. 初始化某个子类时，若其父类还没有初始化，则先初始化父类。
 4. 当虚拟机启动时，指定的包含`main()`方法的主类会被初始化。
 5. 使用JDK 1.7引入动态语言支持时，若`java.lang.invoke.MethodHandle`
-   实例解析结果为`REF_getStatic`、`REF_putStatic`、`REF_invokeStatic`或`REF_newInvokeSpecial`，若其对应类没有初始化，则先初始化。
+  实例解析结果为`REF_getStatic`、`REF_putStatic`、`REF_invokeStatic`或`REF_newInvokeSpecial`，若其对应类没有初始化，则先初始化。
 6. 当接口中定义了JDK 1.8新增的默认方法时，若实现类初始化，则需要先初始化该接口。
 
-除了这六种场景外，所有其他引用类的方式都不会触发初始化，称为**被动引用**。
+**2、“被动引用”的例子**
 
-> 被动引用的例子
+除了以上六种场景外，所有其他引用类的方式都不会触发初始化，称为**被动引用**。
 
-**例子一：通过子类引用父类的静态字段，不会导致子类初始化**
+* **例1：通过子类引用父类的静态字段，不会导致子类初始化，只有父类会被初始化**
+    * 子类是否加载和验证，取决于虚拟机的具体实现。
+    * 在HotSpot虚拟机（JDK 1.8 亲测）中，使用`-XX:+TraceClassLoading`观察到此操作会导致子类加载。
+* **例2：通过数组定义来引用类，不会触发此类的初始化**
+    * 例如，`MyClass[] sca = new MyClass[10];`，不会初始化`MyClass`类
+    * 但这段代码触发了另一个名为`[L包名.MyClass`的类的初始化阶段。它是由虚拟机自动生成的、继承自`java.lang.Object`
+      的子类，由字节码指令`newarray`触发。这个类表示`MyClass`的一维数组，包含数组应有的属性和方法（如`public`的`length`
+      属性和`clone()`方法）。
+    * Java语言对数组的访问比C/C++更安全，因为这个类包装了数组元素的访问，C/C++中直接翻译为对数组指针的移动。
+      在Java语言里，发生数组越界时会抛出`java.lang.ArrayIndexOutOfBoundsException`异常，避免非法内存访问。
+* **例3：引用常量不会触发定义常量的类的初始化**
+    * 因为常量在编译阶段就会被存入调用类的常量池中。
 
-```java
-package org.fenixsoft.classloading;
-class SuperClass {
-   static {
-      System.out.println("SuperClass init!");
-   }
-   public static int value = 123;
-}
+**3、接口的“加载与初始化”与类的差异**
 
-class SubClass extends SuperClass {
-   static {
-      System.out.println("SubClass init!");
-   }
-}
+接口的加载与初始化过程与类略有不同，差异如下：
 
-public class NotInitialization {
-   public static void main(String[] args) {
-      // 运行结果只输出“SuperClass init！”，不会输出“SubClass init！”。
-      System.out.println(SubClass.value);
-   }
-}
-```
-
-至于是否要触发子类的加载和验证阶段，取决于虚拟机的具体实现。
-对于HotSpot虚拟机（JDK1.8亲测），加入`-XX:+TraceClassLoading`观察，此操作是会导致子类加载的。
-
-**例子二：通过数组定义来引用类，不会触发此类的初始化**
-
-```java
-package org.fenixsoft.classloading;
-public class NotInitialization {
-   public static void main(String[] args) {
-      // 运行结果没有输出“SuperClass init！”，说明并没有触发类SuperClass的初始化
-      SuperClass[] sca = new SuperClass[10];
-   }
-}
-```
-
-但这段代码触发了另一个名为`[Lorg.fenixsoft.classloading.SuperClass`的类的初始化阶段。
-它是由虚拟机自动生成的、直接继承于`java.lang.Object`的子类，由字节码指令`newarray`触发。
-
-* 这个类表示`SuperClass`的一维数组，包含数组应有的属性和方法（如`public`的`length`属性和`clone()`方法）。
-* Java语言对数组的访问比C/C++更安全，因为这个类包装了数组元素的访问，C/C++中直接翻译为对数组指针的移动。
-  在Java语言里，发生数组越界时会抛出`java.lang.ArrayIndexOutOfBoundsException`异常，避免非法内存访问。
-
-**例子三：常量在编译阶段存入调用类的常量池中，不会触发定义常量的类的初始化**
-
-```java
-package org.fenixsoft.classloading;
-class ConstClass {
-    static {
-        System.out.println("ConstClass init!");
-    }
-    public static final String HELLOWORLD = "hello world";
-}
-
-public class NotInitialization {
-    public static void main(String[] args) {
-        // 运行结果没有输出“ConstClass init！”
-        System.out.println(ConstClass.HELLOWORLD);
-    }
-}
-```
-
----
-
-**接口的加载与初始化**
-
-接口的加载过程与类略有不同，具体情况如下：
-
-* 虽然接口不能使用静态语句块`static{}`来输出初始化信息，编译器仍会为接口生成`<clinit>()`类构造器，用于初始化接口中定义的成员变量。
-* 接口与类的主要区别在于接口的初始化触发条件。类的初始化需要其所有父类已经初始化，而接口在初始化时不要求其父接口全部初始化。
-  接口只有在实际使用父接口中的成员（如引用接口中定义的常量）时，才会进行初始化。
+* **静态变量的初始化：** 虽然接口不能使用静态语句块`static{}`来输出初始化信息，编译器仍会为接口生成`<clinit>()`类构造器，用于初始化接口中定义的静态变量。
+* **初始化触发条件：** 类的初始化需要其所有父类已经初始化，而接口的初始化则不要求其父接口全部初始化。接口只有在实际使用父接口中的成员（如引用接口中定义的常量）时，才会进行初始化。
 
 ## 类加载的过程
 
-Java类加载过程主要分为加载、连接、初始化三个阶段。
+Java类加载过程主要分为加载、连接（验证、准备、解析）、初始化三个阶段。
 
 ### 加载
 
-首先是加载阶段，主要负责查找并加载类的二进制数据。
-Java虚拟机需要完成以下三件事情：
+在加载阶段，Java虚拟机需要完成以下三件事情：
 
-1. 通过类的全限定名获取定义此类的二进制字节流。
-2. 将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。
-3. 在内存中生成一个代表这个类的`java.lang.Class`对象，作为方法区这个类的各种数据的访问入口。
+> 1. 通过类的全限定名获取定义此类的二进制字节流。
+> 2. 并将字节流所代表的静态存储结构转化为方法区的运行时数据结构。
+> 3. 在内存中生成一个代表这个类的`java.lang.Class`对象，作为方法区这个类的各种数据的访问入口。
 
-### 连接
+**类文件读取来源：** 
 
-验证
-准备
-解析
+通常包括本地文件系统、压缩文件（如JAR、WAR）、网络、数据库、加密文件（防止反编译）、运行时动态生成，以及由其他文件生成（如JSP应用生成的Class文件）。
+
+**数组类的加载过程：** 
+
+数组类本身不通过类加载器创建，而是由Java虚拟机直接在内存中构建出来。但数组类的元素类型最终还是靠类加载器来完成加载。
+
+**加载与连接阶段的顺序：**
+
+加载阶段与连接阶段的一些动作（如部分字节码文件格式验证）交叉进行，加载阶段尚未完成时，连接阶段可能已开始。尽管如此，这些交叉进行的动作仍属于连接阶段的一部分，加载和连接阶段的开始时间顺序固定。
+
+### 验证
+
+### 准备
+
+### 解析
 
 ### 初始化
 
