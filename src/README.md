@@ -6,45 +6,45 @@ hero: false
 title: 最新发布
 icon: home
 projects:
-  - icon: link
+  - icon: launch
     name: 开发者安装大全
     desc: 好用工具、开发环境、中间件配置等安装指南
-    link: /installation-guide/
-
+    link: /md/installation-guide/
+    
   - icon: java
     name: Java新特性
     desc: 从Java 8开始所有新特性解读
-    link: /java-features/
+    link: /md/java-features/
 
   - icon: intellij-idea
-    name: 玩转IDEA
+    name: IDEA激活
     desc: 了解IDEA更多牛x功能、推荐很有意思的主题和插件
-    link: /idea-tips/activation
+    link: /md/idea-tips/activation
 
-  - icon: https://docs.spring.io/spring-boot/docs/current/reference/html/img/banner-logo.svg
-    name: Spring Boot
-    desc: 适合Spring Boot入门的免费教程
-    link: /spring-boot/
+  - icon: spring
+    name: Spring实战
+    desc: 深入理解Spring框架
+    link: /md/spring-framework/core/
 
-  - icon: https://labs.mysql.com/common/logos/mysql-logo.svg
+  - icon: mysql
     name: MySQL教程
-    desc: 适合MySQL 数据库入门的免费教程
+    desc: MySQL必知必会、高性能架构、排错指南
     link: /mysql/
 
-  - icon: /vuepress-theme-hope.svg
-    name: 秒懂技术专栏
-    desc: 用生动的视频科普那些常见的技术概念
-    link: /youtube/
-    
-  - icon: https://openwrite.cn/logo.png
-    name: OpenWrite
-    desc: 写博客必备的一键扩散工具
-    link: https://openwrite.cn/
+  - icon: aigc
+    name: AIGC新时代
+    desc: 提供生成式人工智能的入门和进阶教程
+    link: /aigc/
 
-  - icon: "/youtube-dubbing.svg"
-    name: Youtube配音
-    desc: 观看海外免费教程的免费翻译配音软件
-    link: https://youtube-dubbing.com/
+  - icon: cloud-service
+    name: 云原生技术
+    desc: 分享云原生架构的最佳实践和使用指南
+    link: /cloud-native/
+
+  - icon: smart-contracts
+    name: 区块链智能合约
+    desc: 提供区块链技术和智能合约开发的指南
+    link: /blockchain/
 
 footer: © 2023 - 至今 <a href="https://www.geekyspace.cn/" target="_blank">www.geekyspace.cn</a> 保留所有权利
 copyright: Copyright © 2024 会敲代码的程序员

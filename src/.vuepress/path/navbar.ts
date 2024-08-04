@@ -19,8 +19,8 @@ export default navbar([
     },
     {
         text: "Spring", icon: "spring", children: [
-            {text: "Spring 框架", icon: "spring", link: "md/spring-framework/overview/"},
-            {text: "Spring Boot 教程", icon: "spring", link: "md/spring-boot/"},
+            {text: "Spring 框架", icon: "spring", link: "md/spring-framework/core/"},
+            // {text: "Spring Boot 教程", icon: "spring", link: "md/spring-boot/"},
             {text: "Spring Data JPA", icon: "spring", link: "md/spring-data-jpa/jetbrains/getting-started"},
         ]
     },

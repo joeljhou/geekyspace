@@ -18,12 +18,9 @@ actions:
     icon: home
     link: /
     type: primary
-  - text: 所有文章
+  - text: 文章
     icon: article
     link: /article/
-  - text: 收藏文章
-    icon: youlian
-    link: /star/
 
 features:
   - title: RabbitMQ

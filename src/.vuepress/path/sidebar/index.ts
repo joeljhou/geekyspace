@@ -8,17 +8,17 @@ export default sidebar({
     "/md/java-features/": javaFeatures,        // Java新特性
     "/md/jvm/": jvm,                           // 深入理解Java虚拟机
     "/md/spring-framework/": springFramework,  // Spring框架
-    "/md/spring-boot/": [
-        {text: "总目录", prefix: "/md/spring-boot/", link: "/md/spring-boot/"},
-        {
-            text: "快速入门", children: [
-                {text: "Spring Boot 入门", link: "quickstart"}
-            ]
-        },
-    ],
+    // "/md/spring-boot/": [                      // SpringBoot框架
+    //     {text: "总目录", prefix: "/md/spring-boot/", link: "/md/spring-boot/"},
+    //     {
+    //         text: "快速入门", children: [
+    //             {text: "Spring Boot 入门", link: "quickstart"}
+    //         ]
+    //     },
+    // ],
     "/md/spring-data-jpa/": [
         {text: "总目录", prefix: "/md/spring-data-jpa/", link: "/md/spring-data-jpa/"},
-        {text: "快速入门", prefix: "/md/jetbrains/", link: "/md/jetbrains/getting-started"},
+        {text: "快速入门", prefix: "/md/jetbrains/", link: "jetbrains/getting-started"},
     ],
     "/md/installation-guide/": [
         {text: "开发者安装大全", prefix: "/md/installation-guide/", link: "/md/installation-guide/"},
