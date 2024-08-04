@@ -42,8 +42,8 @@ export default defineUserConfig({
     // Enable it with pwa
     // shouldPrefetch: false,
 
-    // 添加百度统计代码
     head: [
+        // 添加百度统计代码
         [
             "script",
             {},
@@ -56,6 +56,15 @@ export default defineUserConfig({
                 s.parentNode.insertBefore(hm, s);
             })();
             `
+        ],
+        // 添加Google AdSense广告位
+        [
+            "script",
+            {
+                async: true,
+                src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3218450089809357",
+                crossorigin: "anonymous"
+            }
         ]
     ],
 
