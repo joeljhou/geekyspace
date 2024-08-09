@@ -68,7 +68,7 @@ tag: JVM
   - 7.1 概述（Overview）
   - 7.2 类加载的时机（Timing of Class Loading）
   - [7.3 类加载的过程（Class Loading Process）](part3/class-loading-mechanism.html#类加载的过程)
-  - 7.4 类加载器（Class Loaders）
+  - [7.4 类加载器（Class Loaders）](part3/class-loading-mechanism.html#类加载器)
   - 7.5 Java模块化系统（Java Modular System）
 
 - **第8章 虚拟机字节码执行引擎（Chapter 8: JVM Bytecode Execution Engine）**

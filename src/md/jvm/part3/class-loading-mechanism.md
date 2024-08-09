@@ -114,6 +114,144 @@ Java类加载过程主要分为加载、连接（验证、准备、解析）、�
 
 ### 类与类加载器
 
+一个类在JVM中由其完全限定名和对应的类加载器共同确定唯一性。
+即使两个类具有相同的完全限定名，由不同的类加载器加载的，JVM也会将它们视为两个“不相等”的类。
+
+* “不相等” 包括Class对象的`equals`方法，`isAssignableFrom()`方法，`isInstance()`方法的返回结果。
+
+**不同的类加载器对instanceof关键字运算的结果的影响**
+
+```java
+/**
+ * 类加载器与instanceof关键字演示
+ *
+ * @author zzm
+ */
+public class ClassLoaderTest {
+    public static void main(String[] args) throws Exception {
+        // 创建一个自定义的类加载器
+        ClassLoader myLoader = new ClassLoader() {
+            @Override
+            public Class<?> loadClass(String name) throws ClassNotFoundException {
+                try {
+                    // 获取类名对应的文件名（去除包名，只保留类名）
+                    String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
+                    // 从当前类路径中加载Class文件
+                    InputStream is = getClass().getResourceAsStream(fileName);
+                    if (is == null) {
+                        // 如果找不到文件，则调用父类加载器加载
+                        return super.loadClass(name);
+                    }
+                    byte[] b = new byte[is.available()];
+                    is.read(b);
+                    return defineClass(name, b, 0, b.length);
+                } catch (IOException e) {
+                    throw new ClassNotFoundException(name);
+                }
+            }
+        };
+
+        Object obj = myLoader.loadClass("org.fenixsoft.classloading.ClassLoaderTest").newInstance();
+        System.out.println(obj.getClass());
+        System.out.println(obj instanceof org.fenixsoft.classloading.ClassLoaderTest);
+    }
+}
+```
+
+运行结果：
+
+```shell
+class org.fenixsoft.classloading.ClassLoaderTest
+false
+```
+
 ### 双亲委派模型
 
+双亲委派模型是Java类加载机制的一种设计模式 ，用于确保类的唯一性和安全性。
+它规定，类加载器在接收到类加载请求时，首先将该请求委派给父类加载器处理。
+如果父类加载器无法完成加载，子类加载器才会尝试加载该类。
+
+![类加载器双亲委派模型（JDK 8及之前）](https://img.geekyspace.cn/pictures/2024/202408100244787.png)
+
+* 从Java虚拟机的角度，类加载器分为两类：
+  * 启动类加载器（Bootstrap ClassLoader）：这是Java虚拟机的一部分，使用`C++`实现，负责加载核心类库，如`rt.jar`中的类。这个类加载器不可被Java程序直接引用。
+  * 其他类加载器：这些是由Java实现的类加载器，继承自`java.lang.ClassLoader`，并且独立存在于虚拟机之外。
+* 从Java开发人员的角度，可以细分为三层类加载器：
+  * **启动类加载器**（Bootstrap ClassLoader）：加载`<JAVA_HOME>\lib`目录中的核心类库。
+  * **扩展类加载器**（Extension ClassLoader）：加载`<JAVA_HOME>\lib\ext`目录或通过java.ext.dirs指定路径中的扩展类库。
+  * **应用程序类加载器**（Application ClassLoader）：加载用户类路径（ClassPath）上的所有类库，通常是程序的默认类加载器。
+
+**双亲委派模型的实现**
+
+```java
+protected synchronized Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+    // 首先，检查请求的类是否已经被加载过了
+    Class<?> c = findLoadedClass(name);
+    
+    if (c == null) {  // 如果该类还未被加载
+        try {
+            if (parent != null) {  // 如果存在父类加载器
+                c = parent.loadClass(name, false);  // 让父类加载器尝试加载该类
+            } else {
+                c = findBootstrapClassOrNull(name);  // 如果没有父类加载器，尝试用引导类加载器加载
+            }
+        } catch (ClassNotFoundException e) {
+            // 如果父类加载器抛出 ClassNotFoundException
+            // 说明父类加载器无法完成加载请求，继续在本加载器中寻找
+        }
+
+        if (c == null) {
+            // 在父类加载器无法加载时
+            // 调用本加载器的 findClass 方法来加载类
+            c = findClass(name);
+        }
+    }
+    
+    if (resolve) {
+        resolveClass(c);
+    }
+    
+    return c;  // 返回加载的类
+}
+```
+
 ### 破坏双亲委派模型
+
+双亲委派模型并不是强制性约束的模型，直到Java模块化出现为止，出现过3次较大规模“被破坏”的情况。
+
+**第 1 次被破坏：**
+
+在JDK 1.2之前，由于没有双亲委派模型的约束，开发者可以直接覆盖 `loadClass()` 方法。
+为了兼容现有代码并引导开发者遵循双亲委派模型，JDK 1.2引入了 `findClass()`
+方法，建议开发者重写该方法而非直接覆盖 `loadClass()`。
+
+* **loadClass()：** 双亲委派模型的实现，父类加载异常时，调用 `findClass()` 方法进行加载。
+* **findClass()：** 自定义类加载器具体实现。
+
+---
+
+**第 2 次被破坏：** 
+
+由于基础类型有时需调用用户代码，如JNDI（Java命名和目录接口）加载SPI（服务提供者接口）代码，这打破了双亲委派模型的层次结构来逆向使用类加载器。
+
+* Java引入一个不太优雅的设计：线程上下文类加载器，来实现SPI加载。当SPI的服务提供者多于一个的时候，代码就只能根据具体提供者的类型来硬编码判断。
+* 为了消除这种极不优雅的实现方式，在JDK 6时，引入了 `java.util.ServiceLoader`，以 `META-INF/services`
+  中的配置信息，辅以责任链模式，提供了更合理的SPI加载方式。
+
+---
+
+**第 3 次被破坏：**
+
+由于用户对程序动态性的追求，如代码热替换（Hot Swap）和模块热部署（Hot Deployment），导致双亲委派模型在OSGi中再次“被破坏”。
+这种“动态性”在大型系统或企业级软件中尤其重要，因为频繁重启生产系统可能会被视为生产事故。
+
+* **OSGi中的类加载器机制：** 
+  * 每个OSGi模块（Bundle）都有一个独立的类加载器。更换 Bundle 时，同时替换其类加载器，实现代码热替换。
+* **类加载顺序：**
+    * 以 `java.*` 开头的类由父类加载器加载。
+    * 委派列表内的类由父类加载器加载。
+    * Import 列表中的类由 Export 该类的 Bundle 加载器加载。
+    * 当前 Bundle 的 ClassPath 中的类由自己的类加载器加载。
+    * Fragment Bundle 中的类由对应的类加载器加载。
+    * Dynamic Import 列表中的类由对应 Bundle 的类加载器加载。
+    * 若以上均失败，则类加载失败。
