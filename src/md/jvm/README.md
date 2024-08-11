@@ -28,13 +28,9 @@ tag: JVM
 
 - **第2章 Java内存区域与内存溢出异常（Chapter 2: Java Memory Areas and OutOfMemoryError）**
     - 2.1 概述（Overview）
-    - 2.2 程序计数器（Program Counter Register）
-    - 2.3 Java虚拟机栈（Java Virtual Machine Stacks）
-    - 2.4 本地方法栈（Native Method Stacks）
-    - 2.5 堆（Heap）
-    - 2.6 方法区（Method Area）
-    - 2.7 运行时常量池（Runtime Constant Pool）
-    - 2.8 直接内存（Direct Memory）
+    - 2.2 运行时数据区域（Runtime Data Areas）
+    - 2.3 HotSpot虚拟机对象探秘（HotSpot Virtual Machine Object Exploration）
+    - 2.4 实战：OutOfMemoryError异常（Practical: OutOfMemoryError Exception）
 
 - **第3章 垃圾收集器与内存分配策略（Chapter 3: Garbage Collectors and Memory Allocation Strategies）**
     - 3.1 概述（Overview）
@@ -65,19 +61,18 @@ tag: JVM
     - 6.6 Class文件结构的发展（Development of Class File Structure）
 
 - **第7章 虚拟机类加载机制（Chapter 7: JVM Class Loading Mechanism）**
-  - 7.1 概述（Overview）
-  - 7.2 类加载的时机（Timing of Class Loading）
-  - [7.3 类加载的过程（Class Loading Process）](part3/class-loading-mechanism.html#类加载的过程)
-  - [7.4 类加载器（Class Loaders）](part3/class-loading-mechanism.html#类加载器)
-  - 7.5 Java模块化系统（Java Modular System）
+    - 7.1 概述（Overview）
+    - 7.2 类加载的时机（Timing of Class Loading）
+    - [7.3 类加载的过程（Class Loading Process）](part3/class-loading-mechanism.html#类加载的过程)
+    - [7.4 类加载器（Class Loaders）](part3/class-loading-mechanism.html#类加载器)
+    - 7.5 Java模块化系统（Java Modular System）
 
 - **第8章 虚拟机字节码执行引擎（Chapter 8: JVM Bytecode Execution Engine）**
     - 8.1 概述（Overview）
     - 8.2 运行时栈帧结构（Runtime Stack Frame Structure）
     - 8.3 方法调用与返回（Method Invocation and Return）
 
-- **第9章 类加载及执行子系统的案例与实战（Chapter 9: Case Studies and Practices of Class Loading and Execution Subsystem）
-  **
+- **第9章 类加载及执行子系统的案例与实战（Chapter 9: Case Studies and Practices of Class Loading and Execution Subsystem）**
     - 9.1 概述（Overview）
     - 9.2 实战案例分析（Practical Case Analysis）
     - 9.3 调优实践（Optimization Practices）
