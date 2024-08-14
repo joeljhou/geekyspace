@@ -13,6 +13,7 @@ export const jvm = arraySidebar([
             text: "自动内存管理", prefix: "part2/", link: "part2/",
             children: [
                 {text: "运行时数据区", link: "runtime-data-areas"},
+                {text: "对象分配过程", link: "heap-object-flow"},
             ],
         },
         {

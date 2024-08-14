@@ -6,6 +6,7 @@ isOriginal: true
 date: 2024-07-19
 category: JVM
 tag: JVM
+order: 1.4
 ---
 
 # Java虚拟机概述

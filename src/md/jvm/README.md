@@ -31,7 +31,7 @@ star: true    # 收藏star标记
 - **第2章 Java内存区域与内存溢出异常（Chapter 2: Java Memory Areas and OutOfMemoryError）**
     - 2.1 概述（Overview）
     - [2.2 运行时数据区域（Runtime Data Areas）](part2/runtime-data-areas)
-    - 2.3 HotSpot虚拟机对象探秘（HotSpot Virtual Machine Object Exploration）
+    - [2.3 HotSpot虚拟机对象探秘（HotSpot Virtual Machine Object Exploration）](part2/heap-object-flow)
     - 2.4 实战：OutOfMemoryError异常（Practical: OutOfMemoryError Exception）
 
 - **第3章 垃圾收集器与内存分配策略（Chapter 3: Garbage Collectors and Memory Allocation Strategies）**

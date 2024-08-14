@@ -6,6 +6,7 @@ isOriginal: true
 date: 2024-07-20
 category: JVM
 tag: JVM
+order: 7.3
 ---
 
 # 类加载机制
