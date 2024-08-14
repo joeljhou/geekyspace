@@ -7,7 +7,7 @@ export default navbar([
         text: "Java", icon: "java", children: [
             {
                 text: "Java进阶-新版本特性", children:[
-                    {text: "Java 8+版本特性体系", icon: "java", link: "md/java-features/"},
+                    {text: "Java新版本特性", icon: "java", link: "md/java-features/"},
                 ],
             },
             {

@@ -1,14 +1,16 @@
 ---
-title: 深入理解Java虚拟机（持续连载）
+title: 深入理解Java虚拟机
 description:
 author: 会敲代码的程序猿
 isOriginal: true
 date: 2024-08-08
 category: JVM
 tag: JVM
+star: true    # 收藏star标记
+#sticky: true  # 置顶特定文章
 ---
 
-# 深入理解Java虚拟机目录（持续连载）
+# 深入理解Java虚拟机目录
 
 ## 前言（Preface）
 
@@ -28,7 +30,7 @@ tag: JVM
 
 - **第2章 Java内存区域与内存溢出异常（Chapter 2: Java Memory Areas and OutOfMemoryError）**
     - 2.1 概述（Overview）
-    - 2.2 运行时数据区域（Runtime Data Areas）
+    - [2.2 运行时数据区域（Runtime Data Areas）](part2/runtime-data-areas)
     - 2.3 HotSpot虚拟机对象探秘（HotSpot Virtual Machine Object Exploration）
     - 2.4 实战：OutOfMemoryError异常（Practical: OutOfMemoryError Exception）
 
