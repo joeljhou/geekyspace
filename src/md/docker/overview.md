@@ -28,6 +28,10 @@ tag: Docker
 * **仓库（Registry）**：存储和分发镜像的地方，常用[Docker Hub](https://hub.docker.com/)或私有仓库。
 * **Dockerfile**：定义镜像构建过程的配置文件。
 
+## Docker 执行流程
+
+![Docker执行流程](http://img.geekyspace.cn/pictures/2024/202411152359021.png)
+
 ## 历史的演化
 
 1. 物理机时代：一个应用占用一整台服务器，资源浪费严重，扩展困难。

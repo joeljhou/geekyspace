@@ -30,5 +30,7 @@ export default sidebar({
     ],
     "/md/docker/": [
         {text: "概述", prefix: "/md/docker/overview", link: "/md/docker/overview"},
+        {text: "安装", prefix: "/md/docker/install", link: "/md/docker/install"},
+        {text: "镜像加速器", prefix: "/md/docker/mirror-acceleration", link: "/md/docker/mirror-acceleration"},
     ],
 });
