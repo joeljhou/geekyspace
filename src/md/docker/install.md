@@ -9,21 +9,28 @@ tag: Docker
 
 # Docker安装&配置
 
-## 多平台安装
+您可以在多个平台上下载并安装 Docker。请参阅以下部分并选择最适合您的安装路径。
 
-安装软件这种基础的操作，直接 参考官方文档即可：
+> [适用于Mac的Docker桌面](https://docs.docker.com/desktop/setup/install/mac-install/)
 
-* [在Mac上安装Docker Desktop](https://docs.docker.com/desktop/setup/install/mac-install/)
-* [在Windows上安装Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
-* [在Linux上安装Docker Desktop](https://docs.docker.com/desktop/setup/install/linux/)
+> [适用于Windows的Docker桌面](https://docs.docker.com/desktop/setup/install/windows-install/)
 
-验证是否安装成功：
+> [适用于Linux的Docker桌面](https://docs.docker.com/desktop/setup/install/linux/)
+
+**验证是否安装成功：**
 
 ```shell
-$ docker version
-$ docker info
-$ docker hello-world
-# 可能会遇到如下网络错误，需要配置国内镜像源
-$ docker run -it ubuntu bash  
-docker: error pulling image configuration: download failed after attempts=6: EOF.
+$ docker version           # 查看版本
+$ docker info              # 查看信息
 ```
+
+**运行测试镜像**
+
+```shell
+$ docker run hello-world
+$ docker run -it ubuntu bash  
+```
+
+可能会遇到如下网络错误，这个时候就需要配置[镜像源加速器](/md/docker/mirror-acceleration.html)
+
+`docker: error pulling image configuration: download failed after attempts=6: EOF.`

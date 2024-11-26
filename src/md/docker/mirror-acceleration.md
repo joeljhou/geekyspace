@@ -9,18 +9,21 @@ tag: Docker
 
 # Docker镜像加速器
 
-## 镜像加速器
+## 阿里云镜像加速器
 
-> [阿里云镜像加速器](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors)，有针对Ubuntu，CentOS，Mac，Windows的配置教程
+> [阿里云镜像加速器](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors)，有针对`Ubuntu`，`CentOS`，`Mac`，`Windows`的操作文档
 
-**镜像源配置文件**
+![阿里云镜像加速器](http://img.geekyspace.cn/pictures/2024/202411270006564.png)
+
+## 配置文件
 
 * Linux：`/etc/docker/daemon.json`
 * Windows: `%USERPROFILE%\.docker\daemon.json`
 
-**Windows配置：**
+## Windows配置
 
-右上角选择Settings图标，打开配置窗口后选择Docker Engine。编辑JSON串，填写加速器地址：
+点击`docker desktop`右上角**齿轮**图标，打开配置窗口后选择`Docker Engine`。<br/>
+编辑JSON串，填写加速器地址：
 
 ```shell
 {
@@ -55,3 +58,22 @@ tag: Docker
 }
 ```
 
+## Linux配置
+
+针对，`Ubuntu`或`CentOS`系统，编辑`/etc/docker/daemon.json`文件，添加如下内容：
+
+```shell
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://onnxqmp4.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+**相关文档**
+
+* [Docker 命令参考文档](https://docs.docker.com/engine/reference/commandline/cli/)
+* [Dockerfile 镜像构建参考文档](https://docs.docker.com/engine/reference/builder/?spm=5176.8351553.0.0.4ef81991wFvDZm)
