@@ -30,7 +30,7 @@ export default sidebar({
     ],
     "/md/docker/": [
         {text: "概述", prefix: "/md/docker/overview", link: "/md/docker/overview"},
-        {text: "安装", prefix: "/md/docker/install", link: "/md/docker/install"},
+        {text: "安装指南", prefix: "/md/docker/install", link: "/md/docker/install"},
         {text: "镜像加速器", prefix: "/md/docker/mirror-acceleration", link: "/md/docker/mirror-acceleration"},
         {text: "Top20常用命令", prefix: "/md/docker/top20-commands", link: "/md/docker/top20-commands"},
     ],

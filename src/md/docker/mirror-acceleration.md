@@ -9,27 +9,38 @@ tag: Docker
 
 # Docker镜像加速器
 
+国内从`Docker Hub`拉取镜像有时会遇到困难，此时可以配置镜像加速器。
+
 ## 阿里云镜像加速器
 
 > [阿里云镜像加速器](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors)，有针对`Ubuntu`，`CentOS`，`Mac`，`Windows`的操作文档
 
 ![阿里云镜像加速器](http://img.geekyspace.cn/pictures/2024/202411270006564.png)
 
-## 配置文件
+## Linux
 
-* Linux：`/etc/docker/daemon.json`
-* Windows: `%USERPROFILE%\.docker\daemon.json`
-
-## Windows配置
-
-点击`docker desktop`右上角**齿轮**图标，打开配置窗口后选择`Docker Engine`。<br/>
-编辑JSON串，填写加速器地址：
+对于使用`Ubuntu`或`CentOS`的系统，请在`/etc/docker/daemon.json`文件中写入如下内容（如果文件不存
+在请新建该文件）
 
 ```shell
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
 {
   "registry-mirrors": ["https://onnxqmp4.mirror.aliyuncs.com"]
 }
+EOF
+
+# 之后重新启动服务
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 ```
+
+## Windows
+
+对于使用Windows的系统，在`docker desktop`右上角**齿轮**图标，打开配置窗口后选择`Docker Engine`。<br/>
+编辑JSON串，填写加速器地址：
+
+Windows: `%USERPROFILE%\.docker\daemon.json`
 
 ![Windows配置镜像加速](http://img.geekyspace.cn/pictures/2024/202411160051539.png)
 
@@ -58,22 +69,6 @@ tag: Docker
 }
 ```
 
-## Linux配置
+## MacOS
 
-针对，`Ubuntu`或`CentOS`系统，编辑`/etc/docker/daemon.json`文件，添加如下内容：
-
-```shell
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json <<-'EOF'
-{
-  "registry-mirrors": ["https://onnxqmp4.mirror.aliyuncs.com"]
-}
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-```
-
-**相关文档**
-
-* [Docker 命令参考文档](https://docs.docker.com/engine/reference/commandline/cli/)
-* [Dockerfile 镜像构建参考文档](https://docs.docker.com/engine/reference/builder/?spm=5176.8351553.0.0.4ef81991wFvDZm)
+![MacOS配置Docker镜像加速器](http://img.geekyspace.cn/pictures/2024/202412041859454.png)

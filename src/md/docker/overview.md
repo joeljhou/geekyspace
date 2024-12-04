@@ -9,11 +9,45 @@ tag: Docker
 
 # Docker概述
 
-## Docker是什么？
+## 什么是Docker？
 
-Docker 是一个用于 **开发、发布 和 运行应用程序** 的开放平台。<br/>
-它通过将应用程序与运行所需的基础设施进行隔离，使得应用程序可以在任何环境中保持一致性。
-Docker 以轻量化的方式解决了软件跨平台部署的问题，是现代化应用程序开发的核心工具之一。
+`Docker`是`dotCloud`团队在2013年发布的开源项目。 使用`Go`语言开发，是一个轻量级的虚拟机容器解决方案。
+
+## 为什么使用Docker？
+
+Docker跟传统虚拟机相比，具有以下优势：
+
+* 更高效的利用系统资源
+* 更快速的启动速度
+* 一致的运行环境
+* 持续交付和部署
+* 更轻松的迁移
+* 更轻松的维护和扩展
+
+**`Docker` VS `传统虚拟机`**
+
+| 特性    | 容器        | 虚拟机    |
+|-------|-----------|--------|
+| 启动    | 秒级        | 分钟级    |
+| 硬盘使用  | 一般为 MB    | 一般为 GB |
+| 性能    | 接近原生      | 弱于     |
+| 系统支持量 | 单机支持上千个容器 | 一般几十个  |
+
+## 基本概念
+
+* **镜像（Image）**：Docker镜像是一个只读的模板，包含了运行容器所需的所有文件。
+  * 本质是==文件系统==
+  * 基于`Union FS`设计，**分层存储**，可以叠加
+* **容器（Container）**：Docker容器是可独立运行的一个或一组应用，是Docker镜像的运行实例。
+  * 实质是==进程==
+  * 拥有自己的`root`文件系统，网络配置，进程空间等
+  * 最佳实践：文件写入操作使用**数据卷（Volume）**，避免文件写入到容器中
+* **仓库（Repository）**：Docker Registry是一个集中存储、分发镜像服务。
+    * [Docker Hub](https://hub.docker.com/) 官方镜像仓库
+    * [Google Container Registry](https://cloud.google.com/artifact-registry/docs?hl=zh-cn) K8s 镜像仓库
+    * [Amazon ECR](https://aws.amazon.com/cn/ecr/) AWS 镜像仓库
+    * [VMWare Harbor](https://github.com/goharbor/harbor) 和 [Sonatype Nexus](https://www.sonatype.com/docker)
+      三方软件实现了Docker Registry API
 
 ## Docker执行流程
 
