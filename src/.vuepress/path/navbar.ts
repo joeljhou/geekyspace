@@ -7,7 +7,7 @@ export default navbar([
         text: "Java", icon: "java", children: [
             {
                 text: "Java基础", children:[
-                    {text: "Java多线程与并发编程", icon: "java", link: "md/java-juc/"},
+                    {text: "多线程与并发编程", icon: "thread", link: "md/java-juc/"},
                 ],
             },
             {
