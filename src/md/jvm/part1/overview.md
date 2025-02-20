@@ -21,7 +21,8 @@ order: 1.4
 
 ![jvm-class](https://img.geekyspace.cn/pictures/2024/image-20240620020158368.png)
 
-JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什么语言编写的。
+* JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什么语言编写的。
+* 通过Oracle TCK（Technology Compatibility Kit）测试，就是合格的Java虚拟机。
 
 ## Java虚拟机家族
 
@@ -29,21 +30,24 @@ JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什
 
 * **Classic VM：**
     * 1996年1月23日，Sun发布JDK 1.0，正式商用，最早的Java虚拟机实现
-    * 纯解释器，可外挂即时编译器（JIT），但只能二选一
     * 直到JDK 1.4，才完全退出商用虚拟机的历史舞台
+    * ==纯解释器==，可外挂即时编译器（JIT），**缺点**是只能<u>二选一</u>
 * **Exact VM：**
     * 在JDK 1.2时，在Solaris平台发布，是Classic VM的改进版
     * 因准确式内存管理（Exact Memory Management）而得名，是垃圾收集时准确判断堆上数据的前提
     * 它的编译执行系统已经具备现代高性能虚拟机雏形
-        * 如热点探测、两级即时编译器、编译器与解释器混合工作模式等
+        * 如热点探测、两级即时编译器、==编译器与解释器混合工作==模式等
+    * **缺点**是<u>只能在Solaris平台上运行</u>
 
 **武林盟主：HotSpot VM（Sun/Oracle公司）**
 
 * **HotSpot VM**
+    * 最初由Longview Technologies公司开发，后被Sun公司收购
     * 从JDK 1.3至今（2024），HotSpot VM成为默认虚拟机，目前使用最广泛
     * HotSpot VM集成了Sun以上两款虚拟机优点（准确式内存管理，热点代码探测技术...）
+      * **优点**是<u>同时支持解释执行和即时编译执行</u>，在响应速度和执行速度上取得平衡
     * Oracle收购Sun以后，建立HotRockit项目，把BEA JRocki优秀特性融合到HotSpot之中
-    * 2014年JDK 8时期，HotSpot移除掉永久代，吸收了JRockit的Java Mission Control监控工具等功能
+    * 2014年JDK 8时期，HotSpot移除掉[永久代](/md/jvm/part2/runtime-data-areas.html#方法区)，吸收了JRockit的Java Mission Control监控工具等功能
 
 **小家碧玉：Mobile/Embedded VM（Sun/Oracle公司）**
 
@@ -51,7 +55,6 @@ JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什
 
 * **KVM（Kilobyte Virtual Machine）**:
     * 用于早期的移动设备，但智能手机市场已被Android和iOS主导
-
 * **CDC（Connected Device Configuration）**:
     * 用于功能更强的嵌入式设备，但面临自家Java SE Embedded（eJDK）的竞争
     * 由于Java SE的普及，CDC市场快速萎缩，Oracle基本砍掉了CDC-HI项目，将其划归Java SE Embedded
@@ -60,7 +63,7 @@ JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什
 
 * **BEA JRockit**:
     * 最初由BEA Systems开发，后被Oracle收购，永远停留在R28（JDK 6版JRockit代号）
-    * 专注于服务器硬件和服务端应用场景，不关注启动速度，不包含解释器实现
+    * ==专注于服务器==硬件和服务端应用场景，不关注启动速度，不包含解释器实现
     * 以其出色的垃圾收集器和性能和诊断工具（如Java Mission Control）著称
 * **IBM J9 VM**:
     * 全称“IBM Technology for Java Virtual Machine”，简称IT4J，但普遍称为J9
@@ -206,4 +209,4 @@ JVM本质上只关心`.class`的字节码文件，而不关心源代码是用什
 
 这些部分共同组成了JVM的核心功能，使得Java程序可以跨平台运行，并且具有良好的性能和安全性
 
-[Siben Nayak—《面向初学者的Java虚拟机架构》](https://www.freecodecamp.org/news/jvm-tutorial-java-virtual-machine-architecture-explained-for-beginners/)
+* 参考：[Siben Nayak—《面向初学者的Java虚拟机架构》](https://www.freecodecamp.org/news/jvm-tutorial-java-virtual-machine-architecture-explained-for-beginners/)
