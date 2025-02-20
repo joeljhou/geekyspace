@@ -7,13 +7,13 @@ export default navbar([
         text: "Java", icon: "java", children: [
             {
                 text: "Java基础", children:[
+                    {text: "Java新版本特性", icon: "java", link: "md/java-features/"},
                     {text: "多线程与并发编程", icon: "thread", link: "md/java-juc/"},
                 ],
             },
             {
                 text: "Java进阶", children:[
-                    {text: "Java新版本特性", icon: "java", link: "md/java-features/"},
-                    {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "md/jvm/"},
+                    {text: "JVM原理与性能调优", icon: "jvm-xx", link: "md/jvm/"},
                 ],
             }
         ]

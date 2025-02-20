@@ -242,7 +242,11 @@ export default hopeTheme({
                     },
                 },
             ],
+            // 启用剧透，目前版本不支持
+            // spoiler: true,
+            // 启用下角标
             sub: true,
+            // 启用上角标
             sup: true,
             tabs: true,
             vPre: true,

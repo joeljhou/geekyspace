@@ -58,7 +58,7 @@ order: 2.2
 
 **栈帧的内部结构：**
 
-![栈帧的概念结构](https://pdai.tech/images/jvm/jvm/0082zybply1gc8tjehg8bj318m0lbtbu.jpg)
+![栈帧的概念结构](http://img.geekyspace.cn/pictures/2025/0082zybply1gc8tjehg8bj318m0lbtbu.jpg)
 
 * **局部变量表：** 用于存储方法中的局部变量和参数。
 * **操作数栈：** 后进先出（LIFO）结构，用于方法执行时存储执行指令产生中间结果。
