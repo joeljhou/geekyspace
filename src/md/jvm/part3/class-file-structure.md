@@ -11,106 +11,110 @@ order: 6.3
 
 # 类文件结构
 
-> 计算机只能运行由0和1构成的二进制格式。
-> 要运行Java程序，必须先通过Java虚拟机（JVM）执行编译后的Java代码，这个编译后的代码就是**Java字节码**，存储在`.class`类文件中。
+> 代码编译的结果从本地机器码转变为**字节码**，是存储格式发展的一小步，却是编程语言发展的一大步。
 
-## 跨平台的基石
+## 无关性的基石
 
-Java字节码具有“平台无关性”和“语言无关性”。
-
-* **平台无关性：** 字节码可以在任何支持JVM的平台上运行，实现“一次编写，到处运行”
-* **语言无关性：** 多种编程语言可以编译成字节码并在JVM（GraalVM）上运行，不仅限于Java
+**字节码**是构成==平台无关性==和的==语言无关性==基石：
+* **平台无关性：** 
+  * 字节码不依赖特定操作系统或硬件架构，任何支持**JVM**的环境（如`Windows`、`Linux`、`macOS`、甚至嵌入式设备）都能运行相同的字节码，实现 “*一次编写，到处运行*”。
+* **语言无关性：** 
+  * 多种编程语言（如`Java`、`Kotlin`、`Scala`、`Groovy`）都可以编译成字节码，并在**JVM**（如`GraalVM`）上运行，不仅限于Java。
 
 ![Java虚拟机提供的语言无关性](https://img.geekyspace.cn/pictures/2024/202407200209120.png)
 
-## Class类文件结构（理论）
+## Class类文件结构
 
-Java技术的良好向后兼容性得益于Class文件结构的稳定性，
-每个Class文件对应一个类或接口的定义信息，是一组以8个字节为单位的二进制流。各数据项严格按顺序排列，没有任何分隔符。
+我们通俗的将类和接口的定义信息
+Java技术的良好向后兼容性得益于Class文件结构的稳定性，Class文件对应的是类或接口的定义信息，是一组以8个字节为单位的二进制流。各数据项严格按顺序排列，没有任何分隔符。
 
-Class文件格式类似于C语言的结构体，这种伪结构只有两种数据类型：“无符号数”和“表”。
+Class文件格式类似于C语言的结构体，这种伪结构只有两种数据类型：“<u>无符号数</u>”和“<u>表</u>”。
 
-* **无符号数：** 基本数据类型，使用`u1`、`u2`、`u4`、`u8`表示1、2、4、8个字节的无符号数。
-  它们可以描述数字、索引引用、数量值或按照`UTF-8`编码的字符串值。
-* **表：** 由多个无符号数或其他表构成的复合数据类型，通常以“_info”结尾。
-  表用于描述有层次关系的复合结构，整个Class文件本质上也是一个表，由按严格顺序排列的数据项构成。
+* **无符号数：** ==基本数据类型==，使用`u1`、`u2`、`u4`、`u8`表示1、2、4、8个字节的无符号数。 
+  * 它们可以描述数字、索引引用、数量值或按照`UTF-8`编码的字符串值。
+* **表：** 由多个无符号数或其他表构成的==复合数据类型==，通常以“**_info**”结尾。 
+  * 描述有层次关系的复合结构，整个Class文件本质上也是一个表，由按严格顺序排列的数据项构成。
 
-[JVM虚拟机规范第四章](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html)
-中规定了Class文件必须是一个固定的`ClassFile`结构，如下所示：
+[JVM虚拟机规范第四章](https://docs.oracle.com/javase/specs/jvms/se23/html/jvms-4.html)中规定了`ClassFile`的结构，如下所示：
 
 ```java
 ClassFile {
-  u4 magic;                   // 魔数 (0xCAFEBABE)，标识class文件格式
-  u2 minor_version;           // 次版本号
-  u2 major_version;           // 主版本号
-  u2 constant_pool_count;     // 常量池计数
+  u4 magic;                            // 魔数 (0xCAFEBABE)，标识class文件格式
+  u2 minor_version;                    // 次版本号
+  u2 major_version;                    // 主版本号
+  u2 constant_pool_count;              // 常量池计数
   cp_info constant_pool[constant_pool_count-1]; // 常量池
-  u2 access_flags;            // 访问标志
-  u2 this_class;              // 当前类索引
-  u2 super_class;             // 父类索引
-  u2 interfaces_count;        // 接口计数
-  u2 interfaces[interfaces_count]; // 接口索引表
-  u2 fields_count;            // 字段计数
-  field_info fields[fields_count];    // 字段表
-  u2 methods_count;           // 方法计数
+  u2 access_flags;                     // 访问标志
+  u2 this_class;                       // 当前类索引
+  u2 super_class;                      // 父类索引
+  u2 interfaces_count;                 // 接口计数
+  u2 interfaces[interfaces_count];     // 接口索引表
+  u2 fields_count;                     // 字段计数
+  field_info fields[fields_count];     // 字段表
+  u2 methods_count;                    // 方法计数
   method_info methods[methods_count];  // 方法表
-  u2 attributes_count;        // 属性计数
+  u2 attributes_count;                 // 属性计数
   attribute_info attributes[attributes_count]; // 属性表
 }
 ```
 
-通过分析 ClassFile 的内容，我们便可以知道 class 文件的组成。
+通过分析 `ClassFile` 的内容，我们便可以知道 `class` 文件的组成。
 
 ![ClassFile 内容分析](https://img.geekyspace.cn/pictures/2024/202407220149546.png)
 
-### 魔数
+### 1.魔数
 
-> **魔数：** 用于验证文件是否为有效的Class文件，其值固定为`0xCAFEBABE`。
+> **魔数：** 区分文件类型的依据，验证文件是否有效。
 
-* 不仅限于Class文件，其他文件格式如`GIF`或`JPEG`等，也使用魔数来进行身份识别。
-  * GIF文件：`47 49 46 38`
-  * JPEG文件：`FF D8 FF E0`
+* `0xCAFEBABE`是`Class`文件的魔数。
+* 其他文件格式也使用魔数来进行身份识别。
+  * JPEG（jpg）：`FFD8FF`
+  * PNG（png）：`89504E47`
+  * GIF（gif）：`47494638`
+  * TIFF（tif）：`49492A00`
 
-在Java被称为“Oak”语言时期（大约1991年前后），`0xCAFEBABE`被选为魔数。
-Java开发小组关键成员Patrick Naughton提到，他们选择这个值是因为它好玩且容易记忆，
-象征着著名咖啡品牌Peet’s Coffee深受欢迎的Baristas咖啡，也预示着日后“Java”这一商标名称的出现。
+**`0xCAFEBABE`的由来**
 
-### Class文件版本号
+在Java语言仍被称为“Oak”的早期（约 1991 年），Java开发团队便选定`0xCAFEBABE`作为魔数。 
+据Java开发小组关键成员*Patrick Naughton*透露，他们选择这个值是因为它好玩且容易记忆。
+象征着著名咖啡品牌*Peet’s Coffee*备受喜爱的*Baristas*咖啡，也预示着日后“<u>Java-咖啡</u>”商标的出现。
 
-> **版本号：** 紧跟魔数之后，占4个字节，包含主版本号和次版本号，用于标识Class文件的版本。
+### 2.Class文件版本号
 
-* 第5~6字节：次版本号（Minor Version）
-* 第7~8字节：主版本号（Major Version），Java 8 = 52.0
+> **版本号：** 紧跟魔数之后，占 4 个字节，包含主版本号和次版本号，用于标识Class文件的版本。
 
-Java 的主版本号从 JDK 1.0 的 45 开始，每次大版本发布都会+1；
-次版本号通常保持为0，对应一些次要的特性改进或修复。
+* 第5~6字节：<u>**次**版本号</u>（Minor Version）
+* 第7~8字节：<u>**主**版本号</u>（Major Version），Java 8 = 52.0
 
-**Class文件版本号：**
+主版本号从JDK 1.0 = **45**开始，每次大版本发布都会 **+1** ；
 
-支持高版本JDK编译出兼容低版本JDK的类，例如使用JDK 1.8版本，编译出1.7版本的class：
+**向下兼容：**
+
+* 使用JDK 1.8版本，编译出1.7版本的`class`
+* 编译后的字节码版本高于JVM版本时，运行会产生`UnsupportedClassVersionError`异常
 
 ```shell
 javac –source 1.8 –target 1.7 Example.java
 ```
 
+![Class文件版本号](http://img.geekyspace.cn/pictures/2025/image-20250227222416922.png)
+
 注：从JDK 9开始，`javac`编译器不再支持使用`-source`参数编译版本号小于1.5的源码。
 
-### 常量池
+### 3.常量池
 
-> **常量池：** 紧随版本号之后，可以理解成Class文件的资源仓库。存放各种常量信息，如字符串常量、类和接口名、字段名和方法名等。
-
-* 与其他数据关联最多，占用空间最大，也是第一个出现的表类型数据项`cp_info`。
+> **常量池：** 紧随版本号之后，可以理解成Class文件的资源仓库。用于存放<u>*字面量*</u>，<u>*符号引用*</u>，<u>*常量池类型数据表*</u>。
 
 **1、常量池计数**
 
 由于常量项不固定，入口处`u2`类型的数据值表示**常量池计数**（`constant_pool_count`）。
 
 * 常量池的计数从1开始，即：`常量项 = 常量池计数 - 1`
-* Class文件格式规范刻意将第0项常量空出，索引值0表示“不引用任何常量池项”
+* Class文件格式规范刻意将第0项常量空出，特定情况下索引值0表示“不引用任何常量池项”
 
 **2、常量类型**
 
-常量池主要存放两大类常量：字面量（Literal）和符号引用（Symbolic References）
+常量池主要存放两大类常量：**字面量**（Literal）和**符号引用**（Symbolic References）
 
 * **字面量：** 比较接近于Java语言层面的常量概念，如数值、文本字符串、final常量等
 * **符号引用：** 符号引用则属于编译原理方面的概念，包括以下几类常量：
@@ -125,9 +129,9 @@ javac –source 1.8 –target 1.7 Example.java
 因此，Class文件不保存方法、字段最终在内存中的布局信息。
 JVM在类加载时从常量池获取符号引用，并在类创建或运行时解析为具体地址。
 
-**3、常量表结构**
+**3、常量池数据类型表**
 
-[JVM虚拟机规范第四章-常量池](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.4)
+[JVM虚拟机规范第四章-常量池](https://docs.oracle.com/javase/specs/jvms/se23/html/jvms-4.html#jvms-4.4)
 定义了`constant_pool`表条目具有以下通用格式：
 
 ```java
@@ -165,7 +169,7 @@ cp_info {
 
 常量池的数据结构复杂，因为包含17种独立的常量类型，彼此没有共性，因此需要逐项讲解。
 
-### 访问标志
+### 4.访问标志
 
 > **访问标志：** 紧随常量池之后，占2个字节，表示类或接口的访问权限和属性，如是否为`public`、`abstract`、`final`等。
 
@@ -189,7 +193,7 @@ cp_info {
 
 ![16个访问标记位](https://img.geekyspace.cn/pictures/2024/202407230642248.png)
 
-### 类索引、父类索引与接口索引集合
+### 5.类索引、父类索引与接口索引集合
 
 > **类索引、父类索引与接口索引集合：** 用于确定类的继承和实现关系，分别指出当前类，父类，以及所实现的接口。
 
@@ -207,11 +211,11 @@ cp_info {
 
 ![类索引查找全限定名的过程](https://img.geekyspace.cn/pictures/2024/202407251001215.png)
 
-### 字段表集合
+### 6.字段表集合
 
 > **字段表（`field_info`）：** 描述类或接口中声明的字段。
 
-[JVM虚拟机规范第四章-字段表](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.5)
+[JVM虚拟机规范第四章-字段表](https://docs.oracle.com/javase/specs/jvms/se23/html/jvms-4.html#jvms-4.5)
 定义了结构：
 
 ```java
@@ -279,11 +283,11 @@ Class文件、字段表、和方法表都包含各自的属性表集合，用于
 * **属性计数 (`attributes_count`)：** 表示该集合中包含的属性个数
 * **属性信息 (`attribute_info`)：** 每个属性的信息结构，提供详细的元数据
 
-### 方法表集合
+### 9.方法表集合
 
 > **方法表（`method_info`）：** 描述类或接口中声明的方法。
 
-[JVM虚拟机规范第四章-方法表](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.6)
+[JVM虚拟机规范第四章-方法表](https://docs.oracle.com/javase/specs/jvms/se23/html/jvms-4.html#jvms-4.6)
 定义了结构，与属性表相似：
 
 ```java
@@ -321,7 +325,7 @@ method_info {
 方法的定义可以通过访问标志、名称索引、描述符索引来表达清楚。
 而方法的代码，经过`javac`编译成[字节码指令](/md/jvm/basics/bytecode)后存放在**方法属性表集合**中的`Code`的属性中。
 
-### 属性表集合
+### 8.属性表集合
 
 > **属性表：** 用于存储一些额外的信息，如源文件名称、编译器版本等。
 
@@ -361,7 +365,7 @@ method_info {
 | NestHost                             | 类                 | JDK11新增属性，用于支持嵌套类（Java中的内部类）的成员和访问控制的 API。——宿主类通过此属性知道自己有哪些内部类                                                                                                                                     |
 | NestMembers                          | 类                 | JDK11新增属性，用于支持嵌套类（Java中的内部类）的成员和访问控制的 API。——宿主类通过此属性知道自己有哪些内部类                                                                                                                                     |
 
-[JVM虚拟机规范第四章-属性表](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.7)
+[JVM虚拟机规范第四章-属性表](https://docs.oracle.com/javase/specs/jvms/se23/html/jvms-4.html#jvms-4.7)
 定义了结构：
 
 ```shell
