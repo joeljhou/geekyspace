@@ -1,6 +1,6 @@
 ---
 title: Docker镜像加速器
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2024-11-16
 category: Docker

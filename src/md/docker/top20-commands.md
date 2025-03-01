@@ -1,6 +1,6 @@
 ---
 title: Top20常用命令
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2024-11-23
 category: Docker

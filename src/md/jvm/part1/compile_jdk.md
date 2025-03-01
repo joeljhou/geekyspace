@@ -1,7 +1,7 @@
 ---
 title: 实战编译JDK
 description:
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2024-07-26
 category: JVM

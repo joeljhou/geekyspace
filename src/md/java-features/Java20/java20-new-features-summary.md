@@ -1,7 +1,7 @@
 ---
 title: Java20 新特性总结
 description:
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2024-01-05
 category: Java

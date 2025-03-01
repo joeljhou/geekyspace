@@ -13,7 +13,7 @@ export default hopeTheme({
 
     // 全局默认作者
     author: {
-        name: "会敲代码的程序员",
+        name: "流浪码客",
         url: "https://github.com/joeljhou",
         email: "joeljhou336@gmail.com"
     },
@@ -82,7 +82,7 @@ export default hopeTheme({
     footer: "© 2023 - 至今 <a href=\"https://www.geekyspace.cn\" target=\"_blank\">www.geekyspace.cn</a> 保留所有权利",
 
     // 默认的版权信息，设置为 false 来默认禁用它
-    copyright: "Copyright © 2024 会敲代码的程序员",
+    copyright: "Copyright © 2024 流浪码客",
 
     // 是否默认显示页脚
     displayFooter: true,
@@ -93,7 +93,7 @@ export default hopeTheme({
     // 博客功能配置
     blog: {
         avatar: "/images/personal/geekyspace.png",
-        description: "会敲代码的程序员，分享技术，品味人生",
+        description: "流浪码客，分享技术，品味人生",
         intro: "/about-me.html",
         medias: {
             GitHub: "https://github.com/joeljhou",

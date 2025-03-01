@@ -1,7 +1,7 @@
 ---
 title: Java 9 新特性：交互式编程环境JShell
 description:
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2023-12-21
 category: Java

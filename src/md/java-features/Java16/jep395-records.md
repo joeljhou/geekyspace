@@ -1,7 +1,7 @@
 ---
 title: Java 16 新特性：record类
 description:
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2023-12-29
 category: Java

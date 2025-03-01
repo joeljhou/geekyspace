@@ -1,7 +1,7 @@
 ---
 title: Java 21 新特性：分代ZGC
 description:
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2024-01-08
 category: Java

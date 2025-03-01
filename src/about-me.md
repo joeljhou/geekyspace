@@ -4,7 +4,7 @@ title: 个人简介
 description: 一个专注于技术分享的博客网站
 icon: circle-info
 # cover: /assets/images/cover3.jpg
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: false  # 是否原创文章
 date: 1998-12-14
 category: 程序人生

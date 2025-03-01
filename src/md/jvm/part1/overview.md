@@ -1,7 +1,7 @@
 ---
 title: Java虚拟机概述
 description:
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2024-07-19
 category: JVM

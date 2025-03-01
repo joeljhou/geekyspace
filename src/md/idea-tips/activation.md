@@ -1,6 +1,6 @@
 ---
 title: 2024最新IntelliJ IDEA专业版稳定正版激活码
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2024-04-17
 category: IDEA

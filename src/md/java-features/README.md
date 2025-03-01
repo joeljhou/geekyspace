@@ -4,7 +4,7 @@ icon: java
 description: Java 8-21：前沿特性解读系列（持续连载），截至2023年9月中旬，Java已达到第21版本。
   尽管如此，众多开发者仍停滞在Java 8的认知水平。为填补这一差距，我们推出专栏，聚焦分享最新Java知识。
 #icon: java
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true  # 是否原创文章
 date: 2023-12-20
 category: Java

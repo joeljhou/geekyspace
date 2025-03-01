@@ -1,7 +1,7 @@
 ---
 title: Java 16 新特性：instanceof 模式匹配
 description:
-author: 会敲代码的程序猿
+author: 流浪码客
 isOriginal: true
 date: 2023-12-28
 category: Java
