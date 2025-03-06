@@ -14,6 +14,20 @@ export const jvm = arraySidebar([
             children: [
                 {text: "运行时数据区", link: "runtime-data-areas"},
                 {text: "对象分配过程", link: "heap-object-flow"},
+                {
+                    text: "基础故障处理工具",  prefix: "basic-tools/", link: "basic-tools/",
+                    collapsible: true,
+                    children: [
+                        // {text: "依赖注入", link: "factory-collaborators"}
+                    ]
+                },
+                {
+                    text: "可视化故障处理工具",  prefix: "visual-tools/", link: "visual-tools/",
+                    collapsible: true,
+                    children: [
+                        {text: "VisualVM介绍", link: "visualvm"}
+                    ]
+                },
             ],
         },
         {

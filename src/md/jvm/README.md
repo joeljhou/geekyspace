@@ -44,7 +44,7 @@ star: true    # 收藏star标记
 - **第4章 虚拟机性能监控、故障处理工具（Chapter 4: JVM Performance Monitoring and Troubleshooting Tools）**
     - 4.1 概述（Overview）
     - 4.2 JConsole介绍（Introduction to JConsole）
-    - 4.3 VisualVM介绍（Introduction to VisualVM）
+    - [4.3 VisualVM介绍（Introduction to VisualVM）](part2/visual-tools/visualvm.md)
     - 4.4 其他工具（Other Tools）
 
 - **第5章 调优案例分析与实战（Chapter 5: Optimization Case Analysis and Practices）**
