@@ -14,11 +14,12 @@ tag:
 
 ## Homebrew安装
 
-> [Homebrew官网](https://brew.sh/zh-cn/)
+[Homebrew官网](https://brew.sh/zh-cn/) ｜ [Github](https://github.com/homebrew)
+
+> Homebrew 是 macOS 和 Linux 上的包管理器，可以帮助用户轻松安装和管理各种软件包。
 
 ### 官网脚本
 
-Homebrew 是 macOS 和 Linux 上的包管理器，可以帮助用户轻松安装和管理各种软件包。
 ![安装Homebrew](http://img.geekyspace.cn/pictures/2025/20250312024222153.png)
 
 **安装 Homebrew**

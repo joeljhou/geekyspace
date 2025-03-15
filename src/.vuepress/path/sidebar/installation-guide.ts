@@ -12,4 +12,23 @@ export const installationGuide = arraySidebar([
             {text: "Homebrew", link: "Homebrew"},
         ],
     },
+    {
+        text: "开发环境", prefix: "dev-env/", children: [
+            {
+                text: "Java", prefix: "java/", link: "java/",
+                collapsible: false,
+                children: [
+                    {text: "SDKMAN", link: "SDKMAN"},
+                ]
+            },
+            {
+                text: "Nodejs", prefix: "nodejs/", link: "nodejs/",
+                collapsible: false,
+                children: [
+                    {text: "NVM", link: "NVM"},
+                    {text: "Corepack", link: "Corepack"},
+                ]
+            },
+        ],
+    },
 ]);
