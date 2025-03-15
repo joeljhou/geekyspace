@@ -1,11 +1,17 @@
 ---
 title: Java 16 新特性：record类
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2023-12-29
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 395
 ---
 

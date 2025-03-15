@@ -1,11 +1,16 @@
 ---
 title: 开发者安装大全
-icon: spring
+shortTitle:
+description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-04-23
-category: 安装大全
-tag: 安装大全
+category: 软件安装
+tag:
 ---
 
 # 开发者安装大全

@@ -1,13 +1,17 @@
 ---
 title: 深入理解Java虚拟机
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: true  # 置顶特定文章
+star: true    # 收藏star标记
 date: 2024-08-08
 category: JVM
-tag: JVM
-star: true    # 收藏star标记
-#sticky: true  # 置顶特定文章
+tag:
+  - jvm
 ---
 
 # 深入理解Java虚拟机目录

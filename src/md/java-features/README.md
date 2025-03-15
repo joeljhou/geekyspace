@@ -1,20 +1,21 @@
 ---
 title: Java新版本特性（持续连载）
-icon: java
+shortTitle:
 description: Java 8-21：前沿特性解读系列（持续连载），截至2023年9月中旬，Java已达到第21版本。
   尽管如此，众多开发者仍停滞在Java 8的认知水平。为填补这一差距，我们推出专栏，聚焦分享最新Java知识。
-#icon: java
+icon: java
+cover:
 author: 流浪码客
 isOriginal: true  # 是否原创文章
+sticky: true      # 置顶特定文章
+star: true        # 收藏star标记
 date: 2023-12-20
-category: Java
-tag: Java Features
-star: true  # 收藏star标记
+category: Java Features
+tag:
+  - java
 # 布局 Frontmatter 配置
 # navbar: false
 # sidebar: heading
-# 置顶特定文章
-sticky: true
 ---
 
 # Java新版本特性（持续连载）

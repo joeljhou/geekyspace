@@ -1,13 +1,17 @@
 ---
 title: Homebrew快速安装，使用指南
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2025-03-15
-category: 安装大全
+category: 包管理器
 tag:
-  - 包管理器
-#star: true
+  - Homebrew
 ---
 
 # Homebrew快速安装，使用指南

@@ -1,10 +1,17 @@
 ---
 title: Top20常用命令
+shortTitle:
+description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-11-23
 category: Docker
-tag: Docker
+tag:
+  - docker
 ---
 
 # Top20常用命令

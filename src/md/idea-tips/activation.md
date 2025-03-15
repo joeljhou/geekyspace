@@ -1,14 +1,20 @@
 ---
-title: 2024最新IntelliJ IDEA专业版稳定正版激活码
+title: 2025最新IntelliJ IDEA专业版稳定正版激活码
+shortTitle:
+description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
-date: 2024-04-17
-category: IDEA
-tag: IntelliJ IDEA
+sticky: false
 star: true
+date: 2024-04-17
+category: 开发工具
+tag: 
+  - IDEA
 ---
 
-# 2024最新IntelliJ IDEA专业版稳定正版激活码
+# 2025最新IntelliJ IDEA专业版稳定正版激活码
 
 ## 适用于Mac系统
 
@@ -16,7 +22,7 @@ star: true
 
 ### 1️⃣ 第一步：下载激活文件
 
-[https://h5.m.goofish.com/item?id=787912789834](https://h5.m.goofish.com/item?id=787912789834)
+[激活文件获取](https://h5.m.goofish.com/item?id=785250929165)
 
 ### 2️⃣ 第二步：打开激活文件 `macjihuo.zip`，解压缩
 
@@ -48,7 +54,7 @@ star: true
 
 ### 1️⃣ 第一步：下载激活文件
 
-[https://h5.m.goofish.com/item?id=787912789834](https://h5.m.goofish.com/item?id=787912789834)
+[激活文件获取](https://h5.m.goofish.com/item?id=785250929165)
 
 ### 2️⃣ 第二步：解压下载的压缩包
 

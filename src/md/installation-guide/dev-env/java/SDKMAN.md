@@ -1,13 +1,17 @@
 ---
 title: SDKMAN快速安装，管理JDK
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: true
 date: 2025-03-15
-category: 安装大全
+category: 包管理器
 tag:
-  - Java
-  - 包管理器
+  - SDKMAN
 ---
 
 # SDKMAN快速安装，管理JDK

@@ -1,15 +1,18 @@
 ---
 title: Java多线程与并发编程
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2025-02-18
-category: JUC
-tag: JUC
-star: true    # 收藏star标记
-#sticky: true  # 置顶特定文章
+category: 并发编程
+tag:
+  - JUC
 ---
-
 
 > 你聊一聊多线程以及并发你是如何实现的，以往在实际工作中，遇到高并发的环境采用那些方案进行处理。
 ## 目标

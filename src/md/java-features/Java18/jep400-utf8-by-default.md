@@ -1,11 +1,17 @@
 ---
 title: Java 18 新特性：指定UTF-8为默认字符集
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-01-01
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 400
 ---
 

@@ -1,12 +1,17 @@
 ---
 title: Spring Data JPA
-icon: spring
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-04-04
 category: Spring Data
-tag: Spring Data JPA
+tag: 
+  - spring data jpa
 ---
 
 # Spring Data JPA

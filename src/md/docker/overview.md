@@ -1,10 +1,17 @@
 ---
 title: Docker概述
+shortTitle:
+description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-11-15
 category: Docker
-tag: Docker
+tag:
+  - docker
 ---
 
 # Docker概述

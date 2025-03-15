@@ -1,14 +1,18 @@
 ---
 title: Windows、Office激活密钥，脚本，程序
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-04-23
-category: 安装大全
+category: 激活
 tag:
   - Windows
   - Office
-#star: true
 ---
 
 # Windows、Office激活密钥，脚本，程序

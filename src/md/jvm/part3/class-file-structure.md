@@ -1,11 +1,17 @@
 ---
 title: 类文件结构
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-07-19
 category: JVM
-tag: JVM
+tag:
+  - jvm
 order: 6.3
 ---
 

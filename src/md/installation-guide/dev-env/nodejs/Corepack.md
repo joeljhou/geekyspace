@@ -1,16 +1,19 @@
 ---
 title: Corepack核心包管理工具
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2025-03-15
-category: 安装大全
+category: 包管理器
 tag:
-  - nodejs
   - npm
   - pnpm
   - yarn
-  - 包管理器
 ---
 
 # Corepack核心包管理工具

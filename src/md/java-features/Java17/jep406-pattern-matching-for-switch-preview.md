@@ -1,11 +1,17 @@
 ---
 title: Java 17 新特性：switch模式匹配（Preview）
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2023-12-30
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+   - java
 order: 406
 ---
 

@@ -1,11 +1,17 @@
 ---
 title: 类加载机制
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-07-20
 category: JVM
-tag: JVM
+tag:
+  - jvm
 order: 7.3
 ---
 

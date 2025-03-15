@@ -1,11 +1,17 @@
 ---
 title: 堆中对象分配、布局和访问的全过程
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-08-10
 category: JVM
-tag: JVM
+tag:
+  - jvm
 order: 2.3
 ---
 

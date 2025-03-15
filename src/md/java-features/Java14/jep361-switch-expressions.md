@@ -1,11 +1,17 @@
 ---
 title: Java 14 新特性：switch表达式增强
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2023-12-25
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 361
 ---
 

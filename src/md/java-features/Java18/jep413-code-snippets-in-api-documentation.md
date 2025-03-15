@@ -1,11 +1,17 @@
 ---
 title: Java 18 新特性：新增@snipppet标签
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-01-03
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 413
 ---
 

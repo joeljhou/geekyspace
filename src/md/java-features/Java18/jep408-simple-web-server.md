@@ -1,11 +1,17 @@
 ---
 title: Java 18 新特性：简单Web服务器
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-01-02
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 408
 ---
 

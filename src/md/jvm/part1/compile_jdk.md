@@ -1,11 +1,17 @@
 ---
 title: 实战编译JDK
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-07-26
 category: JVM
-tag: JVM
+tag: 
+  - jvm
 order: 1.6
 ---
 

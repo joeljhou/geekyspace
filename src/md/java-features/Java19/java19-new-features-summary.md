@@ -1,11 +1,17 @@
 ---
 title: Java19 新特性总结
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-01-04
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 ---
 
 # Java 19 新特性总结

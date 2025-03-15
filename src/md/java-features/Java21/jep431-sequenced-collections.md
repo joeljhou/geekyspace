@@ -1,11 +1,17 @@
 ---
 title: Java 21 新特性：有序集合
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-01-07
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 431
 ---
 

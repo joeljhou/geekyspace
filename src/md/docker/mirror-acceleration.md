@@ -1,10 +1,17 @@
 ---
 title: Docker镜像加速器
+shortTitle:
+description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-11-16
 category: Docker
-tag: Docker
+tag:
+  - docker
 ---
 
 # Docker镜像加速器

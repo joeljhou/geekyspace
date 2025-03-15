@@ -1,11 +1,17 @@
 ---
 title: VisualVM介绍
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2025-03-06
 category: JVM
-tag: JVM
+tag:
+  - jvm
 order: 4.3
 ---
 

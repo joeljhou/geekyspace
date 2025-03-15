@@ -1,11 +1,17 @@
 ---
 title: Java 10 新特性：局部变量类型推断
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
 date: 2023-12-23
-category: Java
-tag: Java Features
+sticky: false
+star: false
+category: Java Features
+tag:
+  - java
 order: 286
 ---
 

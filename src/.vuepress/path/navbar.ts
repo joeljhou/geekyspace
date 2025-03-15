@@ -13,7 +13,7 @@ export default navbar([
             },
             {
                 text: "Java进阶", children:[
-                    {text: "JVM原理与性能调优", icon: "jvm-xx", link: "md/jvm/"},
+                    {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "md/jvm/"},
                 ],
             }
         ]

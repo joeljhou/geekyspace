@@ -1,11 +1,17 @@
 ---
 title: Java 9 新特性：不可变集合的快捷创建方法
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2023-12-22
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 266
 ---
 

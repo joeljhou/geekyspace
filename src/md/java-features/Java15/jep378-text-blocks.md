@@ -1,11 +1,17 @@
 ---
 title: Java 15 新特性：文本块（Text Blocks）
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2023-12-27
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+   - java
 order: 378
 ---
 

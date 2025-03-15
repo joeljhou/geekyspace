@@ -1,11 +1,17 @@
 ---
 title: Java 21 新特性：字符串模版(Preview)
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2024-01-06
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 430
 ---
 

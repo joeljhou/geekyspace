@@ -1,12 +1,17 @@
 ---
 title: Java 11 新特性 ：移除JavaEE和CORBA模块以及JavaFX
-shortTitle: Java 11 新特性 ：移除JavaEE和CORBA模块
+shortTitle:
 description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
+sticky: false
+star: false
 date: 2023-12-24
-category: Java
-tag: Java Features
+category: Java Features
+tag:
+  - java
 order: 320
 ---
 
