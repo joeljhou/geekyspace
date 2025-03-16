@@ -1,4 +1,5 @@
 /.idea/
+/**/.obsidian/
 node_modules/
 src/.vuepress/.cache/
 src/.vuepress/.temp/
