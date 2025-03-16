@@ -1,26 +1,25 @@
 ---
-title: SDKMAN快速安装，管理JDK
-shortTitle:
-description:
-icon:
-cover:
+title: Java生态版本管理神器—SDKMAN
+shortTitle: 
+description: 
+icon: 
+cover: 
 author: 流浪码客
 isOriginal: true
 sticky: false
 star: true
 date: 2025-03-15
 category: 包管理器
-tag:
+tags:
   - SDKMAN
 ---
+# Java生态版本管理神器—SDKMAN
 
-# SDKMAN快速安装，管理JDK
-
-## SDKMAN安装
-
-[SDKMAN官网](https://sdkman.io/) | [Github](https://github.com/sdkman)
+主要官方来源：[SDKMAN官网](https://sdkman.io/) | [Github](https://github.com/sdkman)
 
 > SDKMAN! 是一个轻量级、支持多平台，开源的，用于管理多个 SDK（如 `Java`、`Kotlin`、`Gradle`、`Maven` 等）的工具。
+
+## 安装SDKMAN
 
 **安装 SDKMAN!** 
 * 只需启动一个新终端并输入：

@@ -1,26 +1,26 @@
 ---
-title: Homebrew快速安装，使用指南
-shortTitle:
-description:
-icon:
-cover:
+title: macOS必备包管理工具—Homebrew
+shortTitle: 
+description: 
+icon: 
+cover: 
 author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
 date: 2025-03-15
 category: 包管理器
-tag:
+tags:
   - Homebrew
 ---
 
-# Homebrew快速安装，使用指南
+# macOS必备包管理工具—Homebrew
 
-## Homebrew安装
-
-[Homebrew官网](https://brew.sh/zh-cn/) ｜ [Github](https://github.com/homebrew)
+主要官方来源：[Homebrew官网](https://brew.sh/zh-cn/) |  [Github](https://github.com/homebrew)
 
 > Homebrew 是 macOS 和 Linux 上的包管理器，可以帮助用户轻松安装和管理各种软件包。
+
+## 安装Homebrew
 
 ### 官网脚本
 

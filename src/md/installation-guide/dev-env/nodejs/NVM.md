@@ -1,26 +1,26 @@
 ---
-title: NVM快速安装，管理Node.js
-shortTitle:
-description:
-icon:
-cover:
+title: Node.js版本管理神器—nvm
+shortTitle: 
+description: 
+icon: 
+cover: 
 author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
 date: 2025-03-15
 category: 包管理器
-tag:
+tags:
   - nvm
 ---
 
-# SDKMAN快速安装，管理JDK
+# Node.js版本管理神器—nvm
 
 主要官方来源：[nvm Github](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 
 > `nvm`是 [node.js](https://nodejs.org/zh-cn) 的版本管理器，允许您通过命令行快速安装和使用不同版本的 node。
 
-## NVM安装
+## 安装nvm
 
 手动下载并运行 [安装脚本](https://github.com/nvm-sh/nvm/blob/v0.40.2/install.sh)，或使用**命令行安装**（`cURL` 或 `Wget`）：
 ```shell

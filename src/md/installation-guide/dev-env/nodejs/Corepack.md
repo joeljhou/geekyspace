@@ -15,41 +15,40 @@ tag:
   - pnpm
   - yarn
 ---
-
 # Corepack核心包管理工具
 
-[Nodejs官网文档](https://nodejs.org/api/corepack.html) ｜ [Github](https://github.com/nodejs/corepack)
+主要官方来源：[Nodejs官网文档](https://nodejs.org/api/corepack.html) |  [Github](https://github.com/nodejs/corepack)
 
-> Corepack 是一个零运行时依赖性的 Node.js 脚本，它充当 Node.js 项目与开发过程中要使用的包管理器之间的桥梁。实际上， **Corepack 允许您使用 Yarn、npm 和 pnpm，而无需安装它们**。
+> Corepack 作为一个内置于 Node.js 工具，为开发者解决了包管理器（`Yarn`、`npm` 和 `pnpm` ）版本不一致和兼容性问题。
 
-## Corepack安装
+## 安装Corepack
 
-从 Node.js 14.19 / 16.9 开始，所有官方 Node.js 版本都包含 Corepack。需要[手动安装](https://github.com/nodejs/corepack?tab=readme-ov-file#manual-installs)参考Github。
+从 Node.js 16.x 开始，所有官方 Node.js 版本都内置有 Corepack。需要[手动安装](https://github.com/nodejs/corepack?tab=readme-ov-file#manual-installs)请参考Github。
 
-由于 [Corepack 中的签名过时](https://github.com/nodejs/corepack/issues/612) 问题，请先将 Corepack 更新至最新版本：
+**Corepack 更新**
+* 解决 [Corepack 中的签名过时](https://github.com/nodejs/corepack/issues/612) 问题
 ```shell
 npm install --global corepack@latest
 ```
 
 **验证 Corepack 版本**
-* 通过 NVM 安装 Node.js 后，默认情况下 Corepack 会随着 Node.js 一起安装。
 ```shell
 corepack -v
 ```
 
 **启用该功能**
-* [Corepack](https://github.com/nodejs/corepack) 是一款*实验性*工具，需要手动启用，它可帮助您管理软件包管理器的版本。
+* [Corepack](https://github.com/nodejs/corepack) 是一款*实验性*工具，需要手动启用。
 ```shell
 corepack enable
 ```
 
 **禁用 Corepack**
-* 通过 Corepack 启用的包管理器（如 `pnpm` 和 `yarn`）将不再自动切换。
+* 禁用之后，通过 Corepack 启用的包管理器（如 `pnpm` 和 `yarn`）将不再自动切换。
 ```shell
 corepack disable
 ```
 
-## 安装和管理pnpm/Yarn
+## 安装包管理工具
 
 ### [pnpm](https://pnpm.io/zh/)
 

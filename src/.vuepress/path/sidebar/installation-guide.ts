@@ -25,7 +25,8 @@ export const installationGuide = arraySidebar([
                 text: "Nodejs", prefix: "nodejs/", link: "nodejs/",
                 collapsible: false,
                 children: [
-                    {text: "NVM", link: "NVM"},
+                    {text: "nvm", link: "nvm"},
+                    {text: "nrm", link: "nrm"},
                     {text: "Corepack", link: "Corepack"},
                 ]
             },
