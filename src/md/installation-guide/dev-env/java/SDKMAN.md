@@ -83,5 +83,3 @@ sdk default java $Identifier
 ```shell
 sdk current java
 ```
-
-

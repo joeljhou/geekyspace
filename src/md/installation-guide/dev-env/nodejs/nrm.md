@@ -14,6 +14,7 @@ tags:
   - nrm
   - 镜像
 ---
+
 # npm源切换加速利器—nrm
 
 主要官方来源：[npmjs-nrm](https://www.npmjs.com/package/nrm)
@@ -78,4 +79,16 @@ $ nrm add <源名> <源URL>
 nrm del <源名>
 ```
 
+## 统一切换npm，pnpm，yarn镜像源
 
+```
+nrm use huawei
+```
+
+```shell
+npm config get registry
+```
+
+```shell
+pnpm config get registry
+```

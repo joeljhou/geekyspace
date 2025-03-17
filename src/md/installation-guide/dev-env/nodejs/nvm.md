@@ -83,7 +83,3 @@ nvm current # 显示当前 NVM 管理的 Node.js 版本
 ```shell
 nvm uninstall <version>   # 卸载指定版本（如 nvm uninstall 16）
 ```
-
-
-
-

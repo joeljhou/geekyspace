@@ -60,7 +60,7 @@ tag:
 
 ### 3️⃣ 第三步：打开解压的“`激活码-Win系统`”文件夹，
 
-==双击要激活软件的vbs==
+双击要激活软件的vbs
 
 ![Double-click](http://img.geekyspace.cn/pictures/2024/202404171718775.png)
 

@@ -265,7 +265,3 @@ docker run -v <volume_name>:/data nginx
 docker logout
 ```
 
-
-
-
-
