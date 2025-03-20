@@ -14,7 +14,6 @@ tags:
   - nrm
   - 镜像
 ---
-
 # npm源切换加速利器—nrm
 
 主要官方来源：[npmjs-nrm](https://www.npmjs.com/package/nrm)
@@ -80,15 +79,32 @@ nrm del <源名>
 ```
 
 ## 统一切换npm，pnpm，yarn镜像源
-
+使用 `nrm` 切换镜像源时，通常会修改 `.npmrc` 配置文件，这会同时影响 `npm` 和 `pnpm`。
 ```
 nrm use huawei
 ```
+* 验证 `npm` 镜像源：
+	```shell
+	npm config get registry
+	```
+* 验证 `pnpm` 镜像源：
+	```shell
+	pnpm config get registry
+	```
 
+为了确保`nrm use`命令， `yarn` 也同步更新镜像源，在 `~/.zshrc`中中添加以下内容：
 ```shell
-npm config get registry
+nrm() {
+    if [ "$1" = "use" ] && [ -n "$2" ]; then
+        command nrm use "$2"
+        yarn config set registry $(npm config get registry)
+        echo "Yarn registry updated to $(yarn config get registry)"
+    else
+        command nrm "$@"
+    fi
+}
 ```
-
+执行`source ~/.zshrc`后，验证 `yarn` 镜像源：
 ```shell
-pnpm config get registry
+yarn config get registry
 ```
