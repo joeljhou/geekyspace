@@ -118,3 +118,6 @@ html[data-theme="dark"] img {
   filter: brightness(0.7); /* 适当降低亮度 */
   transition: filter 0.3s ease-in-out;
 }
+
+// 将博主信息移动至文章列表的左侧
+@import "vuepress-theme-hope/presets/left-blog-info.scss";
