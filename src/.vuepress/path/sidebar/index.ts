@@ -6,6 +6,14 @@ import {springFramework} from "./spring-framework";
 import {installationGuide} from "./installation-guide";
 
 export default sidebar({
+    "/md/java/": [
+        {
+            text: "Java 基础", prefix: "basic/", link: "basic/",
+            children: [
+                {text: "Java 基础 - 入门", link: "java-from-scratch"}
+            ],
+        },
+    ],
     "/md/java-features/": javaFeatures,        // Java新特性
     "/md/jvm/": jvm,                           // 深入理解Java虚拟机
     "/md/spring-framework/": springFramework,  // Spring框架

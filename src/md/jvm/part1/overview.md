@@ -14,7 +14,6 @@ tag:
   - jvm
 order: 1.4
 ---
-
 # Java虚拟机概述
 
 > **Java虚拟机**（Java Virtual Machine，简称JVM）是运行所有Java程序的虚拟计算机，是Java平台的核心实现。
