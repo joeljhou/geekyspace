@@ -1,18 +1,23 @@
+# 全局配置参考：https://vuejs.press/zh/guide/deployment.html
 name: docs
 
 on:
-  # 每当 push 到 main 分支时触发部署
+  # push 到 master 分支时自动部署
   push:
     branches: [master]
-  # 手动触发部署
+  # 允许手动触发
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  docs:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
@@ -33,7 +38,11 @@ jobs:
 
       # 运行构建脚本
       - name: 构建 VuePress 站点
-        run: pnpm docs:build
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
+        run: |
+          pnpm docs:build
+          touch src/.vuepress/dist/.nojekyll
 
       # 查看 workflow 的文档来获取更多信息
       # @see https://github.com/crazy-max/ghaction-github-pages
