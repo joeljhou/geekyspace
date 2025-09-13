@@ -9,9 +9,9 @@ isOriginal: true
 sticky: false
 star: false
 date: {{date}}
-category: 分类
+category: Blog
 tags:
-  - 标签
+  - Template
 ---
 # {{title}}
 

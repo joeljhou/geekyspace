@@ -1,5 +1,5 @@
 ---
-title: 从零开始学习Java
+title: Java基础 - 从零开始学习Java
 shortTitle:
 description:
 icon:
@@ -11,6 +11,7 @@ star: false
 date: 2025-09-09
 category: Java
 tags:
+  - JavaBasic
 ---
 # 从零开始学习Java
 ## 1.Java语言的发展历史

@@ -6,16 +6,30 @@ export default navbar([
     {
         text: "Java", icon: "java", children: [
             {
-                text: "Java基础", children:[
-                    {text: "从零开始学习Java", icon: "java", link: "md/java/basic/java-from-scratch"},
+                text: "Java 基础", children:[
+                    {text: "快速入门", icon: "java", link: "md/java/basic/java-from-scratch"},
+                    {text: "面向对象编程（OOP）", icon: "java", link: "md/java/basic/java-basic-oop"},
+                ],
+            },
+            {
+                text: "Java 集合框架", children:[
 
-
-                    {text: "Java新版本特性", icon: "java", link: "md/java-features/"},
+                ],
+            },
+            {
+                text: "Java 多线程与并发编程", children:[
                     {text: "多线程与并发编程", icon: "thread", link: "md/java-juc/"},
                 ],
             },
             {
-                text: "Java进阶", children:[
+                text: "Java IO框架", children:[
+
+                ],
+            },
+            {
+                text: "Java进阶 深入理解JVM", children:[
+                    {text: "多线程与并发编程", icon: "thread", link: "md/java-juc/"},
+                    {text: "Java新版本特性", icon: "java", link: "md/java-features/"},
                     {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "md/jvm/"},
                 ],
             }

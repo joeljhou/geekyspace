@@ -10,7 +10,8 @@ export default sidebar({
         {
             text: "Java 基础", prefix: "basic/", link: "basic/",
             children: [
-                {text: "Java 基础 - 入门", link: "java-from-scratch"}
+                {text: "快速入门", link: "java-from-scratch"},
+                {text: "面向对象编程（OOP）", link: "java-basic-oop"}
             ],
         },
     ],
