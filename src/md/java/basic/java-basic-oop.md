@@ -1,5 +1,5 @@
 ---
-title: Java核心思想 - 面向对象编程（OOPL）
+title: Java核心思想 - 面向对象编程（OOP）
 shortTitle:
 description:
 icon:
