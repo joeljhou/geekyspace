@@ -105,15 +105,49 @@ toCharArray()                  → 字符串转字符数组（char[]）
 | ≥ JDK8 | **堆（Heap）**                    | 方法区被移除（PermGen 被 Metaspace 替代），字符串常量池仍在堆上，`String.intern()` 的对象存储在堆中 |
 ## Arrays
 `Arrays` 类位于 `java.util` 包，是 Java 提供的**数组工具类**，特点如下：
+* 方法均为 `static`，无需创建对象即可调用
+* 提供对数组的排序、搜索、填充、复制、比较等操作
+* 支持基础类型数组与对象数组
 
-https://xie.infoq.cn/article/20df7ca933752601ee20be264
-
+**Arrays API**
+```java
+1️⃣ 排序
+Arrays.sort(arr);                             → 升序排序
+Arrays.sort(arr, from, to);                   → 指定区间排序 [from, to)
+Arrays.sort(arr, Collections.reverseOrder()); → 降序（对象数组）
+Arrays.parallelSort(arr);                     → 并行排序（大数组更快）
+2️⃣ 搜索
+Arrays.binarySearch(arr, key);                → 二分查找，数组需已排序
+Arrays.binarySearch(arr, from, to, key);      → 在 [from, to) 区间查找
+3️⃣ 比较与哈希
+Arrays.equals(arr1, arr2);                    → 数组内容是否相等
+Arrays.deepEquals(arr1, arr2);                → 多维数组内容是否相等
+Arrays.hashCode(arr);                         → 一维数组哈希
+Arrays.deepHashCode(arr);                     → 多维数组哈希
+4️⃣ 填充与复制
+Arrays.fill(arr, value);                      → 将数组元素全部填充为指定值
+Arrays.fill(arr, from, to, value);            → 填充区间 [from, to)
+Arrays.copyOf(arr, newLength);                → 复制并改变长度（扩容/缩容）
+Arrays.copyOfRange(arr, from, to);            → 复制区间 [from, to)
+5️⃣ 转字符串/集合
+Arrays.toString(arr);                         → 一维数组转字符串
+Arrays.deepToString(arr);                     → 多维数组转字符串
+Arrays.asList(arr);                           → 数组 → 固定大小 List 视图
+6️⃣ 并行/批量操作（Java 8+）
+Arrays.setAll(arr, i -> i * 2);               → 顺序初始化数组
+Arrays.parallelSetAll(arr, i -> i * 2);       → 并行初始化数组
+Arrays.parallelPrefix(arr, Integer::sum);     → 前缀和计算
+7️⃣ 流式 API（Java 8+）
+Arrays.stream(arr);                           → 数组 → Stream
+Arrays.stream(arr, from, to);                 → [from, to) 区间 → Stream
+```
 ## Math
 Math 类位于 `java.lang` 包，是 Java 提供的**数学工具类**。特点如下：
 - 使用`final`修饰，具有**不可变性**（`Immutable`），线程安全
 - 方法均为 `static`，无需创建对象即可调用 
 - 用途：支持基本运算（如加减乘除、取绝对值）、幂运算、三角函数、对数与指数运算、舍入操作，以及生成随机数等
-### Math API
+
+**Math API**
 ```java
 1️⃣ 基本数学运算
 Math.abs(x)                    → 绝对值
@@ -147,27 +181,68 @@ Math.random()                  → 返回 [0~1） 之间随机 double
 Math.PI                        → π 常量
 Math.E                         → e 常量
 ```
-### 常见用法
+**常见用法**
 ```java
 1️⃣ 分页计算
-int pages = (int) Math.ceil(totalItems / (double) pageSize);  // 向上取整
+int pages = (int) Math.ceil(totalItems / (double) pageSize);  → 向上取整
 2️⃣ 随机数生成
-int randInt = (int) (Math.random() * n);                      // 0 ~ n-1
-double randDouble = Math.random() * (max - min) + min;        // min ~ max
-boolean flip = Math.random() < 0.5;                           // 随机布尔
+int randInt = (int) (Math.random() * n);                      → 0 ~ n-1
+double randDouble = Math.random() * (max - min) + min;        → min ~ max
+boolean flip = Math.random() < 0.5;                           → 随机布尔
 3️⃣ 数值比较与约束
-int value = Math.max(minValue, Math.min(maxValue, inputValue)); // 限定范围 [minValue, maxValue]
+int value = Math.max(minValue, Math.min(maxValue, inputValue)); → 限定范围 [minValue, maxValue]
 4️⃣ 取整与舍入
 double d = 2.7;
-double ceil = Math.ceil(d);   // 3.0 向上取整
-double floor = Math.floor(d); // 2.0 向下取整
-long round = Math.round(d);   // 3 四舍五入
+double ceil = Math.ceil(d);   → 3.0 向上取整
+double floor = Math.floor(d); → 2.0 向下取整
+long round = Math.round(d);   → 3 四舍五入
 5️⃣ 几何与距离计算
-double distance = Math.hypot(x2 - x1, y2 - y1); // 两点间欧几里得距离
+double distance = Math.hypot(x2 - x1, y2 - y1); → 两点间欧几里得距离
 6️⃣ 幂运算
-double area = Math.pow(radius, 2) * Math.PI;    // 圆面积
+double area = Math.pow(radius, 2) * Math.PI;    → 圆面积
 ```
 ## Random
+`Random` 类位于 `java.util` 包，是 Java 提供的**伪随机数生成器**，基于 **线性同余算法（LCG）** 实现。特点如下：
+- **伪随机**：由确定算法生成，种子相同会得到相同序列。
+- **线程不安全**：每个 `Random` 实例在多线程中使用可能会有竞争问题。
+  - JDK 8 引入 `ThreadLocalRandom` 解决。 
+- **可复现性**：使用相同种子可生成相同随机序列。
+- **多种数据类型支持**：可生成 `int`、`long`、`float`、`double`、`boolean` 等随机值。
 
+**Random API**
+
+![Random API](http://img.geekyspace.cn/pictures/2025/202509161341118.png)
+
+**常见用法及扩展**
+
+```java
+// Random（单线程随机数）
+Random random = new Random();
+int min = 10, max = 20;
+int randInt = random.nextInt(max - min) + min;                // 区间随机整数 [min, max)
+double randDouble = random.nextDouble() * (max - min) + min;  // 区间随机浮点数 [min, max)
+List<String> prizes = List.of("奖品A","奖品B","奖品C");
+String winner = prizes.get(random.nextInt(prizes.size()));    // List 随机选择
+// Java 8+ 流式生成随机整数/双精度
+random.ints(5, 50, 100).forEach(System.out::println);
+random.doubles().limit(5).forEach(System.out::println);
+// ThreadLocalRandom（多线程安全）
+int tRand = ThreadLocalRandom.current().nextInt(0, 100);      // 区间随机整数 [0, 100)
+double tDouble = ThreadLocalRandom.current().nextDouble();    // 区间浮点数 [0.0, 1.0)
+// SplittableRandom（高性能/并行流）
+SplittableRandom sr = new SplittableRandom();
+sr.ints(5, 50, 100).forEach(System.out::print);
+sr.doubles().limit(5).forEach(System.out::println);
+```
 
 ## 时间日期（Date、Calendar、LocalDateTime 等）
+
+* [Java 日期时间API](https://www.yuque.com/yublog/nokuzy/xkk0xf)
+
+## 序
+
+* [lombok 使用及技巧](https://www.yuque.com/yublog/nokuzy/wmmc6g)
+* [stream 使用及其技巧](https://www.yuque.com/yublog/nokuzy/dioi46)
+* [lambda 使用及其技巧](https://www.yuque.com/yublog/nokuzy/mtonym)
+* [自定义注解(元注解)](https://www.yuque.com/yublog/nokuzy/qb14q0)
+* [反射专题-框架的灵魂](https://www.yuque.com/yublog/nokuzy/gff0zc)
