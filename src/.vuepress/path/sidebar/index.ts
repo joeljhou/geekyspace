@@ -18,7 +18,7 @@ export default sidebar({
         {
             text: "文章",
             children: [
-                {text: "Java 多线程与并发", icon: "thread", link: "thread/thread-juc"},
+                {text: "Java 多线程与并发", icon: "thread", link: "thread/thread-concurrency"},
             ],
         },
         {

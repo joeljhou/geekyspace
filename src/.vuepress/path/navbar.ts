@@ -29,7 +29,7 @@ export default navbar([
             // },
             {
                 text: "文章", children:[
-                    {text: "Java 多线程与并发", icon: "thread", link: "md/java/thread/thread-juc"},
+                    {text: "Java 多线程与并发", icon: "thread", link: "md/java/thread/thread-concurrency"},
                 ],
             },
             {
