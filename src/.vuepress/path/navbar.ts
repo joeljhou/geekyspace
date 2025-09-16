@@ -9,33 +9,35 @@ export default navbar([
                 text: "Java 基础", children:[
                     {text: "快速入门", icon: "java", link: "md/java/basic/java-from-scratch"},
                     {text: "面向对象编程（OOP）", icon: "java", link: "md/java/basic/java-basic-oop"},
+                    // {text: "常用类与工具", icon: "java", link: "md/java/basic/java-common-classes"},
+                ],
+            },
+            // {
+            //     text: "Java 集合框架", children:[
+            //
+            //     ],
+            // },
+            // {
+            //     text: "Java 多线程与并发", children:[
+            //
+            //     ],
+            // },
+            // {
+            //     text: "Java IO框架", children:[
+            //
+            //     ],
+            // },
+            {
+                text: "文章", children:[
+                    {text: "Java 多线程与并发", icon: "thread", link: "md/java/thread/thread-juc"},
                 ],
             },
             {
-                text: "Java 集合框架", children:[
-
+                text: "专栏", children:[
+                    {text: "Java新版本特性", icon: "java", link: "md/java/features/"},
+                    {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "md/java/jvm/"},
                 ],
             },
-            {
-                text: "Java 多线程与并发", children:[
-                    {text: "核心概念", icon: "thread", link: "md/java/thread/core-concepts"},
-                ],
-            },
-            {
-                text: "Java IO框架", children:[
-
-                ],
-            },
-            {
-                text: "Java 新特性", children:[
-                    {text: "Java8+ 新特性", icon: "java", link: "md/java-features/"},
-                ],
-            },
-            {
-                text: "Java进阶 深入理解JVM", children:[
-                    {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "md/jvm/"},
-                ],
-            }
         ]
     },
     {

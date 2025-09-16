@@ -1,5 +1,5 @@
 ---
-title: Java多线程与并发编程 - 核心概念
+title: Java多线程与并发编程
 shortTitle:
 description:
 icon:
@@ -13,7 +13,7 @@ category: 并发编程
 tag:
   - JUC
 ---
-# Java多线程与并发编程 - 核心概念
+# Java多线程与并发编程
 > 你聊一聊多线程以及并发你是如何实现的，以往在实际工作中，遇到高并发的环境采用那些方案进行处理。
 ## 目标
 - **基本概念 (Basic)**

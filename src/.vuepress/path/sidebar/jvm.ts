@@ -1,7 +1,7 @@
 import {arraySidebar} from "vuepress-theme-hope";
 
 export const jvm = arraySidebar([
-        {text: "总目录", prefix: "/md/jvm/", link: "/md/jvm/",},
+        {text: "总目录", prefix: "/md/java/jvm/", link: "/md/java/jvm/",},
         {
             text: "走近Java", prefix: "part1/", link: "part1/",
             children: [

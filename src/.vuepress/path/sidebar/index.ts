@@ -8,7 +8,7 @@ import {installationGuide} from "./installation-guide";
 export default sidebar({
     "/md/java/": [
         {
-            text: "Java 基础", prefix: "basic/", link: "basic/",
+            text: "Java 基础", prefix: "basic/", /*link: "basic/",*/
             children: [
                 {text: "快速入门", link: "java-from-scratch"},
                 {text: "面向对象编程（OOP）", link: "java-basic-oop"},
@@ -16,19 +16,21 @@ export default sidebar({
             ],
         },
         {
-            text: "Java 集合框架", prefix: "collection/", link: "collection/",
+            text: "文章",
             children: [
+                {text: "Java 多线程与并发", icon: "thread", link: "thread/thread-juc"},
             ],
         },
         {
-            text: "Java 多线程与并发", prefix: "thread/", link: "thread/",
+            text: "专栏",
             children: [
-                {text: "核心概念", link: "core-concepts"},
+                {text: "Java 新版本特性", icon: "java", link: "features/"},
+                {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "jvm/"},
             ],
         },
     ],
-    "/md/java-features/": javaFeatures,        // Java新特性
-    "/md/jvm/": jvm,                           // 深入理解Java虚拟机
+    "/md/java/features/": javaFeatures,        // Java新特性
+    "/md/java/jvm/": jvm,                      // 深入理解Java虚拟机
     "/md/spring-framework/": springFramework,  // Spring框架
     // "/md/spring-boot/": [                      // SpringBoot框架
     //     {text: "总目录", prefix: "/md/spring-boot/", link: "/md/spring-boot/"},
