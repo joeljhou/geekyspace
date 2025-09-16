@@ -9,7 +9,6 @@ export default navbar([
                 text: "Java 基础", children:[
                     {text: "快速入门", icon: "java", link: "md/java/basic/java-from-scratch"},
                     {text: "面向对象编程（OOP）", icon: "java", link: "md/java/basic/java-basic-oop"},
-                    {text: "Java新版本特性", icon: "java", link: "md/java-features/"},
                 ],
             },
             {
@@ -18,13 +17,18 @@ export default navbar([
                 ],
             },
             {
-                text: "Java 多线程与并发编程", children:[
-                    {text: "多线程与并发编程", icon: "thread", link: "md/java-juc/"},
+                text: "Java 多线程与并发", children:[
+                    {text: "核心概念", icon: "thread", link: "md/java/thread/core-concepts"},
                 ],
             },
             {
                 text: "Java IO框架", children:[
 
+                ],
+            },
+            {
+                text: "Java 新特性", children:[
+                    {text: "Java8+ 新特性", icon: "java", link: "md/java-features/"},
                 ],
             },
             {

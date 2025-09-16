@@ -18,7 +18,12 @@ export default sidebar({
         {
             text: "Java 集合框架", prefix: "collection/", link: "collection/",
             children: [
-
+            ],
+        },
+        {
+            text: "Java 多线程与并发", prefix: "thread/", link: "thread/",
+            children: [
+                {text: "核心概念", link: "core-concepts"},
             ],
         },
     ],
