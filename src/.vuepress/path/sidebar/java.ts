@@ -13,7 +13,7 @@ export const java = arraySidebar([
             text: "文章",
             children: [
                 {text: "Java 多线程与并发", icon: "thread", link: "thread/thread-concurrency"},
-                {text: "Java 程序员快速掌握 Kotlin", icon: "thread", link: "kotlin/kotlin-quick-for-java"},
+                {text: "Java 程序员快速掌握 Kotlin", icon: "kotlin", link: "kotlin/kotlin-quick-for-java"},
             ],
         },
         {
