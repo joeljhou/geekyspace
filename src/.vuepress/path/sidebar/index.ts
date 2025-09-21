@@ -1,36 +1,25 @@
 import {sidebar} from "vuepress-theme-hope";
 
+import {java} from "./java.js";
 import {javaFeatures} from "./java-features.js";
 import {jvm} from "./jvm.js";
-import {springFramework} from "./spring-framework";
+import {springFramework} from "./spring-framework"
 import {installationGuide} from "./installation-guide";
 
 export default sidebar({
-    "/md/java/": [
+    "/md/java/": java,                         // 1.Java
+    "/md/java/features/": javaFeatures,        // 专栏：Java新特性
+    "/md/java/jvm/": jvm,                      // 专栏：深入理解Java虚拟机
+    "/md/database/mysql/": [
+        {text: "总目录", prefix: "/md/database/mysql/", link: "/md/database/mysql/",},
         {
-            text: "Java 基础", prefix: "basic/", /*link: "basic/",*/
+            text: "概述", prefix: "overview/", link: "overview/",
             children: [
-                {text: "快速入门", link: "java-from-scratch"},
-                {text: "面向对象编程（OOP）", link: "java-basic-oop"},
-                {text: "常用类与工具", link: "java-common-classes"},
-            ],
-        },
-        {
-            text: "文章",
-            children: [
-                {text: "Java 多线程与并发", icon: "thread", link: "thread/thread-concurrency"},
-            ],
-        },
-        {
-            text: "专栏",
-            children: [
-                {text: "Java 新版本特性", icon: "java", link: "features/"},
-                {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "jvm/"},
+                {text: "什么是数据库？", link: "what-is-database"},
             ],
         },
     ],
-    "/md/java/features/": javaFeatures,        // Java新特性
-    "/md/java/jvm/": jvm,                      // 深入理解Java虚拟机
+
     "/md/spring-framework/": springFramework,  // Spring框架
     // "/md/spring-boot/": [                      // SpringBoot框架
     //     {text: "总目录", prefix: "/md/spring-boot/", link: "/md/spring-boot/"},

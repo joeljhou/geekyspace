@@ -89,7 +89,7 @@ toCharArray()                  → 字符串转字符数组（char[]）
     - `Latin1` 编码 → 每个字符占 1 字节
     - `UTF-16` 编码 → 每个字符占 2 字节
 - **效果**：减少内存占用，提高缓存命中率，且 API 保持兼容。
-### [Java21  String Templates](https://www.geekyspace.cn/md/java-features/Java21/jep430-string-templates.html)
+### [Java21  String Templates](/md/java/features/Java21/jep430-string-templates.html)
 ### 内存分配演进
 
 1. 在 Java 中，String 是引用类型，其引用存放在**栈（Stack）** 中，对象内容存放在**堆（Heap）** 中。 

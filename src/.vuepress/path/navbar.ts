@@ -9,33 +9,27 @@ export default navbar([
                 text: "Java 基础", children:[
                     {text: "快速入门", icon: "java", link: "md/java/basic/java-from-scratch"},
                     {text: "面向对象编程（OOP）", icon: "java", link: "md/java/basic/java-basic-oop"},
-                    // {text: "常用类与工具", icon: "java", link: "md/java/basic/java-common-classes"},
                 ],
             },
-            // {
-            //     text: "Java 集合框架", children:[
-            //
-            //     ],
-            // },
-            // {
-            //     text: "Java 多线程与并发", children:[
-            //
-            //     ],
-            // },
-            // {
-            //     text: "Java IO框架", children:[
-            //
-            //     ],
-            // },
             {
                 text: "文章", children:[
                     {text: "Java 多线程与并发", icon: "thread", link: "md/java/thread/thread-concurrency"},
+                    {text: "Java 程序员快速掌握 Kotlin", icon: "thread", link: "md/java/kotlin/kotlin-quick-for-java"},
                 ],
             },
             {
                 text: "专栏", children:[
                     {text: "Java新版本特性", icon: "java", link: "md/java/features/"},
                     {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "md/java/jvm/"},
+                ],
+            },
+        ]
+    },
+    {
+        text: "DataBase", icon: "database", children: [
+            {
+                text: "专栏", children:[
+                    {text: "MySQL必知必会", icon: "mysql", link: "md/database/mysql/"},
                 ],
             },
         ]

@@ -2,7 +2,7 @@
 title: 深入理解Java虚拟机
 shortTitle:
 description:
-icon:
+icon: jvm-xx
 cover:
 author: 流浪码客
 isOriginal: true
