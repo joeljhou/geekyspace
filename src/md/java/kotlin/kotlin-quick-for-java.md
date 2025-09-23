@@ -837,3 +837,80 @@ object ShowError : UiState
 | enum                | enum/sealed class     | 枚举/密封类表达有限集合 |
 
 Kotlin 密封类/接口让状态建模更安全，推荐用于有限状态、结果类型等场景。
+## 扩展函数
+扩展函数是 Kotlin 的一大特色，允许你为现有类添加新函数，而无需继承或修改原类，非常适合工具方法、DSL 等场景。下面是扩展函数的核心知识点和示例：
+
+**1️⃣ 基本语法**
+- 扩展函数的声明格式为：  `fun 接收者类型.函数名(参数): 返回类型 { ... }`
+- 扩展函数在调用时和普通成员函数调用一样，但它**不会真正改变类**。
+```kotlin
+// 为 String 添加扩展函数
+fun String.hello(): String = "Hello, $this"
+
+val msg = "Kotlin".hello()  // Hello, Kotlin
+println(msg)
+```
+---
+**2️⃣ 扩展属性**
+- 扩展不仅限于函数，也可以添加属性（只能有 getter，没有 backing field）。
+- 扩展属性不能存储状态，只能通过现有数据计算得到值。
+```kotlin
+val String.lastChar: Char
+    get() = this[this.length - 1]
+
+println("Kotlin".lastChar)  // n
+```
+---
+**3️⃣ 泛型扩展函数**
+- 扩展函数支持泛型，让工具方法更通用。
+```kotlin
+fun <T> List<T>.second(): T = this[1]
+println(listOf(1, 2, 3).second())  // 2
+```
+---
+**4️⃣ 作用域与静态解析**
+- 扩展函数**不会真正修改类**，调用取决于变量的**声明类型**。
+- 可以定义在：
+	- 顶层函数（常用）
+	- 类内部（成员扩展函数）
+	- 伴生对象
+```kotlin
+open class Parent
+class Child: Parent()
+
+fun Parent.foo() = "Parent"
+fun Child.foo() = "Child"
+
+val p: Parent = Child()
+println(p.foo())  // 输出: Parent，静态解析
+```
+---
+**5️⃣ Java 互操作**
+- 在 Java 中，Kotlin 扩展函数表现为 **静态方法**：
+```kotlin
+// Kotlin
+fun String.hello() = "Hello, $this"
+
+// Java 调用方式
+String result = MyKotlinFileKt.hello("Kotlin");
+```
+---
+**6️⃣ 常见应用：简化统一响应封装**
+```kotlin
+// 假设有一个 R<T> 响应类
+class R<T>(val data: T, val success: Boolean) {
+    companion object {
+        fun <T> success(data: T) = R(data, true)
+    }
+}
+```
+- 为任意对象添加扩展函数，将其快速包装成 `R<T>`：
+```kotlin
+// 为任意对象添加扩展函数，将其包装成 R<T>
+fun <T : Any?> T.rs(): R<T> = R.success(this)
+
+val result = "Hello".rs()
+println(result.success)  // 输出: true
+println(result.data)     // 输出: Hello
+```
+- 这样就可以直接使用 `对象.rs()` 来快速生成统一响应，代码更简洁。
