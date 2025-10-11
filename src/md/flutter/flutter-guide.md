@@ -145,6 +145,7 @@ flutter run -d ios                  # 在 iOS 模拟器运行
 * [🐟代码小抄-理解 Flutter 应用](https://codecopy.cn/post/19cdjq)
 	- 1️⃣ StatelessWidget —— 无状态组件
 	- 2️⃣ StatefulWidget —— 有状态组件
+-  [joeljhou/hello_flutter: 一个面向初学者的 Flutter 示例项目，展示基础控件、布局和样式。适合学习 Flutter 基础知识并快速上手开发简单应用。](https://github.com/joeljhou/hello_flutter)
 ### StatefulWidget 生命周期
 ![StatefulWidget 生命周期](http://img.geekyspace.cn/pictures/2025/202510081301653.png)
 StatefulWidget 的生命周期可分为 **4 个阶段**：
@@ -189,7 +190,6 @@ StatefulWidget 的生命周期可分为 **4 个阶段**：
 	- 用于：
 	    - 释放资源（如 `Controller`、`Stream`、`Timer`）
 	    - 取消订阅、关闭动画等
-	- 2️⃣ StatefulWidget —— 有状态组件
 ### Widget/UI布局/交互
 ![基础Widget/UI布局/交互](http://img.geekyspace.cn/pictures/2025/202510082217670.png)
 ## 页面跳转（Navigator）
@@ -197,11 +197,9 @@ StatefulWidget 的生命周期可分为 **4 个阶段**：
 ## 网络请求和序列化数据
 ![网络请求和序列化数据](http://img.geekyspace.cn/pictures/2025/202510100156407.png)
 
-
-
 ## 参考：
 * [Flutter 开发文档](https://docs.flutter.dev/) | [Flutter 中文开发文档](https://docs.flutter.cn/)
 * [手动安装Flutter](https://docs.flutter.cn/install/manual) | [安装常见问题](https://docs.flutter.cn/install/troubleshoot#cmdline-tools-component-is-missing)
 * [在 Android Studio 或 IntelliJ 里开发 Flutter 应用](https://docs.flutter.cn/tools/android-studio)
-* [女程序猿带你从0开始学Flutter：认识Flutter](https://www.bilibili.com/video/BV1p14y1T79R/
+* [女程序猿带你从0开始学Flutter：认识Flutter](https://www.bilibili.com/video/BV1p14y1T79R/)
 * [一个面向初学者的 Flutter 示例项目](https://github.com/joeljhou/hello_flutter)
