@@ -44,7 +44,7 @@ projects:
   - icon: smart-contracts
     name: 区块链智能合约
     desc: 提供区块链技术和智能合约开发的指南
-    link: /blockchain/
+    link: /md/blockchain/
 
 footer: © 2023 - 至今 <a href="https://www.geekyspace.cn/" target="_blank">www.geekyspace.cn</a> 保留所有权利
 copyright: Copyright © 2024 流浪码客
