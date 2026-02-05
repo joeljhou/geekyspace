@@ -19,6 +19,7 @@ export default navbar([
             },
             {
                 text: "专栏", children:[
+                    {text: "Java日期时间", icon: "java", link: "md/java/datetime/"},
                     {text: "Java新版本特性", icon: "java", link: "md/java/features/"},
                     {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "md/java/jvm/"},
                 ],

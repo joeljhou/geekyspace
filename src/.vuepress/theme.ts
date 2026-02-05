@@ -82,7 +82,7 @@ export default hopeTheme({
     footer: "© 2023 - 至今 <a href=\"https://www.geekyspace.cn\" target=\"_blank\">www.geekyspace.cn</a> 保留所有权利",
 
     // 默认的版权信息，设置为 false 来默认禁用它
-    copyright: "Copyright © 2024 流浪码客",
+    copyright: "Copyright © 2026 流浪码客",
 
     // 是否默认显示页脚
     displayFooter: true,
