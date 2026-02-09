@@ -1,17 +1,19 @@
 ---
-title: {{title}}
-shortTitle: 
-description: 
-icon: 
-cover: 
+title:
+  "{ title }":
+shortTitle:
+description:
+icon:
+cover:
 author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
-date: {{date}}
-category: Blog
+date:
+  "{ date }":
+category: Java Dates
 tags:
-  - Template
+  - date-time
 ---
 # {{title}}
 

@@ -21,21 +21,18 @@ tags:
 
 以下文章旨在帮助您开始使用[新的日期时间 API ](/md/java/date-time/intro-to-date-time-api)的一些常见任务。
 
-## 获取当前日期和时间
+## 1. 获取当前日期和时间
 
 - [获取当前日期和时间](/md/java/datetime/datetime)
 - [获取当前时间戳](/md/java/datetime/timestamp)
 - [获取当前用户区域设置、国际化](/md/java/datetime/locale)
 
-## 比较日期和时间
+## 2. 比较日期和时间
 
-- [日期比较](https://howtodoinjava.com/java/date-time/compare-dates/)
-- [比较 LocalDate 实例](https://howtodoinjava.com/java/date-time/compare-localdates/)
-- [比较 LocalDateTime 实例](https://howtodoinjava.com/java/date-time/compare-localdatetime/)
-- [比较 ZonedDateTime 实例](https://howtodoinjava.com/java/date-time/zoneddatetime-comparison/)
-- [ZonedDateTime 和 OffsetDateTime 的区别](https://howtodoinjava.com/java/date-time/zoneddatetime-vs-offsetdatetime/)
+- [日期比较](/md/java/datetime/compare-dates)
+- [ZonedDateTime 和 OffsetDateTime 的区别](/md/java/datetime/zoneddatetime-vs-offsetdatetime)
 
-## 转换日期时间实例
+## 3. 转换日期时间实例
 
 - [在本地日期时间和分区日期时间之间进行转换](https://howtodoinjava.com/java/date-time/localdatetime-to-zoneddatetime/)
 - [在本地日期和分区日期时间之间进行转换](https://howtodoinjava.com/java/date-time/localdate-zoneddatetime-conversion/)
@@ -48,7 +45,7 @@ tags:
 - [将日期转换为 EST/EDT 时区](https://howtodoinjava.com/java/date-time/convert-date-time-to-est-est5edt/)
 - [将 Instant 转换为 LocalDateTime、LocalDate 或 LocalTime](https://howtodoinjava.com/java/date-time/convert-instant-to-local-date-time/)
 
-## 将字符串解析为日期
+## 4. 将字符串解析为日期
 
 - [Java 日期格式验证](https://howtodoinjava.com/java/date-time/date-validation/)
 - [将字符串转换为 UTC 日期时间](https://howtodoinjava.com/java/date-time/parse-string-to-date-time-utc-gmt/)
@@ -60,7 +57,7 @@ tags:
 - Spring Boot 日期格式验证注解（_待办事项_）
 - 验证多种日期格式（_待办事项_）
 
-## 将日期格式化为字符串
+## 5. 将日期格式化为字符串
 
 - [在 Java 中将日期格式化为字符串](https://howtodoinjava.com/java/date-time/java-date-formatting/)
 - [格式化分区日期时间](https://howtodoinjava.com/java/date-time/format-zoneddatetime/)
@@ -73,10 +70,10 @@ tags:
 - [以 12 小时制格式格式化日期/时间戳](https://howtodoinjava.com/java/date-time/format-time-12-hours-pattern/)
 - [将毫秒级持续时间格式化为小时、分钟和秒](https://howtodoinjava.com/java/date-time/format-millis-to-hh-mm-ss/)
 
-## 日期和时间提取与处理
+## 6. 日期和时间提取与处理
 
 - [测量经过时间](https://howtodoinjava.com/java/date-time/execution-elapsed-time/)
-- [两个日期之间的差异](https://howtodoinjava.com/java/date-time/calculate-difference-between-two-dates-in-java/)
+- [两个日期之间的差异](/md/java/datetime/date-diff)
 - [计算两个日期之间的天数](https://howtodoinjava.com/java/date-time/calculate-days-between-dates/)
 - [获取两个日期之间的所有日期](https://howtodoinjava.com/java/date-time/dates-between-two-dates/)
 - [检查日期或本地日期是否为周末。](https://howtodoinjava.com/java/date-time/check-weekend/)
@@ -92,7 +89,7 @@ tags:
 - [如何设置 JVM 时区](https://howtodoinjava.com/java/date-time/setting-jvm-timezone/)
 - [一天的开始和结束](https://howtodoinjava.com/java/date-time/start-and-end-of-day/)
 
-## 日期时间 API
+## 7. 日期时间 API
 
 - [Java 本地化类](https://howtodoinjava.com/java/date-time/java-locale-api-examples/)
 - [Java 类 LocalTime](https://howtodoinjava.com/java/date-time/java-localtime/)

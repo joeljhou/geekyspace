@@ -70,7 +70,7 @@ switch (day) {
 
 在 Java 14 中，允许在每个分支中声明局部变量，避免块中变量命名冲突和误用。
 
-```
+```java
 switch (day) {
     case MONDAY:
     case TUESDAY:

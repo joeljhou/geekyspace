@@ -50,16 +50,16 @@ Java 8 之前的日期时间处理主要依赖 `Date`、`Calendar`、`SimpleDate
 新的日期 API 尝试解决旧类的上述问题。 它主要包含以下类：
 
 | 类/接口                                                                                                                    | 用途                           |
-|-------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| [java.time.LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html)                               | 仅表示**日期**（年-月-日），无时间、无时区     |
-| [java.time.LocalTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html)                               | 仅表示**时间**（时:分:秒.纳秒），无日期、无时区  |
-| [java.time.LocalDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html)                       | **日期 + 时间**，无时区              |
-| [java.time.ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html)                       | 日期 + 时间 + **时区**             |
-| [java.time.OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html)                     | 日期 + 时间 + **UTC 偏移量**        |
-| [java.time.Instant](https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html)                                   | 时间线上的一个**点（时间戳）**            |
-| [java.time.Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)                                 | 两个时间点之间的 **时间段**             |
-| [java.time.Period](https://docs.oracle.com/javase/8/docs/api/java/time/Period.html)                                     | 两个日期之间的 **日期段**              |
-| [java.time.format.DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) | **日期与字符串的格式化 / 解析**          |
+| ----------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| [java.time.LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html)                               | 不带时间的**日期**                  |
+| [java.time.LocalTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html)                               | 不带日期的**时间**                  |
+| [java.time.Instant](https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html)                                   | 时间线上的一个**瞬间点**               |
+| [java.time.LocalDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html)                       | **日期和时间**                    |
+| [java.time.ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html)                       | 包含**时区**的完整日期和时间             |
+| [java.time.OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html)                     | 包含**UTC 偏移量**的完整日期和时间        |
+| [java.time.Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)                                 | **时间量**，两个时间点之间的**时间段**      |
+| [java.time.Period](https://docs.oracle.com/javase/8/docs/api/java/time/Period.html)                                     | **时间量**，两个日期之间的**日期段**       |
+| [java.time.format.DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) | **格式化解析器**                   |
 | [java.time.ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)                                     | **时区标识符**（如 `Asia/Shanghai`） |
 | [java.time.ZoneOffset](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneOffset.html)                             | **UTC 偏移量**（如 `+08:00`）      |
 ## 执行常见任务
