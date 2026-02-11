@@ -22,7 +22,7 @@ tags:
 - 闲鱼/淘宝购买礼品卡，防止被封
 - 礼品卡金额可用来购买小火箭（Shadowrocket）软件，$2.99
 
-## 交易所实操
+## 交易所实操1
 1. 选择交易所
 	- [Binance（币安）](https://www.binance.com/zh-CN) - 新加坡、香港
 	- [OKX（欧易）](https://www.okx.com/zh-hans)

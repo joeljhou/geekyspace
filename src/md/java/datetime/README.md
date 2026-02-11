@@ -32,18 +32,9 @@ tags:
 - [日期比较](/md/java/datetime/compare-dates)
 - [ZonedDateTime 和 OffsetDateTime 的区别](/md/java/datetime/zoneddatetime-vs-offsetdatetime)
 
-## 3. 转换日期时间实例
+## 3. 转换日期和时间
 
-- [在本地日期时间和分区日期时间之间进行转换](https://howtodoinjava.com/java/date-time/localdatetime-to-zoneddatetime/)
-- [在本地日期和分区日期时间之间进行转换](https://howtodoinjava.com/java/date-time/localdate-zoneddatetime-conversion/)
-- [在本地日期时间和本地日期之间进行转换](https://howtodoinjava.com/java/date-time/localdate-localdatetime-conversions/)
-- [在 LocalDate 和 java.sql.Date 之间进行转换](https://howtodoinjava.com/java/date-time/localdate-to-sql-date/)
-- [在本地时间 (LocalTime) 和 java.sql.Time 之间进行转换](https://howtodoinjava.com/java/date-time/localtime-to-sql-time/)
-- [将 java.util.Date 转换为 LocalDate](https://howtodoinjava.com/java/date-time/localdate-to-date/)
-- [将 java.util.Date 转换为 LocalDateTime](https://howtodoinjava.com/java/date-time/localdatetime-to-date/)
-- [在不同时区之间转换日期和时间](https://howtodoinjava.com/java/date-time/convert-date-between-timezones/)
-- [将日期转换为 EST/EDT 时区](https://howtodoinjava.com/java/date-time/convert-date-time-to-est-est5edt/)
-- [将 Instant 转换为 LocalDateTime、LocalDate 或 LocalTime](https://howtodoinjava.com/java/date-time/convert-instant-to-local-date-time/)
+- [转换日期时间实例](/md/java/datetime/convert-dates)
 
 ## 4. 将字符串解析为日期
 

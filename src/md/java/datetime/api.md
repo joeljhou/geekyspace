@@ -17,8 +17,8 @@ tags:
 
 > 此文参考文献：
 > 
-> * [【菜鸟教程】-Java 日期时间](https://www.runoob.com/java/java-date-time.html)
-> * [【howtodoinjava】- Java 8 日期时间 API](https://howtodoinjava.com/java/date-time/intro-to-date-time-api/)
+> - [【菜鸟教程】-Java 日期时间](https://www.runoob.com/java/java-date-time.html)
+> - [【howtodoinjava】- Java 8 日期时间 API](https://howtodoinjava.com/java/date-time/intro-to-date-time-api/)
 
 Java 主要使用两个包`java.time`和`java.util`支持日期和时间特性。 `java.time`包是在 Java 8 [JSR-310](https://jcp.org/en/jsr/detail?id=310) 中新增的，解决了旧版
 `java.util.Date`和`java.util.Calendar`类的不足之处。
@@ -64,11 +64,12 @@ Java 8 之前的日期时间处理主要依赖 `Date`、`Calendar`、`SimpleDate
 | [java.time.ZoneOffset](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneOffset.html)                             | **UTC 偏移量**（如 `+08:00`）      |
 ## 执行常见任务
 [🐟代码小抄-Java 日期、时间常用API](https://codecopy.cn/post/suloc9)
+
 ```java
 import java.time.*;  
 import java.time.format.DateTimeFormatter;  
 import java.time.temporal.ChronoUnit;  
-  
+
 /**  
  * Java8 日期时间API的通用操作  
  */  

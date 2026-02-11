@@ -19,6 +19,12 @@ export const javaDatetime = arraySidebar([
             ],
         },
         {
+            text: "3.转换日期和时间",
+            children: [
+                {text: "转换日期时间实例", link: "convert-dates"},
+            ],
+        },
+        {
             text: "6.日期和时间提取与处理",
             children: [
                 {text: "日期时间差", link: "date-diff"},

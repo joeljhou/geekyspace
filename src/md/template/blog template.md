@@ -1,6 +1,5 @@
 ---
-title:
-  "{ title }":
+title: {{title}}
 shortTitle:
 description:
 icon:
@@ -9,8 +8,7 @@ author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
-date:
-  "{ date }":
+date: {{date}}
 category: Java Dates
 tags:
   - date-time
