@@ -22,6 +22,14 @@ export const installationGuide = arraySidebar([
                 ]
             },
             {
+                text: "IDEA", prefix: "idea/", link: "idea/",
+                collapsible: false,
+                children: [
+                    {text: "IDEA 入门", link: "https://www.jetbrains.com/help/idea/getting-started.html"},
+                    {text: "IDEA 激活", link: "idea-activation"},
+                ]
+            },
+            {
                 text: "Nodejs", prefix: "nodejs/", link: "nodejs/",
                 collapsible: false,
                 children: [
