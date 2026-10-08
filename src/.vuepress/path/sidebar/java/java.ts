@@ -14,6 +14,7 @@ export const java = arraySidebar([
             children: [
                 {text: "Java 多线程与并发", icon: "thread", link: "thread/thread-concurrency"},
                 {text: "Java 程序员快速掌握 Kotlin", icon: "kotlin", link: "kotlin/kotlin-quick-for-java"},
+                {text: "Sa-Token 认证鉴权", icon: "sa-token", link: "safe/sa-token"},
             ],
         },
         {

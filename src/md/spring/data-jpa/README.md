@@ -18,4 +18,4 @@ tag:
 
 ## 目录
 
-* [Spring Data JPA 快速入门](/spring-data-jpa/jetbrains/getting-started)
+* [Spring Data JPA 快速入门](/md/spring/data-jpa/jetbrains/getting-started.html)

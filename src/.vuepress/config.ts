@@ -15,9 +15,35 @@ export default defineUserConfig({
     theme,
 
     plugins: [
-        // 设置重定向
+        // 设置重定向（Spring 目录结构调整：/md/spring-* 收敛至 /md/spring/ 下）
         redirectPlugin({
-            config: {},
+            config: {
+                // spring-framework -> spring/framework
+                "/md/spring-framework/": "/md/spring/framework/",
+                "/md/spring-framework/overview/": "/md/spring/framework/overview/",
+                "/md/spring-framework/overview/quickstart.html": "/md/spring/framework/overview/quickstart.html",
+                "/md/spring-framework/core/": "/md/spring/framework/core/",
+                "/md/spring-framework/core/ioc-container.html": "/md/spring/framework/core/ioc-container.html",
+                "/md/spring-framework/core/beans-definition.html": "/md/spring/framework/core/beans-definition.html",
+                "/md/spring-framework/core/beans-scope.html": "/md/spring/framework/core/beans-scope.html",
+                "/md/spring-framework/core/beans-lifecycle.html": "/md/spring/framework/core/beans-lifecycle.html",
+                "/md/spring-framework/core/child-bean-definitions.html": "/md/spring/framework/core/child-bean-definitions.html",
+                "/md/spring-framework/core/dependencies/": "/md/spring/framework/core/dependencies/",
+                "/md/spring-framework/core/dependencies/factory-collaborators.html": "/md/spring/framework/core/dependencies/factory-collaborators.html",
+                "/md/spring-framework/core/dependencies/factory-properties-detailed.html": "/md/spring/framework/core/dependencies/factory-properties-detailed.html",
+                "/md/spring-framework/core/dependencies/factory-dependson.html": "/md/spring/framework/core/dependencies/factory-dependson.html",
+                "/md/spring-framework/core/dependencies/factory-lazy-init.html": "/md/spring/framework/core/dependencies/factory-lazy-init.html",
+                "/md/spring-framework/core/dependencies/factory-autowire.html": "/md/spring/framework/core/dependencies/factory-autowire.html",
+                "/md/spring-framework/core/dependencies/factory-method-injection.html": "/md/spring/framework/core/dependencies/factory-method-injection.html",
+                // spring-boot -> spring/boot
+                "/md/spring-boot/": "/md/spring/boot/",
+                "/md/spring-boot/quickstart.html": "/md/spring/boot/quickstart.html",
+                // spring-data-jpa -> spring/data-jpa
+                "/md/spring-data-jpa/": "/md/spring/data-jpa/",
+                "/md/spring-data-jpa/jetbrains/getting-started.html": "/md/spring/data-jpa/jetbrains/getting-started.html",
+                // idea-tips -> installation-guide（IDEA 激活教程迁移至安装大全）
+                "/md/idea-tips/activation.html": "/md/installation-guide/dev-env/idea/idea-activation.html",
+            },
         }),
         // 搜索插件
         docsearchPlugin({

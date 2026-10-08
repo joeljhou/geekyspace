@@ -1,18 +1,20 @@
 import {arraySidebar} from "vuepress-theme-hope";
 
 export const springFramework = arraySidebar([
+        {text: "总目录", prefix: "/md/spring/framework/", link: "/md/spring/framework/",},
         {
-            text: "概述", collapsible: true, prefix: "overview/", link: "overview/",
-            children: [{text: "快速开始", link: "quickstart"}]
+            text: "概述", prefix: "overview/", link: "overview/",
+            children: [
+                {text: "快速开始", link: "quickstart"},
+            ]
         },
         {
-            text: "核心技术", collapsible: true, prefix: "core/", link: "core/",
+            text: "核心技术", prefix: "core/", link: "core/",
             children: [
                 {text: "IoC容器", link: "ioc-container"},
                 {text: "Bean定义", link: "beans-definition"},
                 {
                     text: "依赖", prefix: "dependencies/", link: "dependencies/",
-                    collapsible: true,
                     children: [
                         {text: "依赖注入", link: "factory-collaborators"},
                         {text: "依赖和配置详解", link: "factory-properties-detailed"},
