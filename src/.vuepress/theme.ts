@@ -40,13 +40,13 @@ export default hopeTheme({
 
     // 导航栏图标
     logo: "/images/system/geeky.png",
-    // logoDark: "/images/system/geeky_zh.png",
+    // logoDark: "/images/system/geeky.png",
 
     // 全屏按钮
     fullscreen: false,
 
     // 字体图标资源链接（阿里巴巴iconfont矢量图标：https://www.iconfont.cn/）
-    iconAssets: "//at.alicdn.com/t/c/font_4370612_ke2l7xy0pf.css",
+    iconAssets: "//at.alicdn.com/t/c/font_4370612_3jtjrjprkem.css",
 
     // 页面显示信息：作者、原创、分类、日期、标签、阅读时间、字数、阅读量
     // "Author", "Original", "Category", "Date", "Tag", "ReadingTime", "Word", "PageView"
@@ -96,6 +96,7 @@ export default hopeTheme({
         description: "流浪码客，分享技术，品味人生",
         intro: "/about-me.html",
         medias: {
+            Twitter: "https://x.com/joeljhou336",
             GitHub: "https://github.com/joeljhou",
             Gitee: "https://gitee.com/joeljhou",
             BiliBili: "https://space.bilibili.com/3546587190004175",
@@ -116,7 +117,6 @@ export default hopeTheme({
             WechatMP: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI4MTMwMDg4MA==",
             Tieba: "https://tieba.baidu.com/home/main?un=%E6%9E%81%E5%AE%A2%E8%8B%B1%E9%9B%84",
             Weibo: "https://weibo.com/u/7788864199",
-            Twitter: "https://twitter.com/joeljhou336",
             Rss: "./rss.xml",
         },
     },

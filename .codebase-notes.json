@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "notes": {
+    "src/.vuepress/client.ts": {
+      "text": "客户端配置"
+    },
+    "src/.vuepress/config.ts": {
+      "text": "配置"
+    },
+    "src/.vuepress/path": {
+      "text": "路径"
+    },
+    "src/.vuepress/path/navbar.ts": {
+      "text": "导航栏"
+    },
+    "src/.vuepress/path/sidebar": {
+      "text": "侧边栏"
+    },
+    "src/.vuepress/styles/palette.scss": {
+      "text": "调色板"
+    },
+    "src/.vuepress/theme.ts": {
+      "text": "主题"
+    },
+    "src/README.md": {
+      "text": "主页推荐"
+    },
+    "src/about-me.md": {
+      "text": "关于我"
+    },
+    "src/article.md": {
+      "text": "文库汇总"
+    },
+    "src/md/java/datetime": {
+      "text": "专栏"
+    },
+    "src/md/java/features": {
+      "text": "专栏"
+    },
+    "src/md/java/jvm": {
+      "text": "专栏"
+    },
+    "src/md/linux/oracle-cloud": {
+      "text": "ARM Ubuntu 服务器折腾"
+    },
+    "src/md/spring/boot": {
+      "text": "专栏"
+    },
+    "src/md/spring/data-jpa": {
+      "text": "专栏"
+    },
+    "src/md/spring/framework": {
+      "text": "专栏"
+    }
+  }
+}
