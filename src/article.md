@@ -50,12 +50,12 @@ features:
     link: /md/cloudnative/linux/oracle-cloud/
 
   - title: AIGC新时代
-    icon: ai
+    icon: claudecode-fill
     details: 提供生成式人工智能的入门和进阶教程
     link: /md/ai/
 
   - title: 区块链与加密货币
-    icon: blockchain
+    icon: smart-contracts
     details: 区块链入门、加密货币实操、Web3周边实践
     link: /md/blockchain/
 
