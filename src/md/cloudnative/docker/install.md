@@ -38,6 +38,6 @@ $ docker run hello-world
 $ docker run -it ubuntu bash  
 ```
 
-可能会遇到如下网络错误，这个时候就需要配置[镜像源加速器](/md/docker/mirror-acceleration.html)
+可能会遇到如下网络错误，这个时候就需要配置[镜像源加速器](/md/cloudnative/docker/mirror-acceleration.html)
 
 `docker: error pulling image configuration: download failed after attempts=6: EOF.`
