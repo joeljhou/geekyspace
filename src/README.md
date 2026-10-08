@@ -6,46 +6,41 @@ hero: false
 title: 最新发布
 icon: home
 projects:
+  - icon: java
+    name: Java 核心知识体系
+    desc: Java 基础、集合、并发、JVM 虚拟机与新版特性
+    link: /md/java/
+
+  - icon: spring
+    name: Spring 全家桶实战
+    desc: Spring Framework、Spring Boot、Spring Data JPA
+    link: /md/spring/
+
+  - icon: mysql
+    name: MySQL 必知必会
+    desc: 索引、事务、锁、SQL 调优与高可用架构
+    link: /md/database/mysql/
+
+  - icon: rocket
+    name: 消息队列与中间件
+    desc: RabbitMQ、Kafka、RocketMQ 核心原理与实战
+    link: /md/middleware/
+
+  - icon: docker
+    name: 云原生与容器
+    desc: Docker、Kubernetes 与 Linux 服务器实践
+    link: /md/cloudnative/
+
+  - icon: redis
+    name: Redis 缓存与高并发
+    desc: 数据结构、持久化、主从集群与缓存三大问题
+    link: /md/database/
+
   - icon: launch
     name: 开发者安装大全
     desc: 好用工具、开发环境、中间件配置等安装指南
     link: /md/installation-guide/
-    
-  - icon: java
-    name: Java新特性
-    desc: 从Java 8开始所有新特性解读
-    link: /md/java-features/
 
-  - icon: intellij-idea
-    name: IDEA激活
-    desc: 了解IDEA更多牛x功能、推荐很有意思的主题和插件
-    link: /md/idea-tips/activation
-
-  - icon: spring
-    name: Spring实战
-    desc: 深入理解Spring框架
-    link: /md/spring-framework/core/
-
-  - icon: mysql
-    name: MySQL教程
-    desc: MySQL必知必会、高性能架构、排错指南
-    link: /mysql/
-
-  - icon: aigc
-    name: AIGC新时代
-    desc: 提供生成式人工智能的入门和进阶教程
-    link: /aigc/
-
-  - icon: cloud-service
-    name: 云原生技术
-    desc: 分享云原生架构的最佳实践和使用指南
-    link: /cloud-native/
-
-  - icon: smart-contracts
-    name: 区块链智能合约
-    desc: 提供区块链技术和智能合约开发的指南
-    link: /md/blockchain/
-
-footer: © 2023 - 至今 <a href="https://www.geekyspace.cn/" target="_blank">www.geekyspace.cn</a> 保留所有权利
+footer: © 2023 - 至今 <a href="https://www.geekyspace.cn/" target="_blank">www.geekyspace.cn/</a> 保留所有权利
 copyright: Copyright © 2026 流浪码客
 ---
