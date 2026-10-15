@@ -15,44 +15,11 @@ export default defineUserConfig({
     theme,
 
     plugins: [
-        // 设置重定向（Spring 目录结构调整：/md/spring-* 收敛至 /md/spring/ 下）
+        // 重定向示例
         redirectPlugin({
             config: {
-                // spring-framework -> spring/framework
                 "/md/spring-framework/": "/md/spring/framework/",
-                "/md/spring-framework/overview/": "/md/spring/framework/overview/",
-                "/md/spring-framework/overview/quickstart.html": "/md/spring/framework/overview/quickstart.html",
-                "/md/spring-framework/core/": "/md/spring/framework/core/",
-                "/md/spring-framework/core/ioc-container.html": "/md/spring/framework/core/ioc-container.html",
-                "/md/spring-framework/core/beans-definition.html": "/md/spring/framework/core/beans-definition.html",
-                "/md/spring-framework/core/beans-scope.html": "/md/spring/framework/core/beans-scope.html",
-                "/md/spring-framework/core/beans-lifecycle.html": "/md/spring/framework/core/beans-lifecycle.html",
-                "/md/spring-framework/core/child-bean-definitions.html": "/md/spring/framework/core/child-bean-definitions.html",
-                "/md/spring-framework/core/dependencies/": "/md/spring/framework/core/dependencies/",
-                "/md/spring-framework/core/dependencies/factory-collaborators.html": "/md/spring/framework/core/dependencies/factory-collaborators.html",
-                "/md/spring-framework/core/dependencies/factory-properties-detailed.html": "/md/spring/framework/core/dependencies/factory-properties-detailed.html",
-                "/md/spring-framework/core/dependencies/factory-dependson.html": "/md/spring/framework/core/dependencies/factory-dependson.html",
-                "/md/spring-framework/core/dependencies/factory-lazy-init.html": "/md/spring/framework/core/dependencies/factory-lazy-init.html",
-                "/md/spring-framework/core/dependencies/factory-autowire.html": "/md/spring/framework/core/dependencies/factory-autowire.html",
-                "/md/spring-framework/core/dependencies/factory-method-injection.html": "/md/spring/framework/core/dependencies/factory-method-injection.html",
-                // spring-boot -> spring/boot
-                "/md/spring-boot/": "/md/spring/boot/",
-                "/md/spring-boot/quickstart.html": "/md/spring/boot/quickstart.html",
-                // spring-data-jpa -> spring/data-jpa
-                "/md/spring-data-jpa/": "/md/spring/data-jpa/",
-                "/md/spring-data-jpa/jetbrains/getting-started.html": "/md/spring/data-jpa/jetbrains/getting-started.html",
-                // 工具指南迁移：保留旧首页与文章地址
-                "/md/installation-guide/": "/md/tools-guide/",
-                "/md/installation-guide/os/windows-office-activation.html": "/md/tools-guide/installation-activation/windows-office.html",
-                "/md/installation-guide/dev-env/idea/idea-activation.html": "/md/tools-guide/installation-activation/idea.html",
-                "/md/installation-guide/base-tools/Homebrew.html": "/md/tools-guide/environment-configuration/homebrew.html",
-                "/md/installation-guide/base-tools/nps.html": "/md/tools-guide/development-tips/nps.html",
-                "/md/installation-guide/dev-env/java/SDKMAN.html": "/md/tools-guide/environment-configuration/sdkman.html",
-                "/md/installation-guide/dev-env/nodejs/nvm.html": "/md/tools-guide/environment-configuration/nvm.html",
-                "/md/installation-guide/dev-env/nodejs/nrm.html": "/md/tools-guide/environment-configuration/nrm.html",
-                "/md/installation-guide/dev-env/nodejs/Corepack.html": "/md/tools-guide/environment-configuration/corepack.html",
-                "/md/installation-guide/dev-env/git/multiple-accounts-ssh.html": "/md/tools-guide/development-tips/git-ssh.html",
-                "/md/idea-tips/activation.html": "/md/tools-guide/installation-activation/idea.html",
+                "/md/spring-boot/":     "/md/spring/boot/"
             },
         }),
         // 搜索插件

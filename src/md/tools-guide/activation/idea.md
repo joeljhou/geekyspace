@@ -1,5 +1,5 @@
 ---
-title: 2025最新IntelliJ IDEA专业版稳定正版激活码
+title: 2026最新IntelliJ IDEA专业版稳定正版激活码
 shortTitle:
 description:
 icon:
@@ -10,15 +10,15 @@ sticky: false
 star: true
 date: 2024-04-17
 category: 开发工具
-tag: 
+tag:
   - IDEA
 ---
 
-# 2025最新IntelliJ IDEA专业版稳定正版激活码
+# 2026最新IntelliJ IDEA专业版稳定正版激活码
 
 ## 适用于Mac系统
 
-> 仅支持官网专业版2020-2024的激活。不支持社区版 toolbox下载的IDEA。
+> 仅支持官网专业版2020-2026的激活。不支持社区版 toolbox下载的IDEA。
 
 ### 1️⃣ 第一步：下载激活文件
 
@@ -50,7 +50,7 @@ tag:
 
 ## 适用于Windows系统
 
-> 仅支持官网专业版2020-2024的激活。不支持社区版 toolbox下载的
+> 仅支持官网专业版2020-2026的激活。不支持社区版 toolbox下载的
 
 ### 1️⃣ 第一步：下载激活文件
 

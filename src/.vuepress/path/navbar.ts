@@ -93,26 +93,22 @@ export default navbar([
         text: "工具指南", icon: "launch", prefix: "md/tools-guide/", children: [
             {
                 text: "安装激活", children: [
-                    {text: "IDEA 入门", icon: "intellij-idea", link: "https://www.jetbrains.com/help/idea/getting-started.html"},
-                    {text: "IDEA 激活", icon: "intellij-idea", link: "installation-activation/idea"},
+                    {text: "IDEA 激活", icon: "intellij-idea", link: "activation/idea"},
                 ],
             },
             {
                 text: "环境配置", children: [
-                    {text: "Homebrew", link: "environment-configuration/homebrew"},
-                    {text: "NVM", link: "environment-configuration/nvm"},
+                    {text: "NVM", link: "env-config/nvm"},
                 ],
             },
             {
-                text: "开发技巧", children: [
-                    {text: "Git 提交规范", link: "development-tips/git-commit"},
-                    {text: "SSH 配置多账号", link: "development-tips/git-ssh"},
+                text: "开发实践", children: [
+                    {text: "SSH 配置多账号", link: "dev-practices/git-ssh"},
                 ],
             },
             {
                 text: "Mac 技巧", children: [
                     {text: "Zsh 别名配置", link: "mac-tips/aliases"},
-                    {text: "Finder 快速操作", link: "mac-tips/finder"},
                 ],
             },
         ]

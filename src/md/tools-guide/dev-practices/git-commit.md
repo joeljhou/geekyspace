@@ -5,7 +5,7 @@ description: Git 提交信息速查：常用格式、类型说明和可直接参
 author: 流浪码客
 isOriginal: true
 date: 2023-02-03
-category: 开发技巧
+category: 开发实践
 tags:
   - Git
   - 提交规范

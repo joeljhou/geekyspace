@@ -3,7 +3,7 @@ import {arraySidebar} from "vuepress-theme-hope";
 export const toolsGuide = arraySidebar([
     {text: "工具指南", link: "/md/tools-guide/"},
     {
-        text: "安装激活", prefix: "installation-activation/",
+        text: "安装激活", prefix: "activation/",
         collapsible: false,
         children: [
             {text: "Office 激活", link: "windows-office"},
@@ -11,7 +11,7 @@ export const toolsGuide = arraySidebar([
         ],
     },
     {
-        text: "环境配置", prefix: "environment-configuration/",
+        text: "环境配置", prefix: "env-config/",
         collapsible: false,
         children: [
             {text: "Homebrew", link: "homebrew"},
@@ -22,7 +22,7 @@ export const toolsGuide = arraySidebar([
         ],
     },
     {
-        text: "开发技巧", prefix: "development-tips/",
+        text: "开发实践", prefix: "dev-practices/",
         collapsible: false,
         children: [
             {text: "Git 提交规范", link: "git-commit"},

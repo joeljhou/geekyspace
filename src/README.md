@@ -8,7 +8,7 @@ icon: home
 projects:
   - icon: launch
     name: 工具指南
-    desc: 软件安装与激活、开发环境配置、开发实践与 Mac 使用技巧
+    desc: 软件安装与激活、开发实践与 Mac 技巧
     link: /md/tools-guide/
 
   - icon: java
