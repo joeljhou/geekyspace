@@ -41,8 +41,18 @@ export default defineUserConfig({
                 // spring-data-jpa -> spring/data-jpa
                 "/md/spring-data-jpa/": "/md/spring/data-jpa/",
                 "/md/spring-data-jpa/jetbrains/getting-started.html": "/md/spring/data-jpa/jetbrains/getting-started.html",
-                // idea-tips -> installation-guide（IDEA 激活教程迁移至安装大全）
-                "/md/idea-tips/activation.html": "/md/installation-guide/dev-env/idea/idea-activation.html",
+                // 工具指南迁移：保留旧首页与文章地址
+                "/md/installation-guide/": "/md/tools-guide/",
+                "/md/installation-guide/os/windows-office-activation.html": "/md/tools-guide/installation-activation/windows-office.html",
+                "/md/installation-guide/dev-env/idea/idea-activation.html": "/md/tools-guide/installation-activation/idea.html",
+                "/md/installation-guide/base-tools/Homebrew.html": "/md/tools-guide/environment-configuration/homebrew.html",
+                "/md/installation-guide/base-tools/nps.html": "/md/tools-guide/development-tips/nps.html",
+                "/md/installation-guide/dev-env/java/SDKMAN.html": "/md/tools-guide/environment-configuration/sdkman.html",
+                "/md/installation-guide/dev-env/nodejs/nvm.html": "/md/tools-guide/environment-configuration/nvm.html",
+                "/md/installation-guide/dev-env/nodejs/nrm.html": "/md/tools-guide/environment-configuration/nrm.html",
+                "/md/installation-guide/dev-env/nodejs/Corepack.html": "/md/tools-guide/environment-configuration/corepack.html",
+                "/md/installation-guide/dev-env/git/multiple-accounts-ssh.html": "/md/tools-guide/development-tips/git-ssh.html",
+                "/md/idea-tips/activation.html": "/md/tools-guide/installation-activation/idea.html",
             },
         }),
         // 搜索插件

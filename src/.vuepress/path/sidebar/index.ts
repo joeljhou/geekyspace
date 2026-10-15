@@ -1,22 +1,13 @@
 import {sidebar} from "vuepress-theme-hope";
 
-import {java} from "./java";
-import {javaDatetime} from "./java/java-datetime";
-import {javaFeatures} from "./java/java-features";
-import {jvm} from "./java/jvm.js";
-import {spring} from "./spring";
-import {springFramework} from "./spring/spring-framework";
-import {springBoot} from "./spring/spring-boot";
-import {springDataJpa} from "./spring/spring-data-jpa";
-import {installationGuide} from "./installation-guide";
+import {java, javaDatetime, javaFeatures, jvm} from "./java";
+import {spring, springFramework, springBoot, springDataJpa} from "./spring";
+import {toolsGuide} from "./tools-guide";
 import {cloudnative} from "./cloudnative";
-import {docker} from "./cloudnative/docker";
-import {linux} from "./cloudnative/linux";
-import {armUbuntu} from "./cloudnative/arm-ubuntu";
+import {docker, linux, armUbuntu} from "./cloudnative";
 import {middleware} from "./middleware";
 import {blockchain} from "./blockchain";
-import {ai} from "./ai";
-import {aigc} from "./ai/aigc";
+import {ai, aigc} from "./ai";
 
 export default sidebar({
     /** ===== 1. Java 语言核心 ===== */
@@ -56,9 +47,9 @@ export default sidebar({
     "/md/cloudnative/linux/": linux,                    // Linux 基础/专栏
     "/md/cloudnative/linux/oracle-cloud/": armUbuntu,   // 专栏：Ubuntu 服务器折腾
 
+    /** ===== 7. 工具指南 ===== */
+    "/md/tools-guide/": toolsGuide,
+
     /** ===== 8. Blockchain 区块链 ===== */
     "/md/blockchain/": blockchain,        // 区块链/加密货币/香港银行
-
-    /** ===== 7. 安装大全 ===== */
-    "/md/installation-guide/": installationGuide,
 });

@@ -7,9 +7,9 @@ title: 最新发布
 icon: home
 projects:
   - icon: launch
-    name: 开发者安装大全
-    desc: 好用工具、开发环境、中间件配置等安装指南
-    link: /md/installation-guide/
+    name: 工具指南
+    desc: 软件安装与激活、开发环境配置、开发实践与 Mac 使用技巧
+    link: /md/tools-guide/
 
   - icon: java
     name: Java新特性

@@ -15,12 +15,10 @@ export default navbar([
                 text: "文章", children: [
                     {text: "Java 多线程与并发", icon: "thread", link: "md/java/thread/thread-concurrency"},
                     {text: "Java 程序员快速掌握 Kotlin", icon: "kotlin", link: "md/java/kotlin/kotlin-quick-for-java"},
-                    {text: "Sa-Token 认证鉴权", icon: "sa-token", link: "md/java/safe/sa-token"},
                 ],
             },
             {
                 text: "专栏", children: [
-                    {text: "Java日期时间", icon: "java", link: "md/java/datetime/"},
                     {text: "Java新版本特性", icon: "java", link: "md/java/features/"},
                     {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "md/java/jvm/"},
                 ],
@@ -31,7 +29,6 @@ export default navbar([
         text: "Spring 框架生态", icon: "spring", children: [
             {
                 text: "文章", children: [
-                    {text: "Springdoc 快速入门", icon: "spring", link: "md/spring/springdoc"},
                     {text: "Spring 反应式编程", icon: "spring", link: "md/spring/webflux/spring-reactive"},
                     {text: "Spring Boot 中各测试框架", icon: "spring", link: "md/spring/test/spring-testing-frameworks"},
                 ],
@@ -40,7 +37,6 @@ export default navbar([
                 text: "专栏", children: [
                     {text: "Spring Framework", icon: "spring", link: "md/spring/framework/"},
                     {text: "Spring Boot 教程", icon: "spring", link: "md/spring/boot/"},
-                    {text: "Spring Data JPA", icon: "spring", link: "md/spring/data-jpa/"},
                 ],
             },
         ]
@@ -58,8 +54,6 @@ export default navbar([
         text: "AI 与智能应用", icon: "claudecode-fill", children: [
             {
                 text: "文章", children: [
-                    {text: "提示词工程深入实战", icon: "aigc", link: "md/ai/aigc/prompt-engineering"},
-                    {text: "Coze：零基础开发对话机器人", icon: "coze", link: "md/ai/coze/coze-chatbot-basics"},
                     {text: "Andrej Karpathy 学习资料", icon: "claudecode-fill", link: "md/ai/karpathy-notes"},
                 ],
             },
@@ -96,17 +90,29 @@ export default navbar([
         ]
     },
     {
-        text: "安装大全", icon: "launch", prefix: "md/installation-guide/", children: [
+        text: "工具指南", icon: "launch", prefix: "md/tools-guide/", children: [
             {
-                text: "开发环境", children: [
+                text: "安装激活", children: [
                     {text: "IDEA 入门", icon: "intellij-idea", link: "https://www.jetbrains.com/help/idea/getting-started.html"},
-                    {text: "IDEA 激活", icon: "intellij-idea", link: "dev-env/idea/idea-activation"},
+                    {text: "IDEA 激活", icon: "intellij-idea", link: "installation-activation/idea"},
                 ],
             },
             {
-                text: "常用工具", children: [
-                    {text: "Homebrew", link: "base-tools/Homebrew"},
-                    {text: "NVM", link: "dev-env/nodejs/nvm"},
+                text: "环境配置", children: [
+                    {text: "Homebrew", link: "environment-configuration/homebrew"},
+                    {text: "NVM", link: "environment-configuration/nvm"},
+                ],
+            },
+            {
+                text: "开发技巧", children: [
+                    {text: "Git 提交规范", link: "development-tips/git-commit"},
+                    {text: "SSH 配置多账号", link: "development-tips/git-ssh"},
+                ],
+            },
+            {
+                text: "Mac 技巧", children: [
+                    {text: "Zsh 别名配置", link: "mac-tips/aliases"},
+                    {text: "Finder 快速操作", link: "mac-tips/finder"},
                 ],
             },
         ]
