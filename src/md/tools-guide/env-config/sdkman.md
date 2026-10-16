@@ -1,8 +1,8 @@
 ---
 title: Java生态版本管理神器—SDKMAN
-shortTitle:
-description:
-icon:
+shortTitle: SDKMAN：Java 版本管理
+description: SDKMAN 安装与使用指南，涵盖 Java 发行版查询、JDK 安装与卸载、当前会话版本切换及全局默认版本设置。
+icon: https://sdkman.io/assets/img/sdkman-pattern.svg
 cover:
 author: 流浪码客
 isOriginal: true

@@ -1,8 +1,8 @@
 ---
 title: npm源切换加速利器—nrm
-shortTitle:
-description:
-icon:
+shortTitle: nrm：npm 镜像源管理
+description: nrm 安装与使用指南，涵盖 npm 镜像源查询、切换、测速和自定义源管理，以及 npm、pnpm 与 Yarn 的镜像配置同步。
+icon: https://cdn.nvmnode.com/static/images/logo.svg
 cover:
 author: 流浪码客
 isOriginal: true

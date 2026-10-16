@@ -1,8 +1,8 @@
 ---
 title: Node.js版本管理神器—nvm
-shortTitle:
-description:
-icon:
+shortTitle: nvm：Node.js 版本管理
+description: nvm 安装与使用指南，涵盖环境变量配置、Node.js 与 LTS 版本查询和安装、版本切换、默认版本设置及卸载。
+icon: https://cdn.nvmnode.com/static/images/logo.svg
 cover:
 author: 流浪码客
 isOriginal: true

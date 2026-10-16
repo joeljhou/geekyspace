@@ -1,8 +1,8 @@
 ---
 title: macOS必备包管理工具—Homebrew
-shortTitle:
-description:
-icon:
+shortTitle: Homebrew：macOS 软件管理
+description: Homebrew 安装与使用指南，涵盖 macOS 下的多种安装方式、环境变量配置、命令行与图形软件管理，以及 Apple Silicon 默认安装路径。
+icon: https://brew.sh/assets/img/homebrew.svg
 cover:
 author: 流浪码客
 isOriginal: true

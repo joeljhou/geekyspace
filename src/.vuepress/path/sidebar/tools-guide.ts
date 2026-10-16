@@ -14,11 +14,12 @@ export const toolsGuide = arraySidebar([
         text: "环境配置", prefix: "env-config/",
         collapsible: false,
         children: [
-            {text: "Homebrew", link: "homebrew"},
-            {text: "SDKMAN", link: "sdkman"},
-            {text: "NVM", link: "nvm"},
-            {text: "NRM", link: "nrm"},
-            {text: "Corepack", link: "corepack"},
+            {text: "Homebrew", icon: "macos", link: "homebrew"},
+            {text: "SDKMAN", icon: "java", link: "sdkman"},
+            {text: "NVM", icon: "nodejs", link: "nvm"},
+            {text: "NRM", icon: "nodejs", link: "nrm"},
+            {text: "Corepack", icon: "nodejs", link: "corepack"},
+            {text: "UV", icon: "python", link: "uv"},
         ],
     },
     {

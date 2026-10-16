@@ -1,8 +1,8 @@
 ---
 title: Corepack核心包管理工具
-shortTitle:
-description:
-icon:
+shortTitle: Corepack：包管理器版本管理
+description: Corepack 安装与配置指南，涵盖启用与禁用、pnpm 和 Yarn 的安装，以及通过 packageManager 字段固定项目包管理器版本。
+icon: https://cdn.nvmnode.com/static/images/logo.svg
 cover:
 author: 流浪码客
 isOriginal: true
