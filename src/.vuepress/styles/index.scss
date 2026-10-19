@@ -1,6 +1,6 @@
 @use "sass:color";
 @use "sass:list";
-@use "@sass-palette/hope-config" as hope-config;
+@use "./config" as hope-config;
 
 // fix：解决新版Chrome字体加粗
 body {
