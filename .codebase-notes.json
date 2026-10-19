@@ -16,8 +16,8 @@
     "src/.vuepress/path/sidebar": {
       "text": "侧边栏"
     },
-    "src/.vuepress/styles/palette.scss": {
-      "text": "调色板"
+    "src/.vuepress/styles/index.scss": {
+      "text": "自定义css"
     },
     "src/.vuepress/theme.ts": {
       "text": "主题"
@@ -39,6 +39,12 @@
     },
     "src/md/java/jvm": {
       "text": "专栏"
+    },
+    "src/md/java/jvm/part2/basic-tools": {
+      "text": "基础故障处理工具"
+    },
+    "src/md/java/jvm/part2/visual-tools": {
+      "text": "可视化故障处理工具"
     },
     "src/md/linux/oracle-cloud": {
       "text": "ARM Ubuntu 服务器折腾"
