@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:list";
+@use "@sass-palette/hope-config" as hope-config;
+
 // fix：解决新版Chrome字体加粗
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -105,6 +109,18 @@ html[data-theme=dark] {
   --grey3: #e6edf3; /*首页项目卡片字体颜色*/
   --dark-grey: #e6edf3; /*图标文字颜色*/
   --light-grey: #e6edf3; /*图标文字颜色*/
+}
+
+// 卡片图标跟随色盘：日间加深、夜间使用浅色。
+@each $color in hope-config.$colors {
+  html[data-theme=light] .vp-project-panel .vp-project-card.project#{list.index(hope-config.$colors, $color) - 1} .icon {
+    color: color.scale($color, $lightness: -65%);
+  }
+  html[data-theme=dark] .vp-project-panel .vp-project-card.project#{list.index(hope-config.$colors, $color) - 1} {
+    background: color.scale($color, $lightness: -75%);
+    &:hover { background: color.scale($color, $lightness: -55%); }
+    .icon { color: $color; }
+  }
 }
 
 html[data-theme=light] {
