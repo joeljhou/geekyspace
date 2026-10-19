@@ -5,6 +5,7 @@ import {docsearchPlugin} from "@vuepress/plugin-docsearch";
 import {googleAnalyticsPlugin} from '@vuepress/plugin-google-analytics';
 import {commentPlugin} from "vuepress-plugin-comment2";
 import {docSearchLocales} from "./config/docSearchLocales";
+import {resolveRelativeMarkdownLinksPlugin} from "./plugins/resolveRelativeMarkdownLinks";
 
 import theme from "./theme.js";
 
@@ -15,6 +16,7 @@ export default defineUserConfig({
     theme,
 
     plugins: [
+        resolveRelativeMarkdownLinksPlugin(),
         // 重定向示例
         redirectPlugin({
             config: {

@@ -22,8 +22,8 @@ tags:
 
 ## 1. 专栏
 
-- [Docker 容器化实战](docker)
-- [Ubuntu 服务器折腾](linux/oracle-cloud)
+- [Docker 容器化实战](../cloudnative/docker/)
+- [Ubuntu 服务器折腾](linux/oracle-cloud/)
 
 ## 2. Linux 服务器基础
 
@@ -32,6 +32,6 @@ tags:
 
 ## 3. 规划中
 
-| 专栏 | 说明 | 状态 |
-| --- | --- | --- |
+| 专栏              | 说明         | 状态  |
+|-----------------|------------|-----|
 | Kubernetes（K8s） | 容器编排、云原生时代 | 规划中 |
