@@ -32,7 +32,7 @@ export default hopeTheme({
     // 调色板-全屏按钮
     fullscreen: true,
     // 字体图标资源链接（阿里巴巴iconfont矢量图标：https://www.iconfont.cn/）
-    iconAssets: "//at.alicdn.com/t/c/font_4370612_kl6sgm1esf.css",
+    iconAssets: "//at.alicdn.com/t/c/font_4370612_9dji6qcydkl.css",
     // 文章页面顶部显示信息：作者、原创、分类、日期、标签、阅读时间、字数、阅读量
     // "Author", "Original", "Category", "Date", "Tag", "ReadingTime", "Word", "PageView"
     pageInfo: ["Date", "Category", "Tag", "ReadingTime", "Word", "PageView"],
