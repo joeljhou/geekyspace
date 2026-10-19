@@ -98,7 +98,7 @@ export default navbar([
             },
             {
                 text: "环境配置", children: [
-                    {text: "NVM", link: "env-config/nvm"},
+                    {text: "NVM", icon: "nodejs", link: "env-config/nvm"},
                 ],
             },
             {

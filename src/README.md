@@ -3,7 +3,7 @@
 home: true
 layout: BlogHome
 hero: false
-title: 最新发布
+title: 极客空间
 icon: home
 projects:
   - icon: launch
