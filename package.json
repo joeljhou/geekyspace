@@ -12,6 +12,7 @@
     "docs:update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
+    "@types/node": "24.13.3",
     "@vuepress/bundler-vite": "2.0.0-rc.9",
     "@vuepress/plugin-copyright": "2.0.0-rc.21",
     "@vuepress/plugin-docsearch": "2.0.0-rc.21",
