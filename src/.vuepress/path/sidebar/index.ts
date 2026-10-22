@@ -3,6 +3,7 @@ import {sidebar} from "vuepress-theme-hope";
 import {java, javaDatetime, javaFeatures, jvm} from "./java";
 import {spring, springFramework, springBoot, springDataJpa} from "./spring";
 import {toolsGuide} from "./tools-guide";
+import {idea} from "./idea";
 import {cloudnative} from "./cloudnative";
 import {docker, linux, armUbuntu} from "./cloudnative";
 import {middleware} from "./middleware";
@@ -49,6 +50,7 @@ export default sidebar({
 
     /** ===== 7. 工具指南 ===== */
     "/md/tools-guide/": toolsGuide,
+    "/md/tools-guide/idea/": idea,      // 历史归档：IntelliJ IDEA 教程
 
     /** ===== 8. Blockchain 区块链 ===== */
     "/md/blockchain/": blockchain,        // 区块链/加密货币/香港银行
