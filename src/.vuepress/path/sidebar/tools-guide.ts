@@ -39,4 +39,11 @@ export const toolsGuide = arraySidebar([
             {text: "Finder 快速操作", link: "finder"},
         ],
     },
+    {
+        text: "Windows 技巧", prefix: "windows-tips/",
+        collapsible: false,
+        children: [
+            {text: "Windows 重装系统", link: "reinstall"},
+        ],
+    },
 ]);
