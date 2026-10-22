@@ -29,9 +29,8 @@ export default navbar([
         text: "Spring 框架生态", icon: "spring", children: [
             {
                 text: "文章", children: [
-                    {text: "Spring 初始化", icon: "spring", link: "/md/spring/spring-initializr.html"},
-                    {text: "Spring 反应式编程", icon: "spring", link: "md/spring/webflux/spring-reactive"},
-                    {text: "Spring Boot 中各测试框架", icon: "spring", link: "md/spring/test/spring-testing-frameworks"},
+                    {text: "Spring 初始化", icon: "spring", link: "/md/spring/01-spring-initializr.html"},
+                    {text: "Spring 反应式编程", icon: "spring", link: "/md/spring/02-spring-reactive.html"},
                 ],
             },
             {
