@@ -98,17 +98,9 @@ export default navbar([
             },
             {
                 text: "环境配置", children: [
+                    {text: "SDKMAN", icon: "java", link: "env-config/sdkman"},
                     {text: "NVM", icon: "nodejs", link: "env-config/nvm"},
-                ],
-            },
-            {
-                text: "开发实践", children: [
-                    {text: "SSH 配置多账号", link: "dev-practices/git-ssh"},
-                ],
-            },
-            {
-                text: "Mac 技巧", children: [
-                    {text: "Zsh 别名配置", link: "mac-tips/aliases"},
+                    {text: "UV", icon: "python", link: "env-config/uv"},
                 ],
             },
         ]
