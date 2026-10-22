@@ -27,10 +27,10 @@ IDEA 生成 Javadoc、清理缓存与索引、设置更新及管理插件的方�
 
 ## 1. 生成 javadoc
 
-![image1](https://img.geekyspace.cn/pictures/2026/202610151623391.png)
+![IDEA Tools 菜单中的 Generate JavaDoc 命令](https://img.geekyspace.cn/pictures/2026/202610151623391.png)
 
 
-![Pasted image 20261022030632](https://img.geekyspace.cn/pictures/2026/202610220306704.png)
+![Generate JavaDoc 对话框中的输出目录、编码和区域设置](https://img.geekyspace.cn/pictures/2026/202610220306704.png)
 
 输入：
 
@@ -43,9 +43,9 @@ Other command line arguments：-encoding UTF-8 -charset UTF-8
 IntelliJ IDEA 首次加载项目的时候，都会创建索引，而创建索引的时间跟项目的文件多少成正比。在 IntelliJ IDEA 创建索引过程中即使你编辑了代码也是编译不了、运行不起来的，所以还是安安静静等 IntelliJ IDEA 创建索引完成。
 缓存和索引用于加快文件查找、代码导航和代码提示。
 但是，IntelliJ IDEA 的索引和缓存并不是一直会良好地支持 IntelliJ IDEA 的，某些特殊条件下，IntelliJ IDEA 的缓存和索引文件也是会损坏的，比如：断电、蓝屏引起的强制关机，当你重新打开 IntelliJ IDEA，很可能 IntelliJ IDEA 会报各种莫名其妙错误，甚至项目打不开，IntelliJ IDEA 主题还原成默认状态。即使没有断电、蓝屏，也会有莫名奇怪的问题的时候，也很有可能是 IntelliJ IDEA 缓存和索引出现了问题，这种情况还不少。遇到此类问题也不用过多担心。我们可以清理缓存和索引。如下：
-![image3](https://img.geekyspace.cn/pictures/2026/202610151623392.png)
+![IDEA File 菜单中的 Invalidate Caches and Restart 命令](https://img.geekyspace.cn/pictures/2026/202610151623392.png)
 
-![image4](https://img.geekyspace.cn/pictures/2026/202610151624035.png)
+![Invalidate Caches 对话框中的清理并重启选项](https://img.geekyspace.cn/pictures/2026/202610151624035.png)
 
 - 一般建议点击 Invalidate and Restart，这样会比较干净。
 - 上图警告：清除索引和缓存会使得 IntelliJ IDEA 的 Local History 丢失。所以如果你项目没
@@ -55,7 +55,7 @@ IntelliJ IDEA 首次加载项目的时候，都会创建索引，而创建索引
 
 ## 3. 取消更新
 
-![image5](https://img.geekyspace.cn/pictures/2026/202610151624036.png)
+![Updates 页面中关闭自动检查更新](https://img.geekyspace.cn/pictures/2026/202610151624036.png)
 
 取消相应选项，关闭自动更新。
 
@@ -63,7 +63,7 @@ IntelliJ IDEA 首次加载项目的时候，都会创建索引，而创建索引
 
 在 IntelliJ IDEA 的安装讲解中我们其实己经知道，IntelliJ IDEA 本身很多功能也都是通过插件的方式来实现的。
 官网插件库： <https://plugins.jetbrains.com/>
-![image6](https://img.geekyspace.cn/pictures/2026/202610151624037.png)
+![Plugins 页面中搜索和安装插件](https://img.geekyspace.cn/pictures/2026/202610151624037.png)
 如上图演示，在线安装 IntelliJ IDEA 插件库中的插件。安装完以后会提示重启， 才可以使用插件。
 常用插件推荐：
 
@@ -83,4 +83,4 @@ IntelliJ IDEA 首次加载项目的时候，都会创建索引，而创建索引
 
 1. [activate-power-mode](https://github.com/ViceFantasyPlace/activate-power-mode)
 activate-power-mode 为输入过程添加动画效果，可按个人喜好启用。
-![image7](https://img.geekyspace.cn/pictures/2026/202610151624038.gif)
+![IDEA 编辑器中的输入动画插件效果](https://img.geekyspace.cn/pictures/2026/202610151624038.gif)

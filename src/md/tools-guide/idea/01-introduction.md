@@ -27,8 +27,8 @@ created: '2019-01-05T17:56:20'
 
 ## 1. JetBrains 公司介绍
 
-![image1](https://img.geekyspace.cn/pictures/2026/202610151615100.png)
-![image2](https://img.geekyspace.cn/pictures/2026/202610151616691.png)
+![JetBrains 系列开发工具及各自适用语言列表](https://img.geekyspace.cn/pictures/2026/202610151615100.png)
+![Android Studio 基于 IntelliJ IDEA 社区版的说明](https://img.geekyspace.cn/pictures/2026/202610151616691.png)
 
 ## 2. IDEA 介绍
 
@@ -36,9 +36,9 @@ IntelliJ IDEA 是面向 Java 开发的集成开发环境，提供代码补全、
 
 ## 3. IDEA 的主要功能介绍
 
-![image3](https://img.geekyspace.cn/pictures/2026/202610151616692.png)
+![IDEA 插件扩展的语言、数据库与 JVM 支持列表](https://img.geekyspace.cn/pictures/2026/202610151616692.png)
 
-![image4](https://img.geekyspace.cn/pictures/2026/202610151616693.png)
+![IDEA 支持的 Web 框架、语言与应用服务器列表](https://img.geekyspace.cn/pictures/2026/202610151616693.png)
 
 ## 4. IDEA 的主要优势
 
@@ -49,11 +49,11 @@ IntelliJ IDEA 是面向 Java 开发的集成开发环境，提供代码补全、
 
 ## 5. IDEA 的下载地址
 
-![image5](https://img.geekyspace.cn/pictures/2026/202610151616694.png)
+![JetBrains IDEA Windows 下载地址](https://img.geekyspace.cn/pictures/2026/202610151616694.png)
 
 IDEA 分为两个版本 ：旗舰版 (Ultimate) 和社区版 (Community)。
 旗舰版收费 (限 30 天免费试用)，社区版免费，这和 Eclipse 有很大区别
-![image6](https://img.geekyspace.cn/pictures/2026/202610151616695.png)
+![IDEA 下载页的 Ultimate 与 Community 版本对比](https://img.geekyspace.cn/pictures/2026/202610151616695.png)
 
 ## 6. 官网提供的详细使用文档
 

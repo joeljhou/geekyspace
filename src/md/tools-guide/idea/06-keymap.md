@@ -27,25 +27,25 @@ IDEA 快捷键方案的切换、修改、导入方式，并整理常用快捷键
 
 ## 1. 设置快捷键为 Eclipse 的快捷键
 
-![image1](https://img.geekyspace.cn/pictures/2026/202610151623377.png)
+![Keymap 页面切换到 Eclipse 快捷键方案](https://img.geekyspace.cn/pictures/2026/202610151623377.png)
 
 ## 2. 通过快捷键功能修改快捷键设置
 
-![image2](https://img.geekyspace.cn/pictures/2026/202610151623378.png)
+![Keymap 页面搜索 Duplicate Line 并查看现有快捷键](https://img.geekyspace.cn/pictures/2026/202610151623378.png)
 
-![Pasted image 20261022025401](https://img.geekyspace.cn/pictures/2026/202610220254006.png)
+![Keymap 中为 Duplicate Line 设置自定义快捷键](https://img.geekyspace.cn/pictures/2026/202610220254006.png)
 
 ## 3. 通过指定快捷键，查看或修改其功能
 
-![image3](https://img.geekyspace.cn/pictures/2026/202610151623379.png)
+![Keymap 中通过 Find Shortcut 搜索按键对应的操作](https://img.geekyspace.cn/pictures/2026/202610151623379.png)
 
-![Pasted image 20261022025409](https://img.geekyspace.cn/pictures/2026/202610220254563.png)
+![Keymap 中输入按键查看或修改对应操作](https://img.geekyspace.cn/pictures/2026/202610220254563.png)
 
 ## 4. 导入已有的设置
 
-![image4](https://img.geekyspace.cn/pictures/2026/202610151623380.png)
+![File 菜单中的 Import Settings 命令](https://img.geekyspace.cn/pictures/2026/202610151623380.png)
 
-![image5](https://img.geekyspace.cn/pictures/2026/202610151623381.png)
+![导入设置对话框中选择 keymap 配置文件](https://img.geekyspace.cn/pictures/2026/202610151623381.png)
 点击 OK 后，重启 IDEA 即可
 
 ## 5. 常用快捷键
@@ -69,6 +69,6 @@ IDEA 快捷键方案的切换、修改、导入方式，并整理常用快捷键
 | 47 | 快速搜索类中间的错误 Next Highlighted Error | ctrl+shift+q |
 | 49 | 查找方法在哪里被调用 Call Hierarchy | 添加 ctrl+shift+h |
 
-![image6](https://img.geekyspace.cn/pictures/2026/202610151623382.png)
-![image7](https://img.geekyspace.cn/pictures/2026/202610151623383.png)
-![image8](https://img.geekyspace.cn/pictures/2026/202610151623384.png)
+![IDEA 常用快捷键表第一部分：运行与编辑](https://img.geekyspace.cn/pictures/2026/202610151623382.png)
+![IDEA 常用快捷键表第二部分：格式化与重构](https://img.geekyspace.cn/pictures/2026/202610151623383.png)
+![IDEA 常用快捷键表第三部分：导航与查找](https://img.geekyspace.cn/pictures/2026/202610151623384.png)

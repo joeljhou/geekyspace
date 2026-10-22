@@ -27,24 +27,24 @@ IDEA 数据库连接、驱动下载、连接测试和常用数据库面板操作
 
 ## 1. 关联方式
 
-![image1](https://img.geekyspace.cn/pictures/2026/202610151621281.png)
+![IDEA Database 面板中新增 MySQL 数据源](https://img.geekyspace.cn/pictures/2026/202610151621281.png)
 
 
-![cf1210e2-c25c-4656-a1f2-f809b32b0783](https://img.geekyspace.cn/pictures/2026/202610220257981.png)
+![MySQL 数据源连接参数与驱动下载设置](https://img.geekyspace.cn/pictures/2026/202610220257981.png)
 
 
 下载驱动后，点击 **Test Connection** 测试连接。
 
-![2abe10b5-8907-4fe0-94b8-95998b7835b8](https://img.geekyspace.cn/pictures/2026/202610220257112.png)
+![MySQL 连接测试成功提示](https://img.geekyspace.cn/pictures/2026/202610220257112.png)
 
-![9f79f936-3850-4e6f-a1c1-e360ce6648ae](https://img.geekyspace.cn/pictures/2026/202610220257858.png)
+![Database 面板中查看数据库表和表数据](https://img.geekyspace.cn/pictures/2026/202610220257858.png)
 
 Database 面板不仅用于图形化管理数据库，还能辅助 Java Web 开发。配置连接后，IDEA 可以结合 Hibernate、MyBatis 等框架识别实体与数据表的关系，并根据表结构生成对象。
 
 ## 2. 常用操作
 
 
-![Pasted image 20261022025736](https://img.geekyspace.cn/pictures/2026/202610220257982.png)
+![Database 面板中数据库表的常用操作按钮](https://img.geekyspace.cn/pictures/2026/202610220257982.png)
 
 
 - 图标 1：同步当前的数据库连接。

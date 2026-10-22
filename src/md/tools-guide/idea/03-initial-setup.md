@@ -28,7 +28,7 @@ IntelliJ IDEA 首次启动时导入配置、选择主题、安装插件和进入
 ## 1. 是否导入已有配置
 
 首次启动，会弹出如下的对话框。 选择不导入已有设置
-![image1](https://img.geekyspace.cn/pictures/2026/202610151621276.png)
+![首次启动时选择不导入旧版 IDEA 配置](https://img.geekyspace.cn/pictures/2026/202610151621276.png)
 
 ## 2. 激活
 
@@ -46,18 +46,18 @@ IntelliJ IDEA 首次启动时导入配置、选择主题、安装插件和进入
 
 ## 3. 设置主题
 
-![image2](https://img.geekyspace.cn/pictures/2026/202610151621277.png)
+![首次启动向导中的 Darcula 与 IntelliJ 主题选择](https://img.geekyspace.cn/pictures/2026/202610151621277.png)
 这里 根据个人喜好，进行选择，也可以跳过(Ship All and Set Defaults)，后面再 setting 里面再设置主题等。这里选择：Next：Default plugins
 
 ## 4. 安装插件
 
-![image3](https://img.geekyspace.cn/pictures/2026/202610151621278.png)
+![首次启动向导中的功能插件分类选择](https://img.geekyspace.cn/pictures/2026/202610151621278.png)
 
-![image4](https://img.geekyspace.cn/pictures/2026/202610151621279.png)
+![首次启动向导中的推荐插件安装页面](https://img.geekyspace.cn/pictures/2026/202610151621279.png)
 设置 IDEA 中各种插件，可以选择自定义设置，删除，或者安装本身不存在的插件（比如：支持 Scala 的插件）。这里不设置，后面也可以通过界面菜单栏的 settings 设置
 IDEA 插件官方下载地址：
 <https://plugins.jetbrains.com/idea>
 
 ## 5. 启动界面
 
-![image5](https://img.geekyspace.cn/pictures/2026/202610151621280.png)
+![IntelliJ IDEA Ultimate 2018.3 启动界面](https://img.geekyspace.cn/pictures/2026/202610151621280.png)
