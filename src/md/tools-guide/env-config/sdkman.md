@@ -1,7 +1,7 @@
 ---
 title: Java生态版本管理神器—SDKMAN
 shortTitle: SDKMAN：Java 版本管理
-description: SDKMAN 安装与使用指南，涵盖 Java 发行版查询、JDK 安装与卸载、当前会话版本切换及全局默认版本设置。
+description: SDKMAN 安装、升级与使用指南，涵盖工具自身更新、Java 发行版查询、JDK 安装与卸载、当前会话版本切换及全局默认版本设置。
 icon: https://sdkman.io/assets/img/sdkman-pattern.svg
 cover:
 author: 流浪码客
@@ -41,6 +41,27 @@ SDKMAN!
 script: 5.19.0
 native: 0.6.0 (macos aarch64)
 ```
+
+## 升级 SDKMAN
+
+**升级 SDKMAN 工具本身**
+```shell
+sdk selfupdate
+```
+升级完成后，运行 `sdk version` 查看版本，确认升级结果。
+
+如果提示已经是最新版，但需要强制重新安装最新版，可以运行：
+```shell
+sdk selfupdate force
+```
+
+注意区分以下命令：
+
+| 命令 | 作用 |
+| --- | --- |
+| `sdk selfupdate` | 升级 SDKMAN 工具本身 |
+| `sdk update` | 刷新本地 SDK 候选项元数据，不升级 SDKMAN 或已安装的 JDK |
+| `sdk upgrade java` | 检查并交互式升级已安装且有可用更新的 Java 版本 |
 
 ## 使用指南
 
