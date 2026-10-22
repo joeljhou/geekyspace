@@ -27,11 +27,11 @@ tag:
 执行第三方脚本可能修改 IDE 配置及本地文件，管理员权限会进一步扩大影响范围。请先备份重要配置、核实来源并审阅脚本，不要在包含敏感数据的环境中直接运行。本文未对这些脚本进行安全审计或实际激活测试，也不保证其对当前版本仍然有效。
 :::
 
-## 方式一：下载激活文件
+## 1. 下载激活文件
 
 > 仅支持官网专业版2020-2026的激活。不支持社区版 toolbox下载的IDEA。
 
-- **闲鱼购买地址**：[点击购买](https://h5.m.goofish.com/item?id=785250929165)
+- **闲鱼购买地址**：[点击购买](https://h5.m.goofish.com/item?id=785250929165) 远程协助
 - **蓝奏云下载地址**：[点击下载](https://wwv.lanzouv.com/b0focjpkb)，密码：`3spb`
 - **OpenList 下载地址**：[点击下载](https://openlist.geekyspace.cn/@s/gz0TG7YN)，密码：`4a8g`
 
@@ -76,7 +76,7 @@ tag:
 
 ![Success](http://img.geekyspace.cn/pictures/2024/202404171718903.png)
 
-## 方式二：命令行一键激活（Windows / Linux / macOS）
+## 2. 命令行一键激活
 
 - **网站**：[ckey.run](https://ckey.run/)
 - **原文**：[LINUX DO 一键激活教程](https://linux.do/t/topic/694120)
