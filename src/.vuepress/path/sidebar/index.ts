@@ -1,7 +1,7 @@
 import {sidebar} from "vuepress-theme-hope";
 
 import {java, javaDatetime, javaFeatures, jvm} from "./java";
-import {spring, springFramework, springBoot, springDataJpa} from "./spring";
+import {spring, springFramework, springBoot, springSsm, springDataJpa} from "./spring";
 import {toolsGuide} from "./tools-guide";
 import {idea} from "./idea";
 import {cloudnative} from "./cloudnative";
@@ -20,7 +20,8 @@ export default sidebar({
     /** ===== 2. Spring 框架生态 ===== */
     "/md/spring/": spring,                      // Spring 文章/专栏
     "/md/spring/framework/": springFramework,   // 专栏：Spring Framework
-    "/md/spring/boot/": springBoot,             // 专栏：Spring Boot 教程
+    "/md/spring/boot/": springBoot,             // 专栏：Spring Boot
+    "/md/spring/ssm/": springSsm,               // 专题：SSM 工作案例
     "/md/spring/data-jpa/": springDataJpa,      // 专栏：Spring Data JPA
 
     /** ===== 3. DataBase 数据库（MySQL/Redis） ===== */

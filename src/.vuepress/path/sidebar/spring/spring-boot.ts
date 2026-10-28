@@ -1,12 +1,8 @@
 import {arraySidebar} from "vuepress-theme-hope";
 
 export const springBoot = arraySidebar([
-        {text: "总目录", prefix: "/md/spring/boot/", link: "/md/spring/boot/",},
-        {
-            text: "快速入门", prefix: "", link: "/md/spring/boot/",
-            children: [
-                {text: "快速入门", link: "quickstart"},
-            ]
-        },
-    ]
-);
+    {text: "Spring Boot", link: "/md/spring/boot/"},
+    {
+        text: "2.x", prefix: "2.x/", link: "/md/spring/boot/2.x/", collapsible: true, children: "structure",
+    },
+]);

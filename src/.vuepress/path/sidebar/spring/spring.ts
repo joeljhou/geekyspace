@@ -14,7 +14,8 @@ export const spring = arraySidebar([
             text: "专栏",
             children: [
                 {text: "Spring Framework", icon: "spring", link: "/md/spring/framework/"},
-                {text: "Spring Boot 教程", icon: "spring", link: "/md/spring/boot/"},
+                {text: "Spring Boot", icon: "spring", link: "/md/spring/boot/"},
+                {text: "SSM 工作案例", icon: "spring", link: "/md/spring/ssm/"},
                 {text: "Spring Data JPA", icon: "spring", link: "/md/spring/data-jpa/"},
             ],
         },
