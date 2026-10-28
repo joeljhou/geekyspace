@@ -1,7 +1,3 @@
-@use "sass:color";
-@use "sass:list";
-@use "./config" as hope-config;
-
 // fix：解决新版Chrome字体加粗
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -111,27 +107,14 @@ html[data-theme=dark] {
   --light-grey: #e6edf3; /*图标文字颜色*/
 }
 
-// 项目卡片的背景和图标共用 config.scss 中的色盘。
-@each $color in hope-config.$colors {
-  $index: list.index(hope-config.$colors, $color) - 1;
-
-  html[data-theme=light] .vp-project-panel .vp-project-card.project#{$index} {
-    // 主题默认提亮 90%，浅色盘会近乎纯白；65% 更显色，数值越小颜色越浓。
-    background: color.scale($color, $lightness: 65%);
-    // 鼠标悬停时再加深一点，数值需小于上面的 65%。
-    &:hover { background: color.scale($color, $lightness: 50%); }
-    .icon { color: color.scale($color, $lightness: -55%); }
-  }
-  html[data-theme=dark] .vp-project-panel .vp-project-card.project#{$index} {
-    background: color.scale($color, $lightness: -75%);
-    &:hover { background: color.scale($color, $lightness: -55%); }
-    .icon { color: $color; }
-  }
-}
-
 html[data-theme=light] {
   //--dark-grey: #2c3e50; /*图标文字颜色*/
   --light-grey: #2c3e50; /*图标文字颜色*/
+}
+
+// 仅稍微提亮夜间项目卡片背景，不影响分类、标签和卡片文字。
+html[data-theme=dark] .vp-project-panel .vp-project-card {
+  background-image: linear-gradient(#ffffff0d, #ffffff0d);
 }
 
 
