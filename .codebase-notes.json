@@ -1,62 +1,44 @@
 {
-  "version": 1,
+  "version": 2,
   "notes": {
-    "src/.vuepress/client.ts": {
-      "text": "客户端配置"
-    },
-    "src/.vuepress/config.ts": {
-      "text": "配置"
-    },
-    "src/.vuepress/path": {
-      "text": "路径"
-    },
-    "src/.vuepress/path/navbar.ts": {
-      "text": "导航栏"
-    },
-    "src/.vuepress/path/sidebar": {
-      "text": "侧边栏"
-    },
-    "src/.vuepress/styles/index.scss": {
-      "text": "自定义css"
-    },
-    "src/.vuepress/theme.ts": {
-      "text": "主题"
-    },
-    "src/README.md": {
-      "text": "主页推荐"
-    },
-    "src/about-me.md": {
-      "text": "关于我"
-    },
-    "src/article.md": {
-      "text": "文库汇总"
-    },
-    "src/md/java/datetime": {
-      "text": "专栏"
-    },
-    "src/md/java/features": {
-      "text": "专栏"
-    },
-    "src/md/java/jvm": {
-      "text": "专栏"
-    },
-    "src/md/java/jvm/part2/basic-tools": {
-      "text": "基础故障处理工具"
-    },
-    "src/md/java/jvm/part2/visual-tools": {
-      "text": "可视化故障处理工具"
-    },
-    "src/md/linux/oracle-cloud": {
-      "text": "ARM Ubuntu 服务器折腾"
-    },
-    "src/md/spring/boot": {
-      "text": "专栏"
-    },
-    "src/md/spring/data-jpa": {
-      "text": "专栏"
-    },
-    "src/md/spring/framework": {
-      "text": "专栏"
+    "src": {
+      ".vuepress": {
+        "client.ts": { "_text": "客户端配置" },
+        "config.ts": "配置",
+        "path": {
+          "_text": "路径",
+          "navbar.ts": "导航栏",
+          "sidebar": "侧边栏"
+        },
+        "styles": {
+          "index.scss": "自定义css"
+        },
+        "theme.ts": "主题"
+      },
+      "README.md": "主页推荐",
+      "about-me.md": "关于我",
+      "article.md": "文库汇总",
+      "md": {
+        "java": {
+          "datetime": "专栏",
+          "features": "专栏",
+          "jvm": {
+            "_text": "专栏",
+            "part2": {
+              "basic-tools": "基础故障处理工具",
+              "visual-tools": "可视化故障处理工具"
+            }
+          }
+        },
+        "linux": {
+          "oracle-cloud": "ARM Ubuntu 服务器折腾"
+        },
+        "spring": {
+          "boot": "专栏",
+          "data-jpa": "专栏",
+          "framework": "专栏"
+        }
+      }
     }
   }
 }
