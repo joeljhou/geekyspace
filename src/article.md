@@ -59,6 +59,11 @@ features:
     details: 区块链入门、加密货币实操、Web3周边实践
     link: /md/blockchain/
 
+  - title: Alibaba 终端练习生
+    icon: article
+    details: 前端、Flutter与软件工程实践
+    link: /md/alibaba-tech/
+
   - title: IntelliJ IDEA（归档）
     icon: intellij-idea
     details: IDEA 的安装、配置、工程管理、工具集成与断点调试教程

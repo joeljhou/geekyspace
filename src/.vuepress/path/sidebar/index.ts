@@ -9,6 +9,7 @@ import {docker, linux, armUbuntu} from "./cloudnative";
 import {middleware} from "./middleware";
 import {blockchain} from "./blockchain";
 import {ai, aigc} from "./ai";
+import {alibabaTech} from "./alibaba-tech";
 
 export default sidebar({
     /** ===== 1. Java 语言核心 ===== */
@@ -55,4 +56,7 @@ export default sidebar({
 
     /** ===== 8. Blockchain 区块链 ===== */
     "/md/blockchain/": blockchain,        // 区块链/加密货币/香港银行
+
+    /** ===== 9. 阿里技术学习笔记 ===== */
+    "/md/alibaba-tech/": alibabaTech,
 });
