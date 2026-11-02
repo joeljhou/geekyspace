@@ -3,7 +3,7 @@
   "notes": {
     "src": {
       ".vuepress": {
-        "client.ts": { "_text": "客户端配置" },
+        "client.ts": "客户端配置",
         "config.ts": "配置",
         "path": {
           "_text": "路径",
@@ -37,6 +37,14 @@
           "boot": "专栏",
           "data-jpa": "专栏",
           "framework": "专栏"
+        },
+        "tools-guide": {
+          "_text": "工具指南", "_meta": { "style": "important" },
+          "activation": "安装激活",
+          "dev-practices": "开发实践",
+          "env-config": "环境配置",
+          "mac-tips": "Mac 技巧",
+          "windows-tips": "Windows 技巧"
         }
       }
     }

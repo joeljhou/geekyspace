@@ -67,7 +67,7 @@ features:
   - title: IntelliJ IDEA（归档）
     icon: intellij-idea
     details: IDEA 的安装、配置、工程管理、工具集成与断点调试教程
-    link: /md/tools-guide/idea/
+    link: /md/java/idea/
 
 copyright: false
 footer: "© 2023 - 至今 <a href=\"https://www.geekyspace.cn\" target=\"_blank\">www.geekyspace.cn</a> 保留所有权利"

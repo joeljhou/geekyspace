@@ -175,13 +175,15 @@ docker compose up -d --force-recreate sub-web
 所有服务端口都只绑 `127.0.0.1`，公网入口统一由 `cloudflared`（Cloudflare Tunnel）转发。在 1Panel「Cloudflare Tunnel → 已发布的应用程序」中按下表配置公共主机名：
 
 | 公网域名                       | 路径匹配       | 本地地址              | 对应服务             |
-| -------------------------- | ---------- | ----------------- | ---------------- |
+|----------------------------|------------|-------------------|------------------|
 | `sub.geekyspace.cn`        | /          | `127.0.0.1:3001`  | Sub-Store        |
 | `sub-web.geekyspace.cn`    | /          | `127.0.0.1:3002`  | Sub-Web          |
 | `sub-web.geekyspace.cn`    | `^/short$` | `127.0.0.1:8002`  | MyUrls（创建短链 API） |
 | `s.geekyspace.cn`          | /          | `127.0.0.1:8002`  | MyUrls（短链跳转）     |
 | `subconvert.geekyspace.cn` | /          | `127.0.0.1:25500` | Subconverter     |
+
 ![](http://img.geekyspace.cn/pictures/2026/202608051820205.png)
+
 > [!IMPORTANT] `/short` 路径与 Sub-Web 同源
 > Sub-Web 前端把短链后端地址写死为 `https://sub-web.geekyspace.cn/short`（见 `.env` 的 `VITE_MYURLS_API`）。Cloudflare Tunnel 在**同一域名** `sub-web.geekyspace.cn` 上用路径规则 `^/short$` 把该请求转发到 MyUrls（8002），从而**避免跨域**——这正是 `.env` 注释里"须与 Sub-Web 同源"的含义。
 > 而 `s.geekyspace.cn` 是 MyUrls 自己的域名，用于访问/跳转生成的短链，对应 `MYURLS_DOMAIN`。

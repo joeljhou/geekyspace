@@ -1,7 +1,7 @@
 ---
 title: 工具指南
 shortTitle: 工具指南
-description: 软件安装与激活、开发环境配置、开发实践及 Windows / macOS 日常使用技巧。
+description: 软件安装与激活、开发环境配置、开发实践、Obsidian 笔记同步及 Windows / macOS 日常使用技巧。
 icon: launch
 author: 流浪码客
 isOriginal: true
