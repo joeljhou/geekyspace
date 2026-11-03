@@ -23,7 +23,7 @@ tags:
 ## 1. Locale 简介
 `java.util.Locale` 是 Java 国际化 (i18n) 的核心类，用于标识特定的**语言**和**地区**。它是所有**区域设置敏感**类（如 `DateFormat`, `NumberFormat`, `MessageFormat`）的基础配置对象。
 ### 1.1 核心组成
-`Locale` 对象在逻辑上由语言、国家、脚本、变体和扩展等字段组成（遵循 [IETF BCP 47](https://www.rfc-editor.org/info/bcp47) 标准）
+`Locale` 对象在逻辑上由语言、国家、脚本、变体和扩展等字段组成（遵循 [IETF BCP 47](https://www.rfc-editor.org/info/bcp47) 标准）
 
 | 组成部分                | 描述                      | 示例                                                |
 | :------------------ | :---------------------- | :------------------------------------------------ |

@@ -21,7 +21,7 @@ star: false
 # 云存储挂载 Openlist 网盘
 
 > [!INFO] Oracle 官方  
-> Oracle Cloud 每个租户提供总计 **20 GB 免费对象存储空间**，对象存储与归档存储共用该额度。
+> Oracle Cloud 每个租户提供总计 **20 GB 免费对象存储空间**，对象存储与归档存储共用该额度。
 > 
 > **相关文档：**
 > 
@@ -47,13 +47,13 @@ VPS(OpenList) ──S3 API──▶ 甲骨文对象存储 (20 GB)
 1. [使用 Docker 🐋](https://doc.oplist.org/guide/installation/docker)
 2. [使用 1Panel 📟](https://doc.oplist.org/guide/installation/1panel)
 	- **版本号**：选择最新的稳定版本
-	- **WebUI 端口**：默认为 `5244`，可按需修改
-	- **S3 端口**：默认为 `5246`，可按需修改
+	- **WebUI 端口**：默认为 `5244`，可按需修改
+	- **S3 端口**：默认为 `5246`，可按需修改
 	- **预装环境**：
 	    - `缩略图`：预装 ffmpeg
 	    - `离线下载`：预装 aria2
 	    - `以上所有`：预装 ffmpeg & aria2
-	- **时区**：建议设置为 `Asia/Shanghai`
+	- **时区**：建议设置为 `Asia/Shanghai`
 	- **容器名称**：openlist
 	- **重启规则**：未手动停止则重启 `unless-stopped`
 	- **高级设置**：不要勾选**端口外部访问**，让端口只绑定到 `127.0.0.1`

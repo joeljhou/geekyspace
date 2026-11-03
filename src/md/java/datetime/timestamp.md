@@ -22,7 +22,7 @@ tags:
 - [java.time.Instant](https://www.runoob.com/java/java-instant-class.html)
 - `java.sql.Timestamp`（Java 7 及以前）
 ### 1.1 Instant
-`Instant`表示从 **系统 UTC 时钟** 获取的 **当前时间点**。 
+`Instant`表示从 **系统 UTC 时钟** 获取的 **当前时间点**。 
 ```java
 Instant instant = Instant.now();  //2026-02-04T14:19:17.793293Z
 ```
@@ -38,7 +38,7 @@ Timestamp timestamp2 = new Timestamp(date.getTime());              //2026-02-04 
 ```
 如果你需要兼容旧 API（比如 JDBC），可以用 `java.sql.Timestamp`：
 ## 2. Instant vs ZonedDateTime
-从表面上看， _Instant 类_ 和 [ZonedDateTime](https://howtodoinjava.com/java/date-time/zoneddatetime-class/) 类似乎很相似，但实际上并非如此。
+从表面上看， _Instant 类_ 和 [ZonedDateTime](https://howtodoinjava.com/java/date-time/zoneddatetime-class/) 类似乎很相似，但实际上并非如此。
 - `Instant` 是 UTC时间的一个时间点。
 - `ZonedDateTime` 是一个**特定时区**的实际时间点。
 ![Instant vs ZonedDateTime](http://img.geekyspace.cn/pictures/2025/202602050030344.png)

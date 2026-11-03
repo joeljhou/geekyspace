@@ -65,14 +65,14 @@ sdk selfupdate force
 
 ## 使用指南
 
-以下是基于 SDKMAN! 文档整理的 **Java SDK 管理命令及详细解释**，按照使用流程排列：
+以下是基于 SDKMAN! 文档整理的 **Java SDK 管理命令及详细解释**，按照使用流程排列：
 ### 查看Java版本
 ```shell
 sdk list java
 ```
 查看所有 [Java 发行版](https://sdkman.io/jdks)（如 Zulu、AdoptOpenJDK、Amazon Corretto 等）及版本列表。
 ![sdk list java](http://img.geekyspace.cn/pictures/2025/20250313021115034.png)
-* **关键字段**：`Identifier` 是安装时使用的唯一标识符（如 `21.0.6-tem`）。
+* **关键字段**：`Identifier` 是安装时使用的唯一标识符（如 `21.0.6-tem`）。
 
 ### JDK的安装与卸载
 

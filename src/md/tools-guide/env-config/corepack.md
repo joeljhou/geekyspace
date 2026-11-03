@@ -29,7 +29,7 @@ tag:
 corepack -v
 ```
 **Corepack更新**
-* 用于解决 [Corepack 中的签名过时](https://github.com/nodejs/corepack/issues/612) 问题
+* 用于解决 [Corepack 中的签名过时](https://github.com/nodejs/corepack/issues/612) 问题
 ```shell
 npm install --global corepack@latest
 ```

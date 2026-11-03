@@ -246,8 +246,8 @@ public String uploadPage() {
 ```html
 <!-- 网页具备文件上传的3个条件：
     1. post提交
-    2. 具备file组件
-    3. 设置表单的enctype="mutipart/form-data",默认表单的enctype是 x-www.urlencoding
+    2. 具备file组件
+    3. 设置表单的enctype="mutipart/form-data",默认表单的enctype是 x-www.urlencoding
 -->
 <!-- th:action 生成提交地址，自动带上应用的上下文路径 -->
 <form action="/create" method="post" enctype="multipart/form-data">

@@ -34,15 +34,15 @@ tags:
 - **OpenAI** — [ChatGPT](https://openai.com/)
 - **Anthropic** — [Claude](https://claude.ai/)
 - **Google** — [Gemini](https://gemini.google.com/)
-- **Meta ** — [LLaMA](https://ai.meta.com/llama/) 
+- **Meta ** — [LLaMA](https://ai.meta.com/llama/) 
 
  **🇨🇳 国内**
-- **百度** — [文心一言](https://yiyan.baidu.com/)
-- **深度求索** — [DeepSeek](https://www.deepseek.com/en/?utm_source=chatgpt.com)  
+- **百度** — [文心一言](https://yiyan.baidu.com/)
+- **深度求索** — [DeepSeek](https://www.deepseek.com/en/?utm_source=chatgpt.com)  
 - **阿里云** — [千问](https://tongyi.aliyun.com/)
 - **智源** — [百川智能](https://baichuan-ai.com/) 医务
 - **科大讯飞** — [星火](https://xinghuo.xfyun.cn/)
-- **腾讯** — [混元](https://yuanbao.tencent.com/)
+- **腾讯** — [混元](https://yuanbao.tencent.com/)
 - **智谱清言** — [GLM / ChatGLM 系列](https://chatglm.cn/)
 - **知谱 AI (Z.ai)**   — [GLM 系列](https://z.ai/)
 - **Moonshot AI** — [Kimi 系列](https://www.kimi.com/)

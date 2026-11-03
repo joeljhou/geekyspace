@@ -19,7 +19,7 @@ tags:
 
 主要官方来源：[npmjs-nrm](https://www.npmjs.com/package/nrm)
 
-> `nrm`可以帮助您轻松快速地切换不同的 npm 注册表。它支持 `npm` 、 `cnpm` 、 `taobao` 、 `yarn` 、 `tencent` 、 `npmMirror`和`huawei` 。
+> `nrm`可以帮助您轻松快速地切换不同的 npm 注册表。它支持 `npm` 、 `cnpm` 、 `taobao` 、 `yarn` 、 `tencent` 、 `npmMirror`和`huawei` 。
 
 ## 安装nrm
 
@@ -74,13 +74,13 @@ You are using taobao registry.
 
 ```shell
 $ nrm test
-  npm ---------- 823 ms
-  yarn --------- 799 ms
-  tencent ------ 964 ms
-  cnpm --------- 1882 ms
+  npm ---------- 823 ms
+  yarn --------- 799 ms
+  tencent ------ 964 ms
+  cnpm --------- 1882 ms
 * taobao ------- 184 ms
-  npmMirror ---- 871 ms
-  huawei ------- 845 ms
+  npmMirror ---- 871 ms
+  huawei ------- 845 ms
 ```
 
 ### nrm add
