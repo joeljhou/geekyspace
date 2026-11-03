@@ -16,7 +16,7 @@ tags:
 
 推荐：**别名放在 `~/.aliases/`，`.zshrc` 只负责加载。** 以下配置适用于 macOS 的 Zsh。
 
-## 1. 创建别名文件
+## 一、创建别名文件
 
 ```zsh
 mkdir -p ~/.aliases
@@ -34,7 +34,7 @@ alias zreload='source ~/.zshrc'
 mkcd() { mkdir -p -- "$1" && cd -- "$1"; }
 ```
 
-## 2. 配置自动加载
+## 二、配置自动加载
 
 打开 `~/.zshrc` 尾部添加：
 
@@ -49,11 +49,11 @@ $vim ~/.zshrc
 source ~/.zshrc
 ```
 
-## 3. 创建更多别名文件
+## 三、创建更多别名文件
 
 按用途拆分文件，`.zshrc` 会统一加载，不用再改加载配置。下面按需添加即可。
 
-### Git
+### 1. Git
 
 `~/.aliases/git`
 
@@ -67,7 +67,7 @@ alias gpl='git pull --ff-only'    # 拉取更新，分叉时停止
 alias gp='git push'               # 推送提交
 ```
 
-### Python
+### 2. Python
 
 `~/.aliases/python`
 
@@ -103,7 +103,7 @@ v-        # 退出虚拟环境
 
 注意：`v--` 会删除当前目录的 `.venv`；`j-` 会终止匹配的 Jupyter 进程，可能影响其他项目；`j--` 还会从当前 Python 环境卸载 `jupyter` 包。日常优先使用上面的命令。
 
-### Claude
+### 3. Claude
 
 `~/.aliases/claude`
 
@@ -113,7 +113,7 @@ alias yolo="claude --dangerously-skip-permissions"
 
 `yolo` 会跳过权限确认，仅建议在无敏感文件、可随时丢弃的隔离环境中使用；日常直接运行 `claude`。
 
-## 4. 保存后统一生效
+## 四、保存后统一生效
 
 ```zsh
 zreload

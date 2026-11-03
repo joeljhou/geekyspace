@@ -30,9 +30,9 @@ Mac / iPhone Obsidian → HTTPS → couchdb.geekyspace.cn
                      → Cloudflare Tunnel → http://127.0.0.1:5984 → CouchDB
 ```
 
-## 1. Docker 部署 CouchDB
+## 一、Docker 部署 CouchDB
 
-### 1.1 部署信息
+### 1. 部署信息
 
 | 配置项        | 本次使用值                                |
 |------------|--------------------------------------|
@@ -50,7 +50,7 @@ Mac / iPhone Obsidian → HTTPS → couchdb.geekyspace.cn
 
 服务器已有 Docker，`cloudflared` 运行在宿主机。部署文件按 1Panel 的 Compose 目录习惯存放。
 
-### 1.2 准备目录与密码文件
+### 2. 准备目录与密码文件
 
 ```bash
 # 1. 登录服务器
@@ -79,7 +79,7 @@ COUCHDB_USER=joeljhou
 COUCHDB_PASSWORD=替换为你的随机密码
 ```
 
-### 1.3 Docker Compose
+### 3. Docker Compose
 
 `docker-compose.yml`：
 ```yaml
@@ -112,7 +112,7 @@ services:
 ```
 参考：[配置一个 CouchDB 服务器](https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/setup_own_server.md#b-using-docker-compose)
 
-### 1.4 CouchDB 与 CORS 配置
+### 4. CouchDB 与 CORS 配置
 
 `config/10-livesync.ini`：
 ```ini
@@ -141,7 +141,7 @@ headers = accept,authorization,content-type,origin,referer
 ```
 参考：[LiveSync 作者提供的 `conf/local.ini` 示例](https://github.com/vrtmrz/self-hosted-livesync-server/blob/main/conf/local.ini)
 
-### 1.5 启动与服务器检查
+### 5. 启动与服务器检查
 
 ```bash
 cd /opt/1panel/docker/compose/couchdb
@@ -168,9 +168,9 @@ Enter host password for user 'joeljhou': <替换为你的随机密码>
 ["_global_changes","_replicator","_users"]
 ```
 
-## 2. 配置 Cloudflare Tunnel
+## 二、配置 Cloudflare Tunnel
 
-### 2.1 添加域名路由
+### 1. 添加域名路由
 
 进入已登录的 Cloudflare，打开已有的 **`arm-ubuntu` Tunnel → 路由 → 已发布的应用程序 → 添加**：
 
@@ -186,7 +186,7 @@ Enter host password for user 'joeljhou': <替换为你的随机密码>
 
 ![Cloudflare Tunnel 已发布 CouchDB 域名路由](http://img.geekyspace.cn/pictures/2026/202611021900881.png)
 
-### 2.2 验证域名访问
+### 2. 验证域名访问
 
 **1. 访问健康检查接口**
 
@@ -206,12 +206,12 @@ Enter host password for user 'joeljhou': <替换为你的随机密码>
 
 ![CouchDB Fauxton 管理界面](http://img.geekyspace.cn/pictures/2026/202611021904731.png)
 
-## 3. 创建数据库
+## 三、创建数据库
 
 可通过 **API** 或 **Fauxton 网页管理界面**创建数据库，**两种方式任选其一**，不需要重复创建。
 
 以下以 `obsidian_personal` 为例，实际使用时替换为对应 Vault 的数据库名；后续权限配置与 LiveSync 中填写的名称也要保持一致。
-### 3.1 通过 API 创建
+### 1. 通过 API 创建
 
 通过 `ssh arm-ubuntu` 登录服务器，执行以下命令，并按提示输入 `joeljhou` 的 CouchDB 登录密码：
 
@@ -222,7 +222,7 @@ curl --user joeljhou --include --request PUT \
 
 首次创建应返回 **201 Created** 与 `{"ok":true}`。若返回 **412 file_exists**，说明数据库已存在。
 
-### 3.2 通过网页创建
+### 2. 通过网页创建
 
 浏览器打开：[https://couchdb.geekyspace.cn/_utils/](https://couchdb.geekyspace.cn/_utils/)，使用 CouchDB 管理员账号登录。
 
@@ -232,16 +232,16 @@ curl --user joeljhou --include --request PUT \
 
 ![通过 Fauxton 网页管理界面创建数据库](http://img.geekyspace.cn/pictures/2026/202611021913883.png)
 
-### 3.3 设置访问权限🔒（可选）
+### 3. 设置访问权限🔒（可选）
 
 本文使用服务器管理员 `joeljhou`，无需额外配置数据库权限，跳过不影响同步。只有改用普通同步账号，或需要限制不同用户访问指定数据库时，才需配置相应权限。
 
 ![指定数据库访问权限](http://img.geekyspace.cn/pictures/2026/202611021923770.png)
 
 
-## 4. Mac Obsidian 安装 LiveSync
+## 四、Mac Obsidian 安装 LiveSync
 
-### 4.1 安装社区插件
+### 1. 安装社区插件
 
 在 **设置 → 第三方插件** 中开启社区插件，搜索并安装 **vrtmrz** 的 `Self-hosted LiveSync`，**启用**后即可使用。
 
@@ -253,7 +253,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 ![步骤24：显示语言已切换为简体中文](http://img.geekyspace.cn/pictures/2026/202611030001318.png)
 
-### 4.2 运行引导向导
+### 2. 运行引导向导
 
 - **步骤 01：打开插件设置，运行引导向导。**
 	- 若向导已自动弹出，直接进入下一步。
@@ -269,7 +269,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 	![步骤03：选择手动输入服务器信息](http://img.geekyspace.cn/pictures/2026/202611022154731.png)
 
-### 4.3 配置端到端加密（可选）
+### 3. 配置端到端加密（可选）
 
 - **步骤 04：启用端到端加密，设置 E2EE 口令并妥善保管。**
 
@@ -289,7 +289,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 	![步骤07：高级设置中的 V2 加密算法](http://img.geekyspace.cn/pictures/2026/202611022158286.png)
 
-### 4.4 连接 CouchDB 并检查
+### 4. 连接 CouchDB 并检查
 
 - **步骤 08：服务器类型选择 CouchDB。**
 
@@ -302,7 +302,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 - **步骤 10：检查服务器要求，通过后连接数据库并继续。**
 
 	![步骤10：所有服务器检查通过，继续连接数据库](http://img.geekyspace.cn/pictures/2026/202611022200990.png)
-### 4.5 初始化服务器数据
+### 5. 初始化服务器数据
 
 - **步骤 11：核对目标数据库，开始初始化。**
 
@@ -336,7 +336,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 - **步骤18：配置远端存储体积提醒**
 
-### 4.6 日常同步模式与文件上限
+### 6. 日常同步模式与文件上限
 
 - **步骤 19：将同步模式切为 `LiveSync`。**
 	- ⚠️ 不要用 **预设 → 应用** 代替，1.0.44 的 LiveSync 预设会关闭启动同步。
@@ -355,7 +355,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 > [!TIP] 文件上限不等于分块大小
 > 分块设置保持默认；超过 100 MiB 的文件会被跳过，大附件同步仍需实测。
 
-### 4.8 导出配置
+### 7. 导出配置
 22. **步骤22: 将当前设置复制为设置 URI**
 	- `The passphrase to encrypt the setup URI` 后填写自定义密钥，例如：`123456`。
 	- 默认选择 `Time-bound`, 访问 URI 有时间限制
@@ -363,12 +363,12 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 **设置 URI / 二维码相当于整套连接配置的搬家箱。** 含凭据的二维码若未加密，不应截图存入这篇笔记。生成或关闭二维码本身不会开启、关闭或恢复实时同步开关。
 
-## 5. iPhone 加入同一个个人库
+## 五、iPhone 加入同一个个人库
 
 > [!INFO] 本节状态
 > 本节给出完整操作方法，**尚未确认 iPhone 已加入 `obsidian_personal`**。以下 iPhone 截图来自此前 `Obsidian-Mobile` 的安装演示，只用于展示按钮位置；仓库名要改为本次 Personal，不能当作本次已连接成功的证据。
 
-### 5.1 创建或打开个人 Vault
+### 1. 创建或打开个人 Vault
 
 1. 在 iPhone 打开 Obsidian，创建或打开独立 Vault **`Obsidian-Personal`**。
 2. 第一次加入优先使用空 Vault，避免把两套已有内容混到一起。
@@ -378,7 +378,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 ![iPhone 旧安装示例：创建仓库与打开社区插件；本次名称应改为 Obsidian-Personal](http://img.geekyspace.cn/pictures/2026/202611022327382.png)
 
-### 5.2 安装插件，导入 Mac Personal 配置
+### 2. 安装插件，导入 Mac Personal 配置
 
 1. 进入 **设置 → 第三方插件 / 社区插件 → 浏览**。
 2. 搜索 **Self-hosted LiveSync**，确认作者 **vrtmrz**；
@@ -393,7 +393,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 	![iPhone 旧操作示例：设置 URI 入口与空白输入表单，未表示本次 Personal 已导入](http://img.geekyspace.cn/pictures/2026/202611022328321.png)
 
-### 5.3 验证笔记、修改和附件
+### 3. 验证笔记、修改和附件
 
 完成两端配置后依次验证：
 
@@ -405,7 +405,7 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 iOS 会限制后台运行；首次下载和大附件同步时，保持 Obsidian 前台，等待队列完成。
 
-### 参考
+### 4. 参考
 
 - [LiveSync 官方服务器部署](https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/setup_own_server.md)
 - [LiveSync 首次设置与添加设备](https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/quick_setup.md)

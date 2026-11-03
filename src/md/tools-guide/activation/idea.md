@@ -27,7 +27,7 @@ tag:
 执行第三方脚本可能修改 IDE 配置及本地文件，管理员权限会进一步扩大影响范围。请先备份重要配置、核实来源并审阅脚本，不要在包含敏感数据的环境中直接运行。本文未对这些脚本进行安全审计或实际激活测试，也不保证其对当前版本仍然有效。
 :::
 
-## 1. 下载激活文件
+## 一、下载激活文件
 
 > 仅支持官网专业版2020-2026的激活。不支持社区版 toolbox下载的IDEA。
 
@@ -35,7 +35,7 @@ tag:
 - **蓝奏云下载地址**：[点击下载](https://wwv.lanzouv.com/b0focjpkb)，密码：`3spb`
 - **OpenList 下载地址**：[点击下载](https://openlist.geekyspace.cn/@s/gz0TG7YN)，密码：`4a8g`
 
-### Mac
+### 1. Mac
 
 #### 1️⃣ 解压 `macjihuo.zip`
 
@@ -61,7 +61,7 @@ tag:
 
 ![Success](http://img.geekyspace.cn/pictures/2024/202404171714345.png)
 
-### Windows
+### 2. Windows
 
 #### 1️⃣ 解压下载的压缩包
 
@@ -76,12 +76,12 @@ tag:
 
 ![Success](http://img.geekyspace.cn/pictures/2024/202404171718903.png)
 
-## 2. 命令行一键激活
+## 二、命令行一键激活
 
 - **网站**：[ckey.run](https://ckey.run/)
 - **原文**：[LINUX DO 一键激活教程](https://linux.do/t/topic/694120)
 
-### Windows
+### 1. Windows
 
 打开 **PowerShell（管理员）**，按需执行以下命令。
 
@@ -103,7 +103,7 @@ irm ckey.run/debug|iex
 irm ckey.run/uninstall|iex
 ```
 
-### Linux
+### 2. Linux
 
 打开终端，按需执行以下命令。
 
@@ -125,7 +125,7 @@ wget -q ckey.run/debug -O ckey.run && bash ckey.run
 wget -q ckey.run/uninstall -O ckey.run && bash ckey.run
 ```
 
-### macOS
+### 3. macOS
 
 打开终端，按需执行以下命令。
 

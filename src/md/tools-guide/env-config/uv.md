@@ -22,7 +22,7 @@ tags:
 
 > uv 是 Astral 使用 Rust 编写的 Python 包和项目管理工具，可以统一完成 Python 安装、版本切换、虚拟环境创建、依赖管理和命令行工具安装。
 
-## 1. 安装
+## 一、安装
 
 ==macOS== 下推荐使用 Homebrew 安装 uv，参考 [uv 官方安装文档](https://docs.astral.sh/uv/getting-started/installation/#homebrew)：
 
@@ -36,9 +36,9 @@ uv --version
 brew upgrade uv
 ```
 
-## 2. Python 环境搭建
+## 二、Python 环境搭建
 
-### 安装与查看版本
+### 1. 安装与查看版本
 
 ```shell
 # 安装指定版本
@@ -54,7 +54,7 @@ uv python list
 uv python uninstall 3.12
 ```
 
-### 指定项目使用的版本
+### 2. 指定项目使用的版本
 
 在项目目录中执行：
 
@@ -68,7 +68,7 @@ uv run python --version
 
 > `uv python pin` 指定的是当前项目使用的 Python，不会切换系统的 `python` 命令。已有项目还需满足 `pyproject.toml` 中的 `requires-python` 约束。
 
-## 3. 创建与运行项目
+## 三、创建与运行项目
 
 ```shell
 # 创建项目，指定 Python 版本
@@ -86,7 +86,7 @@ uv run python main.py
 
 **日常运行优先使用 `uv run`，无需手动激活虚拟环境。**
 
-### 认识项目文件
+### 1. 认识项目文件
 
 | 文件 / 目录 | 作用 | 是否提交 Git |
 | --- | --- | --- |
@@ -99,9 +99,9 @@ uv run python main.py
 
 > `.python-version` 表示“本地默认使用哪个 Python”，`requires-python` 表示“项目支持哪些 Python 版本”。切换解释器不会自动放宽项目声明的版本范围。
 
-## 4. 依赖管理
+## 四、依赖管理
 
-### 添加与删除依赖
+### 1. 添加与删除依赖
 
 在包含 `pyproject.toml` 的项目目录下执行：
 
@@ -124,7 +124,7 @@ uv remove --dev ruff
 
 `uv add` / `uv remove` 会同步修改 `pyproject.toml`、`uv.lock` 和项目环境，不需要再手动执行一次安装。
 
-### 运行 Python 与项目命令
+### 2. 运行 Python 与项目命令
 
 推荐使用 `uv run`，无需先激活虚拟环境：
 
@@ -145,7 +145,7 @@ uv run ruff format .
 
 > `uv run` 会在运行前检查项目锁文件和环境，按需安装依赖。团队项目中的 pytest、Ruff 等工具建议作为开发依赖，通过 `uv run` 执行，以保持版本一致。
 
-### 同步与更新
+### 3. 同步与更新
 
 克隆项目、切换分支或拉取依赖变更后，使用 `uv sync` 恢复环境：
 
@@ -167,9 +167,9 @@ uv sync
 
 > 更新不会突破 `pyproject.toml` 中的版本约束。`uv lock` 只更新锁文件，需执行 `uv sync` 才会安装到环境。`uv sync` 默认会移除未被项目声明的额外包，项目依赖应统一使用 `uv add` 管理。
 
-## 5. 虚拟环境与旧项目
+## 五、虚拟环境与旧项目
 
-### 继续使用 requirements.txt
+### 1. 继续使用 requirements.txt
 
 不想引入 uv 项目配置时，可以只用 uv 创建环境和安装依赖：
 
@@ -196,7 +196,7 @@ Windows PowerShell 激活命令为 `.venv\Scripts\Activate.ps1`。
 - `uv add`：管理项目依赖，更新 `pyproject.toml`、`uv.lock` 和环境，**新项目优先使用**。
 - `uv pip install`：只向环境安装包，不更新项目依赖声明和锁文件，适合旧项目或临时环境。
 
-### 迁移为 uv 项目
+### 2. 迁移为 uv 项目
 
 ```shell
 # 在旧项目根目录初始化（已有 pyproject.toml 时跳过，先检查配置）
@@ -211,9 +211,9 @@ uv add --dev -r requirements-dev.txt
 
 迁移后以 `pyproject.toml` 和 `uv.lock` 为准，不要再同时手动维护两套依赖声明。
 
-## 6. 独立脚本与命令行工具
+## 六、独立脚本与命令行工具
 
-### 临时给脚本提供依赖
+### 1. 临时给脚本提供依赖
 
 不想为了一个脚本创建完整项目时，可以临时指定依赖：
 
@@ -223,7 +223,7 @@ uv run --no-project --with requests script.py
 
 `--no-project` 不读取当前项目配置，`--with` 仅为本次运行提供依赖，不会修改项目依赖声明。
 
-### 临时运行工具：uvx
+### 2. 临时运行工具：uvx
 
 `uvx` 是 `uv tool run` 的简写，适合偶尔使用的命令行工具：
 
@@ -237,7 +237,7 @@ uvx ruff@0.11.0 check .
 
 > **项目内的工具用 `uv run`，偶尔使用的独立工具用 `uvx`。** `uvx` 不会自动使用项目环境，运行依赖项目环境的测试时，应使用 `uv run pytest`。
 
-### 长期安装工具
+### 3. 长期安装工具
 
 ```shell
 # 安装工具，命令可在终端中直接使用
@@ -256,9 +256,9 @@ uv tool update-shell
 
 执行 `uv tool update-shell` 后，按提示重新打开终端。
 
-## 7. 常用配置与排查
+## 七、常用配置与排查
 
-### 配置 PyPI 镜像
+### 1. 配置 PyPI 镜像
 
 默认使用官方 PyPI，网络正常时无需修改。需要使用镜像时，可在项目 `pyproject.toml` 中添加：
 
@@ -279,7 +279,7 @@ uv sync --default-index https://pypi.tuna.tsinghua.edu.cn/simple
 
 > `uv sync` / `uv add` 不会直接沿用 pip 的镜像配置。uv 项目应使用自己的索引配置；只使用可信的包索引，私有源凭据不要写入 Git。
 
-### 检查解释器与缓存
+### 2. 检查解释器与缓存
 
 ```shell
 # 查看项目实际使用的解释器路径

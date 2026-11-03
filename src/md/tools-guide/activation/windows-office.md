@@ -17,9 +17,9 @@ tag:
 
 # Windows 与 Office 激活指南
 
-## 1. 密钥激活（官方）
+## 一、密钥激活（官方）
 
-### 1.1 Windows 系统激活
+### 1. Windows 系统激活
 
 1. `Win+R` 打开终端，输入命令
 
@@ -39,7 +39,7 @@ tag:
 
    ![Windows官方密钥激活](http://img.geekyspace.cn/pictures/2024/202404232327475.png)
 
-### 1.2 Office 软件激活
+### 2. Office 软件激活
 
 1. **打开Office应用程序：** 启动`Word`、`Excel`或`PowerPoint`等
 2. **访问文件菜单：** 在应用程序中，点击左上角的"文件"菜单
@@ -48,13 +48,13 @@ tag:
 5. **输入产品密钥：** 在弹出的对话框中输入你的25位密钥 ！获取 [微软Office官方正版秘钥](https://learn.microsoft.com/zh-cn/deployoffice/vlactivation/gvlks)
 6. **激活Office：** 输入密钥后，点击"继续"或"激活产品"
 
-## 2. 激活脚本（原理）
+## 二、激活脚本（原理）
 
 > 一键激活脚本：[https://wwi.lanzoup.com/b0foh27ne](https://wwi.lanzoup.com/b0foh27ne), 密码：`gkjb`
 
 ![脚本-持续更新](http://img.geekyspace.cn/pictures/2024/202404231900072.png)
 
-### 2.1 脚本激活命令
+### 1. 脚本激活命令
 
 **将密钥写入系统，实现激活**
 
@@ -64,13 +64,13 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 如果你有新的零售产品密钥，将 `X` 替换为实际的密钥，运行以上命令即可激活
 
-### 2.2 脚本激活网站推荐
+### 2. 脚本激活网站推荐
 
 [KMS一键激活windows/office网站](https://kms.cx/)
 
 ![KMS一键激活windows/office网站](http://img.geekyspace.cn/pictures/2024/202404240116136.png)
 
-## 3. 激活程序（推荐）
+## 三、激活程序（推荐）
 
 > 获取 [一键激活程序](https://m.tb.cn/h.g0ZtnKz?tk=OoXyWIKR74J) ,提供多种激活方式
 
@@ -84,7 +84,7 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 :::
 
-### 3.1 数字激活工具：HWID_KMS38_CN_62
+### 1. 数字激活工具：HWID_KMS38_CN_62
 
 **概述**
 
@@ -104,13 +104,13 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
    ![计算机已永久激活](http://img.geekyspace.cn/pictures/2024/202404232347627.png)
 
-### 3.2 KMS 激活工具：DragonKMS
+### 2. KMS 激活工具：DragonKMS
 
 互联网论坛上的知名激活工具，也是我个人常用的激活工具，常用于激活Windows和Office全家桶，通过联网KMS激活
 
 ![MicroKMS神龙版](http://img.geekyspace.cn/pictures/2024/202404232356474.png)
 
-### 3.3 开源激活工具：HEU_KMS_Activator
+### 3. 开源激活工具：HEU_KMS_Activator
 
 仅供研究激活原理使用，在“智能激活”中点击“开始”，即按照最佳激活方式"数字许可证/KMS38/OEM/KMS"依次激活，直到激活成功
 
@@ -120,13 +120,13 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 ![Success](http://img.geekyspace.cn/pictures/2024/202404240027800.png)
 
-### 3.4 小马激活工具：KMS10
+### 4. 小马激活工具：KMS10
 
 老牌激活工具，文件大小仅1M，我以前还用来激活Win7，可以想象年代的久远。支持离线激活，永久有效，无需考虑激活时限。office版本为retail的用户请自行转换版本到volume，即channel switch。
 
 ![小马激活工具](http://img.geekyspace.cn/pictures/2024/202404240037901.png)
 
-### 3.5 Ratiborus 激活工具：W10DigitalActivation
+### 5. Ratiborus 激活工具：W10DigitalActivation
 
 大神Ratiborus制作的，它还有开发激活Office的 **KMSAuto++** 工具，以及可定制化安装Office的 **Office2013-2021 C2R Install**。可以关注它的[Twitter](https://twitter.com/ratiborus58)。
 
@@ -134,7 +134,7 @@ slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 
 ![永久激活](http://img.geekyspace.cn/pictures/2024/202404240057039.png)
 
-### 3.6 云萌激活工具：CMWTAT_Digital
+### 6. 云萌激活工具：CMWTAT_Digital
 
 云萌 Windows 10 激活工具，专门用于数字权利激活的软件。本软件是一款使用CSharp编写的 Windows 10 数字权利激活工具
 
