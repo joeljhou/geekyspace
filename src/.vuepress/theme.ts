@@ -91,9 +91,9 @@ export default hopeTheme({
     editLink: true,
 
     // 编辑此页链接地址
-    docsRepo: "https://github.com/joeljhou/joeljhou.github.io",
+    docsRepo: "https://github.com/joeljhou/geekyspace",
     docsDir: "src",
-    docsBranch: "master",
+    docsBranch: "main",
 
     // page meta
     metaLocales: {

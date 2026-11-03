@@ -2,9 +2,9 @@
 name: docs
 
 on:
-  # push 到 master 分支时自动部署
+  # push 到 main 分支时自动部署
   push:
-    branches: [master]
+    branches: [main]
   # 允许手动触发
   workflow_dispatch:
 
