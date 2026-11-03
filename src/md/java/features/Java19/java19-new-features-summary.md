@@ -22,9 +22,9 @@ tag:
 
 以下预览特性在Java 21中正式定稿：
 
-* [405: Record Patterns (Preview)：终稿见 440: Record Patterns](/java-features/Java21/jep440-record-partterns)
-* [425: Virtual Threads (Preview)：终稿见 444: Virtual Threads](/java-features/Java21/jep444-virtual-threads)
-* [427: Pattern Matching for switch (Third Preview)：终稿见 441: Pattern Matching for switch](/java-features/Java21/jep441-pattern-matching-for-switch)
+* [405: Record Patterns (Preview)：终稿见 440: Record Patterns](../Java21/jep440-record-partterns.md)
+* [425: Virtual Threads (Preview)：终稿见 444: Virtual Threads](../Java21/jep444-virtual-threads.md)
+* [427: Pattern Matching for switch (Third Preview)：终稿见 441: Pattern Matching for switch](../Java21/jep441-pattern-matching-for-switch.md)
 
 以下内容在Java 21中继续迭代：
 

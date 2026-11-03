@@ -22,7 +22,7 @@ Java 21 中的**记录模式**（Record Patterns）是对模式匹配的扩展�
 
 ## 仅仅是类型匹配
 
-到目前为止，Java中的模式匹配主要局限于匹配类型：[instanceof类型匹配](/java-features/Java16/jep394-pattern-matching-for-instanceof)
+到目前为止，Java中的模式匹配主要局限于匹配类型：[instanceof类型匹配](../Java16/jep394-pattern-matching-for-instanceof.md)
 
 ```java
 // Java 16 之前
@@ -38,7 +38,7 @@ if (obj instanceof String str) {
 ```
 
 Java
-21扩展了这个概念，使其可用于switch语句和表达式: [switch的模式匹配](/java-features/Java21/jep441-pattern-matching-for-switch)
+21扩展了这个概念，使其可用于switch语句和表达式: [switch的模式匹配](./jep441-pattern-matching-for-switch.md)
 
 ```java
 // JAVA 21之前

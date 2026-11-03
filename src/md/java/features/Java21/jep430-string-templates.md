@@ -151,7 +151,7 @@ String t = STR."Access at \{req.date} \{req.time} from \{req.ipAddress}";
 
 ## 多行模板表达式
 
-模板表达式的模板可以跨越多行源代码，类似于Java 15中的[文本块](/java-features/Java15/jep378-text-blocks)的语法。
+模板表达式的模板可以跨越多行源代码，类似于Java 15中的[文本块](../Java15/jep378-text-blocks.md)的语法。
 开发者可以用它来方便的组织`html`、`json`、`xml`等字符串内容，比如下面这样：
 
 ```java
