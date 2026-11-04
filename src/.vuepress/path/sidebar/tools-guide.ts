@@ -29,6 +29,7 @@ export const toolsGuide = arraySidebar([
             {text: "Git 提交规范", link: "git-commit"},
             {text: "SSH 配置多账号", link: "git-ssh"},
             {text: "IDEA Issues", link: "idea-issues"},
+            {text: "Lombok 配置", link: "lombok"},
             {text: "NPS 内网穿透", link: "nps"},
             {text: "Obsidian 笔记同步 ", link: "obsidian-livesync"},
         ],
