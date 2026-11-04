@@ -2,7 +2,7 @@ import {arraySidebar} from "vuepress-theme-hope";
 
 export const idea = arraySidebar([
     {text: "文库汇总", link: "/article.html"},
-    {text: "IDEA 归档总目录", link: "/md/tools-guide/idea/"},
+    {text: "IDEA 归档总目录", link: "/md/java/idea/"},
     {
         text: "IntelliJ IDEA（历史归档）",
         collapsible: false,

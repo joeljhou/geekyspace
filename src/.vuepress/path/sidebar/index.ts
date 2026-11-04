@@ -17,6 +17,7 @@ export default sidebar({
     "/md/java/datetime/": javaDatetime, // 专栏：Java 日期时间
     "/md/java/features/": javaFeatures, // 专栏：Java 新特性
     "/md/java/jvm/": jvm,               // 专栏：深入理解 Java 虚拟机
+    "/md/java/idea/": idea,             // 历史归档：IntelliJ IDEA 教程
 
     /** ===== 2. Spring 框架生态 ===== */
     "/md/spring/": spring,                      // Spring 文章/专栏
@@ -52,7 +53,6 @@ export default sidebar({
 
     /** ===== 7. 工具指南 ===== */
     "/md/tools-guide/": toolsGuide,
-    "/md/tools-guide/idea/": idea,      // 历史归档：IntelliJ IDEA 教程
 
     /** ===== 8. Blockchain 区块链 ===== */
     "/md/blockchain/": blockchain,        // 区块链/加密货币/香港银行

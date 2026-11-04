@@ -1,5 +1,5 @@
 ---
-title: 配置 Obsidian 同步插件LiveSync
+title: Obsidian 笔记 LiveSync 配置
 date: 2026-11-02
 updated: 2026-11-02
 category: 工具指南
@@ -12,7 +12,7 @@ tags:
   - livesync
   - cloudflare
   - tunnel
-shortTitle: CouchDB 与 LiveSync
+shortTitle: Obsidian 笔记同步
 description: 在 ARM Ubuntu 上通过 Docker 部署 CouchDB，经 Cloudflare Tunnel 为 Obsidian Self-hosted LiveSync 提供同步服务
 icon: database
 cover:
@@ -21,7 +21,7 @@ isOriginal: true
 sticky: false
 star: false
 ---
-# 配置 Obsidian 同步插件LiveSync
+# Obsidian 笔记 LiveSync 配置
 
 CouchDB 保存同步数据，Obsidian 的 **Self-hosted LiveSync** 插件负责文件分块、加密和同步。访问链路：
 
