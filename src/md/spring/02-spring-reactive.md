@@ -1,5 +1,5 @@
 ---
-title: Spring 反应式编程
+title: Spring 反应式
 shortTitle:
 description:
 icon:
@@ -14,7 +14,14 @@ tags:
   - webflux
 ---
 
-# Spring 反应式编程
+# Spring 反应式
+
+**Reactive**
+Spring 的异步、非阻塞架构意味着你可以从计算资源中获得更多优势。
+
+
+
+
 ## 概念
 - 官网地址： https://spring.io/reactive
 - Spring WebFlux 是一个从头开始构建的非阻塞Web框架，旨在利用多核、下一代处理器并处理大量并发连接。
