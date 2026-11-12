@@ -2,24 +2,15 @@ import {arraySidebar} from "vuepress-theme-hope";
 
 export const java = arraySidebar([
         {
-            text: "Java 基础", prefix: "basic/", /*link: "basic/",*/
-            children: [
-                {text: "快速入门", link: "java-from-scratch"},
-                {text: "面向对象（OOP）", link: "java-basic-oop"},
-                {text: "常用类与工具", link: "java-common-classes"},
+            text: "文章", children: [
+                {text: "Java 基础", prefix: "basic/", children: "structure",},
+                {text: "并发编程", prefix: "juc/", children: "structure",},
+                {text: "JVM 语言", prefix: "langs/", children: "structure"},
+                {text: "框架与组件", prefix: "framework/", children: "structure"},
             ],
         },
         {
-            text: "文章",
-            children: [
-                {text: "Java 多线程与并发", icon: "thread", link: "thread/thread-concurrency"},
-                {text: "Java 程序员快速掌握 Kotlin", icon: "kotlin", link: "kotlin/kotlin-quick-for-java"},
-                {text: "Sa-Token 认证鉴权", icon: "sa-token", link: "safe/sa-token"},
-            ],
-        },
-        {
-            text: "专栏",
-            children: [
+            text: "专栏", children: [
                 {text: "Java 日期时间", icon: "java", link: "datetime/"},
                 {text: "Java 新版本特性", icon: "java", link: "features/"},
                 {text: "深入理解Java虚拟机", icon: "jvm-xx", link: "jvm/"},

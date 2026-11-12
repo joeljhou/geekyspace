@@ -1,7 +1,7 @@
 import {arraySidebar} from "vuepress-theme-hope";
 
 export const jvm = arraySidebar([
-        {text: "总目录", prefix: "/md/java/jvm/", link: "/md/java/jvm/",},
+        {text: "专栏导航", prefix: "/md/java/jvm/", link: "/md/java/jvm/",},
         {
             text: "走近Java", prefix: "part1/", link: "part1/",
             children: [
@@ -15,7 +15,7 @@ export const jvm = arraySidebar([
                 {text: "运行时数据区", link: "runtime-data-areas"},
                 {text: "对象分配过程", link: "heap-object-flow"},
                 {
-                    text: "基础故障处理工具", prefix: "basic-tools/", link: "basic-tools/",
+                    text: "基础故障处理工具", prefix: "basic-tools/",
                     collapsible: true,
                     children: [
                         // {text: "依赖注入", link: "factory-collaborators"}
@@ -39,11 +39,11 @@ export const jvm = arraySidebar([
             ],
         },
         {
-            text: "程序编译与代码优化", prefix: "part4/", link: "part4/",
+            text: "程序编译与代码优化", prefix: "part4/",
             children: [],
         },
         {
-            text: "高效并发", prefix: "part5/", link: "part5/",
+            text: "高效并发", prefix: "part5/",
             children: [],
         },
 

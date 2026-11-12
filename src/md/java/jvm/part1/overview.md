@@ -52,7 +52,7 @@ order: 1.4
     * HotSpot VM集成了Sun以上两款虚拟机优点（准确式内存管理，热点代码探测技术...）
       * **优点**是<u>同时支持解释执行和即时编译执行</u>，在响应速度和执行速度上取得平衡
     * Oracle收购Sun以后，建立HotRockit项目，把BEA JRocki优秀特性融合到HotSpot之中
-    * 2014年JDK 8时期，HotSpot移除掉[永久代](/md/jvm/part2/runtime-data-areas.html#方法区)，吸收了JRockit的Java Mission Control监控工具等功能
+    * 2014年JDK 8时期，HotSpot移除掉[永久代](/md/java/jvm/part2/runtime-data-areas.html#方法区)，吸收了JRockit的Java Mission Control监控工具等功能
 
 **小家碧玉：Mobile/Embedded VM（Sun/Oracle公司）**
 

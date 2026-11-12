@@ -1,6 +1,6 @@
 ---
 title: Java 程序员快速掌握 Kotlin
-shortTitle:
+shortTitle: 掌握 Kotlin
 description:
 icon:
 cover:

@@ -1,6 +1,6 @@
 ---
 title: Sa-Token认证鉴权
-shortTitle:
+shortTitle: Sa-Token 鉴权
 description: 开源、免费、轻量级 java 权限认证框架，让鉴权变得简单、优雅！
 icon:
 cover:

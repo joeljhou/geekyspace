@@ -1,7 +1,8 @@
 ---
+order: 3
 title: Java 常用类与工具
-shortTitle:
-description:
+shortTitle: 类与工具
+description: 本文将介绍Java中常用的类与工具，帮助开发者更好地使用Java语言。
 icon:
 cover:
 author: 流浪码客

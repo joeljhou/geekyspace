@@ -1,7 +1,8 @@
 ---
+order: 1
 title: Java基础 - 从零开始学习Java
-shortTitle:
-description:
+shortTitle: 快速入门
+description: 本文将带你从零开始学习Java，涵盖Java语言的基本概念、语法和应用。
 icon:
 cover:
 author: 流浪码客

@@ -1,6 +1,6 @@
 ---
 title: Java多线程与并发编程
-shortTitle:
+shortTitle: 多线程与并发
 description:
 icon:
 cover:
@@ -12,6 +12,7 @@ date: 2025-02-18
 category: 并发编程
 tag:
   - JUC
+order: 1
 ---
 # Java多线程与并发编程
 > 你聊一聊多线程以及并发你是如何实现的，以往在实际工作中，遇到高并发的环境采用那些方案进行处理。

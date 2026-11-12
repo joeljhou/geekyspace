@@ -1,6 +1,7 @@
 ---
+order: 2
 title: Java核心思想 - 面向对象编程（OOP）
-shortTitle:
+shortTitle: 面向对象（OOP）
 description:
 icon:
 cover:
