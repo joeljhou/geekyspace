@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "notes": {
     "src": {
       ".vuepress": {
@@ -8,7 +8,16 @@
         "path": {
           "_text": "路径",
           "navbar.ts": "导航栏",
-          "sidebar": "侧边栏"
+          "sidebar": {
+            "_text": "侧边栏",
+            "cloudnative": {
+              "arm-ubuntu.ts": "专栏2：Linux 服务器",
+              "docker.ts": "专栏1：Docker 容器化"
+            },
+            "index.ts": "侧边栏",
+            "java": "Java 语言核心",
+            "spring": "Spring 框架生态"
+          }
         },
         "styles": {
           "index.scss": "自定义css"
@@ -19,27 +28,44 @@
       "about-me.md": "关于我",
       "article.md": "文库汇总",
       "md": {
+        "ai": { "_text": "Al-Guide", "_meta": { "style": "focus" } },
+        "blockchain": "区块链",
+        "cloudnative": {
+          "_text": "云原生", "_meta": { "style": "focus" },
+          "docker": "专栏1：Docker 容器化",
+          "linux": {
+            "arm-ubuntu": {
+              "_text": "专栏2：ARM Ubuntu 服务器折腾",
+              "ai": "4. AI 工具",
+              "apps": "5. 自托管应用",
+              "network-proxy": "2. 网络与代理",
+              "setup": "1. 环境搭建",
+              "storage": "3. 数据库与存储"
+            }
+          }
+        },
+        "database": "数据库",
         "java": {
-          "datetime": "专栏",
-          "features": "专栏",
+          "_text": "Java 核心",
+          "datetime": "专栏1：Java 日期时间",
+          "features": "专栏2：Java新版本特性",
           "jvm": {
-            "_text": "专栏",
+            "_text": "专栏3：深入理解Java虚拟机",
             "part2": {
               "basic-tools": "基础故障处理工具",
               "visual-tools": "可视化故障处理工具"
             }
           }
         },
-        "linux": {
-          "oracle-cloud": "ARM Ubuntu 服务器折腾"
-        },
+        "middleware": "中间件",
         "spring": {
+          "_text": "Spring 生态",
           "boot": "专栏",
           "data-jpa": "专栏",
           "framework": "专栏"
         },
         "tools-guide": {
-          "_text": "工具指南", "_meta": { "style": "important" },
+          "_text": "工具指南", "_meta": { "style": "focus" },
           "activation": "安装激活",
           "dev-practices": "开发实践",
           "env-config": "环境配置",

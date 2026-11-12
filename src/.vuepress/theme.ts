@@ -5,6 +5,8 @@ import navbar from "./path/navbar.js";
 import sidebar from "./path/sidebar";
 
 export default hopeTheme({
+    // 启用热重载
+    hotReload: true,
     // 网站部署域名
     hostname: "https://www.geekyspace.cn",
     // 站点图标

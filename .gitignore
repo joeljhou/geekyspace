@@ -1,8 +1,18 @@
-/.idea/
-/**/.obsidian/
-/.playwright-mcp/
-node_modules/
-src/.vuepress/.cache/
-src/.vuepress/.temp/
-src/.vuepress/dist/
+# 系统文件
 .DS_Store
+
+# 编辑器配置
+/.idea/
+.obsidian/
+
+# 依赖目录
+node_modules/
+
+# VuePress 缓存与构建产物
+/src/.vuepress/.cache/
+/src/.vuepress/.temp/
+/src/.vuepress/dist/
+
+# Playwright 临时文件
+/.playwright-cli/
+/.playwright-mcp/
