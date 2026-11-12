@@ -31,7 +31,7 @@ export const toolsGuide = arraySidebar([
             {text: "IDEA Issues", link: "idea-issues"},
             {text: "Lombok 配置", link: "lombok"},
             {text: "NPS 内网穿透", link: "nps"},
-            {text: "Obsidian 笔记同步 ", link: "obsidian-livesync"},
+            {text: "Obsidian 笔记同步", link: "/md/cloudnative/linux/arm-ubuntu/apps/02-obsidian-livesync.html"},
         ],
     },
     {
