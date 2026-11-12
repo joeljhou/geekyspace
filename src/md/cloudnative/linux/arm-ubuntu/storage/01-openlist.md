@@ -1,5 +1,14 @@
 ---
+order: 1
 title: 云存储挂载 Openlist 网盘
+shortTitle: OpenList 网盘
+description: 将甲骨文云免费 20G 对象存储经 S3 协议绑定到 VPS 上的 OpenList
+icon: openlist
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-08-01
 category: 云计算
 tags:
@@ -9,24 +18,19 @@ tags:
   - 对象存储
   - s3
   - docker
-shortTitle: OpenList 挂载对象存储
-description: 将甲骨文云免费 20G 对象存储经 S3 协议绑定到 VPS 上的 OpenList
-icon: openlist
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # 云存储挂载 Openlist 网盘
 
-> [!INFO] Oracle 官方  
-> Oracle Cloud 每个租户提供总计 **20 GB 免费对象存储空间**，对象存储与归档存储共用该额度。
-> 
-> **相关文档：**
-> 
-> - [免费资源 — Always Free Resources](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm#objectstorage)
-> - [快速开始 - OpenList 文档](https://doc.oplist.org/guide)
+::: info Oracle 官方
+
+Oracle Cloud 每个租户提供总计 **20 GB 免费对象存储空间**，对象存储与归档存储共用该额度。
+
+**相关文档：**
+
+- [免费资源 — Always Free Resources](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm#objectstorage)
+- [快速开始 - OpenList 文档](https://doc.oplist.org/guide)
+
+:::
 
 ## 实现原理
 
@@ -67,12 +71,15 @@ docker exec -it openlist ./openlist admin random
 docker exec -it openlist ./openlist admin set '<NEW_PASSWORD>'
 ```
 
-> [!NOTE]
-> 若实际容器名不是 `openlist`，先执行 `docker ps`，再将命令中的容器名替换为实际名称。
+::: note 先确认容器名称
+
+若实际容器名不是 `openlist`，先执行 `docker ps`，再将命令中的容器名替换为实际名称。
+
+:::
 
 **配置访问域名**
 
-OpenList 部署完成后，域名入口、服务 URL、端口安全和 502 排错统一按照 [Cloudflare Tunnel：发布应用程序配置](07-cloudflare-tunnel#三、发布应用程序) 配置，本篇不再重复。
+OpenList 部署完成后，域名入口、服务 URL、端口安全和 502 排错统一按照 [Cloudflare Tunnel：发布应用程序配置](/md/cloudnative/linux/arm-ubuntu/network-proxy/01-cloudflare-tunnel.html#三、发布应用程序) 配置，本篇不再重复。
 
 进入 **1Panel → 应用商店 → 已安装 → OpenList → 参数**，将「Web 访问地址」设置为最终域名：
 
@@ -92,8 +99,11 @@ OCI 控制台 → **存储 → 存储桶 → 创建存储桶**。
 3. 可见性：**私有**
     
 
-> [!NOTE]  
-> 不要选择归档层。归档文件需要先恢复才能读取，不适合作为日常网盘使用。
+::: note 网盘不适合归档存储
+
+不要选择归档层。归档文件需要先恢复才能读取，不适合作为日常网盘使用。
+
+:::
 
 ### 2. 生成 S3 兼容密钥
 
@@ -104,9 +114,12 @@ OCI 控制台 → **存储 → 存储桶 → 创建存储桶**。
 3. 在客户密钥列表中复制对应的 **Access Key**。
     
 
-> [!WARNING]  
-> Secret Key 只显示一次，关闭页面后无法再次查看。  
-> 如果丢失，只能删除旧密钥并重新生成。
+::: warning Secret Key 只显示一次
+
+Secret Key 只显示一次，关闭页面后无法再次查看。\
+如果丢失，只能删除旧密钥并重新生成。
+
+:::
 
 ### 3. 拼接 S3 端点（Endpoint）
 
@@ -127,9 +140,12 @@ region="us-phoenix-1"
 https://axaxvdhqbttc.compat.objectstorage.us-phoenix-1.oraclecloud.com
 ```
 
-> [!IMPORTANT]  
-> Endpoint 中的 `region` 必须与存储桶所在区域一致。  
-> 存储桶位于凤凰城时，使用 `us-phoenix-1`，不要按访问者所在位置选择其他区域。
+::: important Endpoint 与存储桶区域保持一致
+
+Endpoint 中的 `region` 必须与存储桶所在区域一致。\
+存储桶位于凤凰城时，使用 `us-phoenix-1`，不要按访问者所在位置选择其他区域。
+
+:::
 
 
 完成后，需要准备以下 4 个参数：
@@ -157,14 +173,20 @@ https://axaxvdhqbttc.compat.objectstorage.us-phoenix-1.oraclecloud.com
 
 其余缓存、代理、排序、预签名和前端直传等选项保持默认值或留空即可。
 
-> [!WARNING] 必须启用「强制路径风格」
-> 配置的是 `<namespace>.compat...` 这种**命名空间级**端点，必须用路径风格访问：`https://<ns>.compat.../<bucket>/<object>`。
-> 若关闭该项，OpenList 会改用虚拟主机风格 `https://<bucket>.<endpoint>`，与该端点不匹配，将返回 403/404。甲骨文虽同时支持虚拟主机风格，但那需要换成桶专属的 `vhcompat` 域名，不适合 OpenList 这种「一个桶一个通用端点」的模式。
+::: warning 必须启用「强制路径风格」
+
+配置的是 `<namespace>.compat...` 这种**命名空间级**端点，必须用路径风格访问：`https://<ns>.compat.../<bucket>/<object>`。
+若关闭该项，OpenList 会改用虚拟主机风格 `https://<bucket>.<endpoint>`，与该端点不匹配，将返回 403/404。甲骨文虽同时支持虚拟主机风格，但那需要换成桶专属的 `vhcompat` 域名，不适合 OpenList 这种「一个桶一个通用端点」的模式。
+
+:::
 
 保存后回到 **存储** 列表，该条记录的**状态**显示为 `工作正常`（绿色）即挂载成功。打开首页 `/arm-ubuntu` 路径，桶内文件就会以网盘形式列出，可直接上传、下载、预览、分享。
 
-> [!TIP] 下载提速
-> OpenList 支持**单文件多线程下载加速**：在存储编辑页可设置 `分片大小` 等参数，大文件场景下能显著提升吞吐。
+::: tip 下载提速
+
+OpenList 支持**单文件多线程下载加速**：在存储编辑页可设置 `分片大小` 等参数，大文件场景下能显著提升吞吐。
+
+:::
 
 ## 四、（可选）挂载到 VPS 文件系统
 
@@ -185,8 +207,12 @@ https://axaxvdhqbttc.compat.objectstorage.us-phoenix-1.oraclecloud.com
 - [Oracle Object Storage S3 兼容接口](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/s3compatibleapi.htm)
     
 
-> [!NOTE]  
-> 对象存储不是真正的本地文件系统。后续需要挂载时，应以官方文档为准，并先在测试目录验证，不建议用于数据库、Docker 数据目录或频繁随机读写的业务目录。
+::: note 对象存储挂载的适用范围
+
+对象存储不是真正的本地文件系统。后续需要挂载时，应以官方文档为准，并先在测试目录验证，不建议用于数据库、Docker 数据目录或频繁随机读写的业务目录。
+
+:::
+
 ## 参考资料
 
 - [Oracle：Always Free 资源（对象存储）](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm)
@@ -200,7 +226,3 @@ https://axaxvdhqbttc.compat.objectstorage.us-phoenix-1.oraclecloud.com
 - [OpenList：反向代理](https://doc.oplist.org/guide/installation/reverse-proxy)
 - [rclone S3 后端](https://rclone.org/s3/) ｜ [rclone mount](https://rclone.org/commands/rclone_mount/)
 - [s3fs-fuse（非 Amazon S3 配置）](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Non-Amazon-S3)
-
----
-
-上一步：[创建 Cloudflare Tunnel 隧道](07-cloudflare-tunnel) ｜ 下一步：[安装 PostgreSQL 18](09-postgresql)

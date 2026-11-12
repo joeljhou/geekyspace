@@ -20,15 +20,17 @@ tags:
 
 > 云原生与容器专栏：容器化（Docker）、容器编排（Kubernetes）与 Linux 服务器基础。
 
-## 1. 专栏
+## 1. 文章
 
-- [Docker 容器化实战](../cloudnative/docker/)
-- [Ubuntu 服务器折腾](linux/oracle-cloud/)
+### Linux
 
-## 2. Linux 服务器基础
+- [systemd 服务管理基础](/md/cloudnative/linux/basic/01-systemd.html)
+- [Linux 防火墙与 iptables 基础](/md/cloudnative/linux/basic/02-iptables.html)
 
-- [systemd 服务管理基础](linux/basic/systemd-basics)
-- [Linux 防火墙与 iptables 基础](linux/basic/iptables-firewall-basics)
+## 2. 专栏
+
+- [Docker 容器化实战](docker/)
+- [Linux 服务器实战](linux/arm-ubuntu/)
 
 ## 3. 规划中
 

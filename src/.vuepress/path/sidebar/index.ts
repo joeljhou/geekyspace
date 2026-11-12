@@ -4,8 +4,7 @@ import {java, javaDatetime, javaFeatures, jvm} from "./java";
 import {spring, springFramework, springBoot, springSsm, springDataJpa} from "./spring";
 import {toolsGuide} from "./tools-guide";
 import {idea} from "./idea";
-import {cloudnative} from "./cloudnative";
-import {docker, linux, armUbuntu} from "./cloudnative";
+import {cloudnative, docker, armUbuntu} from "./cloudnative";
 import {middleware} from "./middleware";
 import {blockchain} from "./blockchain";
 import {ai, aigc} from "./ai";
@@ -48,8 +47,7 @@ export default sidebar({
     /** ===== 6. CloudNative 云原生与容器（Docker/K8s/Linux） ===== */
     "/md/cloudnative/": cloudnative,                    // 云原生总目录
     "/md/cloudnative/docker/": docker,                  // Docker
-    "/md/cloudnative/linux/": linux,                    // Linux 基础/专栏
-    "/md/cloudnative/linux/oracle-cloud/": armUbuntu,   // 专栏：Ubuntu 服务器折腾
+    "/md/cloudnative/linux/arm-ubuntu/": armUbuntu,     // 专栏：Ubuntu 服务器折腾
 
     /** ===== 7. 工具指南 ===== */
     "/md/tools-guide/": toolsGuide,

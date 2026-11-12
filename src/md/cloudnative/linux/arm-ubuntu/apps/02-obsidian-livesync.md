@@ -1,7 +1,15 @@
 ---
+order: 2
 title: Obsidian 笔记 LiveSync 配置
+shortTitle: Obsidian 笔记同步
+description: 在 ARM Ubuntu 上通过 Docker 部署 CouchDB，经 Cloudflare Tunnel 为 Obsidian Self-hosted LiveSync 提供同步服务
+icon: database
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-11-02
-updated: 2026-11-02
 category: 工具指南
 tags:
   - server
@@ -12,14 +20,6 @@ tags:
   - livesync
   - cloudflare
   - tunnel
-shortTitle: Obsidian 笔记同步
-description: 在 ARM Ubuntu 上通过 Docker 部署 CouchDB，经 Cloudflare Tunnel 为 Obsidian Self-hosted LiveSync 提供同步服务
-icon: database
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # Obsidian 笔记 LiveSync 配置
 
@@ -352,8 +352,11 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 	![步骤21：最大文件大小设为 100 MiB](http://img.geekyspace.cn/pictures/2026/202611022323961.png)
 
 
-> [!TIP] 文件上限不等于分块大小
-> 分块设置保持默认；超过 100 MiB 的文件会被跳过，大附件同步仍需实测。
+::: tip 文件上限不等于分块大小
+
+分块设置保持默认；超过 100 MiB 的文件会被跳过，大附件同步仍需实测。
+
+:::
 
 ### 7. 导出配置
 22. **步骤22: 将当前设置复制为设置 URI**
@@ -365,8 +368,11 @@ Obsidian 本体与 LiveSync 插件有各自的语言设置。 在 LiveSync 插�
 
 ## 五、iPhone 加入同一个个人库
 
-> [!INFO] 本节状态
-> 本节给出完整操作方法，**尚未确认 iPhone 已加入 `obsidian_personal`**。以下 iPhone 截图来自此前 `Obsidian-Mobile` 的安装演示，只用于展示按钮位置；仓库名要改为本次 Personal，不能当作本次已连接成功的证据。
+::: info 本节状态
+
+本节给出完整操作方法，**尚未确认 iPhone 已加入 `obsidian_personal`**。以下 iPhone 截图来自此前 `Obsidian-Mobile` 的安装演示，只用于展示按钮位置；仓库名要改为本次 Personal，不能当作本次已连接成功的证据。
+
+:::
 
 ### 1. 创建或打开个人 Vault
 

@@ -1,6 +1,7 @@
 ---
+order: 4
 title: Top20常用命令
-shortTitle:
+shortTitle: Top20 常用命令
 description:
 icon:
 cover:

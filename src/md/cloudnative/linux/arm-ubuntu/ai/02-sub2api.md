@@ -1,5 +1,14 @@
 ---
+order: 2
 title: 安装 Sub2API 中转站
+shortTitle: Sub2API
+description: 通过 1Panel 在 Ubuntu arm64 部署 Sub2API（AI API 网关），经 Cloudflare Tunnel 统一内网穿透对外
+icon: robot
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-08-02
 category: 云计算
 tags:
@@ -10,24 +19,22 @@ tags:
   - cloudflare
   - tunnel
   - gateway
-shortTitle: Sub2API 安装
-description: 通过 1Panel 在 Ubuntu arm64 部署 Sub2API（AI API 网关），经 Cloudflare Tunnel 统一内网穿透对外
-icon: robot
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # 安装 Sub2API 中转站
 
 [Sub2API](https://github.com/Wei-Shaw/sub2api) 是一个开源 **AI API 网关**，把 Claude、OpenAI、Gemini、Grok 等订阅统一接入，对外分发 API Key，由平台负责鉴权、计费、负载均衡和请求转发，支持多账号拼车分摊成本。
 
-> [!WARNING] 合规与风险提示
-> 此类中转可能违反 Anthropic 等上游服务的服务条款，账号封禁、服务中断、数据丢失等风险自负。仅作个人学习研究用途，遵守所在地法律法规，请勿用于商业转售。
+::: warning 合规与风险提示
 
-> [!NOTE] 复用 1Panel 数据库服务
-> 1Panel 版 Sub2API 连接已有的 PostgreSQL 18 和 Redis 8 服务，不会再启动一套内置数据库。安装前先在 1Panel 中准备好 `postgresql18` 和 `redis8`。
+此类中转可能违反 Anthropic 等上游服务的服务条款，账号封禁、服务中断、数据丢失等风险自负。仅作个人学习研究用途，遵守所在地法律法规，请勿用于商业转售。
+
+:::
+
+::: note 复用 1Panel 数据库服务
+
+1Panel 版 Sub2API 连接已有的 PostgreSQL 18 和 Redis 8 服务，不会再启动一套内置数据库。安装前先在 1Panel 中准备好 `postgresql18` 和 `redis8`。
+
+:::
 
 ## 一、部署 Sub2API
 
@@ -57,8 +64,11 @@ star: false
 
 检查无误后单击 **确认**。1Panel 会拉取镜像、生成 Compose 配置、创建数据库用户并启动容器。
 
-> [!IMPORTANT] 不要随意更换自动生成的密钥
-> JWT 密钥变化会让所有登录会话失效；TOTP 加密密钥变化会导致已绑定的 2FA 无法使用。备份或迁移时应连同 1Panel 生成的应用配置一起保存。
+::: important 不要随意更换自动生成的密钥
+
+JWT 密钥变化会让所有登录会话失效；TOTP 加密密钥变化会导致已绑定的 2FA 无法使用。备份或迁移时应连同 1Panel 生成的应用配置一起保存。
+
+:::
 
 ### 2. 在 1Panel 中验证
 
@@ -87,8 +97,11 @@ Cloudflare 控制台 → **Tunnels → arm-ubuntu → 路由 → 添加路由 �
 
 发布后访问 `https://sub2api.geekyspace.cn`，HTTPS 由 Cloudflare 终结，宿主机 38145 仍只绑定 `127.0.0.1`，无需对公网放行。
 
-> [!TIP] 客户端 Base URL
-> Claude Code / Codex / Gemini CLI 等客户端把 Base URL 指向 `https://ai.geekyspace.cn`（网关接口带 `/v1`），API Key 用后台生成的，**不是上游官方 Key**。
+::: tip 客户端 Base URL
+
+Claude Code / Codex / Gemini CLI 等客户端把 Base URL 指向 `https://ai.geekyspace.cn`（网关接口带 `/v1`），API Key 用后台生成的，**不是上游官方 Key**。
+
+:::
 
 ## 三、初始化与客户端接入
 
@@ -140,7 +153,3 @@ export ANTHROPIC_AUTH_TOKEN="sk-后台生成的Key"
 - [Sub2API 中文文档](https://github.com/Wei-Shaw/sub2api/blob/main/README_CN.md)
 - [Sub2API Releases](https://github.com/Wei-Shaw/sub2api/releases)
 - [1Panel 官方文档](https://1panel.cn/docs/)
-
----
-
-上一步：[安装 Redis 8.x](10-redis) ｜ 下一步：[安装 CLIProxyAPI 中转站](12-cliproxyapi)

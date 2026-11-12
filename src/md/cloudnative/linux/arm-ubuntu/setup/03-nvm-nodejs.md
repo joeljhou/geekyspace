@@ -1,12 +1,7 @@
 ---
-title: 安装 NVM、Node.js
-date: 2026-07-30
-category: 云计算
-tags:
-  - server
-  - nvm
-  - nodejs
-shortTitle: Node.js 环境
+order: 3
+title: 在 Ubuntu 上安装 NVM 与 Node.js
+shortTitle: Node.js 与 NVM
 description: 在 Ubuntu 中使用 NVM 安装和管理 Node.js 与 npm
 icon: nodejs
 cover:
@@ -14,12 +9,18 @@ author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
+date: 2026-07-30
+category: 云计算
+tags:
+  - server
+  - nvm
+  - nodejs
 ---
-# 安装 NVM、Node.js
+# 在 Ubuntu 上安装 NVM 与 Node.js
 
 > 通过 NVM 安装 Node.js 环境。
 
-## 安装 NVM
+## 一、安装 NVM
 
 [NVM 安装指南 - NVM中文网](https://www.nvmnode.com/zh/guide/installation.html#linux-macos-%E5%AE%89%E8%A3%85) 
 
@@ -37,7 +38,7 @@ command -v nvm
 nvm --version
 ```
 
-## 安装 Node.js
+## 二、安装 Node.js
 
 [NVM 使用指南 - NVM中文网](https://www.nvmnode.com/zh/guide/usage.html)
 
@@ -61,10 +62,13 @@ npm --version
 node -p "process.arch"
 ```
 
-> [!check] 重点检查
-> ARM 服务器上 `node -p "process.arch"` 应输出 `arm64`。
+::: tip 重点检查
 
-## 更新 Node.js LTS
+ARM 服务器上 `node -p "process.arch"` 应输出 `arm64`。
+
+:::
+
+## 三、更新 Node.js
 
 ```shell
 nvm install --lts
@@ -72,9 +76,8 @@ nvm use default
 ```
 
 
-> [!WARNING] 重要提醒  
-> NVM 是用户级 Node.js，**不要混用 sudo npm**
+::: warning 重要提醒
 
----
+NVM 是用户级 Node.js，**不要混用 sudo npm**
 
-上一步：[安装 WireGuard](02-wireguard) ｜ 下一步：[安装 Codex CLI](04-codex-cli)
+:::

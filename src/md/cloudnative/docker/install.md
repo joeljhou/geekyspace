@@ -1,6 +1,7 @@
 ---
+order: 2
 title: Docker安装
-shortTitle:
+shortTitle: Docker 安装
 description:
 icon:
 cover:

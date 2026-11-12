@@ -20,9 +20,9 @@ tags:
 
 ## 1. 基础
 
-- [systemd 服务管理基础](basic/systemd-basics)
-- [Linux 防火墙与 iptables 基础](basic/iptables-firewall-basics)
+- [systemd 服务管理基础](/md/cloudnative/linux/basic/01-systemd.html)
+- [Linux 防火墙与 iptables 基础](/md/cloudnative/linux/basic/02-iptables.html)
 
 ## 2. 专栏
 
-- [Ubuntu 服务器折腾](oracle-cloud)
+- [Linux 服务器实战](arm-ubuntu/)

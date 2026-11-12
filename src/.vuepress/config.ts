@@ -22,7 +22,6 @@ export default defineUserConfig({
             config: {
                 "/md/spring-framework/": "/md/spring/framework/",
                 "/md/spring-boot/":     "/md/spring/boot/",
-                "/md/tools-guide/dev-practices/livesync.html": "/md/tools-guide/dev-practices/obsidian-livesync.html"
             },
         }),
         // 搜索插件

@@ -1,5 +1,14 @@
 ---
+order: 3
 title: 安装 Redis
+shortTitle: Redis 8
+description: 通过 1Panel 应用商店安装 Redis 8.8.1，默认只绑回环，按需从 Mac 用 RedisInsight / redis-cli 连接
+icon: redis
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-08-02
 category: 云计算
 tags:
@@ -10,14 +19,6 @@ tags:
   - database
   - oracle
   - firewall
-shortTitle: Redis 安装
-description: 通过 1Panel 应用商店安装 Redis 8.8.1，默认只绑回环，按需从 Mac 用 RedisInsight / redis-cli 连接
-icon: redis
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # 安装 Redis
 
@@ -53,8 +54,3 @@ Mac ──公网──▶ ① Oracle 安全列表（VCN）──▶ ② 宿主�
 - [Redis 官方文档](https://redis.io/docs/latest/)
 - [RedisInsight（官方 GUI）](https://redis.io/insight/)
 - [Redis 安全指南](https://redis.io/docs/management/security/)
-
-
----
-
-上一步：[安装 PostgreSQL 18](09-postgresql) ｜ 下一步：[安装 Sub2API 中转站](11-sub2api)

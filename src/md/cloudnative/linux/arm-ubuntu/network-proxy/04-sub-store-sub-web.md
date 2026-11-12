@@ -1,5 +1,14 @@
 ---
+order: 4
 title: 部署 Sub-Store
+shortTitle: Sub-Store 与 Sub-Web
+description: Sub-Store + Subconverter + Sub-Web 容器编排，sub-web 源码构建并在构建期注入后端环境变量
+icon: link
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-08-05
 category: 云计算
 tags:
@@ -9,14 +18,6 @@ tags:
   - sub-web
   - subconverter
   - vite
-shortTitle: Sub-Store
-description: Sub-Store + Subconverter + Sub-Web 容器编排，sub-web 源码构建并在构建期注入后端环境变量
-icon: link
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # 部署 Sub-Store
 
@@ -79,8 +80,11 @@ VITE_SUBCONVERTER_DEFAULT_BACKEND=https://subconvert.geekyspace.cn
 VITE_MYURLS_API=https://sub-web.geekyspace.cn/short
 ```
 
-> [!IMPORTANT] 环境变量只在构建期生效
-> Sub-Web 是 Vite 静态前端，`VITE_*` 变量在 `yarn build` 时写入 JS 产物；容器运行时只跑 Nginx，不再读取这些变量。因此不能用运行时 `environment:` 注入，必须通过 `build.args` 在构建期写入——**修改变量后必须重新构建**。
+::: important 环境变量只在构建期生效
+
+Sub-Web 是 Vite 静态前端，`VITE_*` 变量在 `yarn build` 时写入 JS 产物；容器运行时只跑 Nginx，不再读取这些变量。因此不能用运行时 `environment:` 注入，必须通过 `build.args` 在构建期写入——**修改变量后必须重新构建**。
+
+:::
 
 ## 二、MyUrls 短链服务
 
@@ -154,8 +158,11 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-> [!IMPORTANT] `ARG`/`ENV` 必须在 `RUN yarn build` 之前
-> 否则变量不会进入构建产物，前端仍使用默认后端地址。
+::: important ARG/ENV 必须在 RUN yarn build 之前
+
+否则变量不会进入构建产物，前端仍使用默认后端地址。
+
+:::
 
 ## 四、修改环境变量后重新构建
 
@@ -184,9 +191,12 @@ docker compose up -d --force-recreate sub-web
 
 ![](http://img.geekyspace.cn/pictures/2026/202608051820205.png)
 
-> [!IMPORTANT] `/short` 路径与 Sub-Web 同源
-> Sub-Web 前端把短链后端地址写死为 `https://sub-web.geekyspace.cn/short`（见 `.env` 的 `VITE_MYURLS_API`）。Cloudflare Tunnel 在**同一域名** `sub-web.geekyspace.cn` 上用路径规则 `^/short$` 把该请求转发到 MyUrls（8002），从而**避免跨域**——这正是 `.env` 注释里"须与 Sub-Web 同源"的含义。
-> 而 `s.geekyspace.cn` 是 MyUrls 自己的域名，用于访问/跳转生成的短链，对应 `MYURLS_DOMAIN`。
+::: important /short 路径与 Sub-Web 同源
+
+Sub-Web 前端把短链后端地址写死为 `https://sub-web.geekyspace.cn/short`（见 `.env` 的 `VITE_MYURLS_API`）。Cloudflare Tunnel 在**同一域名** `sub-web.geekyspace.cn` 上用路径规则 `^/short$` 把该请求转发到 MyUrls（8002），从而**避免跨域**——这正是 `.env` 注释里"须与 Sub-Web 同源"的含义。
+而 `s.geekyspace.cn` 是 MyUrls 自己的域名，用于访问/跳转生成的短链，对应 `MYURLS_DOMAIN`。
+
+:::
 
 ## 参考资料
 
@@ -195,7 +205,3 @@ docker compose up -d --force-recreate sub-web
 - [Subconverter 官方仓库](https://github.com/tindy2013/subconverter)
 - [MyUrls 官方仓库](https://github.com/CareyWang/MyUrls)
 - [Vite 环境变量与模式](https://cn.vitejs.dev/guide/env-and-mode.html)
-
----
-
-上一步：[安装 3X-UI 面板指南](13-3x-ui) ｜ 下一步：[部署 JoyFlix 影视平台](15-joyflix)

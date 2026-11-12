@@ -1,13 +1,7 @@
 ---
+order: 5
 title: 安装 1Panel面板
-date: 2026-07-31
-category: 云计算
-tags:
-  - server
-  - 1panel
-  - docker
-  - 面板
-shortTitle: 1Panel 安装
+shortTitle: 1Panel
 description: 在 Ubuntu arm64 服务器安装 1Panel 面板
 icon: 1panel
 cover:
@@ -15,11 +9,21 @@ author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
+date: 2026-07-31
+category: 云计算
+tags:
+  - server
+  - 1panel
+  - docker
+  - 面板
 ---
 # 安装 1Panel面板
 
-> [!NOTE] 前置条件
-> 1Panel 通过 Docker 管理应用，安装前请先完成 [安装 Docker Engine](05-docker-engine)。
+::: note 前置条件
+
+1Panel 通过 Docker 管理应用，安装前请先完成 [安装 Docker Engine](/md/cloudnative/linux/arm-ubuntu/setup/04-docker-engine.html)。
+
+:::
 
 ## 安装 1Panel
 
@@ -42,7 +46,7 @@ bash -c "$(curl -sSL https://resource.fit2cloud.com/1panel/package/v2/quick_star
 sudo 1pctl user-info
 ```
 
-面板安装完成后，不需要为面板端口配置公网入站规则。下一篇统一使用 Cloudflare Tunnel 提供域名入口和 HTTPS：[创建 Cloudflare Tunnel 隧道](07-cloudflare-tunnel)。
+面板安装完成后，不需要为面板端口配置公网入站规则。下一篇统一使用 Cloudflare Tunnel 提供域名入口和 HTTPS：[创建 Cloudflare Tunnel 隧道](/md/cloudnative/linux/arm-ubuntu/network-proxy/01-cloudflare-tunnel.html)。
 
 ## 绑定 1Panel 域名
 
@@ -55,8 +59,11 @@ sudo 1pctl user-info
 sudo 1pctl user-info
 ```
 
-> [!WARNING] Tunnel 不会取消 1Panel 安全入口
-> 绑定域名后，只访问域名根路径仍可能无法进入登录页，这是 1Panel 的安全设计，不是 Tunnel 故障。
+::: warning Tunnel 不会取消 1Panel 安全入口
+
+绑定域名后，只访问域名根路径仍可能无法进入登录页，这是 1Panel 的安全设计，不是 Tunnel 故障。
+
+:::
 
 
 ## 参考资料
@@ -64,7 +71,3 @@ sudo 1pctl user-info
 - [1Panel 官网](https://1panel.cn/)
 - [1Panel v2 在线安装文档](https://1panel.cn/docs/v2/installation/online_installation/)
 - [1Panel GitHub](https://github.com/1Panel-dev/1Panel)
-
----
-
-上一步：[安装 Docker Engine](05-docker-engine) ｜ 下一步：[创建 Cloudflare Tunnel 隧道](07-cloudflare-tunnel)

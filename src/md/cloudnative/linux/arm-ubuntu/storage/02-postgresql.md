@@ -1,5 +1,14 @@
 ---
+order: 2
 title: 安装 PostgreSQL 18
+shortTitle: PostgreSQL 18
+description: 通过 1Panel 应用商店安装 PostgreSQL 18，开放 5432 端口，从本地 Mac 用 Navicat 直连测试
+icon: postgresql
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-08-02
 category: 云计算
 tags:
@@ -10,21 +19,16 @@ tags:
   - database
   - oracle
   - firewall
-shortTitle: PostgreSQL 18 安装
-description: 通过 1Panel 应用商店安装 PostgreSQL 18，开放 5432 端口，从本地 Mac 用 Navicat 直连测试
-icon: postgresql
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # 安装 PostgreSQL 18
 
 PostgreSQL 18 于 2025-09-25 正式发布，带来异步 I/O、UUIDv7、虚拟生成列等更新。本篇通过 1Panel 应用商店在 ARM Ubuntu 服务器上安装 PostgreSQL 18，并**开启端口外部访问**，把 `5432` 直接暴露给本地 Mac 的 Navicat 连接。
 
-> [!WARNING] 与既有安全策略的差异
-> 本机的 1Panel、OpenList 都只绑定 `127.0.0.1`，再由 [创建 Cloudflare Tunnel 隧道](07-cloudflare-tunnel) 对外提供入口。数据库不走 Tunnel（Tunnel 只服务 HTTP），改为**公网直连 5432**，因此需要在防火墙层显式放行，并强烈建议把来源收口到自己的 IP。防火墙背景见 [Linux 防火墙与 iptables 基础](../basic/iptables-firewall-basics)。
+::: warning 与既有安全策略的差异
+
+本机的 1Panel、OpenList 都只绑定 `127.0.0.1`，再由 [创建 Cloudflare Tunnel 隧道](/md/cloudnative/linux/arm-ubuntu/network-proxy/01-cloudflare-tunnel.html) 对外提供入口。数据库不走 Tunnel（Tunnel 只服务 HTTP），改为**公网直连 5432**，因此需要在防火墙层显式放行，并强烈建议把来源收口到自己的 IP。防火墙背景见 [Linux 防火墙与 iptables 基础](/md/cloudnative/linux/basic/02-iptables.html)。
+
+:::
 
 ## 一、安装 PostgreSQL 18
 
@@ -40,8 +44,11 @@ PostgreSQL 18 于 2025-09-25 正式发布，带来异步 I/O、UUIDv7、虚拟�
 | **容器名称**      | `postgresql18`   | 后续 `docker exec` 命令以该名称为准。               |
 | **重启规则**      | `unless-stopped` | 未手动停止则自动重启。                              |
 
-> [!IMPORTANT] 「端口外部访问」的含义
-> 开启后端口映射变为 `0.0.0.0:5432->5432/tcp`（不再只是 `127.0.0.1:5432`）。但「监听到 0.0.0.0」≠「公网可达」，下面两层防火墙还要放行。
+::: important 「端口外部访问」的含义
+
+开启后端口映射变为 `0.0.0.0:5432->5432/tcp`（不再只是 `127.0.0.1:5432`）。但「监听到 0.0.0.0」≠「公网可达」，下面两层防火墙还要放行。
+
+:::
 
 ## 二、放行 5432 端口（两层防火墙）
 
@@ -70,8 +77,11 @@ Mac 上查询公网 IP：
 curl ifconfig.me
 ```
 
-> [!WARNING] 建议收口来源 IP
-> 数据库不像 Web 服务，开放给 `0.0.0.0/0` 等于邀请全网爆破。来源填 `<Mac公网IP>/32` 是性价比最高的收口；家庭宽带 IP 变动时回来改这一条即可。
+::: warning 建议收口来源 IP
+
+数据库不像 Web 服务，开放给 `0.0.0.0/0` 等于邀请全网爆破。来源填 `<Mac公网IP>/32` 是性价比最高的收口；家庭宽带 IP 变动时回来改这一条即可。
+
+:::
 
 ### 2. 宿主机 iptables（Docker 已绕过 INPUT）
 
@@ -101,8 +111,11 @@ Docker 发布的端口走 **DNAT + FORWARD**，不经过 INPUT，所以**不需�
 psql -h <服务器公网IP> -p 5432 -U <管理员用户名> -d postgres
 ```
 
-> [!TIP] 凭据安全：scram-sha-256
-> PostgreSQL 18 默认用 `scram-sha-256` 挑战-应答认证，**密码不会以明文经过网络**，即便不启用 SSL 也无法直接嗅探到密码。如需对查询数据本身加密，再在 Navicat「SSL」标签页启用 SSL。
+::: tip 凭据安全：scram-sha-256
+
+PostgreSQL 18 默认用 `scram-sha-256` 挑战-应答认证，**密码不会以明文经过网络**，即便不启用 SSL 也无法直接嗅探到密码。如需对查询数据本身加密，再在 Navicat「SSL」标签页启用 SSL。
+
+:::
 
 ## 四、AI 建议
 ### 1. 连接失败排查顺序
@@ -154,7 +167,3 @@ GRANT ALL PRIVILEGES ON DATABASE appdb TO appuser;
 - [1Panel：PostgreSQL 文档](https://1panel.cn/docs/v1/user_manual/databases/postgresql/)
 - [Oracle Cloud：VCN 安全列表](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/securitylists.htm)
 - [Docker：Packet filtering and firewalls](https://docs.docker.com/engine/network/packet-filtering-firewalls/)
-
----
-
-上一步：[云存储挂载 Openlist 网盘](08-openlist) ｜ 下一步：[安装 Redis 8.x](10-redis)

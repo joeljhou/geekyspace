@@ -1,12 +1,7 @@
 ---
+order: 2
 title: 首次登录服务器
-date: 2026-07-30
-category: 云计算
-tags:
-  - server
-  - ubuntu
-  - ssh
-shortTitle: Ubuntu 首次登录
+shortTitle: 首次登录与初始化
 description: 使用 SSH 首次登录 ARM Ubuntu 服务器并完成基础系统检查与初始化
 icon: ubuntu
 cover:
@@ -14,12 +9,18 @@ author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
+date: 2026-07-30
+category: 云计算
+tags:
+  - server
+  - ubuntu
+  - ssh
 ---
 # 首次登录服务器
 
 > 连接 Ubuntu 服务器前，将 `SERVER_IP`、用户名和私钥路径替换为真实值。
 
-## 登录服务器
+## 一、SSH 登录
 
 ```shell
 # 方式一：直接登录
@@ -43,21 +44,24 @@ Host arm-ubuntu
 ssh arm-ubuntu
 ```
 
-## 防火墙提醒
+## 二、防火墙提醒
 
-> [!DANGER] 不要清空防火墙
-> 不要为了“开放端口”执行下面这些命令：
-> ```bash
-> sudo iptables -P INPUT ACCEPT
-> sudo iptables -P FORWARD ACCEPT
-> sudo iptables -P OUTPUT ACCEPT
-> sudo iptables -F
-> ```
-> 它们会把默认策略改为全部放行并清空过滤规则，不是正常的端口开放方式。
+::: danger 不要清空防火墙
 
-具体的 INPUT、OUTPUT、FORWARD、远程自动回滚和规则持久化见 [Linux 防火墙与 iptables 基础](../basic/iptables-firewall-basics)。
+不要为了“开放端口”执行下面这些命令：
+```bash
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+sudo iptables -F
+```
+它们会把默认策略改为全部放行并清空过滤规则，不是正常的端口开放方式。
 
-## Ubuntu 服务器执行
+:::
+
+INPUT、OUTPUT、FORWARD 的区别、常用命令与远程修改注意事项见 [Linux 防火墙与 iptables 基础](/md/cloudnative/linux/basic/02-iptables.html)。
+
+## 三、检查服务器状态
 
 查看服务器的系统、硬件、资源、磁盘、网络和服务状态：
 
@@ -91,16 +95,19 @@ ps aux --sort=-%mem | head   # 内存占用最高的进程
 ps aux --sort=-%cpu | head   # CPU 占用最高的进程
 ```
 
-> [!check] 重点检查
-> 
-> - ARM 服务器的 `uname -m` 通常应为 `aarch64`。
->     
-> - `nproc` 应与购买的 CPU 核心数一致。
->     
-> - 使用 `free -h` 和 `df -h` 确认内存、磁盘空间是否正常。
->     
-> - `systemctl --failed` 最好显示 `0 loaded units listed`。
->     
+::: tip 重点检查
+
+- ARM 服务器的 `uname -m` 通常应为 `aarch64`。
+
+- `nproc` 应与购买的 CPU 核心数一致。
+
+- 使用 `free -h` 和 `df -h` 确认内存、磁盘空间是否正常。
+
+- `systemctl --failed` 最好显示 `0 loaded units listed`。
+
+:::
+
+## 四、系统初始化
 
 更新软件包索引并升级系统：
 
@@ -121,12 +128,12 @@ sudo apt install -y ca-certificates curl git vim htop jq unzip tree
 test -f /var/run/reboot-required && cat /var/run/reboot-required
 ```
 
-> [!warning] 重启会断开 SSH  
-> 执行重启后，等待几十秒再重新连接服务器。
+::: warning 重启会断开 SSH
+
+执行重启后，等待几十秒再重新连接服务器。
+
+:::
 
 ```shell
 sudo reboot
 ```
-
----
-上一步：[甲骨文云注册教程](00-oracle-cloud-registration) ｜ 下一步：[安装 NVM、Node.js](03-nvm-nodejs)

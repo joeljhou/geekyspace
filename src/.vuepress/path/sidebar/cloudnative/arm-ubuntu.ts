@@ -1,48 +1,63 @@
 import {arraySidebar} from "vuepress-theme-hope";
 
+const base = "/md/cloudnative/linux/arm-ubuntu/";
+
 export const armUbuntu = arraySidebar([
-        {text: "总目录", prefix: "/md/cloudnative/linux/oracle-cloud/", link: "/md/cloudnative/linux/oracle-cloud/",},
-        {
-            text: "1. 开服准备",
-            children: [
-                {text: "甲骨文云注册教程", icon: "oracle", link: "00-oracle-cloud-registration"},
-            ],
-        },
-        {
-            text: "2. 服务器初始化",
-            children: [
-                {text: "首次登录服务器", icon: "ubuntu", link: "01-first-login"},
-                {text: "安装 WireGuard", icon: "wg", link: "02-wireguard"},
-                {text: "安装 NVM、Node.js", icon: "nodejs", link: "03-nvm-nodejs"},
-                {text: "安装 Codex CLI", icon: "codex", link: "04-codex-cli"},
-            ],
-        },
-        {
-            text: "3. 应用平台",
-            children: [
-                {text: "安装 Docker Engine", icon: "docker", link: "05-docker-engine"},
-                {text: "安装 1Panel 面板", icon: "1panel", link: "06-1panel"},
-                {text: "创建 Cloudflare Tunnel 隧道", icon: "cloudflare", link: "07-cloudflare-tunnel"},
-            ],
-        },
-        {
-            text: "4. 存储、数据库与网络服务",
-            children: [
-                {text: "云存储挂载 Openlist 网盘", icon: "openlist", link: "08-openlist"},
-                {text: "安装 PostgreSQL 18", icon: "postgresql", link: "09-postgresql"},
-                {text: "安装 Redis 8.x", icon: "redis", link: "10-redis"},
-                {text: "安装 Sub2API 中转站", icon: "rocket", link: "11-sub2api"},
-                {text: "安装 CLIProxyAPI 中转站", icon: "rocket", link: "12-cliproxyapi"},
-                {text: "安装 3X-UI 面板指南", icon: "route", link: "13-3x-ui"},
-            ],
-        },
-        {
-            text: "5. 自托管应用",
-            children: [
-                {text: "部署 Sub-Store 和 Sub-Web", icon: "link", link: "14-sub-store"},
-                {text: "部署 JoyFlix 影视平台", icon: "film", link: "15-joyflix"},
-                {text: "部署 DeepSeek Harness", icon: "robot", link: "16-deepseek-harness"},
-            ],
-        },
-    ]
-);
+    {text: "专栏导读", link: base},
+    // 按当前目录和文件编号排列，VuePress 自动解析到文章默认路由。
+    {
+        text: "环境搭建",
+        prefix: `${base}setup/`,
+        collapsible: false,
+        children: [
+            "01-oracle-cloud-registration.html",
+            "02-first-login.html",
+            "03-nvm-nodejs.html",
+            "04-docker-engine.html",
+            "05-1panel.html",
+        ],
+    },
+    {
+        text: "网络与代理",
+        prefix: `${base}network-proxy/`,
+        collapsible: false,
+        children: [
+            "01-cloudflare-tunnel.html",
+            "02-wireguard.html",
+            "03-3x-ui.html",
+            "04-sub-store-sub-web.html",
+        ],
+    },
+    {
+        text: "数据与存储",
+        prefix: `${base}storage/`,
+        collapsible: false,
+        children: [
+            "01-openlist.html",
+            "02-postgresql.html",
+            "03-redis.html",
+        ],
+    },
+    {
+        text: "AI 工具",
+        prefix: `${base}ai/`,
+        collapsible: false,
+        children: [
+            "01-codex-cli.html",
+            "02-sub2api.html",
+            "03-cliproxyapi-ubuntu.html",
+            "04-cliproxyapi-mac-docker.html",
+            "05-deepseek-harness.html",
+        ],
+    },
+    {
+        text: "自托管应用",
+        prefix: `${base}apps/`,
+        collapsible: false,
+        children: [
+            "01-joyflix.html",
+            "02-obsidian-livesync.html",
+            "03-codex-oci-backup.html",
+        ],
+    },
+]);

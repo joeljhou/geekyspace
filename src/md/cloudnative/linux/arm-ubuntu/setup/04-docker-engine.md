@@ -1,13 +1,7 @@
 ---
+order: 4
 title: 安装 Docker Engine
-date: 2026-07-30
-category: 云计算
-tags:
-  - server
-  - docker
-  - ubuntu
-  - arm64
-shortTitle: Docker Engine 安装
+shortTitle: Docker Engine
 description: Ubuntu arm64 下通过官方 apt 仓库安装 Docker Engine 和 Compose
 icon: docker
 cover:
@@ -15,14 +9,22 @@ author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
+date: 2026-07-30
+category: 云计算
+tags:
+  - server
+  - docker
+  - ubuntu
+  - arm64
 ---
 
 # Docker Engine 安装（Ubuntu arm64）
 
 > 通过 Docker 官方 apt 仓库安装 **Docker Engine + Docker Compose**。
 
-## 安装方法
-### 添加官方 apt 仓库
+## 一、安装方法
+
+### 1. 添加官方 apt 仓库
 
 ```shell
 # 1. 安装依赖工具
@@ -49,7 +51,7 @@ EOF
 sudo apt update
 ```
 
-### 安装 Docker 软件包
+### 2. 安装 Docker 软件包
 
 ```bash
 # Docker 引擎
@@ -76,14 +78,17 @@ sudo systemctl start docker         # 如服务未启动，可执行启动
 sudo docker run --rm hello-world    # Hello from Docker!
 ```
 
-## 安装后步骤
+## 二、安装后步骤
 
-### 非 root 身份执行
+### 1. 非 root 身份执行
 
-> [!TIP]  
-> **尝试在未获得 root 权限的情况下运行程序时收到错误提示？**
-> 
-> `docker` 用户组已存在但尚未添加用户，因此您需要使用 `sudo` 来运行 Docker 命令。
+::: tip Docker 用户组与权限
+
+**尝试在未获得 root 权限的情况下运行程序时收到错误提示？**
+
+`docker` 用户组已存在但尚未添加用户，因此您需要使用 `sudo` 来运行 Docker 命令。
+
+:::
 
 ```shell
 # 将用户加入 docker 组
@@ -98,10 +103,13 @@ groups $USER                       # 查看当前用户所属的所有组
 grep docker /etc/group             # 查看 docker 组是否有成员
 ```
 
-> [!WARNING] 重要提醒  
-> 将用户加入 `docker` 组相当于授予 root 权限，请根据安全策略决定是否配置。
+::: warning 重要提醒
 
-### systemd 配置自动启动（默认行为）
+将用户加入 `docker` 组相当于授予 root 权限，请根据安全策略决定是否配置。
+
+:::
+
+### 2. systemd 配置自动启动（默认行为）
 
 ```shell
 # 检查是否已启用开机自启动
@@ -128,7 +136,3 @@ disable      # 取消开机自启动
 - [Docker 官方安装脚本（GitHub）](https://github.com/docker/docker-install)  
 - [卸载 Docker Engine](https://docs.docker.com/engine/install/ubuntu/#uninstall-docker-engine)
 - [Docker Engine 的 Linux 安装后步骤](https://docs.docker.com/engine/install/linux-postinstall)
-
----
-
-上一步：[安装 Codex CLI](04-codex-cli) ｜ 下一步：[安装 1Panel 面板](06-1panel)

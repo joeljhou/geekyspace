@@ -44,10 +44,10 @@ features:
     details: Docker、Kubernetes与Linux服务器实践
     link: /md/cloudnative/
 
-  - title: Ubuntu折腾
+  - title: ARM Ubuntu 折腾
     icon: linux
     details: 个人折腾的Linux系统运维经验分享
-    link: /md/cloudnative/linux/oracle-cloud/
+    link: /md/cloudnative/linux/arm-ubuntu/
 
   - title: AIGC新时代
     icon: claudecode-fill

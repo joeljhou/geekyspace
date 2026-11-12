@@ -1,5 +1,14 @@
 ---
+order: 1
 title: 部署 JoyFlix 影视平台
+shortTitle: JoyFlix 影视
+description: 在 ARM Ubuntu 上从源码构建 JoyFlix，并复用 1Panel redis8
+icon: film
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-08-13
 category: 云计算
 tags:
@@ -9,14 +18,6 @@ tags:
   - nextjs
   - redis
   - 1panel
-shortTitle: JoyFlix
-description: 在 ARM Ubuntu 上从源码构建 JoyFlix，并复用 1Panel redis8
-icon: film
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # 部署 JoyFlix 影视平台
 
@@ -197,8 +198,11 @@ Bangumi HTTPS 图片：HTTP 200
 容器重启次数：0
 ```
 
-> [!NOTE]
-> 这是官方源码上的本地修改，后续切换 JoyFlix 版本时需要检查并重新应用。
+::: note 升级时保留本地修改
+
+这是官方源码上的本地修改，后续切换 JoyFlix 版本时需要检查并重新应用。
+
+:::
 
 ## 五、影片源
 
@@ -307,8 +311,11 @@ load dynamic config success
 3. 不在新 `config.json` 中的旧源会被标记为自定义源，将它们删除；
 4. 点击“测试全部”，失败或明显偏慢的源继续删除或禁用。
 
-> [!IMPORTANT]
-> 当前锁定版本在 Redis 模式下，每次启动都会把 `config.json` 中列出的源写回管理配置，并将这些源设为启用；文件中删除的旧源也不会自动从 Redis 消失，而会变成可删除的自定义源。因此完整迁移是“精简并挂载文件 → 重建容器 → 后台删除遗留源”。只在后台禁用文件内置源，容器下次启动后会被重新启用。
+::: important 迁移影片源时同步清理 Redis
+
+当前锁定版本在 Redis 模式下，每次启动都会把 `config.json` 中列出的源写回管理配置，并将这些源设为启用；文件中删除的旧源也不会自动从 Redis 消失，而会变成可删除的自定义源。因此完整迁移是“精简并挂载文件 → 重建容器 → 后台删除遗留源”。只在后台禁用文件内置源，容器下次启动后会被重新启用。
+
+:::
 
 ### 3. 减少每个源的搜索页数
 
@@ -347,7 +354,3 @@ JoyFlix 的搜索请求走以下路径：
 
 - [JoyFlix 官方仓库](https://github.com/jeffernn/joyflix)
 - [JoyFlix Dockerfile](https://github.com/jeffernn/joyflix/blob/main/Dockerfile)
-
----
-
-上一步：[部署 Sub-Store 和 Sub-Web](14-sub-store) ｜ 下一步：[部署 DeepSeek Harness](16-deepseek-harness)

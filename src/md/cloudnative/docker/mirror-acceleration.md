@@ -1,6 +1,7 @@
 ---
+order: 3
 title: Docker镜像加速器
-shortTitle:
+shortTitle: 镜像加速器
 description:
 icon:
 cover:

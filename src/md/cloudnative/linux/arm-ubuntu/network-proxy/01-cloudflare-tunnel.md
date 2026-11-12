@@ -1,5 +1,14 @@
 ---
+order: 1
 title: 创建 Cloudflare Tunnel 隧道
+shortTitle: Cloudflare Tunnel
+description: 在 ARM Ubuntu 宿主机安装 cloudflared，由 systemd 运行并通过 localhost 统一发布 1Panel 与 OpenList
+icon: cloudflare
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-08-01
 category: 云计算
 tags:
@@ -9,14 +18,6 @@ tags:
   - systemd
   - docker
   - firewall
-shortTitle: Cloudflare Tunnel 内网穿透
-description: 在 ARM Ubuntu 宿主机安装 cloudflared，由 systemd 运行并通过 localhost 统一发布 1Panel 与 OpenList
-icon: cloudflare
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # 创建 Cloudflare Tunnel 隧道
 
@@ -39,14 +40,15 @@ sudo cloudflared service install '<TUNNEL_TOKEN>'
 ```
 ![image.png](http://img.geekyspace.cn/pictures/2026/202608011922874.png)
 
-> [!IMPORTANT] **APT 与 Docker 安装 cloudflared 的区别**
-> 
-> `127.0.0.1` 始终指向 cloudflared 当前所在的网络环境：
-> 
-> - **宿主机 cloudflared**：`127.0.0.1` 指向 Ubuntu 宿主机
->     
-> - **Docker cloudflared**：`127.0.0.1` 指向 cloudflared 容器自己
->     
+::: important APT 与 Docker 安装 cloudflared 的区别
+
+`127.0.0.1` 始终指向 cloudflared 当前所在的网络环境：
+
+- **宿主机 cloudflared**：`127.0.0.1` 指向 Ubuntu 宿主机
+
+- **Docker cloudflared**：`127.0.0.1` 指向 cloudflared 容器自己
+
+:::
 
 ## 三、发布应用程序
 
@@ -69,20 +71,23 @@ drive.geekyspace.cn
   CNAME → <Tunnel-UUID>.cfargotunnel.com
 ```
 
-> [!INFO] HTTPS 说明  
-> Tunnel 内部由 `cloudflared` 通过 HTTP 访问本机服务：
-> 
-> ```text
-> cloudflared → http://127.0.0.1:<端口>
-> ```
-> 
-> 用户浏览器到 Cloudflare 边缘节点之间仍然使用 HTTPS：
-> 
-> ```text
-> 浏览器 → HTTPS → Cloudflare → Tunnel → HTTP → 本机服务
-> ```
-> 
-> 因此，不需要为 1Panel 和 OpenList 单独配置公网 HTTPS 证书，也不需要向公网开放 `11075` 和 `5244` 端口。
+::: info HTTPS 说明
+
+Tunnel 内部由 `cloudflared` 通过 HTTP 访问本机服务：
+
+```text
+cloudflared → http://127.0.0.1:<端口>
+```
+
+用户浏览器到 Cloudflare 边缘节点之间仍然使用 HTTPS：
+
+```text
+浏览器 → HTTPS → Cloudflare → Tunnel → HTTP → 本机服务
+```
+
+因此，不需要为 1Panel 和 OpenList 单独配置公网 HTTPS 证书，也不需要向公网开放 `11075` 和 `5244` 端口。
+
+:::
 
 ## 四、访问测试
 
@@ -92,22 +97,25 @@ drive.geekyspace.cn
 - `drive.geekyspace.cn` 可以正常打开 OpenList 页面。
 - 浏览器地址栏显示 HTTPS 安全连接。
 - 即使服务器防火墙没有向公网开放 `11075` 和 `5244` 端口，仍然可以通过 Tunnel 正常访问。
-    
 
-> [!TIP] 如果刚发布后无法访问  
-> DNS 和 Tunnel 路由可能需要几十秒生效，可以稍后刷新页面再次测试。同时检查：
-> 
-> ```bash
-> # 检查 cloudflared 服务状态
-> sudo systemctl status cloudflared
-> 
-> # 检查本机服务是否正常监听
-> sudo ss -lntp | grep -E '11075|5244'
-> 
-> # 在服务器本机测试服务
-> curl -I http://127.0.0.1:11075
-> curl -I http://127.0.0.1:5244
-> ```
+
+::: tip 如果刚发布后无法访问
+
+DNS 和 Tunnel 路由可能需要几十秒生效，可以稍后刷新页面再次测试。同时检查：
+
+```bash
+# 检查 cloudflared 服务状态
+sudo systemctl status cloudflared
+
+# 检查本机服务是否正常监听
+sudo ss -lntp | grep -E '11075|5244'
+
+# 在服务器本机测试服务
+curl -I http://127.0.0.1:11075
+curl -I http://127.0.0.1:5244
+```
+
+:::
 
 ---
 ## 五、AI 建议
@@ -135,10 +143,13 @@ cloudflared 是服务器主动向 Cloudflare 建立出站连接，因此不需�
 - `FORWARD` 暂时保持 `ACCEPT`，避免破坏 Docker 转发；
 - Docker 应用端口必须继续绑定 `127.0.0.1`。
 
-完整原理和本次执行命令见 [Linux 防火墙与 iptables 基础](../basic/iptables-firewall-basics)。
+防火墙的核心概念、规则查询与 Docker 端口注意事项见 [Linux 防火墙与 iptables 基础](/md/cloudnative/linux/basic/02-iptables.html)。
 
-> [!WARNING] Docker 端口可能绕过 INPUT
-> Docker 发布端口会经过 NAT/FORWARD，不能只依赖 INPUT 防火墙。限制 Docker 端口监听地址和设置主机防火墙解决的是两条不同流量路径。
+::: warning Docker 端口可能绕过 INPUT
+
+Docker 发布端口会经过 NAT/FORWARD，不能只依赖 INPUT 防火墙。限制 Docker 端口监听地址和设置主机防火墙解决的是两条不同流量路径。
+
+:::
 
 ### 3. 502 排错顺序
 
@@ -178,7 +189,3 @@ Host        Error
 - [Cloudflare：Tunnel Token](https://developers.cloudflare.com/tunnel/advanced/tunnel-tokens/)
 - [Cloudflare：Tunnel 工作原理](https://developers.cloudflare.com/tunnel/)
 - [Docker：Bridge network driver](https://docs.docker.com/engine/network/drivers/bridge/)
-
----
-
-上一步：[安装 1Panel 面板](06-1panel) ｜ 下一步：[云存储挂载 Openlist 网盘](08-openlist)

@@ -1,13 +1,7 @@
 ---
+order: 2
 title: 用 Docker 部署 WireGuard
-date: 2026-07-30
-category: 云计算
-tags:
-  - server
-  - docker
-  - wireguard
-  - wg-easy
-shortTitle: WireGuard 部署
+shortTitle: WireGuard
 description: 用 wg-easy 部署 WireGuard 并配置 SSH 隧道访问管理后台
 icon: wg
 cover:
@@ -15,6 +9,13 @@ author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
+date: 2026-07-30
+category: 云计算
+tags:
+  - server
+  - docker
+  - wireguard
+  - wg-easy
 ---
 # 安装 WireGuard
 
@@ -171,21 +172,25 @@ The client configuration is available in: /root/joel-iphone.conf
 New clients can be added by running this script again.
 ```
 
-> [!INFO] 为什么候选 IP 里有 172.17.0.1？
-> `172.17.0.1` 不是服务器的真实网卡地址，而是 **Docker 的默认网桥 `docker0`**。安装 Docker Engine 后（见 [安装 Docker Engine](05-docker-engine)），Docker 会自动创建该网桥并使用默认网段 `172.17.0.0/16`，网关即为 `172.17.0.1`。安装脚本在枚举本机 IPv4 时把它一并检测了出来，但它**不能用于对外通信**，此处应选择 `10.0.0.140`（真实网卡地址）。
+::: info 为什么候选 IP 里有 172.17.0.1？
+
+`172.17.0.1` 不是服务器的真实网卡地址，而是 **Docker 的默认网桥 `docker0`**。安装 Docker Engine 后（见 [安装 Docker Engine](/md/cloudnative/linux/arm-ubuntu/setup/04-docker-engine.html)），Docker 会自动创建该网桥并使用默认网段 `172.17.0.0/16`，网关即为 `172.17.0.1`。安装脚本在枚举本机 IPv4 时把它一并检测了出来，但它**不能用于对外通信**，此处应选择 `10.0.0.140`（真实网卡地址）。
+
+:::
 
 ## Docker 部署
 
 基于自带 Web UI 的 [wg-easy（GitHub）](https://github.com/wg-easy/wg-easy) 项目。
 
-> [!TIP] 适用场景
-> 如果你管理的用户较多，且**强烈依赖 Web 图形界面**来随时分发和管理客户端配置，或者服务器上已运行大量 Docker 服务、习惯统一的容器化运维，可以考虑使用 Docker 部署 `wg-easy`。需注意提前确认宿主机内核已内置 WireGuard 支持，并妥善配置 Docker 端口与防火墙转发。
+::: tip 适用场景
 
-> [!TODO] 详细步骤待补充
-> [安装 - wg-easy](https://wg-easy.github.io/wg-easy/latest/examples/tutorials/basic-installation/#install-wg-easy)
-> 后续实现 `docker-compose.yml` 配置、环境变量、端口映射及反向代理等内容。
+如果你管理的用户较多，且**强烈依赖 Web 图形界面**来随时分发和管理客户端配置，或者服务器上已运行大量 Docker 服务、习惯统一的容器化运维，可以考虑使用 Docker 部署 `wg-easy`。需注意提前确认宿主机内核已内置 WireGuard 支持，并妥善配置 Docker 端口与防火墙转发。
 
----
+:::
 
+::: note 详细步骤待补充
 
-上一步：[首次登录服务器](01-first-login) ｜ 下一步：[安装 1Panel 面板](06-1panel)
+[安装 - wg-easy](https://wg-easy.github.io/wg-easy/latest/examples/tutorials/basic-installation/#install-wg-easy)
+后续实现 `docker-compose.yml` 配置、环境变量、端口映射及反向代理等内容。
+
+:::

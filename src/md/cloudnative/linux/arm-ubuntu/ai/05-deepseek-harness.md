@@ -1,7 +1,15 @@
 ---
+order: 5
 title: 部署 DeepSeek Harness
+shortTitle: DeepSeek Harness
+description: 在 ARM Ubuntu 上通过 1Panel 部署 DeepSeek Harness，并经 Cloudflare Tunnel 对外访问
+icon: robot
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-08-20
-updated: 2026-08-25
 category: 云计算
 tags:
   - server
@@ -11,14 +19,6 @@ tags:
   - harness
   - cloudflare
   - tunnel
-shortTitle: DeepSeek Harness
-description: 在 ARM Ubuntu 上通过 1Panel 部署 DeepSeek Harness，并经 Cloudflare Tunnel 对外访问
-icon: robot
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
 # 部署 DeepSeek Harness
 
@@ -65,8 +65,11 @@ DeepSeek Harness 的 `10443` 是 HTTPS 端口，不能填成 `http://127.0.0.1:1
 
 ![Cloudflare Tunnel 路由](http://img.geekyspace.cn/pictures/2026/202608200359958.png)
 
-> [!NOTE]
-> Cloudflare Tunnel 由服务器主动建立出站连接，且容器端口只绑定 `127.0.0.1`，因此无需在 Oracle Cloud 安全列表中放行 `10443`。
+::: note 无需开放 10443 入站端口
+
+Cloudflare Tunnel 由服务器主动建立出站连接，且容器端口只绑定 `127.0.0.1`，因此无需在 Oracle Cloud 安全列表中放行 `10443`。
+
+:::
 
 ## 三、访问验证
 
@@ -106,8 +109,11 @@ https://harness.geekyspace.cn/
 
 因此采用一个**实例专用的兼容补丁**：只让浏览器端额外把 `harness.geekyspace.cn` 视为 loopback，不放开其他域名。
 
-> [!WARNING]
-> 这不是 DeepSeek Harness 官方支持的远程设置方案，而是主动绕过其 loopback 安全限制。该限制同时保护 `settings.*`、`credentials.*` 等高权限接口。必须保留 Cloudflare 访问控制、Basic Auth 和宿主机回环端口绑定，不能把容器端口直接暴露到公网。
+::: warning 兼容补丁的访问边界
+
+这不是 DeepSeek Harness 官方支持的远程设置方案，而是主动绕过其 loopback 安全限制。该限制同时保护 `settings.*`、`credentials.*` 等高权限接口。必须保留 Cloudflare 访问控制、Basic Auth 和宿主机回环端口绑定，不能把容器端口直接暴露到公网。
+
+:::
 
 ### 4.2 提取当前镜像的前端文件
 
@@ -227,8 +233,11 @@ docker exec deepseek-harness rg -n -C 3 \
 - 补丁文件以 `rw=false` 只读挂载；
 - 浏览器重新加载后，**设置 → 模型** 能显示 DeepSeek 和“添加提供方”，不再出现 `settings are unavailable in this browser`。
 
-> [!SUCCESS] 2026-08-25 实际验证
-> 容器状态为 `healthy`，补丁以 `rw=false` 挂载；手动打开网页进入 **设置 → 模型**，提供方目录已正常显示，问题修复。
+::: tip 2026-08-25 实际验证
+
+容器状态为 `healthy`，补丁以 `rw=false` 挂载；手动打开网页进入 **设置 → 模型**，提供方目录已正常显示，问题修复。
+
+:::
 
 ### 4.5 手动补丁命令
 
@@ -310,7 +319,3 @@ docker compose up -d --force-recreate
 ```
 
 回滚后补丁文件可以保留，它没有被 Compose 挂载时不会生效。
-
----
-
-上一步：[部署 JoyFlix 影视平台](15-joyflix)

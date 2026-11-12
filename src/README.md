@@ -37,9 +37,9 @@ projects:
     link: https://github.com/joeljhou/RabbitMQ
   
   - icon: linux
-    name: Ubuntu折腾
+    name: ARM Ubuntu 折腾
     desc: 个人折腾的 Linux 系统运维经验分享
-    link: /md/cloudnative/linux/oracle-cloud/
+    link: /md/cloudnative/linux/arm-ubuntu/
     
   - icon: smart-contracts
     name: 区块链智能合约

@@ -1,11 +1,7 @@
 ---
+order: 1
 title: 安装 Codex CLI
-date: 2026-07-30
-category: 云计算
-tags:
-  - server
-  - codex
-shortTitle: Codex CLI 安装
+shortTitle: Codex CLI
 description: 在 ARM Ubuntu 服务器安装并配置 Codex CLI 开发环境
 icon: codex
 cover:
@@ -13,6 +9,11 @@ author: 流浪码客
 isOriginal: true
 sticky: false
 star: false
+date: 2026-07-30
+category: 云计算
+tags:
+  - server
+  - codex
 ---
 # 安装 Codex CLI
 
@@ -52,7 +53,3 @@ mkdir -p ~/workspace/code/sandbox
 ```
 
 ![image.png](http://img.geekyspace.cn/pictures/2026/202607311326581.png)
-
----
-
-上一步：[安装 NVM、Node.js](03-nvm-nodejs) ｜ 下一步：[安装 Docker Engine](05-docker-engine)

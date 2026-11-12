@@ -1,5 +1,14 @@
 ---
-title: 安装 CLIProxyAPI 中转站
+order: 3
+title: CLIProxyAPI：Ubuntu 脚本部署
+shortTitle: CLIProxyAPI（Ubuntu）
+description: 在 ARM Ubuntu 上通过官方脚本安装 CLIProxyAPI，以 systemd 用户服务运行，并经 Cloudflare Tunnel 发布访问域名
+icon: route
+cover:
+author: 流浪码客
+isOriginal: true
+sticky: false
+star: false
 date: 2026-09-22
 category: 云计算
 tags:
@@ -10,21 +19,16 @@ tags:
   - systemd
   - cloudflare
   - tunnel
-shortTitle: CLIProxyAPI 中转站
-description: 在 ARM Ubuntu 上通过官方脚本安装 CLIProxyAPI，以 systemd 用户服务运行，并经 Cloudflare Tunnel 发布访问域名
-icon: route
-cover:
-author: 流浪码客
-isOriginal: true
-sticky: false
-star: false
 ---
-# 安装 CLIProxyAPI 中转站
+# CLIProxyAPI：Ubuntu 脚本部署
 
 [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) 可以把 Codex、Claude Code、Gemini CLI、Qwen 等命令行工具的 OAuth 登录统一转换为 OpenAI、Claude、Gemini 等兼容 API，方便多个客户端复用服务器上的授权。
 
-> [!WARNING] 合规与账号风险
-> 只接入自己有权使用的账号，并遵守上游服务条款。OAuth 凭据、管理密码和 API Key 都属于敏感信息，不要写入公开笔记、截图或聊天记录。
+::: warning 合规与账号风险
+
+只接入自己有权使用的账号，并遵守上游服务条款。OAuth 凭据、管理密码和 API Key 都属于敏感信息，不要写入公开笔记、截图或聊天记录。
+
+:::
 
 本次实际部署结果：
 
@@ -64,8 +68,11 @@ uname -m
 curl -fsSL https://raw.githubusercontent.com/router-for-me/cliproxyapi-installer/refs/heads/master/cliproxyapi-installer | bash
 ```
 
-> [!IMPORTANT] 命令中只能使用纯 URL
-> 不要把网页上的 Markdown 链接语法 `[https://...](https://...)` 复制进终端。`[]()` 不是 Shell 语法，Bash 会在 `(` 处报 `syntax error near unexpected token`，此时 `curl` 根本没有执行。
+::: important 命令中只能使用纯 URL
+
+不要把网页上的 Markdown 链接语法 `[https://...](https://...)` 复制进终端。`[]()` 不是 Shell 语法，Bash 会在 `(` 处报 `syntax error near unexpected token`，此时 `curl` 根本没有执行。
+
+:::
 
 脚本会自动完成：
 
@@ -77,8 +84,11 @@ curl -fsSL https://raw.githubusercontent.com/router-for-me/cliproxyapi-installer
 6. 创建 `~/.config/systemd/user/cliproxyapi.service`；
 7. 写入 `version.txt` 和 `asset-variant.txt`。
 
-> [!IMPORTANT] 不要使用 `sudo` 运行安装脚本
-> 安装目录取自当前用户的 `$HOME`。用 `sudo` 执行会装到 `/root/cliproxyapi`，并生成 root 用户的 systemd 服务，和本文的 `/home/ubuntu/cliproxyapi` 不是同一套实例。
+::: important 不要使用 sudo 运行安装脚本
+
+安装目录取自当前用户的 `$HOME`。用 `sudo` 执行会装到 `/root/cliproxyapi`，并生成 root 用户的 systemd 服务，和本文的 `/home/ubuntu/cliproxyapi` 不是同一套实例。
+
+:::
 
 安装脚本只创建服务文件，首次安装后不会自动启动服务。
 
@@ -241,8 +251,11 @@ tail -f ~/.cli-proxy-api/logs/main.log
 - `https://cpa.geekyspace.cn/management.html` 返回 HTTP 200；
 - 刷新管理中心的 **日志查看** 页面后可以读取日志。
 
-> [!NOTE] 文件日志与 journald 的分工
-> 开启文件日志后，应用运行日志主要写入 `main.log`；`journalctl --user -u cliproxyapi.service` 仍适合检查 systemd 启停、崩溃和重启记录。管理中心里建议继续开启“屏蔽 `/v0/management` 日志”，避免后台自己的轮询请求淹没有效信息。
+::: note 文件日志与 journald 的分工
+
+开启文件日志后，应用运行日志主要写入 `main.log`；`journalctl --user -u cliproxyapi.service` 仍适合检查 systemd 启停、崩溃和重启记录。管理中心里建议继续开启“屏蔽 `/v0/management` 日志”，避免后台自己的轮询请求淹没有效信息。
+
+:::
 
 ## 四、部署后手动设置密码和 API Key
 
@@ -297,8 +310,11 @@ api-keys:
   - "这里填写以 sk- 开头的自定义 API Key"
 ```
 
-> [!IMPORTANT] `allow-remote` 和管理密码要一起配置
-> Cloudflare Tunnel 转发时，CLIProxyAPI 可能根据代理头识别到真实客户端 IP，因此通过公网域名管理时需要 `allow-remote: true`。安全边界是：`host` 必须继续保持 `127.0.0.1`，并且 `secret-key` 不能为空。
+::: important allow-remote 和管理密码要一起配置
+
+Cloudflare Tunnel 转发时，CLIProxyAPI 可能根据代理头识别到真实客户端 IP，因此通过公网域名管理时需要 `allow-remote: true`。安全边界是：`host` 必须继续保持 `127.0.0.1`，并且 `secret-key` 不能为空。
+
+:::
 
 ### 3. 重启并登录
 
@@ -316,8 +332,11 @@ https://cpa.geekyspace.cn/management.html
 
 使用刚才保存的**原始管理密码**登录。登录后可在管理中心继续导入 Codex、Claude、Gemini 等 OAuth 凭据，并管理 API Key。
 
-> [!TIP] 登录连续失败时先停手检查密码
-> 管理接口会记录失败次数；同一客户端连续失败过多会被临时封禁。不要在不确定密码时反复试错。
+::: tip 登录连续失败时先停手检查密码
+
+管理接口会记录失败次数；同一客户端连续失败过多会被临时封禁。不要在不确定密码时反复试错。
+
+:::
 
 ## 五、配置 Cloudflare Tunnel 域名
 
@@ -352,8 +371,11 @@ curl -i https://cpa.geekyspace.cn/v1/models
 
 预期管理页面返回 HTTP 200，未带 API Key 的模型接口返回 HTTP 401。
 
-> [!NOTE] 不需要开放 8317 入站端口
-> `cloudflared` 主动向 Cloudflare 建立出站连接，再从服务器本机访问 `127.0.0.1:8317`。因此不需要在 Oracle Cloud 安全列表、Ubuntu 防火墙或 1Panel 防火墙中开放 8317。
+::: note 不需要开放 8317 入站端口
+
+`cloudflared` 主动向 Cloudflare 建立出站连接，再从服务器本机访问 `127.0.0.1:8317`。因此不需要在 Oracle Cloud 安全列表、Ubuntu 防火墙或 1Panel 防火墙中开放 8317。
+
+:::
 
 ## 六、后续升级
 
@@ -371,8 +393,11 @@ curl -fsSL https://raw.githubusercontent.com/router-for-me/cliproxyapi-installer
 ssh -tt arm-ubuntu 'curl -fsSL https://raw.githubusercontent.com/router-for-me/cliproxyapi-installer/refs/heads/master/cliproxyapi-installer | bash'
 ```
 
-> [!WARNING] 不要复制 Markdown 链接源码
-> `curl -fsSL [https://...](https://...) | bash` 不是可执行的 Shell 命令。方括号和圆括号会导致 Bash 在 `(` 处直接报语法错误，升级脚本不会被下载或执行。
+::: warning 不要复制 Markdown 链接源码
+
+`curl -fsSL [https://...](https://...) | bash` 不是可执行的 Shell 命令。方括号和圆括号会导致 Bash 在 `(` 处直接报语法错误，升级脚本不会被下载或执行。
+
+:::
 
 升级时必须继续以 `ubuntu` 用户执行，不要加 `sudo`。安装器检测到 `~/cliproxyapi/version.txt` 后会进入升级流程：
 
@@ -403,8 +428,11 @@ journalctl --user -u cliproxyapi.service -n 100 --no-pager
 curl -I https://cpa.geekyspace.cn/management.html
 ```
 
-> [!TIP] 升级前仍建议额外备份
-> 安装器会备份 `config.yaml`，但 OAuth 凭据位于 `~/.cli-proxy-api/`。重要升级前最好同时备份 `~/cliproxyapi/config.yaml` 和 `~/.cli-proxy-api/`。
+::: tip 升级前仍建议额外备份
+
+安装器会备份 `config.yaml`，但 OAuth 凭据位于 `~/.cli-proxy-api/`。重要升级前最好同时备份 `~/cliproxyapi/config.yaml` 和 `~/.cli-proxy-api/`。
+
+:::
 
 ## 七、常用运维命令
 
@@ -443,7 +471,3 @@ ss -lntp | grep ':8317'
 - [CLIProxyAPI 配置选项](https://help.router-for.me/cn/configuration/options.html)
 - [CLIProxyAPI 官方仓库](https://github.com/router-for-me/CLIProxyAPI)
 - [CLIProxyAPI Installer](https://github.com/router-for-me/cliproxyapi-installer)
-
----
-
-上一步：[安装 Sub2API 中转站](11-sub2api) ｜ 下一步：[安装 3X-UI 面板指南](13-3x-ui)
