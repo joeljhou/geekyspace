@@ -24,7 +24,7 @@ tags:
 
 通过 MyUrls 短链下载脚本，使用 `codex-auth` 导入、导出本地账号，再通过仅写入 PAR 上传 JSON 到 OCI 私有桶。
 
-> 本文的 `example.com` 地址均为占位符，使用前替换成自己的脚本短链。脚本内含上传 PAR，持有脚本的人可向授权目录上传或覆盖对象，应按凭据保管。
+> 下方命令直接使用现有脚本短链。脚本内含上传 PAR，持有脚本的人可向授权目录上传或覆盖对象，应按凭据保管。
 
 私有桶和 PAR 控制访问权限；本流程导出并上传 JSON，没有演示上传前的客户端加密。
 
@@ -33,13 +33,13 @@ tags:
 **macOS 终端：**
 
 ```bash
-curl -fsSL https://example.com/codex-auth-macos | bash
+curl -fsSL https://s.geekyspace.cn/codex-auth-macos | bash
 ```
 
 **Windows PowerShell：**
 
 ```powershell
-irm https://example.com/codex-auth-windows | iex
+irm https://s.geekyspace.cn/codex-auth-windows | iex
 ```
 
 - **本地目录**：macOS 为 `~/.codex-auth/`，Windows 为 `$HOME\.codex-auth\`，不受当前工作目录影响；上传后保留本地 JSON。

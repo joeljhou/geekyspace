@@ -84,8 +84,7 @@ export default hopeTheme({
     // @see https://theme-hope.vuejs.press/zh/guide/feature/encrypt.html
     encrypt: {
         config: {
-            // 这会加密整个 demo 目录，并且两个密码都是可用的
-            // "/md/tools-guide/activation/idea.html": ["password"],
+            "/md/cloudnative/linux/arm-ubuntu/apps/03-codex-oci-backup.html": "52ff",
         },
     },
 
