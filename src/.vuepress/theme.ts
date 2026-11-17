@@ -43,7 +43,7 @@ export default hopeTheme({
     // 侧边栏索引
     sidebar,
     // 是否在侧边栏显示图标
-    sidebarIcon: true,
+    sidebarIcon: false,
     // 侧边栏和页面目录的标题深度, 默认值为 2
     headerDepth: 2,
     // 页脚选项
