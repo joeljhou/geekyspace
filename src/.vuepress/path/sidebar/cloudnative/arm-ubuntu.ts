@@ -26,6 +26,7 @@ export const armUbuntu = arraySidebar([
             "02-wireguard.html",
             "03-3x-ui.html",
             "04-sub-store-sub-web.html",
+            "05-hysteria2.html",
         ],
     },
     {

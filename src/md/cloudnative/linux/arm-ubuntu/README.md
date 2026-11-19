@@ -43,6 +43,7 @@ CLIProxyAPI 的 Ubuntu 脚本部署与 Mac Docker 部署是两套独立方案，
 - [WireGuard](/md/cloudnative/linux/arm-ubuntu/network-proxy/02-wireguard.html)
 - [3X-UI](/md/cloudnative/linux/arm-ubuntu/network-proxy/03-3x-ui.html)
 - [Sub-Store 与 Sub-Web](/md/cloudnative/linux/arm-ubuntu/network-proxy/04-sub-store-sub-web.html)
+- [1Panel 证书与 Hysteria2](/md/cloudnative/linux/arm-ubuntu/network-proxy/05-hysteria2.html)
 
 ## 数据与存储
 
