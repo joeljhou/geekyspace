@@ -27,6 +27,7 @@ export const armUbuntu = arraySidebar([
             "03-3x-ui.html",
             "04-sub-store-sub-web.html",
             "05-hysteria2.html",
+            "06-tailscale-exit-node.html",
         ],
     },
     {
