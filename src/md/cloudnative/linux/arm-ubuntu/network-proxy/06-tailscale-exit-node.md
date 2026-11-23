@@ -1,8 +1,8 @@
 ---
 order: 6
-title: 用 Oracle Cloud ARM Ubuntu 搭建 Tailscale 退出节点
-shortTitle: Tailscale 退出节点
-description: 将美国 Oracle Cloud 的 ARM Ubuntu 配置为 Tailscale 退出节点，让 iPhone 和 Mac 共用美国公网出口，并验证两台设备的私网互访
+title: 用 Oracle Cloud ARM Ubuntu 搭建 Tailscale 出站节点
+shortTitle: Tailscale 出站节点
+description: 将美国 Oracle Cloud 的 ARM Ubuntu 配置为 Tailscale 出站节点，让 iPhone 和 Mac 共用美国公网出口，并验证两台设备的私网互访
 author: 流浪码客
 isOriginal: true
 sticky: false
@@ -15,9 +15,9 @@ tags:
   - ubuntu
 ---
 
-# 用 Oracle Cloud ARM Ubuntu 搭建 Tailscale 退出节点
+# 用 Oracle Cloud ARM Ubuntu 搭建 Tailscale 出站节点
 
-在 iPhone 和 Mac 上选中美国 Oracle Cloud 服务器 `arm-ubuntu` 作为退出节点（Exit Node）后，两台设备访问公网都从这台服务器出去。访问彼此的 Tailscale IP 或 MagicDNS 名称时，流量仍走 Tailscale 私有网络（tailnet）。Tailscale 会尝试点对点直连，无法直连时可通过 DERP 中继通信。
+在 iPhone 和 Mac 上选中美国 Oracle Cloud 服务器 `arm-ubuntu` 作为出站节点（Exit Node）后，两台设备访问公网都从这台服务器出去。访问彼此的 Tailscale IP 或 MagicDNS 名称时，流量仍走 Tailscale 私有网络（tailnet）。Tailscale 会尝试点对点直连，无法直连时可通过 DERP 中继通信。
 
 ## 1. 在服务器上安装 Tailscale
 
@@ -36,9 +36,9 @@ sudo tailscale up
 
 打开终端打印的登录链接，用 iPhone 和 Mac 当前使用的 Tailscale 账号登录，确认 `arm-ubuntu` 出现在同一个 tailnet 的设备列表里。
 
-## 2. 开启 IP 转发并批准退出节点
+## 2. 开启 IP 转发并批准出站节点
 
-在服务器上把 IPv4 和 IPv6 转发写入 `/etc/sysctl.d/`，让设置在重启后仍然生效。加载配置后，再把服务器发布为退出节点。
+在服务器上把 IPv4 和 IPv6 转发写入 `/etc/sysctl.d/`，让设置在重启后仍然生效。加载配置后，再把服务器发布为出站节点。
 
 ```bash
 # 持久化 IPv4 和 IPv6 转发设置
@@ -47,7 +47,7 @@ net.ipv4.ip_forward = 1
 net.ipv6.conf.all.forwarding = 1
 EOF
 
-# 立即生效，成功后发布退出节点
+# 立即生效，成功后发布出站节点
 sudo sysctl -p /etc/sysctl.d/99-tailscale-exit-node.conf &&
 sudo tailscale set --advertise-exit-node
 ```
@@ -90,10 +90,10 @@ tailscale ping 100.x.y.z
 
 ## 切回本地公网出口
 
-在 iPhone 或 Mac 的退出节点菜单选 **None**，保留 Tailscale 连接。这样该设备的公网流量恢复走当前网络，仍可用 Tailscale IP 或 MagicDNS 名称访问另一台设备。
+在 iPhone 或 Mac 的出站节点菜单选 **None**，保留 Tailscale 连接。这样该设备的公网流量恢复走当前网络，仍可用 Tailscale IP 或 MagicDNS 名称访问另一台设备。
 
 ## 参考资料
 
 - [Tailscale：在 Linux 上安装](https://tailscale.com/docs/install/linux)
-- [Tailscale：配置退出节点](https://tailscale.com/docs/features/exit-nodes/how-to/setup?tab=linux)
-- [Tailscale：退出节点](https://tailscale.com/docs/features/exit-nodes)
+- [Tailscale：配置出站节点](https://tailscale.com/docs/features/exit-nodes/how-to/setup?tab=linux)
+- [Tailscale：出站节点](https://tailscale.com/docs/features/exit-nodes)
